@@ -1,0 +1,559 @@
+﻿@using GOWEB.Models
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>طراحی سایت | بهینه سازی سایت | سئو سایت | بهینه ساز سبز</title>
+
+
+    <meta http-equiv="content-language" content="fa" />
+    <meta charset="UTF-8" />
+    <meta name="author" content="بهینه ساز سبز" />
+    <meta name="language" content="fa" />
+    <meta name="document-type" content="Public" />
+    <meta name="document-rating" content="General" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="بهینه ساز سبز | بهینه سازی و سئو وب سایت | افزایش رتبه سایت در گوگل | ارتقاء رتبه در الکسا | SEO وبسایت " />
+    <meta name="keywords" content="بهینه سازی سایت,بهینه سازی وبسایت,سئو,قیمت و هزینه بهینه سازی سایت,آموزش سئو و بهینه سازی سایت,ارتقاء سایت در گوگل و موتورهای جستجو,بالا بردن رتبه سایت در گوگل,بهترین سئو در ایران,بهینه سازی سایت با متخصص سئو,بهینه سازی سایت چیست,تعریف بهینه سازی سایت,روش های عملی ارتقاء رتبه وب سایت در گوگل,سئو برتر,سئو و بهینه سازی سایت,سفارش بهینه سازی,پدر سئو ایران,افزایش رتبه در گوگل,SEO,Search Engine Optimization" />
+    <meta name="DC.keywords" content="بهینه سازی سایت,بهینه سازی وبسایت,سئو,قیمت و هزینه بهینه سازی سایت,آموزش سئو و بهینه سازی سایت,ارتقاء سایت در گوگل و موتورهای جستجو,بالا بردن رتبه سایت در گوگل,بهترین سئو در ایران,بهینه سازی سایت با متخصص سئو,بهینه سازی سایت چیست,تعریف بهینه سازی سایت,روش های عملی ارتقاء رتبه وب سایت در گوگل,سئو برتر,سئو و بهینه سازی سایت,سفارش بهینه سازی,پدر سئو ایران,افزایش رتبه در گوگل,SEO,Search Engine Optimization" />
+    <meta name="DC.description" content="بهینه ساز سبز | بهینه سازی و سئو وب سایت | افزایش رتبه سایت در گوگل | ارتقاء رتبه در الکسا | SEO وبسایت" />
+    <meta name="DC.Title" content="بهینه سازی وب سایت | سئو وبسایت | SEO" />
+    <meta name="DC.Subject" content="طراحی سایت, بهینه سازی سایت, طراحی وب سایت, بهینه سازی وب سایت, سئو " />
+    
+    <meta property="og:type" content="pages" />
+    <meta property="og:image" content="http://www.greenoptimizer.com/images/GO-green.png" />
+    <meta property="og:title" content="بهینه سازی سایت - سئو سایت و طراحی سایت با بهینه ساز سبز" />
+    <meta property="og:url" content="http://www.greenoptimizer.com" />
+    <meta property="og:description" content="بهینه سازی سایت - سئو سایت و طراحی سایت با بهینه ساز سبز" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image:src" content="http://www.greenoptimizer.com/images/GO-green.png" />
+    <meta name="twitter:title" content="بهینه سازی سایت - سئو سایت و طراحی سایت با بهینه ساز سبز" />
+    <meta name="twitter:description" content="بهینه سازی سایت - سئو سایت و طراحی سایت با بهینه ساز سبز" />
+    <meta name="twitter:creator" content="www.greenoptimizer.com" />
+
+
+
+
+
+
+    @RenderSection("StyleScript", false)
+
+    <!----Custom Style----->
+    <link href="~/css/myCustomStyle.css" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link href="~/fonts/fontDef.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="~/css/blue.css" rel="stylesheet" type="text/css" media="all" />
+    <!----font-Awesome----->
+    <link rel="stylesheet" href="~/fonts/css/font-awesome.min.css">
+    <!----font-Awesome----->
+    <!-- start plugins -->
+    <script type="text/javascript" src="~/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/menu.js"></script>
+    <!--start slider -->
+    <link rel="stylesheet" href="~/css/fwslider.css" media="all">
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/css3-mediaqueries.js"></script>
+    <script src="~/js/fwslider.js"></script>
+    <!--end slider -->
+
+
+
+    <link href="~/css/SlideShow.css" rel="stylesheet" />
+    <link href="~/css/slider-pro.min.css" rel="stylesheet" />
+    @*<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>*@
+
+    <link rel="shortcut icon" href="~/images/GO-green-ico.png" type="image/x-icon" />
+
+    <!-- must have -->
+    <link href="~/css/allinone_carousel.css" rel="stylesheet" type="text/css">
+    <script src="~/js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <script src="~/js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+    <script src="~/js/allinone_carousel.js" type="text/javascript"></script>
+    <script src="~/js/jquery.leanModal.min.js" type="text/javascript"></script>
+    <!--[if IE]><script src="js/excanvas.compiled.js" type="text/javascript"></script><![endif]-->
+
+
+    <script src="~/js/jquery.sliderPro.min.js"></script>
+
+    <script src="~/js/persianumber.min.js"></script>
+
+
+    <!-- start light_box -->
+    <link href="~/css/jquery.fancybox.css" rel="stylesheet" />
+
+    <script src="~/js/fliplightbox.min.js"></script>
+    <script type="text/javascript">
+        $('body').flipLightBox()
+    </script>
+    <script src="~/js/jquery.easing.min.js"></script>
+    <script src="~/js/jquery.mixitup.min.js"></script>
+
+    <script src="~/js/jquery.fancybox-1.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("div.fancyDemo a").fancybox();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+
+            var filterList = {
+
+                init: function () {
+
+                    // MixItUp plugin
+                    // http://mixitup.io
+                    $('#portfoliolist').mixitup({
+                        targetSelector: '.portfolio',
+                        filterSelector: '.filter',
+                        effects: ['fade'],
+                        easing: 'snap',
+                        // call the hover effect
+                        onMixEnd: filterList.hoverEffect()
+                    });
+
+                },
+
+                hoverEffect: function () {
+
+                    // Simple parallax effect
+                    $('#portfoliolist .portfolio').hover(function () {
+                        $(this).find('.label').stop().animate({
+                            bottom: 0
+                        }, 200, 'easeOutQuad');
+                        $(this).find('img').stop().animate({
+                            top: -30
+                        }, 500, 'easeOutQuad');
+                    }, function () {
+                        $(this).find('.label').stop().animate({
+                            bottom: -40
+                        }, 200, 'easeInQuad');
+                        $(this).find('img').stop().animate({
+                            top: 0
+                        }, 300, 'easeOutQuad');
+                    });
+
+                }
+            };
+
+            // Run the show!
+            filterList.init();
+
+        });
+    </script>
+
+
+
+
+
+
+
+    <!-- start circle -->
+    <script>
+        (function ($) {
+            $.fn.percentPie = function (options) {
+
+                var settings = $.extend({
+                    width: 100,
+                    trackColor: "EEEEEE",
+                    barColor: "E2534B",
+                    barWeight: 30,
+                    startPercent: 0,
+                    endPercent: 1,
+                    fps: 60
+                }, options);
+
+                this.css({
+                    width: settings.width,
+                    height: settings.width
+                });
+
+                var that = this,
+                    hoverPolice = false,
+                    canvasWidth = settings.width,
+                    canvasHeight = canvasWidth,
+                    id = $('canvas').length,
+                    canvasElement = $('<canvas id="' + id + '" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+                    canvas = canvasElement.get(0).getContext("2d"),
+                    centerX = canvasWidth / 2,
+                    centerY = canvasHeight / 2,
+                    radius = settings.width / 2 - settings.barWeight / 2;
+                counterClockwise = false,
+                fps = 1000 / settings.fps,
+                update = .01;
+                this.angle = settings.startPercent;
+
+                this.drawArc = function (startAngle, percentFilled, color) {
+                    var drawingArc = true;
+                    canvas.beginPath();
+                    canvas.arc(centerX, centerY, radius, (Math.PI / 180) * (startAngle * 360 - 90), (Math.PI / 180) * (percentFilled * 360 - 90), counterClockwise);
+                    canvas.strokeStyle = color;
+                    canvas.lineWidth = settings.barWeight;
+                    canvas.stroke();
+                    drawingArc = false;
+                }
+
+                this.fillChart = function (stop) {
+                    var loop = setInterval(function () {
+                        hoverPolice = true;
+                        canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+                        that.drawArc(0, 360, settings.trackColor);
+                        that.angle += update;
+                        that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+                        if (that.angle > stop) {
+                            clearInterval(loop);
+                            hoverPolice = false;
+                        }
+                    }, fps);
+                }
+
+                this.mouseover(function () {
+                    if (hoverPolice == false) {
+                        that.angle = settings.startPercent;
+                        that.fillChart(settings.endPercent);
+                    }
+                });
+
+                this.fillChart(settings.endPercent);
+                this.append(canvasElement);
+                return this;
+            }
+        }(jQuery));
+
+        $(document).ready(function () {
+
+            $('.google').percentPie({
+                width: 100,
+                trackColor: "E2534B",
+                barColor: "76C7C0",
+                barWeight: 20,
+                endPercent: .9,
+                fps: 60
+            });
+
+            $('.moz').percentPie({
+                width: 100,
+                trackColor: "E2534B",
+                barColor: "76C7C0",
+                barWeight: 20,
+                endPercent: .75,
+                fps: 60
+            });
+
+            $('.safari').percentPie({
+                width: 100,
+                trackColor: "E2534B",
+                barColor: "#76C7C0",
+                barWeight: 20,
+                endPercent: .5,
+                fps: 60
+            });
+
+        });
+    </script>
+
+
+</head>
+<body>
+
+    <div class="header_bg">
+        <div class="container persiannumber">
+            <div class="">
+                <div class="logo">
+                    <a href="index.html"><img alt="greenoptimizer" src="~/images/GO-green.png" /></a>
+                </div>
+                <div class="h_menu header">
+                    <a id="touch-menu" class="mobile-menu" href="#">منو</a>
+                    <nav>
+                        <ul class="menu list-unstyled">
+                            <li class=" activate"><a href="~/Home/Index">صفحه اصلی</a></li>
+                            <li><a href="~/Home/SEO"> سئو واقعی</a></li>
+                            <li><a href="~/Home/WebDesign">طراحی سایت</a></li>
+                            <li><a href="~/Home/Portfolio">نمونه کارها</a></li>
+                            <li><a href="~/Home/Article">مقالات تکنولوژی</a></li>
+                            <li><a href="~/Home/AboutUs">درباره ما</a></li>
+                            <li><a href="~/Home/ContactUs">تماس با ما</a></li>
+                        </ul>
+                    </nav>
+                    <script src="~/js/menu.js" type="text/javascript"></script>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Main Content-->
+
+    @RenderBody()
+
+    @RenderSection("MainContent", false)
+
+
+
+    <div id="divContainer">
+        <div class="updivContainer">
+            <h6 class="font-9"><a class="colorblack" href="http://greenoptimizer.com/">بهینه سازی سایت</a>، <a class="colorblack" href="http://greenoptimizer.com/">سئو سایت</a>، <a class="colorblack" href="http://greenoptimizer.com/">طراحی سایت</a></h6>
+        </div>
+        <div class="text-align-center middedivContainer">
+            <h6 class="middemarginContainer">با ما تماس بگیرید</h6>
+        </div>
+        <div class="col-xs-12 bottomdivContainer">
+            <div class="col-sm-6 no-padding text-align-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h6>02177166964</h6>
+                        <h6>09128238263</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 no-padding text-align-center margin-top10 ">
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <a href="https://t.me/joinchat/BCnslUQM7dSYz3BeItSU1A"><i class="fa fa-telegram font-33"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="footer1_bg">
+        <!-- start footer1 -->
+        <div class="container">
+            <div class="footer1">
+                <div class="copy pull-left">
+                    <p><span>تمامی حقوق این وبسایت متعلق به شرکت <a href="http://greenoptimizer.com/">GreenOptimizer</a> میباشد</span></p>
+                </div>
+                <div class="soc_icons pull-right">
+                    <ul class="list-unstyled text-center">
+                        <li><a href="http://instagram.com/greenoptimizer"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="http://telegram.me/greenoptimizer"><i class="fa fa-telegram"></i></a></li>
+                        <li><a href="http://facebook.com/greenoptimizer"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="http://twitter.com/green_optimizer"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://plus.google.com/u/0/112338453285371631663"><i class="fa fa-google"></i></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+@RenderSection("ScriptJs", false)
+
+
+<script>
+        var element_pos = 0;    // POSITION OF THE NEWLY CREATED ELEMENTS.
+        var iCnt = 0;
+        $(document).ready(function () {
+
+            $(function () { $('#divContainer').draggable(); });
+            $(function () { $("#divResize").draggable().resizable(); });
+
+            // CREATE MORE DIV, WITH 'ABSOLUTE' POSITIONING.
+            $('#btClickMe').click(function () {
+
+                var dynamic_div = $(document.createElement('div')).css({
+                    position: 'absolute', left: element_pos,
+                    top: $('#divContainer').height() + 20,
+                    width: '120', height: '60', padding: '3', margin: '0'
+                });
+
+                element_pos = element_pos + $('#divContainer').width() + 20;
+
+                $(dynamic_div).append('You can drag me too');
+
+                // APPEND THE NEWLY CREATED DIV TO "divContainer".
+                $(dynamic_div).appendTo('#divContainer').draggable();
+
+                iCnt = iCnt + 1;
+            });
+        });
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.persiannumber').persiaNumber();
+
+    });
+
+
+    // Plugin options and our code
+    $("#modal_trigger").leanModal({
+        top: 100,
+        overlay: 0.6,
+        closeButton: ".modal_close"
+    });
+
+    $(function () {
+        // Calling Login Form
+        $("#login_form").click(function () {
+            $(".social_login").hide();
+            $(".user_login").show();
+            return false;
+        });
+
+        // Calling Register Form
+        $("#register_form").click(function () {
+            $(".social_login").hide();
+            $(".user_register").show();
+            $(".header_title").text('ثبت نام');
+            return false;
+        });
+
+        // Going back to Social Forms
+        $(".back_btn").click(function () {
+            $(".user_login").hide();
+            $(".user_register").hide();
+            $(".social_login").show();
+            $(".header_title").text('ورود');
+            return false;
+        });
+    });
+
+
+
+
+    //$.getJSON(allphotos, function (data) { });
+
+    //$(document).ready(function () {
+    $("#Login").click(function () {
+        var UserName = $("#userName").val();
+        var Pass = $("#password").val();
+        var myObj = { "UserName": UserName, "Pass": Pass };
+        var myJSON = JSON.stringify(myObj);
+
+        $.ajax({
+            url: "../UserAuthen/UserAuthen",
+            type: "Post",
+            data: JSON.stringify([UserName, Pass]), //{ Name: name,
+            // Address: address, DOB: dob },
+            traditional: true,
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                console.log(data);
+                if (data != null) {
+
+                    //$('#Loginli').removeClass("onShow");
+                    //$('#Loginli').addClass("offShow");
+
+                    //$('#ControlPanel').removeClass("offShow");
+                    //$('#ControlPanel').addClass("onShow");
+                    if (data == "User") {
+
+
+                        console.log("User");
+                        window.location.href = "../User/Index";
+
+
+                    } else if (data == "Admin") {
+                        window.location.href = "../Admin/Index";
+                    }
+                    else {
+                        window.location.href = "";
+                    }
+                }
+
+            },
+            error: function () {
+
+                alert('error');
+                console.log("i am eroee")
+            }
+        });
+
+
+    });
+
+    $(".menu li").click(function () {
+
+        $(".menu li").removeClass("activate");
+        $(this).addClass("activate");
+    })
+
+
+
+
+</script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-102207473-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        $.get("/Sync/GetDataaaa", function (data) {
+          
+        });
+
+        //var interval = setInterval(function () {
+
+        //    $.get("/Sync/GetData", function (data) {
+        //        //var $xml = $(data);
+
+        //        var $qs = JSON.parse(data)
+
+        //        console.log($qs);
+
+        //        var allhtml = "";
+
+        //        $.each($qs, function (index, value) {
+        //            var $taga = "<div><a title=\"" + value.title + "\" href=\"" + value.link + "\">" + value.title + "<a> : <span> " + value.description + "</span> </div> ";
+
+        //            console.log($taga);
+        //            allhtml += $taga;
+        //        });
+
+        //        $('#MyData').append(allhtml)
+
+        //        var $xml = data;
+
+        //        $('#MyData').html($xml);
+
+        //    });
+
+
+        //}, 0);
+    });
+</script>
+
+
+

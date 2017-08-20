@@ -1,0 +1,34 @@
+User-Agent: *
+Disallow: 
+Allow: /
+
+User-Agent: Googlebot
+Allow: /
+
+User-Agent: Googlebot-Mobile
+Allow: /
+
+User-Agent: Googlebot-Image
+Allow: /
+
+User-Agent: Mediapartners-Google
+Allow: /
+
+User-Agent: Adsbot-Google
+Allow: /
+
+User-Agent: Slurp
+Allow: /
+
+User-Agent: msnbot
+Allow: /
+
+User-Agent: msnbot-media
+Allow: /
+
+User-Agent: Teoma
+Allow: /
+
+Crawl-delay: 4
+
+Sitemap: http://greenoptimizer.com/sitemap.xml

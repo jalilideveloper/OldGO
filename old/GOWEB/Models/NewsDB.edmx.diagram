@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd0a221f3f604c8994e63e3bc4fef140" Name="Diagram1">
+        <EntityTypeShape EntityType="greenopt_GONewsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.tblLanguage" Width="1.5" PointX="3.625" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.tblMagazine" Width="1.5" PointX="8.375" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.tblMenu" Width="1.5" PointX="5.875" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="greenopt_GONewsModel.FK_tblMenu_tblLanguages" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_GONewsModel.FK_tblMagazines_tblMenu" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.tblNew" Width="1.5" PointX="10.625" PointY="0.875" />
+        <AssociationConnector Association="greenopt_GONewsModel.FK_tblNews_tblMagazines" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

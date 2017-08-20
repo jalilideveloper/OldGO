@@ -1,0 +1,133 @@
+﻿@using GOWEB.Models;
+@{
+
+    Layout = null;
+
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+
+@{
+
+
+    int NID = (int)ViewData["NewsID"];
+    using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+    {
+        var q = (from i in db.tblNews
+                 where i.NewsID == NID
+                 select i).FirstOrDefault();
+        q.ViewNumber = q.ViewNumber + 1;
+        db.SaveChanges();
+
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>@q.Title</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta name="description" content="طراحی سایت, بهینه سازی سایت, طراحی وب سایت, بهینه سازی وب سایت, سئو" />
+            <meta name="keywords" content="@q.Title.Replace(' ',',').ToString(),IGreenNews, International Green News, Seo," />
+            <meta http-equiv="CHARSET" content="utf-8" />
+            <meta name="Content-Language" content="@q.tblMagazine.tblMenu.tblLanguage.LanguageName" />
+            <meta name="language" content="@q.tblMagazine.tblMenu.tblLanguage.LanguageName" />
+            <meta content="fa" http-equiv="Content-Language" />
+            <meta name="ROBOTS" content="index,follow" />
+            <meta property="og:site_name" content="بهینه ساز سبز, Green Optimizer" />
+            <link rel="shortcut icon" href="~/images/GO-green-ico.png" type="image/x-icon" />
+            <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+            <link href="~/css/blue.css" rel="stylesheet" type="text/css" media="all" />
+
+        </head>
+        <body class="detailsArticle">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-5 hidden-xs news_box ">
+                        <ul>
+
+                            <li>
+                                <a target="_blank" href="http://greenoptimizer.com/">بهینه سازی سایت</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="http://greenoptimizer.com/">سئو سایت</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="http://greenoptimizer.com/">طراحی سایت</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-8 col-sm-push-2 news_box ">
+                        <h5>عنوان</h5>
+                        <h6>@q.Title</h6>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding5" align="center">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-5">
+                                <a target="_blank" href="http://www.ikco-peugeot.ir/"><img  src="~/images/ads/peugeot508.gif" alt="پژو508" class="img-responsive" border="0" /></a>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-5 col-sm-push-6">
+                                <a target="_blank" href="http://tamasha.com/">  <img src="~/images/ads/tamasha.gif" alt="تماشا" class="img-responsive" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+                        <div style="position:fixed; overflow: hidden; height:25px;  padding:5px; background-color:#ffffff; bottom:0px;overflow: hidden ">
+                            <div style="float:left; padding-left: 10px;">
+                                <a target="_blank" id="googleplus" title="share on google plus" href="https://plus.google.com/share?url=http://localhost:28585/Home/ArticleDetails/@q.NewsID|@q.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">
+                                    <img border="0" alt="گوگل پلاس" src="~/images/google.png">
+                                </a>&ensp;
+                                <a target="_blank" title="share on cloob" href="http://www.cloob.com/share/link/add?url=http://localhost:28585/Home/ArticleDetails/@q.NewsID|@q.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">
+                                    <img border="0" alt="کلوب" src="~/images/cloob.png">
+                                </a>&ensp;
+                                <a target="_blank" title="share on linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:28585/Home/ArticleDetails/@q.NewsID|@q.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">
+                                    <img border="0" alt="linkedin" src="~/images/linkedin.png">
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <iframe id="myframe" name="myframe" src="@q.LinkUrl" style="width:100%;overflow:visible;height:100%" frameborder="0"></iframe>
+
+        </body>
+    }
+}
+
+</html>
+
+
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+        //var src = $('iframe', this).attr('src');
+
+
+
+        //window.history.pushState("", "", "" + src + "");
+
+    })
+    
+
+</script>
+
+

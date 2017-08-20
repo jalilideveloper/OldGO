@@ -1,0 +1,411 @@
+﻿@using GOWEB.Models;
+@using System.Xml;
+
+@section StyleScript
+    {
+    <link rel="stylesheet" href="~/fonts/css/font-awesome.min.css">
+
+}
+
+@section MainContent
+    {
+
+    <div class="main_bg">
+        <!-- start main -->
+        <div class="container">
+            <div class="main_grid1">
+                <h4 class="style pull-left">مقالات</h4>
+                <ol class="breadcrumb pull-right">
+                    <li><a href="index.html">خانه</a></li>
+                    <li class="active">مقالات</li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main_btm1">
+        <!-- start main_btm -->
+        <div class="container">
+            <div class="blog">
+                <!-- start blog -->
+                <div class="col-md-2 blog_right no-padding ellipsistitle divrightarticle hidden-sm hidden-xs">
+
+
+
+
+                    <div class="widget">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">پربازدید ترین ها</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+                            <ul class="list-unstyled hidden-sm hidden-xs div-bg-white">
+                                @{
+                                    using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                                    {
+
+                                        var q = (from i in db.tblNews
+                                                 select i).OrderByDescending(o => o.ViewNumber).Take(15).ToList();
+
+
+
+                                        foreach (var item in q)
+                                        {
+                                            <li class=""><i class="fa fa-angle-double-left paddingLeft5" aria-hidden="true"></i><a title="@item.Title" href="/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">@item.Title</a></li>
+                                        }
+                                    }
+                                }
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    @{
+                        using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                        {
+                            var q = (from i in db.tblMagazines
+                                     where i.tblNews.Count > 0
+                                     select i).ToList();
+                            foreach (var item in q)
+                            {
+                                <div class="widget">
+                                    <div class="widget-header text-align-center">
+                                        <a class="colorblack" href="/Home/Magazine/@item.SiteTitle"><h6 class="line-height-2-5">آخرین مقالات @item.SiteTitle</h6></a>
+                                    </div>
+                                    <div class="widget-content md-padding">
+                                        <ul class="list-unstyled hidden-sm hidden-xs div-bg-white">
+
+                                            @{
+                                                var qGetNewOFMAgazine = (from i in db.tblNews
+                                                                         where i.MagazineID == item.MagazineID
+                                                                         select i).OrderByDescending(o => o.PubDate.Value.Year).Take(15).ToList();
+
+                                                foreach (var each in qGetNewOFMAgazine)
+                                                {
+                                                    <li class=""><i class="fa fa-angle-double-left paddingLeft5" aria-hidden="true"></i><a title="@each.Title" href="/Home/ArticleDetails/@each.NewsID|@each.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">@each.Title</a></li>
+                                                }
+                                            }
+                                            <div class="clearfix"></div>
+                                        </ul>
+                                    </div>
+                                </div>
+                                                    }
+                                                }
+                    }
+                </div>
+
+
+                <div class="blog_main col-md-7 ">
+
+                    @{
+                        using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                        {
+                            //List<tblNew> q = (List<tblNew>)ViewData["MyData"];
+                            if (ViewData["NumberLoadMagazine"] != null)
+                            {
+                                int Getnum = (int)ViewData["NumberLoadMagazine"];
+                                int MagazineID = (int)ViewData["SelectedMagazineID"];
+                                var q = (from i in db.tblNews
+                                         where i.MagazineID == MagazineID
+                                         select i).ToList().OrderByDescending(o => o.PubDate.Value.Year).Skip(Getnum).Take(15);
+
+                                ViewData["MagazineName"] = q.FirstOrDefault().tblMagazine.SiteTitle;
+
+                                foreach (var item in q)
+                                {
+                                    System.Globalization.PersianCalendar persianCalandar =
+                                                        new System.Globalization.PersianCalendar();
+                                    int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
+                                    int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
+                                    int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
+
+
+                    <div class="blog_list bg-white">
+                        <div class="col-md-12 blog_left">
+                            <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><img src="images/blog-pic1.jpg" alt="" class="img-responsive" /></a>
+                            <h4><a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">@item.Title</a></h4>
+                            <span>نوشته شده در تاریخ @(year + "/" + month + "/" + day)  در @item.tblMagazine.SiteTitle <a><i class="fa fa-eye"></i></a> @item.ViewNumber بازدید</span>
+                            <p class="para">@Html.Raw(item.Descriptions)</p>
+                            <div class="read_btn padding-bottom10">
+                                <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><button class="btnArticle">ادامه مطلب</button></a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+                                }
+                            }
+                            else if (ViewData["NumberTake"] != null)
+                            {
+                                int Getnum = (int)ViewData["NumberTake"];
+                                var q = (from i in db.tblNews
+                                         select i).OrderByDescending(o => o.PubDate.Value.Year).ToList().Skip(Getnum).Take(15);
+
+                                foreach (var item in q)
+                                {
+                                    System.Globalization.PersianCalendar persianCalandar =
+                                                        new System.Globalization.PersianCalendar();
+                                    int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
+                                    int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
+                                    int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
+
+
+                    <div class="blog_list bg-white">
+                        <div class="col-md-12 blog_left">
+                            <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><img src="images/blog-pic1.jpg" alt="" class="img-responsive" /></a>
+                            <h4><a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">@item.Title</a></h4>
+                            <span>نوشته شده در تاریخ @(year + "/" + month + "/" + day)  در @item.tblMagazine.SiteTitle <a><i class="fa fa-eye"></i></a> @item.ViewNumber بازدید</span>
+                            <p class="para">@Html.Raw(item.Descriptions)</p>
+                            <div class="read_btn padding-bottom10">
+                                <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><button class="btnArticle">ادامه مطلب</button></a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                                }
+                            }
+                            else
+                            {
+                                string GetName = (string)ViewData["MagazineName"];
+
+                                var qGet = (from i in db.tblMagazines
+                                            where i.SiteTitle.Contains(GetName)
+                                            select i).FirstOrDefault();
+
+                                var q = (from i in db.tblNews
+                                         where i.MagazineID == qGet.MagazineID
+                                         select i).OrderByDescending(o => o.PubDate.Value.Year).ToList().Skip(0).Take(15);
+
+                                foreach (var item in q)
+                                {
+
+                                    System.Globalization.PersianCalendar persianCalandar =
+                                                        new System.Globalization.PersianCalendar();
+                                    int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
+                                    int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
+                                    int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
+
+
+                    <div class="blog_list bg-white">
+                        <div class="col-md-12 blog_left">
+                            <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><img src="images/blog-pic1.jpg" alt="" class="img-responsive" /></a>
+                            <h4><a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">@item.Title</a></h4>
+                            <span>نوشته شده در تاریخ @(year + "/" + month + "/" + day)  در @item.tblMagazine.SiteTitle <a><i class="fa fa-eye"></i></a> @item.ViewNumber بازدید</span>
+                            <p class="para">@Html.Raw(item.Descriptions)</p>
+                            <div class="read_btn padding-bottom10">
+                                <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><button class="btnArticle">ادامه مطلب</button></a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                                }
+                            }
+                        }
+                    }
+
+                    <div class="clearfix"></div>
+
+                    <ul class="pagination">
+
+                        @{
+
+                            if (ViewData["MagazineName"] == null && ViewData["NumberLoadMagazine"] == null)
+                            {
+                                using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                                {
+                                    var totalNews = (from i in db.tblNews
+                                                     select i).ToList().Count;
+
+                                    var sectionPage = totalNews / 15;
+
+                                    for (int i = 0; i < sectionPage; i++)
+                                    {
+                                        int num = i + 1;
+                        <li><a href="/Home/ArticleShow/@num">@num</a></li>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                                {
+
+                                    string GetName = (string)ViewData["MagazineName"];
+
+                                    var qGet = (from i in db.tblMagazines
+                                                where i.SiteTitle.Contains(GetName)
+                                                select i).FirstOrDefault();
+
+
+                                    var totalNews = (from i in db.tblNews
+                                                     where i.MagazineID == qGet.MagazineID
+                                                     select i).ToList().Count;
+
+                                    var sectionPage = totalNews / 15;
+
+                                    for (int i = 0; i < sectionPage; i++)
+                                    {
+                                        int num = i + 1;
+                        <li><a href="/Home/MagazineSelected/@num-@qGet.MagazineID">@num</a></li>
+                                    }
+                                }
+                            }
+                        }
+
+                    </ul>
+                </div>
+
+                <div class="col-md-2 blog_right no-padding divleftarticle">
+
+
+                    <div class="widget hidden-sm hidden-xs">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">مقالات</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+                            <ul class="tag_nav list-unstyled div-bg-white">
+                                @{
+                                    using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                                    {
+                                        var q = (from i in db.tblMagazines
+                                                 where i.tblNews.Count > 0
+                                                 select i.SiteTitle).Distinct().ToList();
+
+                                        foreach (var item in q)
+                                        {
+                                            <li><a href="/Home/Magazine/@item">@item</a></li>
+                                        }
+                                    }
+                                }
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="widget hidden-sm hidden-xs">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">تبلیغات</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+
+                            <ul class="ads_nav list-unstyled  hidden-sm hidden-xs div-bg-white">
+                                <li><a href="http://www.bamilo.com/"><img src="~/images/ads/bamilo.png" alt=""> </a></li>
+                                <li><a href="https://www.digikala.com/"><img src="~/images/ads/digikala125.gif" alt=""> </a></li>
+                                <li><a href="http://goldiran.ir/"><img src="~/images/ads/goldiran.png" alt=""> </a></li>
+                                <li><a href="http://izigzag.com/L/Brand"><img src="~/images/ads/zigzag125.gif" alt=""> </a></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <div class="widget hidden-sm hidden-xs">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">تگ ها</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+
+                            <ul class="tag_nav list-unstyled  hidden-sm hidden-xs div-bg-white">
+                                <li class="active"><a href="#">قالب</a></li>
+                                <li><a href="#">طراحی سایت</a></li>
+                                <li><a href="#">سئو</a></li>
+                                <li><a href="#">بهینه سازی سایت</a></li>
+                                <li><a href="#">موبایل</a></li>
+                                <li><a href="#">بازی</a></li>
+                                <li><a href="#">اخبار</a></li>
+                                <li><a href="#">تکنولوژی</a></li>
+                                <li><a href="#">طراحی قالب</a></li>
+                                <li><a href="#">وردپرس</a></li>
+                                <li><a href="#">جوملا</a></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="widget hidden-sm hidden-xs">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">تبلیغات</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+                            <div class="row text-align-center no-padding">
+                                <div class="paddingbottom5 col-lg-12 col-md-12 hidden-sm hidden-xs">
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.samsung.com/iran/smartphones/galaxy-s8">
+                                            <img src="~/images/ads/samsung.gif" alt="سامسونگ" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="https://www.digikala.com">
+                                            <img src="~/images/ads/digikala.gif" alt="دیجی کالا" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://goldiran.ir/">
+                                            <img src="~/images/ads/goldiran.gif" alt="گلدیران" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.bamilo.com/">
+                                            <img src="~/images/ads/bamilo.gif" alt="بامیلو" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="https://www.alibaba.ir/">
+                                            <img src="~/images/ads/alibaba.gif" alt="علی بابا" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.lotuscarsiran.ir/">
+                                            <img src="~/images/ads/lotus.gif" alt="lotus" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.golfamsafar.com/">
+                                            <img src="~/images/ads/golfamsafar.gif" alt="گلفام سفر" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.irannovinclinic.com/">
+                                            <img src="~/images/ads/irannovinclinic.gif" alt="کلینیک ایران نوین" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://irtoya.com/">
+                                            <img src="~/images/ads/irtoya.gif" alt="ایرتویا" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="https://jabama.ir/">
+                                            <img src="~/images/ads/jabama.gif" alt="جاباما" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="https://www.nomatec.net/Products/SCM">
+                                            <img src="~/images/ads/nomatec.gif" alt="نوماتک" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.parsonline.com/">
+                                            <img src="~/images/ads/parsonline.gif" alt="پارس آنلاین" class="img-responsive">
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div><!-- end blog -->
+        </div>
+    </div>
+
+}

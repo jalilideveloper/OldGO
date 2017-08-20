@@ -1,0 +1,655 @@
+﻿@using GOWEB.Models;
+@using System.Xml;
+
+@section StyleScript
+    {
+    <link rel="stylesheet" href="~/fonts/css/font-awesome.min.css">
+}
+@section MainContent
+    {
+
+
+
+
+    <div class="main_bg">
+        <!-- start main -->
+        <div class="container">
+            <div class="main_grid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="col-md-8">
+
+                            <div id="example1" class="slider-pro">
+                                <div class="sp-slides">
+                                    <div class="sp-slide">
+                                        <img alt="طراحی سایت کاملا واکنشگرا و رسپانسیو" class="sp-image width-100per" src="../images/Responsive-Design-GO.jpg"
+                                             data-src="../images/Responsive-Design-GO.jpg"
+                                             data-retina="../images/Responsive-Design-GO.jpg" />
+
+                                    </div>
+                                    <div class="sp-slide">
+                                        <img alt="بهینه سازی سایت" class="sp-image width-100per" src="../images/SEO-GO.jpg"
+                                             data-src="../images/SEO-GO.jpg"
+                                             data-retina="../images/SEO-GO.jpg" />
+
+                                    </div>
+                                    <div class="sp-slide">
+                                        <img alt="طراحی نرم افزار موبایل" class="sp-image width-100per" src="../images/Goptimizer.png"
+                                             data-src="../images/Goptimizer.png"
+                                             data-retina="../images/Goptimizer.png" />
+                                    </div>
+
+
+                                </div>
+
+                                <div class="sp-thumbnails dir-rtl font-family-bhoma">
+
+
+                                    <div class="sp-thumbnail">
+                                        <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/WebDesign">طراحی سایت</a>
+                                        <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/WebDesign">کاملا واکنش گرا و رسپانسیو</a>
+                                    </div>
+
+                                    <div class="sp-thumbnail">
+                                        <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/SEO">بهینه سازی سایت</a>
+                                        <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/SEO">بهینه سازی سئو و تبلیغات در گوگل</a>
+                                    </div>
+                                    @*<div class="sp-thumbnail">
+                                            <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/SocialNetwork">شبکه های اجتماعی</a>
+                                            <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/SocialNetwork">رشد در تمام شبکه های اجتماعی</a>
+                                        </div>*@
+                                    <div class="sp-thumbnail">
+                                        <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/SocialNetwork">طراحی نرم افزار تحت موبایل</a>
+                                        <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/SocialNetwork">اندروید، iOS، ویندوزفون</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <section class="mrg-bottom center dk-box dk-tr-banner teamdisplaynone">
+                                <a href="https://www.telegram.me/greenoptimizer" target="_blank">
+                                    <img class="mediawidth100per" src="~/images/teamworkGo.jpg" alt="پشتیبانی بهینه ساز سبز" title="پشتیبانی بهینه ساز سبز">
+                                </a>
+                            </section>
+                            <section class="mrg-bottom center dk-box dk-tr-banner margin-top10 padding-20 text-align-center">
+                                <h5>نقطه قوت هر تیمی، تجربه و نیروهای آن است</h5>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 margin-bottom20">
+                        <div class="col-md-8">
+                            <div id="dk-services-feature" class="dk-box text-align-center teamdisplaynone">
+                                <ul class="list-style-none">
+                                    <li class="padding-9">
+                                        <a href="" target="_blank" title="تحویل با سرعت بالای سفارشات در وبسایت بهینه ساز سبز">
+
+                                            <i class="icon icon-delivery"></i>
+                                            <span class="padding-9">تحویل با سرعت</span>
+                                        </a>
+                                    </li>
+                                    <li class="padding-9">
+                                        <a href="" target="_blank" title="هفت روز ضمانت در وبسایت بهینه ساز سبز">
+
+                                            <i class="icon icon-return-policy"></i>
+                                            <span class="padding-9">٧ روز ضمانت </span>
+                                        </a>
+                                    </li>
+                                    <li class="padding-9">
+                                        <a href="" target="_blank" title="پرداخت اینترنتی هزینه سفارشات در وبسایت بهینه ساز سبز">
+
+                                            <i class="icon icon-payment-terms"></i>
+                                            <span class="padding-9">پرداخت آنلاین</span>
+                                        </a>
+                                    </li>
+                                    <li class="padding-9">
+                                        <a href="" target="_blank" title="تضمین بهترین قیمت در وبسایت بهینه ساز سبز">
+
+                                            <i class="icon icon-price-guarantee"></i>
+                                            <span class="padding-9">تضمین بهترین قیمت</span>
+                                        </a>
+                                    </li>
+                                    <li class="padding-9">
+                                        <a href="" target="_blank" title="خدمات ما شامل ضمانت می باشند">
+
+                                            <i class="icon icon-origin-guarantee"></i>
+                                            <span class="padding-9">ضمانت کالا</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 text-align-center">
+                            <section class="mrg-bottom center dk-box dk-tr-banner mediatgbox">
+                                <a href="https://www.telegram.me/greenoptimizer" target="_blank">
+                                    <img class="mediawidth100per" src="~/images/GreenOptimizerTelegram.png" alt="پشتیبانی GreenOptimizer" title="پشتیبانی GreenOptimizer">
+                                </a>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="span_of_4">
+                        <!-- start span_of_4 -->
+                        <div class="col-xs-12 margin-bottom20">
+                            <div class="col-md-4 mediamargin-b30">
+                                <div class="span4_of_list ">
+                                    <span class="active"><i class="fa fa-windows"></i></span>
+                                    <h3>طراحی سایت</h3>
+                                    <ul class="list-unstyled nav_list Allfeatures text-align-right">
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/WebDesign';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/WebDesign"><h1 class="h1ToA">طراحی سایت حرفه ای</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/WebDesign';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/WebDesign"><h1 class="h1ToA">طراحی سایت فروشگاهی</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/WebDesign';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/WebDesign"><h1 class="h1ToA">طراحی سایت تجاری</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/WebDesign';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/WebDesign"><h1 class="h1ToA">طراحی سایت فروش هاست</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/WebDesign';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/WebDesign"><h1 class="h1ToA">طراحی سایت شخصی</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/WebDesign';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/WebDesign"><h1 class="h1ToA">طراحی سایت سازمانی</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/WebDesign';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/WebDesign"><h1 class="h1ToA">طراحی سایت شرکتی</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/WebDesign';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/WebDesign"><h1 class="h1ToA">طراحی سایت اختصاصی</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/WebDesign';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/WebDesign"><h1 class="h1ToA">سایر...</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="read_more">
+                                        <a class="btn btn-2 active" href="~/Home/WebDesign">ادامه مطلب</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mediamargin-b30">
+                                <div class="span4_of_list ">
+                                    <span class="active"><i class="fa fa-line-chart"></i></span>
+                                    <h3>سئو حرفه ای</h3>
+                                    <ul class="list-unstyled nav_list Allfeatures text-align-right">
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/SEO';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/SEO"><h1 class="h1ToA">بهینه سازی سئو</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/SEO';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/SEO"><h1 class="h1ToA">بهینه سازی سایت</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/SEO';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/SEO"><h1 class="h1ToA">بهینه سازی لینک</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/SEO';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/SEO"><h1 class="h1ToA">بهینه سازی محتوای سایت</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/SEO';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/SEO"><h1 class="h1ToA">بالا بردن رتبه سایت در گوگل</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/SEO';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/SEO"><h1 class="h1ToA">بالا بردن رتبه سایت در الکسا</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/SEO';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/SEO"><h1 class="h1ToA">بالا بردن رتبه سایت در بینگ</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/SEO';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/SEO"><h1 class="h1ToA">صفحه اول گوگل در یک ماه</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Home/SEO';"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Home/SEO"><h1 class="h1ToA">سایر...</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="read_more">
+                                        <a class="btn  btn-2b" href="~/Home/SEO">ادامه مطلب</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 ">
+                                <div class="span4_of_list ">
+                                    <span class="active"><i class="fa fa-mobile"></i></span>
+                                    <h3>طراحی نرم افزار تحت موبایل</h3>
+                                    <ul class="list-unstyled Allfeatures nav_list text-align-right">
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="#"><h1 class="h1ToA">اتوماسیون اداری</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="#"><h1 class="h1ToA">مدیریت رستوران</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="#"><h1 class="h1ToA">آژانس های هواپیمایی</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="#"><h1 class="h1ToA">ارائه مطلب و روزنامه ای</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="#"><h1 class="h1ToA">شبکه اجتماعی تحت تلگرام</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="#"><h1 class="h1ToA">نرم افزار شبکه اجتماعی</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="#"><h1 class="h1ToA">فروشگاهی</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="#"><h1 class="h1ToA">ساخت ربات اختصاصی</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="shopping wrapper">
+                                                <div class="col-md-12 no-padding">
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"></span>
+                                                    <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="#"><h1 class="h1ToA">سایر...</h1></a>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                    <div class="read_more">
+                                        <a class="btn btn-2b" href="#">بزودی</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div><!-- end span_of_4 -->
+
+                </div>
+                <div class="main_grid col-xs-12">
+                    <div class="col-md-8">
+                        <img alt="بهینه سازی سایت" class="width-100per" src="~/images/advanced-seo.png" />
+                    </div>
+                    <div class="col-md-4 text-align-center">
+                        <img alt="بهینه سازی سئو" class="minddisplaynone" src="~/images/social-media-featured.jpg" />
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <div class="row ">
+
+                    <div class="span_of_4">
+                        <!-- start span_of_4 -->
+                        <div class="col-xs-12 margin-bottom20">
+
+                            <div class="col-md-4 mediamargin-b30">
+                                <div class="span4_of_list ellipsistitlehome">
+                                    <span class="active"><i class="fa fa-random"></i></span>
+                                    <h3>مقالات تصادفی</h3>
+                                    <ul class="list-unstyled nav_list Allfeatures text-align-right">
+
+                                        @{
+                                            using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                                            {
+
+                                                var q = (from i in db.tblNews
+                                                         select i).OrderBy(x => Guid.NewGuid()).Take(10).ToList();
+
+
+
+                                                foreach (var item in q)
+                                                {
+                                                    <li class="">
+                                                        <div class="shopping wrapper">
+                                                            <div class="col-md-12 no-padding">
+                                                                <span class="fa fa-caret-left HomeBoxes"></span>
+                                                                <a class="HomeSpanTextBoxes" title="@item.Title" href="/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><h1 class="h1ToA">@item.Title</h1></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                }
+                                            }
+                                        }
+
+
+                                    </ul>
+                                    <div class="read_more">
+                                        <a class="btn btn-2 active" href="~/Home/Article">ادامه مطلب</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 mediamargin-b30">
+                                <div class="span4_of_list ellipsistitlehome">
+                                    <span class="active"><i class="fa fa-newspaper-o"></i></span>
+                                    <h3>آخرین مقالات</h3>
+                                    <ul class="list-unstyled nav_list Allfeatures text-align-right">
+
+                                        @{
+                                            using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                                            {
+
+                                                var q = (from i in db.tblNews
+                                                         select i).OrderByDescending(o => o.PubDate.Value.Year).Take(10).ToList();
+
+
+
+                                                foreach (var item in q)
+                                                {
+                                                    <li class="">
+                                                        <div class="shopping wrapper">
+                                                            <div class="col-md-12 no-padding">
+                                                                <span class="fa fa-caret-left HomeBoxes"></span>
+                                                                <a class="HomeSpanTextBoxes" title="@item.Title" href="/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><h1 class="h1ToA">@item.Title</h1></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                }
+                                            }
+                                        }
+
+
+                                    </ul>
+                                    <div class="read_more">
+                                        <a class="btn btn-2 active" href="~/Home/Article">ادامه مطلب</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 mediamargin-b30">
+                                <div class="span4_of_list ellipsistitlehome">
+                                    <span class="active"><i class="fa fa-arrow-circle-o-down"></i></span>
+                                    <h3>پربازدیدترین مقالات</h3>
+                                    <ul class="list-unstyled nav_list Allfeatures text-align-right">
+
+                                        @{
+                                            using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                                            {
+
+                                                var q = (from i in db.tblNews
+                                                         select i).OrderByDescending(o => o.ViewNumber).Take(10).ToList();
+
+
+
+                                                foreach (var item in q)
+                                                {
+                                                    <li class="">
+                                                        <div class="shopping wrapper">
+                                                            <div class="col-md-12 no-padding">
+                                                                <span class="fa fa-caret-left HomeBoxes"></span>
+                                                                <a class="HomeSpanTextBoxes" title="@item.Title" href="/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><h1 class="h1ToA">@item.Title</h1></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                }
+                                            }
+                                        }
+
+
+                                    </ul>
+                                    <div class="read_more">
+                                        <a class="btn btn-2 active" href="~/Home/Article">ادامه مطلب</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div><!-- end span_of_4 -->
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="top_grid col-xs-12 margin-top10">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h2 class="col-xs-center font-size-18">بهینه سازی وب سایت (SEO)</h2>
+                                <p class="line-height-1-7">برای به دست آوردن جایگاهی مناسب در صفحه اول گوگل باید وب سایتی بهینه از نظر اصول کدنویسی و محتوای آن داشت. در همین راستا شرکت شتاب تک در مرحله اول با رعایت اصول کد نویسی در وب سایت های طراحی شده خود این مهم را فراهم می سازد تا موتور های جستجو به شناسایی وب سایت بپردازند و در مرحله بعد با رعایت نکاتی خاص اعم از سرعت بارگذاری صفحات، ساختار صفحات، محتوای وب سایت و ... به بهینه سازی وب سایت مورد نظر می پردازد که نتیجه ی رعایت این نکات بهبود رتبه وب سایت در نتایج جستجو می باشد.</p>
+                            </div>
+                            <div class=" hidden-xs col-sm-2 center"><i class="fa fa-line-chart red text-icon-block" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-10 ">
+                                <h2 class="col-xs-center font-size-18">افزایش فالوور و لایک اینستاگرام</h2>
+                                <p class="line-height-1-7">بدون شک در حال حاضر بالا بودن فالوور و لایک پست ها در صفحات اینستاگرام تاثیر بسیار زیادی در جذب مخاطبین و بالا رفتن اعتبار پیج دارد فالوورهای جذب شده توسط سایت اینستالایکر کاملا وجود دارند و تمام آنها عکس پروفایل و پست دارند . و حتی در رابطه با فالوور های ایرانی، این فالوورها کاملا فعال هستند</p>
+                            </div>
+                            <div class="hidden-xs col-sm-2 center"><i class="fa fa-bar-chart red text-icon-block" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 text-align-center ">
+                    <div class="col-sm-6 ">
+                        <img alt="طراحی سایت" class="seoOptimizerwidth100per" src="~/images/GOfirst.png" />
+                    </div>
+                    <div class="col-sm-6">
+                        <img alt="بهینه سازی سایت" class="seoOptimizerwidth100per" src="~/images/GOsecond.png" />
+                    </div>
+                </div>
+
+
+                <div class="top_grid col-xs-12 margin-bottom40">
+
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h4 class="col-xs-center">استفاده از آخرین روش های استاندارد کد نویسی</h4>
+                                <p class="line-height-1-7">پشتیبانی از تمامی مرورگرها و سرعت بالای بارگزاری صفحات وب سایت از ویژگی های مهم در طراحی سایت می باشند، شرکت شتاب تک با استفاده از متدهای نوین کد نویسی این مهم را برای سفارش دهندگان سایت فراهم می سازد تا با افزایش سهولت استفاده از وب سایت، رضایت کاربران را به دنبال داشته باشد.</p>
+                            </div>
+                            <div class=" hidden-xs col-sm-2 center"><i class="fa fa-file-code-o red text-icon-block" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-10 ">
+                                <h4 class="col-xs-center">طراحی وب سایت مدرن با رعایت استانداردهای روز</h4>
+                                <p class="line-height-1-7">طراحی وب سایت به همراه زیبایی قالب گرافیکی و سهولت استفاده، نقش به سزایی در جذب کاربران و مخاطبان وب سایت دارد. در همین راستا شرکت شتاب تک با نوآوری و به کارگیری استانداردهای روز، وب سایتی مدرن، زیبا و کارآمد پیاده سازی نموده تا کاربران، تجربه ای مطلوب در استفاده از وب سایت طراحی شده داشته باشند.</p>
+                            </div>
+                            <div class="hidden-xs col-sm-2 center"><i class="fa fa-desktop red text-icon-block" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+}
+
+@section ScriptJs{
+
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            $('#example1').sliderPro({
+                width: 710,
+                height: 370,
+                arrows: true,
+                buttons: false,
+                waitForLayers: true,
+                thumbnailWidth: 200,
+                thumbnailHeight: 100,
+                thumbnailPointer: true,
+                autoplay: true,
+                autoplayDelay: 2500,
+                autoScaleLayers: false,
+                breakpoints: {
+                    50: {
+                        thumbnailWidth: 120,
+                        thumbnailHeight: 50
+                    }
+                }
+            });
+        });
+    </script>
+
+
+}

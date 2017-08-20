@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="greenopt_GONewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblLanguages">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LangType" Type="nvarchar" MaxLength="50" />
+          <Property Name="LangCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblMagazines">
+          <Key>
+            <PropertyRef Name="MagazineID" />
+          </Key>
+          <Property Name="MagazineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MagazineName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RssUrl" Type="nvarchar" MaxLength="2000" />
+          <Property Name="SiteTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="MenuID" Type="int" />
+          <Property Name="ContentText" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LanguageID" Type="int" />
+          <Property Name="ParrentID" Type="int" />
+          <Property Name="Priority" Type="int" />
+        </EntityType>
+        <EntityType Name="tblNews">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Descriptions" Type="nvarchar" MaxLength="2000" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="500" />
+          <Property Name="MagazineID" Type="int" />
+          <Property Name="ViewNumber" Type="bigint" />
+          <Property Name="DateInserted" Type="datetime" />
+          <Property Name="LinkUrl" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_tblMagazines_tblMenu">
+          <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="0..1" />
+          <End Role="tblMagazines" Type="Self.tblMagazines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMenu">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="tblMagazines">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMenu_tblLanguages">
+          <End Role="tblLanguages" Type="Self.tblLanguages" Multiplicity="0..1" />
+          <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLanguages">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="tblMenu">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblNews_tblMagazines">
+          <End Role="tblMagazines" Type="Self.tblMagazines" Multiplicity="0..1" />
+          <End Role="tblNews" Type="Self.tblNews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMagazines">
+              <PropertyRef Name="MagazineID" />
+            </Principal>
+            <Dependent Role="tblNews">
+              <PropertyRef Name="MagazineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="greenopt_GONewsModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLanguages" EntityType="Self.tblLanguages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMagazines" EntityType="Self.tblMagazines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMenu" EntityType="Self.tblMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblNews" EntityType="Self.tblNews" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblMagazines_tblMenu" Association="Self.FK_tblMagazines_tblMenu">
+            <End Role="tblMenu" EntitySet="tblMenu" />
+            <End Role="tblMagazines" EntitySet="tblMagazines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMenu_tblLanguages" Association="Self.FK_tblMenu_tblLanguages">
+            <End Role="tblLanguages" EntitySet="tblLanguages" />
+            <End Role="tblMenu" EntitySet="tblMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblNews_tblMagazines" Association="Self.FK_tblNews_tblMagazines">
+            <End Role="tblMagazines" EntitySet="tblMagazines" />
+            <End Role="tblNews" EntitySet="tblNews" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="greenopt_GONewsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblLanguage">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LangType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LangCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblMenus" Relationship="Self.FK_tblMenu_tblLanguages" FromRole="tblLanguages" ToRole="tblMenu" />
+        </EntityType>
+        <EntityType Name="tblMagazine">
+          <Key>
+            <PropertyRef Name="MagazineID" />
+          </Key>
+          <Property Name="MagazineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MagazineName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RssUrl" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="SiteTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuID" Type="Int32" />
+          <Property Name="ContentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblMenu" Relationship="Self.FK_tblMagazines_tblMenu" FromRole="tblMagazines" ToRole="tblMenu" />
+          <NavigationProperty Name="tblNews" Relationship="greenopt_GONewsModel.FK_tblNews_tblMagazines" FromRole="tblMagazine" ToRole="tblNew" />
+        </EntityType>
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LanguageID" Type="Int32" />
+          <Property Name="ParrentID" Type="Int32" />
+          <Property Name="Priority" Type="Int32" />
+          <NavigationProperty Name="tblLanguage" Relationship="Self.FK_tblMenu_tblLanguages" FromRole="tblMenu" ToRole="tblLanguages" />
+          <NavigationProperty Name="tblMagazines" Relationship="Self.FK_tblMagazines_tblMenu" FromRole="tblMenu" ToRole="tblMagazines" />
+        </EntityType>
+        <Association Name="FK_tblMenu_tblLanguages">
+          <End Role="tblLanguages" Type="Self.tblLanguage" Multiplicity="0..1" />
+          <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLanguages">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="tblMenu">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMagazines_tblMenu">
+          <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="0..1" />
+          <End Role="tblMagazines" Type="Self.tblMagazine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMenu">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="tblMagazines">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="greenopt_GONewsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tblLanguages" EntityType="Self.tblLanguage" />
+          <EntitySet Name="tblMagazines" EntityType="Self.tblMagazine" />
+          <EntitySet Name="tblMenus" EntityType="Self.tblMenu" />
+          <AssociationSet Name="FK_tblMenu_tblLanguages" Association="Self.FK_tblMenu_tblLanguages">
+            <End Role="tblLanguages" EntitySet="tblLanguages" />
+            <End Role="tblMenu" EntitySet="tblMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMagazines_tblMenu" Association="Self.FK_tblMagazines_tblMenu">
+            <End Role="tblMenu" EntitySet="tblMenus" />
+            <End Role="tblMagazines" EntitySet="tblMagazines" />
+          </AssociationSet>
+          <EntitySet Name="tblNews" EntityType="greenopt_GONewsModel.tblNew" />
+          <AssociationSet Name="FK_tblNews_tblMagazines" Association="greenopt_GONewsModel.FK_tblNews_tblMagazines">
+            <End Role="tblMagazine" EntitySet="tblMagazines" />
+            <End Role="tblNew" EntitySet="tblNews" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblNew">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Descriptions" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="ImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MagazineID" Type="Int32" />
+          <Property Name="ViewNumber" Type="Int64" />
+          <Property Name="DateInserted" Type="DateTime" Precision="3" />
+          <Property Name="LinkUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblMagazine" Relationship="greenopt_GONewsModel.FK_tblNews_tblMagazines" FromRole="tblNew" ToRole="tblMagazine" />
+        </EntityType>
+        <Association Name="FK_tblNews_tblMagazines">
+          <End Type="greenopt_GONewsModel.tblMagazine" Role="tblMagazine" Multiplicity="0..1" />
+          <End Type="greenopt_GONewsModel.tblNew" Role="tblNew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMagazine">
+              <PropertyRef Name="MagazineID" />
+            </Principal>
+            <Dependent Role="tblNew">
+              <PropertyRef Name="MagazineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="greenopt_GONewsModelStoreContainer" CdmEntityContainer="greenopt_GONewsEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="greenopt_GONewsModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLanguages">
+            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblLanguage">
+              <MappingFragment StoreEntitySet="tblLanguages">
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+                <ScalarProperty Name="LangType" ColumnName="LangType" />
+                <ScalarProperty Name="LangCode" ColumnName="LangCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMagazines">
+            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblMagazine">
+              <MappingFragment StoreEntitySet="tblMagazines">
+                <ScalarProperty Name="MagazineID" ColumnName="MagazineID" />
+                <ScalarProperty Name="MagazineName" ColumnName="MagazineName" />
+                <ScalarProperty Name="RssUrl" ColumnName="RssUrl" />
+                <ScalarProperty Name="SiteTitle" ColumnName="SiteTitle" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="ContentText" ColumnName="ContentText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMenus">
+            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblMenu">
+              <MappingFragment StoreEntitySet="tblMenu">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="ParrentID" ColumnName="ParrentID" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblNews">
+            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblNew">
+              <MappingFragment StoreEntitySet="tblNews">
+                <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+                <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+                <ScalarProperty Name="ViewNumber" ColumnName="ViewNumber" />
+                <ScalarProperty Name="MagazineID" ColumnName="MagazineID" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
