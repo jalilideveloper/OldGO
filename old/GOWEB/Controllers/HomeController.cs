@@ -8,7 +8,7 @@ namespace GOWEB.Controllers
 
         public ActionResult Index()
         {
-            CheckNewData();
+          //  CheckNewData();
             return View();
         }
 
@@ -42,7 +42,7 @@ namespace GOWEB.Controllers
 
         public ActionResult Article()
         {
-            ArticleShow(1);
+           // ArticleShow(1);
             return View();
 
         }

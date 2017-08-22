@@ -28,9 +28,9 @@
     <div class="main_btm1">
         <!-- start main_btm -->
         <div class="container">
-            <div class="blog">
+            <div class="blog" >
                 <!-- start blog -->
-                <div class="col-md-2 blog_right no-padding ellipsistitle divrightarticle hidden-sm hidden-xs">
+                <div class="col-md-2 blog_right no-padding ellipsistitle divrightarticle hidden-sm hidden-xs" id="MagazinesNews">
 
 
 
@@ -40,29 +40,13 @@
                             <h6 class="line-height-2-5">پربازدید ترین ها</h6>
                         </div>
                         <div class="widget-content md-padding">
-                            <ul class="list-unstyled hidden-sm hidden-xs div-bg-white">
-                                @{
-                                    using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
-                                    {
-
-                                        var q = (from i in db.tblNews
-                                                 select i).OrderByDescending(o => o.ViewNumber).Take(15).ToList();
-
-
-
-                                        foreach (var item in q)
-                                        {
-                                            <li class=""><i class="fa fa-angle-double-left paddingLeft5" aria-hidden="true"></i><a title="@item.Title" href="/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">@item.Title</a></li>
-                                        }
-                                    }
-                                }
+                            <ul class="list-unstyled hidden-sm hidden-xs div-bg-white" id="MostRecentNews">
                                 <div class="clearfix"></div>
                             </ul>
                         </div>
                     </div>
 
-
-                    @{
+                    @*@{
                         using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                         {
                             var q = (from i in db.tblMagazines
@@ -93,13 +77,14 @@
                                 </div>
                                                     }
                                                 }
-                    }
+                    }*@
+
                 </div>
 
 
-                <div class="blog_main col-md-7 ">
+                <div class="blog_main col-md-7 " id="CenterContent">
 
-                    @{
+                    @*{
                         using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                         {
                             //List<tblNew> q = (List<tblNew>)ViewData["MyData"];
@@ -174,6 +159,7 @@
                                 var qGet = (from i in db.tblMagazines
                                             where i.SiteTitle.Contains(GetName)
                                             select i).FirstOrDefault();
+
 
                                 var q = (from i in db.tblNews
                                          where i.MagazineID == qGet.MagazineID
@@ -255,7 +241,7 @@
                             }
                         }
 
-                    </ul>
+                       </ul>*@
                 </div>
 
                 <div class="col-md-2 blog_right no-padding divleftarticle">
@@ -266,21 +252,8 @@
                             <h6 class="line-height-2-5">مقالات</h6>
                         </div>
                         <div class="widget-content md-padding">
-                            <ul class="tag_nav list-unstyled div-bg-white">
-                                @{
-                                    using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
-                                    {
-                                        var q = (from i in db.tblMagazines
-                                                 where i.tblNews.Count > 0
-                                                 select i.SiteTitle).Distinct().ToList();
-
-                                        foreach (var item in q)
-                                        {
-                                            <li><a href="/Home/Magazine/@item">@item</a></li>
-                                        }
-                                    }
-                                }
-                                <div class="clearfix"></div>
+                            <ul class="tag_nav list-unstyled div-bg-white" id="MyMagazinesG">
+                               
                             </ul>
                         </div>
                     </div>
@@ -409,3 +382,80 @@
     </div>
 
 }
+
+@section ScriptJs{
+    
+    
+    
+    <script>
+    $(document).ready(function () {
+
+        $.getJSON("/DT/GetMostRecentNews", function (data) {
+                var $xml = $(data);
+                var allhtml = "";
+                $.each($xml, function (index, value) {
+                    var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-");
+                    var $taga = "<li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a title='" + value.NTitle + "' href='" + Prehref + "'> " + value.NTitle + " </a></li>";
+                    allhtml += $taga;
+                });
+                $('#MostRecentNews').append(allhtml);
+        });
+
+        $.getJSON("/DT/GetMagazines", function (data) {
+            var $xml = $(data);
+            var allhtml = "";
+            $.each($xml, function (index, value) {
+                var $eachMagazine = "<div class='widget'><div class='widget-header text-align-center'><a class='colorblack' href='/Home/Magazine/" + value.MagazineID + "'><h6 class='line-height-2-5'>" + value.SiteName + "</h6></a></div><div class='widget-content md-padding'><ul id='mgz" + value.MagazineID + "' class='list-unstyled hidden-sm hidden-xs div-bg-white'><div class='clearfix'></div></ul></div></div>";
+                $('#MagazinesNews').append($eachMagazine);
+                $.getJSON("/DT/GetLatestNewsByMagazineID/" + value.MagazineID + "", function (myData) {
+                    var $xData = $(myData);
+                    $.each($xData, function (key, item) {
+                        var Prehref = "/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-");
+                        var $ulItem = "<li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a title='" + item.NTitle + "' href='" + Prehref + "'> " + item.NTitle + "</a></li>";
+                        $("#mgz" + value.MagazineID).append($ulItem);
+                    });
+                });
+            });
+        });
+
+        $.getJSON("/DT/GetDistinctMagazines", function (data) {
+            var $xml = $(data);
+            var allhtml = "";
+            $.each($xml, function (index, value) {
+                var myitem = "<li><a href='/Home/Magazine/" + value.MagazineID + "'>" + value.SiteName + "</a></li>";
+                $('#MyMagazinesG').append(myitem);
+
+            });
+            $('#MyMagazinesG').append("<div class='clearfix'></div>");
+        });
+
+
+
+        $.getJSON("/DT/GetAllNews/0", function (data) {
+            var $xml = $(data);
+            $.each($xml, function (index, value) {
+                var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-");
+                var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='images/blog-pic1.jpg' alt='' class='img-responsive' /></a><h4><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
+                $("#CenterContent").append(newesItem)
+            });
+        });
+
+
+
+
+
+
+
+
+        //var interval = setInterval(function () {
+        //}, 1000);
+
+        //var interval = setInterval(function () {
+        //    $.get("/Sync/GetData", function (data) {
+        //
+        //    });
+        //}, 0);
+    });
+</script>
+    
+    }
