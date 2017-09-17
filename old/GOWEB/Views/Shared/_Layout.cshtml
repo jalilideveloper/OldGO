@@ -504,7 +504,7 @@
 
 
 </script>
-<script>
+@*<script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
             (i[r].q = i[r].q || []).push(arguments)
@@ -515,43 +515,43 @@
     ga('create', 'UA-102207473-1', 'auto');
     ga('send', 'pageview');
 
-</script>
+</script>*@
 
 <script>
     $(document).ready(function () {
 
-        $.get("/Sync/GetDataaaa", function (data) {
+        //$.get("/Sync/GetDataaaa", function (data) {
           
-        });
+        //});
 
-        //var interval = setInterval(function () {
+        var interval = setInterval(function () {
 
-        //    $.get("/Sync/GetData", function (data) {
-        //        //var $xml = $(data);
+            $.get("/Sync/GetDatnjkoi8a", function (data) {
+                ////var $xml = $(data);
 
-        //        var $qs = JSON.parse(data)
+                //var $qs = JSON.parse(data)
 
-        //        console.log($qs);
+                //console.log($qs);
 
-        //        var allhtml = "";
+                //var allhtml = "";
 
-        //        $.each($qs, function (index, value) {
-        //            var $taga = "<div><a title=\"" + value.title + "\" href=\"" + value.link + "\">" + value.title + "<a> : <span> " + value.description + "</span> </div> ";
+                //$.each($qs, function (index, value) {
+                //    var $taga = "<div><a title=\"" + value.title + "\" href=\"" + value.link + "\">" + value.title + "<a> : <span> " + value.description + "</span> </div> ";
 
-        //            console.log($taga);
-        //            allhtml += $taga;
-        //        });
+                //    console.log($taga);
+                //    allhtml += $taga;
+                //});
 
-        //        $('#MyData').append(allhtml)
+                //$('#MyData').append(allhtml)
 
-        //        var $xml = data;
+                //var $xml = data;
 
-        //        $('#MyData').html($xml);
+                //$('#MyData').html($xml);
 
-        //    });
+            });
 
 
-        //}, 0);
+        }, 7200000);
     });
 </script>
 

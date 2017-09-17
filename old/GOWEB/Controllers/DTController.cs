@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.Data.Entity;
+using GOWEB.Models;
 
 namespace GOWEB.Controllers
 {
@@ -19,16 +21,8 @@ namespace GOWEB.Controllers
             using (greenopt_GONewsEntities dbs = new greenopt_GONewsEntities())
             {
 
-                List<listNews> q = dbs.tblNews.Select(x => new listNews
-                {
-                    NewsID = x.NewsID,
-                    NTitle = x.Title,
-                    MagazineName = x.tblMagazine.MagazineName,
-                    ViewNumber = x.ViewNumber
-                })
-                .OrderByDescending(o => o.ViewNumber).Take(15).ToList();
-                dbs.Database.Connection.Close();
-                var json = JsonConvert.SerializeObject(q);
+                var GetMostRecent = dbs.spgo_GetAllRecentNewsTopView().Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber });
+                var json = JsonConvert.SerializeObject(GetMostRecent);
                 return json;
             }
 
@@ -46,40 +40,63 @@ namespace GOWEB.Controllers
                 {
 
                     List<listNews> lstNews = new List<listNews>();
-                    var q = (from i in db.tblNews
-                             select i).ToList().OrderByDescending(o => o.PubDate.Value.Year).Take(15);
 
-                    foreach (var item in q)
+                    var GetallNews = db.spgo_GetAllRecentNewsTopView()
+                        .Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber,Description = p.Descriptions, PubDate = p.PubDate.ToString() , SiteTitle = p.SiteTitle }).ToList();
+                    if (GetallNews.Count > 0)
                     {
-                        System.Globalization.PersianCalendar persianCalandar =
-                                                     new System.Globalization.PersianCalendar();
-                        int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
-                        int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
-                        int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
-                        lstNews.Add(new listNews {SiteTitle =item.tblMagazine.SiteTitle, Description = item.Descriptions,MagazineName = item.tblMagazine.MagazineName, NewsID = item.NewsID, NTitle = item.Title, PubDate = year +"/"+ month +"/"+ day,ViewNumber = item.ViewNumber});
-                    }
 
-                    var json = JsonConvert.SerializeObject(lstNews);
-                    return json;
+
+                        foreach (var item in GetallNews)
+                        {
+                            System.Globalization.PersianCalendar persianCalandar =
+                                                         new System.Globalization.PersianCalendar();
+                            if (item.PubDate != null)
+                            {
+                                int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
+                                int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
+                                int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
+                                lstNews.Add(new listNews { SiteTitle = item.SiteTitle, Description = item.Description, MagazineName = item.MagazineName, NewsID = item.NewsID, NTitle = item.NTitle, PubDate = year + "/" + month + "/" + day , ViewNumber = item.ViewNumber });
+                            }
+                            else
+                            {
+                                lstNews.Add(new listNews { SiteTitle = item.SiteTitle, Description = item.Description, MagazineName = item.MagazineName, NewsID = item.NewsID, NTitle = item.NTitle, PubDate = "", ViewNumber = item.ViewNumber });
+                            }
+                        }
+                        var json = JsonConvert.SerializeObject(lstNews);
+                        return json;
+
+                    }
+                    else
+                    {
+                        return "";
+                    }
                 }
                 else
                 {
                     List<listNews> lstNews = new List<listNews>();
-                    var q = (from i in db.tblNews
-                             select i).ToList().OrderByDescending(o => o.PubDate.Value.Year).Skip(id).Take(15);
-
-                    foreach (var item in q)
+                    var GetallNews = db.spgo_GetAllRecentNewsTopView().Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber, Description = p.Descriptions, PubDate = p.PubDate.ToString(), SiteTitle = p.SiteTitle }).Skip(id).ToList();
+                    if (GetallNews.Count > 0)
                     {
-                        System.Globalization.PersianCalendar persianCalandar =
-                                                     new System.Globalization.PersianCalendar();
-                        int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
-                        int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
-                        int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
-                        lstNews.Add(new listNews { SiteTitle = item.tblMagazine.SiteTitle, Description = item.Descriptions, MagazineName = item.tblMagazine.MagazineName, NewsID = item.NewsID, NTitle = item.Title, PubDate = year + "/" + month + "/" + day, ViewNumber = item.ViewNumber });
-                    }
 
-                    var json = JsonConvert.SerializeObject(lstNews);
-                    return json;
+
+                        foreach (var item in GetallNews)
+                        {
+                            System.Globalization.PersianCalendar persianCalandar =
+                                                         new System.Globalization.PersianCalendar();
+                            int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
+                            int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
+                            int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
+                            lstNews.Add(new listNews { SiteTitle = item.SiteTitle, Description = item.Description, MagazineName = item.MagazineName, NewsID = item.NewsID, NTitle = item.NTitle, PubDate = year + "/" + month + "/" + day, ViewNumber = item.ViewNumber });
+                        }
+
+                        var json = JsonConvert.SerializeObject(lstNews);
+                        return json;
+                    }
+                    else
+                    {
+                        return "";
+                    }
                 }
             }
         }
@@ -89,16 +106,8 @@ namespace GOWEB.Controllers
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
-
-                //db.Database.Connection.Open();
-                var q = db.tblMagazines.Where(p => p.tblNews.Count > 0).Select(x => new MagazineObj
-                {
-                    MagazineID = x.MagazineID,
-                    SiteName = x.SiteTitle,
-                    MagazineName = x.MagazineName
-                }).ToList();
-                var json = JsonConvert.SerializeObject(q);
-
+                var getMagazine = db.spgo_GetAllMagazine().Select(p => new MagazineObj { MagazineID = p.MagazineID, SiteName = p.SiteTitle, MagazineName = p.MagazineName });
+                var json = JsonConvert.SerializeObject(getMagazine);
                 return json;
             }
         }
@@ -109,14 +118,8 @@ namespace GOWEB.Controllers
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
-                var q = db.tblMagazines.Where(p => p.tblNews.Count > 0).Select(x => new MagazineObj
-                {
-                    MagazineID = x.MagazineID,
-                    SiteName = x.SiteTitle,
-                    MagazineName = x.MagazineName
-                }).Distinct().ToList();
-                var json = JsonConvert.SerializeObject(q);
-
+                var getMagazine = db.spgo_GetAllMagazine().Select(p => new MagazineObj { MagazineID = p.MagazineID, SiteName = p.SiteTitle, MagazineName = p.MagazineName }).Distinct().ToList();
+                var json = JsonConvert.SerializeObject(getMagazine);
                 return json;
             }
 
@@ -124,26 +127,15 @@ namespace GOWEB.Controllers
 
 
         public string GetLatestNewsByMagazineID(int id)
+
         {
             using (greenopt_GONewsEntities dbs = new greenopt_GONewsEntities())
             {
-                //db.Database.Connection.Open();
-                List<listNews> queryNewsSelected = new List<listNews>();
 
-
-                var qGetNewOFMAgazine = (from i in dbs.tblNews
-                                         where i.MagazineID == id
-                                         select i).OrderByDescending(o => o.PubDate.Value.Year).Take(15).ToList();
-
-                foreach (var inside in qGetNewOFMAgazine)
-                {
-                    queryNewsSelected.Add(new listNews { NewsID = inside.NewsID, MagazineName = inside.tblMagazine.SiteTitle, NTitle = inside.Title, ViewNumber = inside.ViewNumber });
-                }
-
-                var json = JsonConvert.SerializeObject(queryNewsSelected);
+                var qGetNewOFMAgazine = dbs.spgo_GetLatestNewsOrderByDateByMGID(id).Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber });
+                var json = JsonConvert.SerializeObject(qGetNewOFMAgazine);
                 return json;
             }
-
         }
 
 
@@ -241,7 +233,7 @@ namespace GOWEB.Controllers
 
     }
 
-    
+
     public class MagazineObj
     {
         public int MagazineID { get; set; }

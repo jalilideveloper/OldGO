@@ -1,0 +1,1281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="greenopt_dbgoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="TitlePay" Type="nvarchar" MaxLength="100" />
+          <Property Name="TransIDSystem" Type="nvarchar" MaxLength="80" />
+          <Property Name="CodeGenerator" Type="nvarchar" MaxLength="20" />
+          <Property Name="TransIDPay" Type="nvarchar" MaxLength="200" />
+          <Property Name="Amount" Type="varchar" MaxLength="50" />
+          <Property Name="ApiKey" Type="nvarchar" MaxLength="150" />
+          <Property Name="ResultPay" Type="bit" />
+          <Property Name="ResultCode" Type="varchar" MaxLength="50" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="ChangeDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="GroupID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblOrder">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OrderDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderTypeID" Type="int" />
+          <Property Name="IsPay" Type="bit" />
+          <Property Name="IsDone" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblOrderDetailAds">
+          <Key>
+            <PropertyRef Name="OrderDetailAdsID" />
+          </Key>
+          <Property Name="OrderDetailAdsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="Keyword" Type="nvarchar(max)" />
+          <Property Name="Contents" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="UrlSite" Type="nvarchar(max)" />
+          <Property Name="ProductID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblOrderDetailSeo">
+          <Key>
+            <PropertyRef Name="OrderDetailSEOID" />
+          </Key>
+          <Property Name="OrderDetailSEOID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="RequestAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="LinkUrl" Type="nvarchar" MaxLength="1500" />
+          <Property Name="DeadLineDay" Type="int" />
+        </EntityType>
+        <EntityType Name="tblOrderDetailSocial">
+          <Key>
+            <PropertyRef Name="OrderDetailSocialID" />
+          </Key>
+          <Property Name="OrderDetailSocialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ReqCountLikeFollower" Type="int" />
+          <Property Name="LinkUrl" Type="nvarchar" MaxLength="2000" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommentOrDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblOrderType">
+          <Key>
+            <PropertyRef Name="OrderTypeID" />
+          </Key>
+          <Property Name="OrderTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderTypeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblPayment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayDescription" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblPriority">
+          <Key>
+            <PropertyRef Name="PriorityID" />
+          </Key>
+          <Property Name="PriorityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PrioirtyType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="ProductDescription" Type="nvarchar(max)" />
+          <Property Name="ProductDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnabledStatus" Type="bit" />
+          <Property Name="Discount" Type="tinyint" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="1" />
+          <Property Name="UnitPriceFor" Type="nvarchar" MaxLength="50" />
+          <Property Name="MinLimit" Type="int" />
+          <Property Name="MaxLimit" Type="int" />
+          <Property Name="ServiceSocialID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="oneWord" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="twoWord" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="threeWord" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="suppPerMonthOne" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="suppPerMonthTwo" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="suppPerMonthThree" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OneWordDay" Type="int" />
+          <Property Name="TwoWordDay" Type="int" />
+          <Property Name="ThreeWordDay" Type="int" />
+        </EntityType>
+        <EntityType Name="tblTickets">
+          <Key>
+            <PropertyRef Name="TicketID" />
+          </Key>
+          <Property Name="TicketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="UnitID" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="AskQuestion" Type="nvarchar(max)" />
+          <Property Name="PriorityID" Type="int" />
+          <Property Name="QuestionDatetime" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="TicketStatusID" Type="int" />
+          <Property Name="AnswerTicket" Type="nvarchar(max)" />
+          <Property Name="AnswerDateTime" Type="nchar" MaxLength="10" />
+          <Property Name="ParrentID" Type="int" />
+          <Property Name="SupportID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblTicketStatus">
+          <Key>
+            <PropertyRef Name="TicketStausId" />
+          </Key>
+          <Property Name="TicketStausId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketStatusType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblTransaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionStatusID" Type="int" />
+          <Property Name="DateTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsSucsessfullPay" Type="bit" />
+          <Property Name="TransNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="CodeType" Type="int" />
+          <Property Name="OrderIdAddFound" Type="int" />
+          <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PaymentID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblTransactionStatus">
+          <Key>
+            <PropertyRef Name="TransactionStatusID" />
+          </Key>
+          <Property Name="TransactionStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblUnits">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserType" Type="tinyint" />
+        </EntityType>
+        <Association Name="FK_tblOrder_tblOrderType">
+          <End Role="tblOrderType" Type="Self.tblOrderType" Multiplicity="0..1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrderType">
+              <PropertyRef Name="OrderTypeID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="OrderTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailAds_tblOrder">
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="0..1" />
+          <End Role="tblOrderDetailAds" Type="Self.tblOrderDetailAds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrder">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailAds">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailAds_tblProduct">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+          <End Role="tblOrderDetailAds" Type="Self.tblOrderDetailAds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailAds">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailSeo_tblOrder">
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="0..1" />
+          <End Role="tblOrderDetailSeo" Type="Self.tblOrderDetailSeo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrder">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailSeo">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailSeo_tblProduct">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+          <End Role="tblOrderDetailSeo" Type="Self.tblOrderDetailSeo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailSeo">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailSocial_tblOrder">
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="0..1" />
+          <End Role="tblOrderDetailSocial" Type="Self.tblOrderDetailSocial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrder">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailSocial">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailSocial_tblProduct">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+          <End Role="tblOrderDetailSocial" Type="Self.tblOrderDetailSocial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailSocial">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderTransaction_tblTransactionStatus">
+          <End Role="tblTransactionStatus" Type="Self.tblTransactionStatus" Multiplicity="0..1" />
+          <End Role="tblTransaction" Type="Self.tblTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTransactionStatus">
+              <PropertyRef Name="TransactionStatusID" />
+            </Principal>
+            <Dependent Role="tblTransaction">
+              <PropertyRef Name="TransactionStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProduct_tblCategory">
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="0..1" />
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="tblProduct">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTickets_tblPriority">
+          <End Role="tblPriority" Type="Self.tblPriority" Multiplicity="0..1" />
+          <End Role="tblTickets" Type="Self.tblTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPriority">
+              <PropertyRef Name="PriorityID" />
+            </Principal>
+            <Dependent Role="tblTickets">
+              <PropertyRef Name="PriorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTickets_tblTicketStatus">
+          <End Role="tblTicketStatus" Type="Self.tblTicketStatus" Multiplicity="0..1" />
+          <End Role="tblTickets" Type="Self.tblTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTicketStatus">
+              <PropertyRef Name="TicketStausId" />
+            </Principal>
+            <Dependent Role="tblTickets">
+              <PropertyRef Name="TicketStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTickets_tblUnits">
+          <End Role="tblUnits" Type="Self.tblUnits" Multiplicity="0..1" />
+          <End Role="tblTickets" Type="Self.tblTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUnits">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="tblTickets">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTickets_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblTickets" Type="Self.tblTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblTickets">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTickets_tblUser1">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblTickets" Type="Self.tblTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblTickets">
+              <PropertyRef Name="SupportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTransaction_tblPayment">
+          <End Role="tblPayment" Type="Self.tblPayment" Multiplicity="0..1" />
+          <End Role="tblTransaction" Type="Self.tblTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPayment">
+              <PropertyRef Name="PaymentID" />
+            </Principal>
+            <Dependent Role="tblTransaction">
+              <PropertyRef Name="PaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTransaction_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblTransaction" Type="Self.tblTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblTransaction">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="greenopt_dbgoModelStoreContainer">
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCategory" EntityType="Self.tblCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrder" EntityType="Self.tblOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrderDetailAds" EntityType="Self.tblOrderDetailAds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrderDetailSeo" EntityType="Self.tblOrderDetailSeo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrderDetailSocial" EntityType="Self.tblOrderDetailSocial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrderType" EntityType="Self.tblOrderType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPayment" EntityType="Self.tblPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPriority" EntityType="Self.tblPriority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTickets" EntityType="Self.tblTickets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTicketStatus" EntityType="Self.tblTicketStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTransaction" EntityType="Self.tblTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTransactionStatus" EntityType="Self.tblTransactionStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUnits" EntityType="Self.tblUnits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblOrder_tblOrderType" Association="Self.FK_tblOrder_tblOrderType">
+            <End Role="tblOrderType" EntitySet="tblOrderType" />
+            <End Role="tblOrder" EntitySet="tblOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblUser" Association="Self.FK_tblOrder_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblOrder" EntitySet="tblOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailAds_tblOrder" Association="Self.FK_tblOrderDetailAds_tblOrder">
+            <End Role="tblOrder" EntitySet="tblOrder" />
+            <End Role="tblOrderDetailAds" EntitySet="tblOrderDetailAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailAds_tblProduct" Association="Self.FK_tblOrderDetailAds_tblProduct">
+            <End Role="tblProduct" EntitySet="tblProduct" />
+            <End Role="tblOrderDetailAds" EntitySet="tblOrderDetailAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailSeo_tblOrder" Association="Self.FK_tblOrderDetailSeo_tblOrder">
+            <End Role="tblOrder" EntitySet="tblOrder" />
+            <End Role="tblOrderDetailSeo" EntitySet="tblOrderDetailSeo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailSeo_tblProduct" Association="Self.FK_tblOrderDetailSeo_tblProduct">
+            <End Role="tblProduct" EntitySet="tblProduct" />
+            <End Role="tblOrderDetailSeo" EntitySet="tblOrderDetailSeo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailSocial_tblOrder" Association="Self.FK_tblOrderDetailSocial_tblOrder">
+            <End Role="tblOrder" EntitySet="tblOrder" />
+            <End Role="tblOrderDetailSocial" EntitySet="tblOrderDetailSocial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailSocial_tblProduct" Association="Self.FK_tblOrderDetailSocial_tblProduct">
+            <End Role="tblProduct" EntitySet="tblProduct" />
+            <End Role="tblOrderDetailSocial" EntitySet="tblOrderDetailSocial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderTransaction_tblTransactionStatus" Association="Self.FK_tblOrderTransaction_tblTransactionStatus">
+            <End Role="tblTransactionStatus" EntitySet="tblTransactionStatus" />
+            <End Role="tblTransaction" EntitySet="tblTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProduct_tblCategory" Association="Self.FK_tblProduct_tblCategory">
+            <End Role="tblCategory" EntitySet="tblCategory" />
+            <End Role="tblProduct" EntitySet="tblProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTickets_tblPriority" Association="Self.FK_tblTickets_tblPriority">
+            <End Role="tblPriority" EntitySet="tblPriority" />
+            <End Role="tblTickets" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTickets_tblTicketStatus" Association="Self.FK_tblTickets_tblTicketStatus">
+            <End Role="tblTicketStatus" EntitySet="tblTicketStatus" />
+            <End Role="tblTickets" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTickets_tblUnits" Association="Self.FK_tblTickets_tblUnits">
+            <End Role="tblUnits" EntitySet="tblUnits" />
+            <End Role="tblTickets" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTickets_tblUser" Association="Self.FK_tblTickets_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblTickets" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTickets_tblUser1" Association="Self.FK_tblTickets_tblUser1">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblTickets" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTransaction_tblPayment" Association="Self.FK_tblTransaction_tblPayment">
+            <End Role="tblPayment" EntitySet="tblPayment" />
+            <End Role="tblTransaction" EntitySet="tblTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTransaction_tblUser" Association="Self.FK_tblTransaction_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblTransaction" EntitySet="tblTransaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="greenopt_dbgoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TitlePay" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TransIDSystem" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="CodeGenerator" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TransIDPay" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApiKey" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ResultPay" Type="Boolean" />
+          <Property Name="ResultCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="ChangeDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GroupID" Type="Int32" />
+          <NavigationProperty Name="tblProducts" Relationship="Self.FK_tblProduct_tblCategory" FromRole="tblCategory" ToRole="tblProduct" />
+        </EntityType>
+        <EntityType Name="tblOrder">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OrderDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderTypeID" Type="Int32" />
+          <Property Name="IsPay" Type="Boolean" />
+          <Property Name="IsDone" Type="Boolean" />
+          <NavigationProperty Name="tblOrderType" Relationship="Self.FK_tblOrder_tblOrderType" FromRole="tblOrder" ToRole="tblOrderType" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblOrder_tblUser" FromRole="tblOrder" ToRole="tblUser" />
+          <NavigationProperty Name="tblOrderDetailAds" Relationship="Self.FK_tblOrderDetailAds_tblOrder" FromRole="tblOrder" ToRole="tblOrderDetailAds" />
+          <NavigationProperty Name="tblOrderDetailSeos" Relationship="Self.FK_tblOrderDetailSeo_tblOrder" FromRole="tblOrder" ToRole="tblOrderDetailSeo" />
+          <NavigationProperty Name="tblOrderDetailSocials" Relationship="Self.FK_tblOrderDetailSocial_tblOrder" FromRole="tblOrder" ToRole="tblOrderDetailSocial" />
+        </EntityType>
+        <EntityType Name="tblOrderDetailAd">
+          <Key>
+            <PropertyRef Name="OrderDetailAdsID" />
+          </Key>
+          <Property Name="OrderDetailAdsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="Keyword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UrlSite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" />
+          <NavigationProperty Name="tblOrder" Relationship="Self.FK_tblOrderDetailAds_tblOrder" FromRole="tblOrderDetailAds" ToRole="tblOrder" />
+          <NavigationProperty Name="tblProduct" Relationship="Self.FK_tblOrderDetailAds_tblProduct" FromRole="tblOrderDetailAds" ToRole="tblProduct" />
+        </EntityType>
+        <EntityType Name="tblOrderDetailSeo">
+          <Key>
+            <PropertyRef Name="OrderDetailSEOID" />
+          </Key>
+          <Property Name="OrderDetailSEOID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="RequestAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LinkUrl" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="DeadLineDay" Type="Int32" />
+          <NavigationProperty Name="tblOrder" Relationship="Self.FK_tblOrderDetailSeo_tblOrder" FromRole="tblOrderDetailSeo" ToRole="tblOrder" />
+          <NavigationProperty Name="tblProduct" Relationship="Self.FK_tblOrderDetailSeo_tblProduct" FromRole="tblOrderDetailSeo" ToRole="tblProduct" />
+        </EntityType>
+        <EntityType Name="tblOrderDetailSocial">
+          <Key>
+            <PropertyRef Name="OrderDetailSocialID" />
+          </Key>
+          <Property Name="OrderDetailSocialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ReqCountLikeFollower" Type="Int32" />
+          <Property Name="LinkUrl" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommentOrDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblOrder" Relationship="Self.FK_tblOrderDetailSocial_tblOrder" FromRole="tblOrderDetailSocial" ToRole="tblOrder" />
+          <NavigationProperty Name="tblProduct" Relationship="Self.FK_tblOrderDetailSocial_tblProduct" FromRole="tblOrderDetailSocial" ToRole="tblProduct" />
+        </EntityType>
+        <EntityType Name="tblOrderType">
+          <Key>
+            <PropertyRef Name="OrderTypeID" />
+          </Key>
+          <Property Name="OrderTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblOrders" Relationship="Self.FK_tblOrder_tblOrderType" FromRole="tblOrderType" ToRole="tblOrder" />
+        </EntityType>
+        <EntityType Name="tblPayment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PayDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblTransactions" Relationship="Self.FK_tblTransaction_tblPayment" FromRole="tblPayment" ToRole="tblTransaction" />
+        </EntityType>
+        <EntityType Name="tblPriority">
+          <Key>
+            <PropertyRef Name="PriorityID" />
+          </Key>
+          <Property Name="PriorityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrioirtyType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblTickets" Relationship="Self.FK_tblTickets_tblPriority" FromRole="tblPriority" ToRole="tblTickets" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnabledStatus" Type="Boolean" />
+          <Property Name="Discount" Type="Byte" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="1" />
+          <Property Name="UnitPriceFor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MinLimit" Type="Int32" />
+          <Property Name="MaxLimit" Type="Int32" />
+          <Property Name="ServiceSocialID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="oneWord" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="twoWord" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="threeWord" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="suppPerMonthOne" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="suppPerMonthTwo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="suppPerMonthThree" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OneWordDay" Type="Int32" />
+          <Property Name="TwoWordDay" Type="Int32" />
+          <Property Name="ThreeWordDay" Type="Int32" />
+          <NavigationProperty Name="tblCategory" Relationship="Self.FK_tblProduct_tblCategory" FromRole="tblProduct" ToRole="tblCategory" />
+          <NavigationProperty Name="tblOrderDetailAds" Relationship="Self.FK_tblOrderDetailAds_tblProduct" FromRole="tblProduct" ToRole="tblOrderDetailAds" />
+          <NavigationProperty Name="tblOrderDetailSeos" Relationship="Self.FK_tblOrderDetailSeo_tblProduct" FromRole="tblProduct" ToRole="tblOrderDetailSeo" />
+          <NavigationProperty Name="tblOrderDetailSocials" Relationship="Self.FK_tblOrderDetailSocial_tblProduct" FromRole="tblProduct" ToRole="tblOrderDetailSocial" />
+        </EntityType>
+        <EntityType Name="tblTicket">
+          <Key>
+            <PropertyRef Name="TicketID" />
+          </Key>
+          <Property Name="TicketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="UnitID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AskQuestion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriorityID" Type="Int32" />
+          <Property Name="QuestionDatetime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="TicketStatusID" Type="Int32" />
+          <Property Name="AnswerTicket" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnswerDateTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ParrentID" Type="Int32" />
+          <Property Name="SupportID" Type="Int32" />
+          <NavigationProperty Name="tblPriority" Relationship="Self.FK_tblTickets_tblPriority" FromRole="tblTickets" ToRole="tblPriority" />
+          <NavigationProperty Name="tblTicketStatu" Relationship="Self.FK_tblTickets_tblTicketStatus" FromRole="tblTickets" ToRole="tblTicketStatus" />
+          <NavigationProperty Name="tblUnit" Relationship="Self.FK_tblTickets_tblUnits" FromRole="tblTickets" ToRole="tblUnits" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblTickets_tblUser" FromRole="tblTickets" ToRole="tblUser" />
+          <NavigationProperty Name="tblUser1" Relationship="Self.FK_tblTickets_tblUser1" FromRole="tblTickets" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblTicketStatu">
+          <Key>
+            <PropertyRef Name="TicketStausId" />
+          </Key>
+          <Property Name="TicketStausId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketStatusType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblTickets" Relationship="Self.FK_tblTickets_tblTicketStatus" FromRole="tblTicketStatus" ToRole="tblTickets" />
+        </EntityType>
+        <EntityType Name="tblTransaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionStatusID" Type="Int32" />
+          <Property Name="DateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsSucsessfullPay" Type="Boolean" />
+          <Property Name="TransNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="CodeType" Type="Int32" />
+          <Property Name="OrderIdAddFound" Type="Int32" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PaymentID" Type="Int32" />
+          <NavigationProperty Name="tblPayment" Relationship="Self.FK_tblTransaction_tblPayment" FromRole="tblTransaction" ToRole="tblPayment" />
+          <NavigationProperty Name="tblTransactionStatu" Relationship="Self.FK_tblOrderTransaction_tblTransactionStatus" FromRole="tblTransaction" ToRole="tblTransactionStatus" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblTransaction_tblUser" FromRole="tblTransaction" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblTransactionStatu">
+          <Key>
+            <PropertyRef Name="TransactionStatusID" />
+          </Key>
+          <Property Name="TransactionStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblTransactions" Relationship="Self.FK_tblOrderTransaction_tblTransactionStatus" FromRole="tblTransactionStatus" ToRole="tblTransaction" />
+        </EntityType>
+        <EntityType Name="tblUnit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblTickets" Relationship="Self.FK_tblTickets_tblUnits" FromRole="tblUnits" ToRole="tblTickets" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="Byte" />
+          <NavigationProperty Name="tblOrders" Relationship="Self.FK_tblOrder_tblUser" FromRole="tblUser" ToRole="tblOrder" />
+          <NavigationProperty Name="tblTickets" Relationship="Self.FK_tblTickets_tblUser" FromRole="tblUser" ToRole="tblTickets" />
+          <NavigationProperty Name="tblTickets1" Relationship="Self.FK_tblTickets_tblUser1" FromRole="tblUser" ToRole="tblTickets" />
+          <NavigationProperty Name="tblTransactions" Relationship="Self.FK_tblTransaction_tblUser" FromRole="tblUser" ToRole="tblTransaction" />
+        </EntityType>
+        <Association Name="FK_tblProduct_tblCategory">
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="0..1" />
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="tblProduct">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblOrderType">
+          <End Role="tblOrderType" Type="Self.tblOrderType" Multiplicity="0..1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrderType">
+              <PropertyRef Name="OrderTypeID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="OrderTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailAds_tblOrder">
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="0..1" />
+          <End Role="tblOrderDetailAds" Type="Self.tblOrderDetailAd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrder">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailAds">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailSeo_tblOrder">
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="0..1" />
+          <End Role="tblOrderDetailSeo" Type="Self.tblOrderDetailSeo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrder">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailSeo">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailSocial_tblOrder">
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="0..1" />
+          <End Role="tblOrderDetailSocial" Type="Self.tblOrderDetailSocial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrder">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailSocial">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailAds_tblProduct">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+          <End Role="tblOrderDetailAds" Type="Self.tblOrderDetailAd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailAds">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailSeo_tblProduct">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+          <End Role="tblOrderDetailSeo" Type="Self.tblOrderDetailSeo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailSeo">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderDetailSocial_tblProduct">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+          <End Role="tblOrderDetailSocial" Type="Self.tblOrderDetailSocial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="tblOrderDetailSocial">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTransaction_tblPayment">
+          <End Role="tblPayment" Type="Self.tblPayment" Multiplicity="0..1" />
+          <End Role="tblTransaction" Type="Self.tblTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPayment">
+              <PropertyRef Name="PaymentID" />
+            </Principal>
+            <Dependent Role="tblTransaction">
+              <PropertyRef Name="PaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTickets_tblPriority">
+          <End Role="tblPriority" Type="Self.tblPriority" Multiplicity="0..1" />
+          <End Role="tblTickets" Type="Self.tblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPriority">
+              <PropertyRef Name="PriorityID" />
+            </Principal>
+            <Dependent Role="tblTickets">
+              <PropertyRef Name="PriorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTickets_tblTicketStatus">
+          <End Role="tblTicketStatus" Type="Self.tblTicketStatu" Multiplicity="0..1" />
+          <End Role="tblTickets" Type="Self.tblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTicketStatus">
+              <PropertyRef Name="TicketStausId" />
+            </Principal>
+            <Dependent Role="tblTickets">
+              <PropertyRef Name="TicketStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTickets_tblUnits">
+          <End Role="tblUnits" Type="Self.tblUnit" Multiplicity="0..1" />
+          <End Role="tblTickets" Type="Self.tblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUnits">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="tblTickets">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTickets_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblTickets" Type="Self.tblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblTickets">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTickets_tblUser1">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblTickets" Type="Self.tblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblTickets">
+              <PropertyRef Name="SupportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderTransaction_tblTransactionStatus">
+          <End Role="tblTransactionStatus" Type="Self.tblTransactionStatu" Multiplicity="0..1" />
+          <End Role="tblTransaction" Type="Self.tblTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTransactionStatus">
+              <PropertyRef Name="TransactionStatusID" />
+            </Principal>
+            <Dependent Role="tblTransaction">
+              <PropertyRef Name="TransactionStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTransaction_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblTransaction" Type="Self.tblTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblTransaction">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="greenopt_dbgoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="tblCategories" EntityType="Self.tblCategory" />
+          <EntitySet Name="tblOrders" EntityType="Self.tblOrder" />
+          <EntitySet Name="tblOrderDetailAds" EntityType="Self.tblOrderDetailAd" />
+          <EntitySet Name="tblOrderDetailSeos" EntityType="Self.tblOrderDetailSeo" />
+          <EntitySet Name="tblOrderDetailSocials" EntityType="Self.tblOrderDetailSocial" />
+          <EntitySet Name="tblOrderTypes" EntityType="Self.tblOrderType" />
+          <EntitySet Name="tblPayments" EntityType="Self.tblPayment" />
+          <EntitySet Name="tblPriorities" EntityType="Self.tblPriority" />
+          <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
+          <EntitySet Name="tblTickets" EntityType="Self.tblTicket" />
+          <EntitySet Name="tblTicketStatus" EntityType="Self.tblTicketStatu" />
+          <EntitySet Name="tblTransactions" EntityType="Self.tblTransaction" />
+          <EntitySet Name="tblTransactionStatus" EntityType="Self.tblTransactionStatu" />
+          <EntitySet Name="tblUnits" EntityType="Self.tblUnit" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+          <AssociationSet Name="FK_tblProduct_tblCategory" Association="Self.FK_tblProduct_tblCategory">
+            <End Role="tblCategory" EntitySet="tblCategories" />
+            <End Role="tblProduct" EntitySet="tblProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblOrderType" Association="Self.FK_tblOrder_tblOrderType">
+            <End Role="tblOrderType" EntitySet="tblOrderTypes" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblUser" Association="Self.FK_tblOrder_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailAds_tblOrder" Association="Self.FK_tblOrderDetailAds_tblOrder">
+            <End Role="tblOrder" EntitySet="tblOrders" />
+            <End Role="tblOrderDetailAds" EntitySet="tblOrderDetailAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailSeo_tblOrder" Association="Self.FK_tblOrderDetailSeo_tblOrder">
+            <End Role="tblOrder" EntitySet="tblOrders" />
+            <End Role="tblOrderDetailSeo" EntitySet="tblOrderDetailSeos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailSocial_tblOrder" Association="Self.FK_tblOrderDetailSocial_tblOrder">
+            <End Role="tblOrder" EntitySet="tblOrders" />
+            <End Role="tblOrderDetailSocial" EntitySet="tblOrderDetailSocials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailAds_tblProduct" Association="Self.FK_tblOrderDetailAds_tblProduct">
+            <End Role="tblProduct" EntitySet="tblProducts" />
+            <End Role="tblOrderDetailAds" EntitySet="tblOrderDetailAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailSeo_tblProduct" Association="Self.FK_tblOrderDetailSeo_tblProduct">
+            <End Role="tblProduct" EntitySet="tblProducts" />
+            <End Role="tblOrderDetailSeo" EntitySet="tblOrderDetailSeos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderDetailSocial_tblProduct" Association="Self.FK_tblOrderDetailSocial_tblProduct">
+            <End Role="tblProduct" EntitySet="tblProducts" />
+            <End Role="tblOrderDetailSocial" EntitySet="tblOrderDetailSocials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTransaction_tblPayment" Association="Self.FK_tblTransaction_tblPayment">
+            <End Role="tblPayment" EntitySet="tblPayments" />
+            <End Role="tblTransaction" EntitySet="tblTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTickets_tblPriority" Association="Self.FK_tblTickets_tblPriority">
+            <End Role="tblPriority" EntitySet="tblPriorities" />
+            <End Role="tblTickets" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTickets_tblTicketStatus" Association="Self.FK_tblTickets_tblTicketStatus">
+            <End Role="tblTicketStatus" EntitySet="tblTicketStatus" />
+            <End Role="tblTickets" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTickets_tblUnits" Association="Self.FK_tblTickets_tblUnits">
+            <End Role="tblUnits" EntitySet="tblUnits" />
+            <End Role="tblTickets" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTickets_tblUser" Association="Self.FK_tblTickets_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblTickets" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTickets_tblUser1" Association="Self.FK_tblTickets_tblUser1">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblTickets" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderTransaction_tblTransactionStatus" Association="Self.FK_tblOrderTransaction_tblTransactionStatus">
+            <End Role="tblTransactionStatus" EntitySet="tblTransactionStatus" />
+            <End Role="tblTransaction" EntitySet="tblTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTransaction_tblUser" Association="Self.FK_tblTransaction_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblTransaction" EntitySet="tblTransactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="greenopt_dbgoModelStoreContainer" CdmEntityContainer="greenopt_dbgoEntities">
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TitlePay" ColumnName="TitlePay" />
+                <ScalarProperty Name="TransIDSystem" ColumnName="TransIDSystem" />
+                <ScalarProperty Name="CodeGenerator" ColumnName="CodeGenerator" />
+                <ScalarProperty Name="TransIDPay" ColumnName="TransIDPay" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+                <ScalarProperty Name="ResultPay" ColumnName="ResultPay" />
+                <ScalarProperty Name="ResultCode" ColumnName="ResultCode" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCategories">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblCategory">
+              <MappingFragment StoreEntitySet="tblCategory">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrders">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblOrder">
+              <MappingFragment StoreEntitySet="tblOrder">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderTypeID" ColumnName="OrderTypeID" />
+                <ScalarProperty Name="IsPay" ColumnName="IsPay" />
+                <ScalarProperty Name="IsDone" ColumnName="IsDone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrderDetailAds">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblOrderDetailAd">
+              <MappingFragment StoreEntitySet="tblOrderDetailAds">
+                <ScalarProperty Name="OrderDetailAdsID" ColumnName="OrderDetailAdsID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UrlSite" ColumnName="UrlSite" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrderDetailSeos">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblOrderDetailSeo">
+              <MappingFragment StoreEntitySet="tblOrderDetailSeo">
+                <ScalarProperty Name="OrderDetailSEOID" ColumnName="OrderDetailSEOID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="RequestAmount" ColumnName="RequestAmount" />
+                <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+                <ScalarProperty Name="DeadLineDay" ColumnName="DeadLineDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrderDetailSocials">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblOrderDetailSocial">
+              <MappingFragment StoreEntitySet="tblOrderDetailSocial">
+                <ScalarProperty Name="OrderDetailSocialID" ColumnName="OrderDetailSocialID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ReqCountLikeFollower" ColumnName="ReqCountLikeFollower" />
+                <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CommentOrDescription" ColumnName="CommentOrDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrderTypes">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblOrderType">
+              <MappingFragment StoreEntitySet="tblOrderType">
+                <ScalarProperty Name="OrderTypeID" ColumnName="OrderTypeID" />
+                <ScalarProperty Name="OrderTypeName" ColumnName="OrderTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPayments">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblPayment">
+              <MappingFragment StoreEntitySet="tblPayment">
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="PaymentTypeName" ColumnName="PaymentTypeName" />
+                <ScalarProperty Name="PayDescription" ColumnName="PayDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPriorities">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblPriority">
+              <MappingFragment StoreEntitySet="tblPriority">
+                <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+                <ScalarProperty Name="PrioirtyType" ColumnName="PrioirtyType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProducts">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblProduct">
+              <MappingFragment StoreEntitySet="tblProduct">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+                <ScalarProperty Name="ProductDate" ColumnName="ProductDate" />
+                <ScalarProperty Name="EnabledStatus" ColumnName="EnabledStatus" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="UnitPriceFor" ColumnName="UnitPriceFor" />
+                <ScalarProperty Name="MinLimit" ColumnName="MinLimit" />
+                <ScalarProperty Name="MaxLimit" ColumnName="MaxLimit" />
+                <ScalarProperty Name="ServiceSocialID" ColumnName="ServiceSocialID" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="oneWord" ColumnName="oneWord" />
+                <ScalarProperty Name="twoWord" ColumnName="twoWord" />
+                <ScalarProperty Name="threeWord" ColumnName="threeWord" />
+                <ScalarProperty Name="suppPerMonthOne" ColumnName="suppPerMonthOne" />
+                <ScalarProperty Name="suppPerMonthTwo" ColumnName="suppPerMonthTwo" />
+                <ScalarProperty Name="suppPerMonthThree" ColumnName="suppPerMonthThree" />
+                <ScalarProperty Name="OneWordDay" ColumnName="OneWordDay" />
+                <ScalarProperty Name="TwoWordDay" ColumnName="TwoWordDay" />
+                <ScalarProperty Name="ThreeWordDay" ColumnName="ThreeWordDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTickets">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblTicket">
+              <MappingFragment StoreEntitySet="tblTickets">
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AskQuestion" ColumnName="AskQuestion" />
+                <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+                <ScalarProperty Name="QuestionDatetime" ColumnName="QuestionDatetime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TicketStatusID" ColumnName="TicketStatusID" />
+                <ScalarProperty Name="AnswerTicket" ColumnName="AnswerTicket" />
+                <ScalarProperty Name="AnswerDateTime" ColumnName="AnswerDateTime" />
+                <ScalarProperty Name="ParrentID" ColumnName="ParrentID" />
+                <ScalarProperty Name="SupportID" ColumnName="SupportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTicketStatus">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblTicketStatu">
+              <MappingFragment StoreEntitySet="tblTicketStatus">
+                <ScalarProperty Name="TicketStausId" ColumnName="TicketStausId" />
+                <ScalarProperty Name="TicketStatusType" ColumnName="TicketStatusType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTransactions">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblTransaction">
+              <MappingFragment StoreEntitySet="tblTransaction">
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="TransactionStatusID" ColumnName="TransactionStatusID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsSucsessfullPay" ColumnName="IsSucsessfullPay" />
+                <ScalarProperty Name="TransNumber" ColumnName="TransNumber" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CodeType" ColumnName="CodeType" />
+                <ScalarProperty Name="OrderIdAddFound" ColumnName="OrderIdAddFound" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTransactionStatus">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblTransactionStatu">
+              <MappingFragment StoreEntitySet="tblTransactionStatus">
+                <ScalarProperty Name="TransactionStatusID" ColumnName="TransactionStatusID" />
+                <ScalarProperty Name="TransactionName" ColumnName="TransactionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUnits">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblUnit">
+              <MappingFragment StoreEntitySet="tblUnits">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="greenopt_dbgoModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

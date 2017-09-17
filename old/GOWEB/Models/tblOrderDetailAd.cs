@@ -22,7 +22,7 @@ namespace GOWEB.Models
         public string UrlSite { get; set; }
         public Nullable<int> ProductID { get; set; }
     
-        public virtual tblProduct tblProduct { get; set; }
         public virtual tblOrder tblOrder { get; set; }
+        public virtual tblProduct tblProduct { get; set; }
     }
 }

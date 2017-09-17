@@ -23,7 +23,7 @@ namespace GOWEB.Models
         public string Password { get; set; }
         public string CommentOrDescription { get; set; }
     
-        public virtual tblProduct tblProduct { get; set; }
         public virtual tblOrder tblOrder { get; set; }
+        public virtual tblProduct tblProduct { get; set; }
     }
 }

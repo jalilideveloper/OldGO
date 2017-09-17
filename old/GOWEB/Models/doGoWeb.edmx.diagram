@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="66df91206be84011873a546090ed6d08" Name="Diagram1">
+        <EntityTypeShape EntityType="greenopt_dbgoModel.Login" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.Payment" Width="1.5" PointX="8.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblCategory" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblOrder" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblOrderDetailAd" Width="1.5" PointX="8.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblOrderDetailSeo" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblOrderDetailSocial" Width="1.5" PointX="8.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblOrderType" Width="1.5" PointX="0.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblPayment" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblPriority" Width="1.5" PointX="3.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblProduct" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblTicket" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblTicketStatu" Width="1.5" PointX="3.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblTransaction" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblTransactionStatu" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblUnit" Width="1.5" PointX="3.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_dbgoModel.tblUser" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblProduct_tblCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblOrder_tblOrderType" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblOrder_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblOrderDetailAds_tblOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblOrderDetailSeo_tblOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblOrderDetailSocial_tblOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblOrderDetailAds_tblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblOrderDetailSeo_tblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblOrderDetailSocial_tblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblTransaction_tblPayment" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblTickets_tblPriority" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblTickets_tblTicketStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblTickets_tblUnits" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblTickets_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblTickets_tblUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblOrderTransaction_tblTransactionStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="greenopt_dbgoModel.FK_tblTransaction_tblUser" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

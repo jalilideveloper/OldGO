@@ -432,10 +432,7 @@
                                             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                                             {
 
-                                                var q = (from i in db.tblNews
-                                                         select i).OrderBy(x => Guid.NewGuid()).Take(10).ToList();
-
-
+                                                var q = (db.spgo_GetAllNews().OrderBy(x => Guid.NewGuid())).Take(10).ToList();
 
                                                 foreach (var item in q)
                                                 {
@@ -471,9 +468,7 @@
                                             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                                             {
 
-                                                var q = (from i in db.tblNews
-                                                         select i).OrderByDescending(o => o.PubDate.Value.Year).Take(10).ToList();
-
+                                                var q = (db.spgo_LatestNewsPublishDate()).Take(10).ToList();
 
 
                                                 foreach (var item in q)
@@ -510,9 +505,7 @@
                                             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                                             {
 
-                                                var q = (from i in db.tblNews
-                                                         select i).OrderByDescending(o => o.ViewNumber).Take(10).ToList();
-
+                                                var q = (db.spgo_LatestNewsViewNumber()).Take(10).ToList();
 
 
                                                 foreach (var item in q)

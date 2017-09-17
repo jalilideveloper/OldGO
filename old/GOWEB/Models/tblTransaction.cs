@@ -25,8 +25,8 @@ namespace GOWEB.Models
         public Nullable<decimal> TotalAmount { get; set; }
         public Nullable<int> PaymentID { get; set; }
     
+        public virtual tblPayment tblPayment { get; set; }
         public virtual tblTransactionStatu tblTransactionStatu { get; set; }
         public virtual tblUser tblUser { get; set; }
-        public virtual tblPayment tblPayment { get; set; }
     }
 }

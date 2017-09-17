@@ -13,10 +13,10 @@ namespace GOWEB.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbGOEntities : DbContext
+    public partial class greenopt_dbgoEntities : DbContext
     {
-        public dbGOEntities()
-            : base("name=dbGOEntities")
+        public greenopt_dbgoEntities()
+            : base("name=greenopt_dbgoEntities")
         {
         }
     
@@ -25,21 +25,22 @@ namespace GOWEB.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Login> Logins { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<tblCategory> tblCategories { get; set; }
-        public virtual DbSet<tblOrderDetailAd> tblOrderDetailAds { get; set; }
-        public virtual DbSet<tblOrderDetailSocial> tblOrderDetailSocials { get; set; }
-        public virtual DbSet<tblProduct> tblProducts { get; set; }
-        public virtual DbSet<tblTransaction> tblTransactions { get; set; }
-        public virtual DbSet<tblTransactionStatu> tblTransactionStatus { get; set; }
-        public virtual DbSet<tblUser> tblUsers { get; set; }
-        public virtual DbSet<tblOrderDetailSeo> tblOrderDetailSeos { get; set; }
-        public virtual DbSet<tblPriority> tblPriorities { get; set; }
-        public virtual DbSet<tblTicket> tblTickets { get; set; }
-        public virtual DbSet<tblTicketStatu> tblTicketStatus { get; set; }
-        public virtual DbSet<tblUnit> tblUnits { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tblOrder> tblOrders { get; set; }
+        public virtual DbSet<tblOrderDetailAd> tblOrderDetailAds { get; set; }
+        public virtual DbSet<tblOrderDetailSeo> tblOrderDetailSeos { get; set; }
+        public virtual DbSet<tblOrderDetailSocial> tblOrderDetailSocials { get; set; }
         public virtual DbSet<tblOrderType> tblOrderTypes { get; set; }
         public virtual DbSet<tblPayment> tblPayments { get; set; }
+        public virtual DbSet<tblPriority> tblPriorities { get; set; }
+        public virtual DbSet<tblProduct> tblProducts { get; set; }
+        public virtual DbSet<tblTicket> tblTickets { get; set; }
+        public virtual DbSet<tblTicketStatu> tblTicketStatus { get; set; }
+        public virtual DbSet<tblTransaction> tblTransactions { get; set; }
+        public virtual DbSet<tblTransactionStatu> tblTransactionStatus { get; set; }
+        public virtual DbSet<tblUnit> tblUnits { get; set; }
+        public virtual DbSet<tblUser> tblUsers { get; set; }
     }
 }

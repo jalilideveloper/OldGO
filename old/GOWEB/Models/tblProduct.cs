@@ -18,8 +18,8 @@ namespace GOWEB.Models
         public tblProduct()
         {
             this.tblOrderDetailAds = new HashSet<tblOrderDetailAd>();
-            this.tblOrderDetailSocials = new HashSet<tblOrderDetailSocial>();
             this.tblOrderDetailSeos = new HashSet<tblOrderDetailSeo>();
+            this.tblOrderDetailSocials = new HashSet<tblOrderDetailSocial>();
         }
     
         public int ProductID { get; set; }
@@ -49,8 +49,8 @@ namespace GOWEB.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblOrderDetailAd> tblOrderDetailAds { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblOrderDetailSocial> tblOrderDetailSocials { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblOrderDetailSeo> tblOrderDetailSeos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblOrderDetailSocial> tblOrderDetailSocials { get; set; }
     }
 }

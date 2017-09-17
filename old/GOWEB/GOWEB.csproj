@@ -197,20 +197,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\dbGoWeb.Context.cs">
+    <Compile Include="Models\doGoWeb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbGoWeb.Context.tt</DependentUpon>
+      <DependentUpon>doGoWeb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dbGoWeb.cs">
+    <Compile Include="Models\doGoWeb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dbGoWeb.Designer.cs">
+    <Compile Include="Models\doGoWeb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbGoWeb.edmx</DependentUpon>
+      <DependentUpon>doGoWeb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.cs">
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NewsDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -227,11 +230,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NewsDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
+    <Compile Include="Models\Payment.cs">
+      <DependentUpon>doGoWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetAllMagazine_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetAllNews_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetAllRecentNewsTopView_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetLatestNewsOrderByDateByMGID_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetNewsByID_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetNewsByMgIDOrderByNewsID_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_LatestNewsPublishDate_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_LatestNewsViewNumber_Result.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblCategory.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblLanguage.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
@@ -246,46 +273,46 @@
       <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblOrder.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblOrderDetailAd.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblOrderDetailSeo.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblOrderDetailSocial.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblOrderType.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblPayment.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblPriority.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblProduct.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblTicket.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblTicketStatu.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblTransaction.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblTransactionStatu.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUnit.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUser.cs">
-      <DependentUpon>dbGoWeb.tt</DependentUpon>
+      <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -469,15 +496,15 @@
     <Content Include="js\modernizr.custom.js" />
     <Content Include="js\owl.carousel.js" />
     <Content Include="js\persianumber.min.js" />
-    <Content Include="Models\dbGoWeb.Context.tt">
+    <Content Include="Models\doGoWeb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbGoWeb.edmx</DependentUpon>
-      <LastGenOutput>dbGoWeb.Context.cs</LastGenOutput>
+      <DependentUpon>doGoWeb.edmx</DependentUpon>
+      <LastGenOutput>doGoWeb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\dbGoWeb.tt">
+    <Content Include="Models\doGoWeb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbGoWeb.edmx</DependentUpon>
-      <LastGenOutput>dbGoWeb.cs</LastGenOutput>
+      <DependentUpon>doGoWeb.edmx</DependentUpon>
+      <LastGenOutput>doGoWeb.cs</LastGenOutput>
     </Content>
     <Content Include="Models\NewsDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -537,13 +564,6 @@
     <Content Include="fonts\RobotoCondensed-Regular-webfont.ttf" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\GOWEB.csprojResolveAssemblyReference.cache" />
-    <EntityDeploy Include="Models\dbGoWeb.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbGoWeb.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\dbGoWeb.edmx.diagram">
-      <DependentUpon>dbGoWeb.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\IRANSans-Bold-web.eot" />
     <Content Include="fonts\IRANSans-Bold-web.ttf" />
     <Content Include="fonts\IRANSans-Bold-web.woff" />
@@ -566,6 +586,13 @@
     <Content Include="fonts\IRANSans-web.woff2" />
     <Content Include="fonts\web_Yekan.eot" />
     <Content Include="fonts\web_Yekan.woff" />
+    <EntityDeploy Include="Models\doGoWeb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>doGoWeb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\doGoWeb.edmx.diagram">
+      <DependentUpon>doGoWeb.edmx</DependentUpon>
+    </Content>
     <EntityDeploy Include="Models\NewsDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>NewsDB.Designer.cs</LastGenOutput>

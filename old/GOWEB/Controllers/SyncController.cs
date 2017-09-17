@@ -16,7 +16,7 @@ namespace GOWEB.Controllers
 
 
 
-        public bool GetData()
+        public void GetData()
         {
             try
             {
@@ -24,15 +24,14 @@ namespace GOWEB.Controllers
                 {
                     IList<tblNew> TempList = new List<tblNew>();
                     Random rnd = new Random();
-                    var qRss = (from i in db.tblMagazines
-                                select i).ToList();
+                    var qRss = db.spgo_GetAllMagazine();
                     foreach (var item in qRss)
                     {
                         IList<Item> lst = ParseRss(item.RssUrl);
-                        var q = (from i in db.tblNews
-                                 where i.MagazineID == item.MagazineID
-                                 select i).OrderByDescending(p=> p.NewsID).FirstOrDefault();
-
+                        //var q = (from i in db.tblNews
+                        //         where i.MagazineID == item.MagazineID
+                        //         select i).OrderByDescending(p=> p.NewsID).FirstOrDefault();
+                        var q = db.spgo_GetNewsByMgIDOrderByNewsID(item.MagazineID).FirstOrDefault();
                         if (q != null)
                         {
                             foreach (var pItem in lst)
@@ -58,8 +57,10 @@ namespace GOWEB.Controllers
                             var reverseList = TempList.Reverse().ToList();
                             foreach (var itemInside in reverseList)
                             {
-                                db.tblNews.Add(itemInside);
-                                db.SaveChanges();
+                                db.sp_InsertNews(itemInside.Title, itemInside.Descriptions, itemInside.PubDate, itemInside.ImageUrl, itemInside.MagazineID, itemInside.ViewNumber, itemInside.DateInserted, itemInside.LinkUrl);
+                                //db.tblNews.Add(itemInside);
+                                //db.SaveChanges();
+
                             }
                             TempList.Clear();
                         }
@@ -69,25 +70,28 @@ namespace GOWEB.Controllers
                             foreach (var itemInside in SortedList)
                             {
                                
-                                    tblNew n = new tblNew();
-                                    n.Title = itemInside.Title;
-                                    n.PubDate = itemInside.PublishDate;
-                                    n.Descriptions = itemInside.Content;
-                                    n.MagazineID = item.MagazineID;
-                                n.ViewNumber = rnd.Next(500, 900);
-                                    n.DateInserted = DateTime.Now.Date;
-                                    n.LinkUrl = itemInside.Link;
-                                    db.tblNews.Add(n);
-                                    db.SaveChanges(); 
+                                    //tblNew n = new tblNew();
+                                    //n.Title = itemInside.Title;
+                                    //n.PubDate = itemInside.PublishDate;
+                                    //n.Descriptions = itemInside.Content;
+                                    //n.MagazineID = item.MagazineID;
+                                    //n.ViewNumber = rnd.Next(500, 900);
+                                    //n.DateInserted = DateTime.Now.Date;
+                                    //n.LinkUrl = itemInside.Link;
+                                    //db.tblNews.Add(n);
+                                    //db.SaveChanges();
+                                db.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900) , DateTime.Now.Date, itemInside.Link);
+
+
                             }
                         }
                     }
-                    return true;
+                    //return true;
                 }
             }
             catch (Exception e)
             {
-                return false;
+                //return false;
             }
 
         }
