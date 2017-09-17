@@ -321,7 +321,6 @@ nav{margin:0;background:none;}.menu li{display:block;margin:0;}.menu li a{backgr
 	color: #20A8DA;
 }
 .nav_list li a:before{
-	content: url('../images/arrow.png');
 	vertical-align: baseline;
 	margin-right: 10px;
 }
@@ -466,7 +465,6 @@ nav{margin:0;background:none;}.menu li{display:block;margin:0;}.menu li a{backgr
 	width: 90%;
 }
 .f_list li a:before{
-	content: url('../images/right_arrow.png');
 	vertical-align: baseline;
 	margin-right: 10px;
 }

@@ -522,7 +522,6 @@ nav {
         }
 
 .nav_list li a:before {
-    content: url('../images/arrow.png');
     vertical-align: baseline;
     margin-right: 10px;
 }
@@ -695,7 +694,6 @@ nav {
 }
 
 .f_list li a:before {
-    content: url('../images/right_arrow.png');
     vertical-align: baseline;
     margin-right: 10px;
 }
@@ -2967,4 +2965,12 @@ a.btn_green {
 }
 .padding-bottom10{
     padding-bottom: 10px;
+}
+
+.offShow {
+    display: none !important;
+}
+
+.onShow {
+    display: block !important;
 }
