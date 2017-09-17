@@ -2808,6 +2808,11 @@ a.btn_green {
         display: none;
     }
 }
+@media (max-width: 1023px) {
+    .mobile-resp {
+        display: none;
+    }
+}
 
  
 /*MJ*/
