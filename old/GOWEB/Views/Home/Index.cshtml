@@ -645,4 +645,20 @@
     </script>
 
 
+
+<script>
+        $(document).ready(function () {
+
+            var interval = setInterval(function () {
+
+                $.get("/Sync/GetData", function (data) {
+
+                });
+            }, 6000);
+        });
+</script>
+
+
+
+
 }

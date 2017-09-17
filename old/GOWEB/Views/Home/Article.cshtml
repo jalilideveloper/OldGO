@@ -46,202 +46,12 @@
                         </div>
                     </div>
 
-                    @*@{
-                        using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
-                        {
-                            var q = (from i in db.tblMagazines
-                                     where i.tblNews.Count > 0
-                                     select i).ToList();
-                            foreach (var item in q)
-                            {
-                                <div class="widget">
-                                    <div class="widget-header text-align-center">
-                                        <a class="colorblack" href="/Home/Magazine/@item.SiteTitle"><h6 class="line-height-2-5">آخرین مقالات @item.SiteTitle</h6></a>
-                                    </div>
-                                    <div class="widget-content md-padding">
-                                        <ul class="list-unstyled hidden-sm hidden-xs div-bg-white">
-
-                                            @{
-                                                var qGetNewOFMAgazine = (from i in db.tblNews
-                                                                         where i.MagazineID == item.MagazineID
-                                                                         select i).OrderByDescending(o => o.PubDate.Value.Year).Take(15).ToList();
-
-                                                foreach (var each in qGetNewOFMAgazine)
-                                                {
-                                                    <li class=""><i class="fa fa-angle-double-left paddingLeft5" aria-hidden="true"></i><a title="@each.Title" href="/Home/ArticleDetails/@each.NewsID|@each.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">@each.Title</a></li>
-                                                }
-                                            }
-                                            <div class="clearfix"></div>
-                                        </ul>
-                                    </div>
-                                </div>
-                                                    }
-                                                }
-                    }*@
-
+               
                 </div>
 
 
                 <div class="blog_main col-md-7 " id="CenterContent">
 
-                    @*{
-                        using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
-                        {
-                            //List<tblNew> q = (List<tblNew>)ViewData["MyData"];
-                            if (ViewData["NumberLoadMagazine"] != null)
-                            {
-                                int Getnum = (int)ViewData["NumberLoadMagazine"];
-                                int MagazineID = (int)ViewData["SelectedMagazineID"];
-                                var q = (from i in db.tblNews
-                                         where i.MagazineID == MagazineID
-                                         select i).ToList().OrderByDescending(o => o.PubDate.Value.Year).Skip(Getnum).Take(15);
-
-                                ViewData["MagazineName"] = q.FirstOrDefault().tblMagazine.SiteTitle;
-
-                                foreach (var item in q)
-                                {
-                                    System.Globalization.PersianCalendar persianCalandar =
-                                                        new System.Globalization.PersianCalendar();
-                                    int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
-                                    int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
-                                    int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
-
-
-                    <div class="blog_list bg-white">
-                        <div class="col-md-12 blog_left">
-                            <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><img src="images/blog-pic1.jpg" alt="" class="img-responsive" /></a>
-                            <h4><a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">@item.Title</a></h4>
-                            <span>نوشته شده در تاریخ @(year + "/" + month + "/" + day)  در @item.tblMagazine.SiteTitle <a><i class="fa fa-eye"></i></a> @item.ViewNumber بازدید</span>
-                            <p class="para">@Html.Raw(item.Descriptions)</p>
-                            <div class="read_btn padding-bottom10">
-                                <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><button class="btnArticle">ادامه مطلب</button></a>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
-
-                                }
-                            }
-                            else if (ViewData["NumberTake"] != null)
-                            {
-                                int Getnum = (int)ViewData["NumberTake"];
-                                var q = (from i in db.tblNews
-                                         select i).OrderByDescending(o => o.PubDate.Value.Year).ToList().Skip(Getnum).Take(15);
-
-                                foreach (var item in q)
-                                {
-                                    System.Globalization.PersianCalendar persianCalandar =
-                                                        new System.Globalization.PersianCalendar();
-                                    int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
-                                    int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
-                                    int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
-
-
-                    <div class="blog_list bg-white">
-                        <div class="col-md-12 blog_left">
-                            <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><img src="images/blog-pic1.jpg" alt="" class="img-responsive" /></a>
-                            <h4><a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">@item.Title</a></h4>
-                            <span>نوشته شده در تاریخ @(year + "/" + month + "/" + day)  در @item.tblMagazine.SiteTitle <a><i class="fa fa-eye"></i></a> @item.ViewNumber بازدید</span>
-                            <p class="para">@Html.Raw(item.Descriptions)</p>
-                            <div class="read_btn padding-bottom10">
-                                <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><button class="btnArticle">ادامه مطلب</button></a>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                                }
-                            }
-                            else
-                            {
-                                string GetName = (string)ViewData["MagazineName"];
-
-                                var qGet = (from i in db.tblMagazines
-                                            where i.SiteTitle.Contains(GetName)
-                                            select i).FirstOrDefault();
-
-
-                                var q = (from i in db.tblNews
-                                         where i.MagazineID == qGet.MagazineID
-                                         select i).OrderByDescending(o => o.PubDate.Value.Year).ToList().Skip(0).Take(15);
-
-                                foreach (var item in q)
-                                {
-
-                                    System.Globalization.PersianCalendar persianCalandar =
-                                                        new System.Globalization.PersianCalendar();
-                                    int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
-                                    int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
-                                    int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
-
-
-                    <div class="blog_list bg-white">
-                        <div class="col-md-12 blog_left">
-                            <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><img src="images/blog-pic1.jpg" alt="" class="img-responsive" /></a>
-                            <h4><a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()">@item.Title</a></h4>
-                            <span>نوشته شده در تاریخ @(year + "/" + month + "/" + day)  در @item.tblMagazine.SiteTitle <a><i class="fa fa-eye"></i></a> @item.ViewNumber بازدید</span>
-                            <p class="para">@Html.Raw(item.Descriptions)</p>
-                            <div class="read_btn padding-bottom10">
-                                <a href="~/Home/ArticleDetails/@item.NewsID|@item.Title.Replace(' ', '-').Replace(':', '-').Replace('+', '-').ToString()"><button class="btnArticle">ادامه مطلب</button></a>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                                }
-                            }
-                        }
-                    }
-
-                    <div class="clearfix"></div>
-
-                    <ul class="pagination">
-
-                        @{
-
-                            if (ViewData["MagazineName"] == null && ViewData["NumberLoadMagazine"] == null)
-                            {
-                                using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
-                                {
-                                    var totalNews = (from i in db.tblNews
-                                                     select i).ToList().Count;
-
-                                    var sectionPage = totalNews / 15;
-
-                                    for (int i = 0; i < sectionPage; i++)
-                                    {
-                                        int num = i + 1;
-                        <li><a href="/Home/ArticleShow/@num">@num</a></li>
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
-                                {
-
-                                    string GetName = (string)ViewData["MagazineName"];
-
-                                    var qGet = (from i in db.tblMagazines
-                                                where i.SiteTitle.Contains(GetName)
-                                                select i).FirstOrDefault();
-
-
-                                    var totalNews = (from i in db.tblNews
-                                                     where i.MagazineID == qGet.MagazineID
-                                                     select i).ToList().Count;
-
-                                    var sectionPage = totalNews / 15;
-
-                                    for (int i = 0; i < sectionPage; i++)
-                                    {
-                                        int num = i + 1;
-                        <li><a href="/Home/MagazineSelected/@num-@qGet.MagazineID">@num</a></li>
-                                    }
-                                }
-                            }
-                        }
-
-                       </ul>*@
                 </div>
 
                 <div class="col-md-2 blog_right no-padding divleftarticle">
@@ -435,26 +245,13 @@
             var $xml = $(data);
             $.each($xml, function (index, value) {
                 var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-");
-                var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='images/blog-pic1.jpg' alt='' class='img-responsive' /></a><h4><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
+                var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                 $("#CenterContent").append(newesItem)
             });
         });
 
 
 
-
-
-
-
-
-        //var interval = setInterval(function () {
-        //}, 1000);
-
-        //var interval = setInterval(function () {
-        //    $.get("/Sync/GetData", function (data) {
-        //
-        //    });
-        //}, 0);
     });
 </script>
     

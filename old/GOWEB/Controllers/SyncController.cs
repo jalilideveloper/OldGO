@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Xml.Linq;
 using GOWEB.Models;
+using System.Threading.Tasks;
 
 namespace GOWEB.Controllers
 {
@@ -16,7 +17,7 @@ namespace GOWEB.Controllers
 
 
 
-        public void GetData()
+        public  void GetData()
         {
             try
             {
@@ -57,10 +58,23 @@ namespace GOWEB.Controllers
                             var reverseList = TempList.Reverse().ToList();
                             foreach (var itemInside in reverseList)
                             {
-                                db.sp_InsertNews(itemInside.Title, itemInside.Descriptions, itemInside.PubDate, itemInside.ImageUrl, itemInside.MagazineID, itemInside.ViewNumber, itemInside.DateInserted, itemInside.LinkUrl);
-                                //db.tblNews.Add(itemInside);
+                                using (var ctx = new greenopt_GONewsEntities())
+                                {
+                                    //do transaction here
+                                
+                                tblNew n = new tblNew();
+                                n.Title = itemInside.Title;
+                                n.PubDate = itemInside.PubDate;
+                                n.Descriptions = itemInside.Descriptions;
+                                n.MagazineID = item.MagazineID;
+                                n.ViewNumber = rnd.Next(500, 900);
+                                n.DateInserted = DateTime.Now.Date;
+                                n.LinkUrl = itemInside.LinkUrl;
+                                // db.tblNews.Add(n);
+                                //await db.SaveChangesAsync();
+                                ctx.sp_InsertNews(itemInside.Title, itemInside.Descriptions, itemInside.PubDate, itemInside.ImageUrl, itemInside.MagazineID, itemInside.ViewNumber, itemInside.DateInserted, itemInside.LinkUrl);
                                 //db.SaveChanges();
-
+                                }
                             }
                             TempList.Clear();
                         }
@@ -69,20 +83,21 @@ namespace GOWEB.Controllers
                             var SortedList = lst.Reverse().ToList();
                             foreach (var itemInside in SortedList)
                             {
-                               
-                                    //tblNew n = new tblNew();
-                                    //n.Title = itemInside.Title;
-                                    //n.PubDate = itemInside.PublishDate;
-                                    //n.Descriptions = itemInside.Content;
-                                    //n.MagazineID = item.MagazineID;
-                                    //n.ViewNumber = rnd.Next(500, 900);
-                                    //n.DateInserted = DateTime.Now.Date;
-                                    //n.LinkUrl = itemInside.Link;
+                                using (var ctx = new greenopt_GONewsEntities())
+                                {
+                                    tblNew n = new tblNew();
+                                    n.Title = itemInside.Title;
+                                    n.PubDate = itemInside.PublishDate;
+                                    n.Descriptions = itemInside.Content;
+                                    n.MagazineID = item.MagazineID;
+                                    n.ViewNumber = rnd.Next(500, 900);
+                                    n.DateInserted = DateTime.Now.Date;
+                                    n.LinkUrl = itemInside.Link;
                                     //db.tblNews.Add(n);
+                                    //await db.SaveChangesAsync();
+                                    ctx.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900) , DateTime.Now.Date, itemInside.Link);
                                     //db.SaveChanges();
-                                db.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900) , DateTime.Now.Date, itemInside.Link);
-
-
+                                }
                             }
                         }
                     }
@@ -91,6 +106,8 @@ namespace GOWEB.Controllers
             }
             catch (Exception e)
             {
+                string q = e.InnerException.ToString();
+                
                 //return false;
             }
 

@@ -56,7 +56,7 @@ namespace GOWEB.Controllers
                                 int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
                                 int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
                                 int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
-                                lstNews.Add(new listNews { SiteTitle = item.SiteTitle, Description = item.Description, MagazineName = item.MagazineName, NewsID = item.NewsID, NTitle = item.NTitle, PubDate = year + "/" + month + "/" + day , ViewNumber = item.ViewNumber });
+                                lstNews.Add(new listNews { SiteTitle = item.SiteTitle, Description = item.Description, MagazineName = item.MagazineName, NewsID = item.NewsID, NTitle = item.NTitle, PubDate = year.ToString() + "/" + month.ToString() + "/" + day.ToString(), ViewNumber = item.ViewNumber });
                             }
                             else
                             {

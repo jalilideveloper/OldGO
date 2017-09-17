@@ -409,16 +409,19 @@
     <Content Include="images\blank.gif" />
     <Content Include="images\cell-phone-instagram-auto-like-auto-view.png" />
     <Content Include="images\cell-phone-instagram-follower.png" />
+    <Content Include="images\cloob.png" />
     <Content Include="images\closedhand.cur" />
     <Content Include="images\different-site.png" />
     <Content Include="images\fancy_closebox.png" />
     <Content Include="images\fancy_left.png" />
     <Content Include="images\fancy_right.png" />
     <Content Include="images\fullseo.png" />
+    <Content Include="images\GO-green-ico.png" />
     <Content Include="images\GO-green.png" />
     <Content Include="images\GO-white.png" />
     <Content Include="images\GOfirst.png" />
     <Content Include="images\google-adwords.png" />
+    <Content Include="images\google.png" />
     <Content Include="images\Goptimizer.png" />
     <Content Include="images\GOsecond.png" />
     <Content Include="images\GreenOptimizerTelegram.png" />
@@ -459,6 +462,7 @@
     <Content Include="images\images\slider_pic4.jpg" />
     <Content Include="images\images\slider_pic5.jpg" />
     <Content Include="images\keywords_seo.png" />
+    <Content Include="images\linkedin.png" />
     <Content Include="images\openhand.cur" />
     <Content Include="images\payperclick-optimized.png" />
     <Content Include="images\ppc-background.png" />
