@@ -15,8 +15,6 @@ namespace GOWEB.Controllers
         // GET: Sync
 
 
-
-
         public  void GetData()
         {
             try

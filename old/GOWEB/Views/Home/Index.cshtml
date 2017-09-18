@@ -638,13 +638,15 @@
 
 <script>
         $(document).ready(function () {
+            $.get("/Sync/GetData", function (data) {
 
-            var interval = setInterval(function () {
+            });
 
-                $.get("/Sync/GetData", function (data) {
 
-                });
-            }, 6000);
+            //var interval = setInterval(function () {
+
+               
+            //}, 6000);
         });
 </script>
 
