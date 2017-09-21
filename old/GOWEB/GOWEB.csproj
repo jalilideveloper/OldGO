@@ -245,6 +245,9 @@
     <Compile Include="Models\spgo_GetLatestNewsOrderByDateByMGID_Result.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\spgo_GetLatestNewsOrderByDate_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\spgo_GetNewsByID_Result.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>

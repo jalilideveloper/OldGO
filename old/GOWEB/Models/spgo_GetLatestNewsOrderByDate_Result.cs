@@ -11,11 +11,12 @@ namespace GOWEB.Models
 {
     using System;
     
-    public partial class spgo_GetLatestNewsOrderByDateByMGID_Result
+    public partial class spgo_GetLatestNewsOrderByDate_Result
     {
         public Nullable<long> RowNumber { get; set; }
         public int NewsID { get; set; }
         public string Title { get; set; }
+        public string MagazineName { get; set; }
         public Nullable<long> ViewNumber { get; set; }
         public Nullable<System.DateTime> PubDate { get; set; }
         public string Descriptions { get; set; }
@@ -23,7 +24,6 @@ namespace GOWEB.Models
         public string ImageUrl { get; set; }
         public string LinkUrl { get; set; }
         public Nullable<System.DateTime> DateInserted { get; set; }
-        public string MagazineName { get; set; }
         public string SiteTitle { get; set; }
     }
 }

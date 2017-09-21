@@ -71,8 +71,8 @@ namespace GOWEB.Controllers
         public ActionResult MagazineSelected(string id)
         {
 
-            int num = Convert.ToInt32(id.Split('-')[0]);
-            int mgID = Convert.ToInt32(id.Split('-')[1]);
+            int mgID = Convert.ToInt32(id.Split('-')[0]);
+            int num = Convert.ToInt32(id.Split('-')[1]);
 
             ViewData["NumberLoadMagazine"] = num * 15;
             ViewData["SelectedMagazineID"] = mgID;

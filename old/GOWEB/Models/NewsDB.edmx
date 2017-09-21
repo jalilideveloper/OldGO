@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="greenopt_GONewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="greenopt_GONewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblLanguages">
           <Key>
             <PropertyRef Name="LanguageID" />
@@ -98,14 +98,21 @@
         <Function Name="spgo_GetAllMagazine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spgo_GetAllNews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spgo_GetAllRecentNewsTopView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spgo_GetLatestNewsOrderByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="startpageid" Type="int" Mode="In" />
+        </Function>
         <Function Name="spgo_GetLatestNewsOrderByDateByMGID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="mgID" Type="int" Mode="In" />
+          <Parameter Name="startpageid" Type="int" Mode="In" />
         </Function>
         <Function Name="spgo_GetNewsByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NewsID" Type="int" Mode="In" />
         </Function>
         <Function Name="spgo_GetNewsByMgIDOrderByNewsID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="mgID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spgo_GetPageNumbers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MagazineID" Type="int" Mode="In" />
         </Function>
         <Function Name="spgo_LatestNewsPublishDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spgo_LatestNewsViewNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -127,39 +134,114 @@
             <End Role="tblNews" EntitySet="tblNews" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="greenopt_GONewsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblLanguage">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LangType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LangCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblMenus" Relationship="Self.FK_tblMenu_tblLanguages" FromRole="tblLanguages" ToRole="tblMenu" />
+        </EntityType>
+        <EntityType Name="tblMagazine">
+          <Key>
+            <PropertyRef Name="MagazineID" />
+          </Key>
+          <Property Name="MagazineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MagazineName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RssUrl" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="SiteTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuID" Type="Int32" />
+          <Property Name="ContentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblMenu" Relationship="Self.FK_tblMagazines_tblMenu" FromRole="tblMagazines" ToRole="tblMenu" />
+          <NavigationProperty Name="tblNews" Relationship="Self.FK_tblNews_tblMagazines" FromRole="tblMagazines" ToRole="tblNews" />
+        </EntityType>
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LanguageID" Type="Int32" />
+          <Property Name="ParrentID" Type="Int32" />
+          <Property Name="Priority" Type="Int32" />
+          <NavigationProperty Name="tblLanguage" Relationship="Self.FK_tblMenu_tblLanguages" FromRole="tblMenu" ToRole="tblLanguages" />
+          <NavigationProperty Name="tblMagazines" Relationship="Self.FK_tblMagazines_tblMenu" FromRole="tblMenu" ToRole="tblMagazines" />
+        </EntityType>
+        <EntityType Name="tblNew">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Descriptions" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="ImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MagazineID" Type="Int32" />
+          <Property Name="ViewNumber" Type="Int64" />
+          <Property Name="DateInserted" Type="DateTime" Precision="3" />
+          <Property Name="LinkUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblMagazine" Relationship="Self.FK_tblNews_tblMagazines" FromRole="tblNews" ToRole="tblMagazines" />
+        </EntityType>
+        <Association Name="FK_tblMenu_tblLanguages">
+          <End Role="tblLanguages" Type="Self.tblLanguage" Multiplicity="0..1" />
+          <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLanguages">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="tblMenu">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMagazines_tblMenu">
+          <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="0..1" />
+          <End Role="tblMagazines" Type="Self.tblMagazine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMenu">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="tblMagazines">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblNews_tblMagazines">
+          <End Role="tblMagazines" Type="Self.tblMagazine" Multiplicity="0..1" />
+          <End Role="tblNews" Type="Self.tblNew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMagazines">
+              <PropertyRef Name="MagazineID" />
+            </Principal>
+            <Dependent Role="tblNews">
+              <PropertyRef Name="MagazineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="greenopt_GONewsEntities" annotation:LazyLoadingEnabled="true">
-          <FunctionImport Name="spgo_GetAllMagazine" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllMagazine_Result)" />
-          <FunctionImport Name="spgo_GetAllNews" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllNews_Result)" />
-          <FunctionImport Name="spgo_GetAllRecentNewsTopView" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllRecentNewsTopView_Result)" />
-          <FunctionImport Name="spgo_GetLatestNewsOrderByDateByMGID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetLatestNewsOrderByDateByMGID_Result)">
-          <Parameter Name="mgID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spgo_GetNewsByID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetNewsByID_Result)">
-          <Parameter Name="NewsID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <EntitySet Name="tblLanguages" EntityType="greenopt_GONewsModel.tblLanguage" />
-          <EntitySet Name="tblMagazines" EntityType="greenopt_GONewsModel.tblMagazine" />
-          <EntitySet Name="tblMenus" EntityType="greenopt_GONewsModel.tblMenu" />
-          <EntitySet Name="tblNews" EntityType="greenopt_GONewsModel.tblNew" />
-          <AssociationSet Name="FK_tblMenu_tblLanguages" Association="greenopt_GONewsModel.FK_tblMenu_tblLanguages">
-            <End Role="tblLanguage" EntitySet="tblLanguages" />
+          <EntitySet Name="tblLanguages" EntityType="Self.tblLanguage" />
+          <EntitySet Name="tblMagazines" EntityType="Self.tblMagazine" />
+          <EntitySet Name="tblMenus" EntityType="Self.tblMenu" />
+          <EntitySet Name="tblNews" EntityType="Self.tblNew" />
+          <AssociationSet Name="FK_tblMenu_tblLanguages" Association="Self.FK_tblMenu_tblLanguages">
+            <End Role="tblLanguages" EntitySet="tblLanguages" />
             <End Role="tblMenu" EntitySet="tblMenus" />
           </AssociationSet>
-          <AssociationSet Name="FK_tblMagazines_tblMenu" Association="greenopt_GONewsModel.FK_tblMagazines_tblMenu">
+          <AssociationSet Name="FK_tblMagazines_tblMenu" Association="Self.FK_tblMagazines_tblMenu">
             <End Role="tblMenu" EntitySet="tblMenus" />
-            <End Role="tblMagazine" EntitySet="tblMagazines" />
+            <End Role="tblMagazines" EntitySet="tblMagazines" />
           </AssociationSet>
-          <AssociationSet Name="FK_tblNews_tblMagazines" Association="greenopt_GONewsModel.FK_tblNews_tblMagazines">
-            <End Role="tblMagazine" EntitySet="tblMagazines" />
-            <End Role="tblNew" EntitySet="tblNews" />
+          <AssociationSet Name="FK_tblNews_tblMagazines" Association="Self.FK_tblNews_tblMagazines">
+            <End Role="tblMagazines" EntitySet="tblMagazines" />
+            <End Role="tblNews" EntitySet="tblNews" />
           </AssociationSet>
-          <FunctionImport Name="spgo_GetNewsByMgIDOrderByNewsID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetNewsByMgIDOrderByNewsID_Result)">
-          <Parameter Name="mgID" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="sp_InsertNews">
             <Parameter Name="Title" Mode="In" Type="String" />
             <Parameter Name="Descriptions" Mode="In" Type="String" />
@@ -169,6 +251,25 @@
             <Parameter Name="ViewNumber" Mode="In" Type="Int64" />
             <Parameter Name="DateInserted" Mode="In" Type="DateTime" />
             <Parameter Name="LinkUrl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spgo_GetAllMagazine" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllMagazine_Result)" />
+          <FunctionImport Name="spgo_GetAllNews" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllNews_Result)" />
+          <FunctionImport Name="spgo_GetAllRecentNewsTopView" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllRecentNewsTopView_Result)" />
+          <FunctionImport Name="spgo_GetLatestNewsOrderByDate" ReturnType="Collection(greenopt_GONewsModel.spgo_GetLatestNewsOrderByDate_Result)">
+            <Parameter Name="startpageid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spgo_GetLatestNewsOrderByDateByMGID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetLatestNewsOrderByDateByMGID_Result)">
+            <Parameter Name="mgID" Mode="In" Type="Int32" />
+            <Parameter Name="startpageid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spgo_GetNewsByID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetNewsByID_Result)">
+            <Parameter Name="NewsID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spgo_GetNewsByMgIDOrderByNewsID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetNewsByMgIDOrderByNewsID_Result)">
+            <Parameter Name="mgID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spgo_GetPageNumbers" ReturnType="Collection(Int32)">
+            <Parameter Name="MagazineID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_LatestNewsPublishDate" ReturnType="Collection(greenopt_GONewsModel.spgo_LatestNewsPublishDate_Result)" />
           <FunctionImport Name="spgo_LatestNewsViewNumber" ReturnType="Collection(greenopt_GONewsModel.spgo_LatestNewsViewNumber_Result)" />
@@ -206,7 +307,8 @@
           <Property Type="DateTime" Name="DateInserted" Nullable="true" Precision="23" />
           <Property Type="String" Name="SiteTitle" Nullable="true" MaxLength="50" />
         </ComplexType>
-        <ComplexType Name="spgo_GetLatestNewsOrderByDateByMGID_Result">
+        <ComplexType Name="spgo_GetLatestNewsOrderByDate_Result">
+          <Property Type="Int64" Name="RowNumber" Nullable="true" />
           <Property Type="Int32" Name="NewsID" Nullable="false" />
           <Property Type="String" Name="Title" Nullable="true" MaxLength="2000" />
           <Property Type="String" Name="MagazineName" Nullable="true" MaxLength="50" />
@@ -217,6 +319,20 @@
           <Property Type="String" Name="ImageUrl" Nullable="true" MaxLength="500" />
           <Property Type="String" Name="LinkUrl" Nullable="true" MaxLength="500" />
           <Property Type="DateTime" Name="DateInserted" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SiteTitle" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spgo_GetLatestNewsOrderByDateByMGID_Result">
+          <Property Type="Int64" Name="RowNumber" Nullable="true" />
+          <Property Type="Int32" Name="NewsID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="2000" />
+          <Property Type="Int64" Name="ViewNumber" Nullable="true" />
+          <Property Type="DateTime" Name="PubDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Descriptions" Nullable="true" MaxLength="2000" />
+          <Property Type="Int32" Name="MagazineID" Nullable="true" />
+          <Property Type="String" Name="ImageUrl" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="LinkUrl" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateInserted" Nullable="true" Precision="23" />
+          <Property Type="String" Name="MagazineName" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="SiteTitle" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="spgo_GetNewsByID_Result">
@@ -231,92 +347,6 @@
           <Property Type="String" Name="LinkUrl" Nullable="true" MaxLength="500" />
           <Property Type="DateTime" Name="DateInserted" Nullable="true" Precision="23" />
         </ComplexType>
-        <EntityType Name="tblLanguage">
-          <Key>
-            <PropertyRef Name="LanguageID" />
-          </Key>
-          <Property Name="LanguageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LanguageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LangType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LangCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblMenus" Relationship="greenopt_GONewsModel.FK_tblMenu_tblLanguages" FromRole="tblLanguage" ToRole="tblMenu" />
-        </EntityType>
-        <EntityType Name="tblMagazine">
-          <Key>
-            <PropertyRef Name="MagazineID" />
-          </Key>
-          <Property Name="MagazineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MagazineName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RssUrl" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-          <Property Name="SiteTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MenuID" Type="Int32" />
-          <Property Name="ContentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblMenu" Relationship="greenopt_GONewsModel.FK_tblMagazines_tblMenu" FromRole="tblMagazine" ToRole="tblMenu" />
-          <NavigationProperty Name="tblNews" Relationship="greenopt_GONewsModel.FK_tblNews_tblMagazines" FromRole="tblMagazine" ToRole="tblNew" />
-        </EntityType>
-        <EntityType Name="tblMenu">
-          <Key>
-            <PropertyRef Name="MenuID" />
-          </Key>
-          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LanguageID" Type="Int32" />
-          <Property Name="ParrentID" Type="Int32" />
-          <Property Name="Priority" Type="Int32" />
-          <NavigationProperty Name="tblLanguage" Relationship="greenopt_GONewsModel.FK_tblMenu_tblLanguages" FromRole="tblMenu" ToRole="tblLanguage" />
-          <NavigationProperty Name="tblMagazines" Relationship="greenopt_GONewsModel.FK_tblMagazines_tblMenu" FromRole="tblMenu" ToRole="tblMagazine" />
-        </EntityType>
-        <EntityType Name="tblNew">
-          <Key>
-            <PropertyRef Name="NewsID" />
-          </Key>
-          <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-          <Property Name="Descriptions" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-          <Property Name="PubDate" Type="DateTime" Precision="3" />
-          <Property Name="ImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="MagazineID" Type="Int32" />
-          <Property Name="ViewNumber" Type="Int64" />
-          <Property Name="DateInserted" Type="DateTime" Precision="3" />
-          <Property Name="LinkUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblMagazine" Relationship="greenopt_GONewsModel.FK_tblNews_tblMagazines" FromRole="tblNew" ToRole="tblMagazine" />
-        </EntityType>
-        <Association Name="FK_tblMenu_tblLanguages">
-          <End Type="greenopt_GONewsModel.tblLanguage" Role="tblLanguage" Multiplicity="0..1" />
-          <End Type="greenopt_GONewsModel.tblMenu" Role="tblMenu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblLanguage">
-              <PropertyRef Name="LanguageID" />
-            </Principal>
-            <Dependent Role="tblMenu">
-              <PropertyRef Name="LanguageID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblMagazines_tblMenu">
-          <End Type="greenopt_GONewsModel.tblMenu" Role="tblMenu" Multiplicity="0..1" />
-          <End Type="greenopt_GONewsModel.tblMagazine" Role="tblMagazine" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblMenu">
-              <PropertyRef Name="MenuID" />
-            </Principal>
-            <Dependent Role="tblMagazine">
-              <PropertyRef Name="MenuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblNews_tblMagazines">
-          <End Type="greenopt_GONewsModel.tblMagazine" Role="tblMagazine" Multiplicity="0..1" />
-          <End Type="greenopt_GONewsModel.tblNew" Role="tblNew" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblMagazine">
-              <PropertyRef Name="MagazineID" />
-            </Principal>
-            <Dependent Role="tblNew">
-              <PropertyRef Name="MagazineID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="spgo_GetNewsByMgIDOrderByNewsID_Result">
           <Property Type="Int32" Name="NewsID" Nullable="false" />
           <Property Type="String" Name="Title" Nullable="true" MaxLength="2000" />
@@ -362,6 +392,55 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="greenopt_GONewsModelStoreContainer" CdmEntityContainer="greenopt_GONewsEntities">
+          <EntitySetMapping Name="tblLanguages">
+            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblLanguage">
+              <MappingFragment StoreEntitySet="tblLanguages">
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+                <ScalarProperty Name="LangType" ColumnName="LangType" />
+                <ScalarProperty Name="LangCode" ColumnName="LangCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMagazines">
+            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblMagazine">
+              <MappingFragment StoreEntitySet="tblMagazines">
+                <ScalarProperty Name="MagazineID" ColumnName="MagazineID" />
+                <ScalarProperty Name="MagazineName" ColumnName="MagazineName" />
+                <ScalarProperty Name="RssUrl" ColumnName="RssUrl" />
+                <ScalarProperty Name="SiteTitle" ColumnName="SiteTitle" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="ContentText" ColumnName="ContentText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMenus">
+            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblMenu">
+              <MappingFragment StoreEntitySet="tblMenu">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="ParrentID" ColumnName="ParrentID" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblNews">
+            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblNew">
+              <MappingFragment StoreEntitySet="tblNews">
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="MagazineID" ColumnName="MagazineID" />
+                <ScalarProperty Name="ViewNumber" ColumnName="ViewNumber" />
+                <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+                <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertNews" FunctionName="greenopt_GONewsModel.Store.sp_InsertNews" />
           <FunctionImportMapping FunctionImportName="spgo_GetAllMagazine" FunctionName="greenopt_GONewsModel.Store.spgo_GetAllMagazine">
             <ResultMapping>
               <ComplexTypeMapping TypeName="greenopt_GONewsModel.spgo_GetAllMagazine_Result">
@@ -407,9 +486,10 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spgo_GetLatestNewsOrderByDateByMGID" FunctionName="greenopt_GONewsModel.Store.spgo_GetLatestNewsOrderByDateByMGID">
+          <FunctionImportMapping FunctionImportName="spgo_GetLatestNewsOrderByDate" FunctionName="greenopt_GONewsModel.Store.spgo_GetLatestNewsOrderByDate">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="greenopt_GONewsModel.spgo_GetLatestNewsOrderByDateByMGID_Result">
+              <ComplexTypeMapping TypeName="greenopt_GONewsModel.spgo_GetLatestNewsOrderByDate_Result">
+                <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
                 <ScalarProperty Name="NewsID" ColumnName="NewsID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="MagazineName" ColumnName="MagazineName" />
@@ -420,6 +500,24 @@
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
                 <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+                <ScalarProperty Name="SiteTitle" ColumnName="SiteTitle" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spgo_GetLatestNewsOrderByDateByMGID" FunctionName="greenopt_GONewsModel.Store.spgo_GetLatestNewsOrderByDateByMGID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="greenopt_GONewsModel.spgo_GetLatestNewsOrderByDateByMGID_Result">
+                <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ViewNumber" ColumnName="ViewNumber" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+                <ScalarProperty Name="MagazineID" ColumnName="MagazineID" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+                <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+                <ScalarProperty Name="MagazineName" ColumnName="MagazineName" />
                 <ScalarProperty Name="SiteTitle" ColumnName="SiteTitle" />
               </ComplexTypeMapping>
             </ResultMapping>
@@ -440,54 +538,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="tblLanguages">
-            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblLanguage">
-              <MappingFragment StoreEntitySet="tblLanguages">
-                <ScalarProperty Name="LangCode" ColumnName="LangCode" />
-                <ScalarProperty Name="LangType" ColumnName="LangType" />
-                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
-                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblMagazines">
-            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblMagazine">
-              <MappingFragment StoreEntitySet="tblMagazines">
-                <ScalarProperty Name="ContentText" ColumnName="ContentText" />
-                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-                <ScalarProperty Name="SiteTitle" ColumnName="SiteTitle" />
-                <ScalarProperty Name="RssUrl" ColumnName="RssUrl" />
-                <ScalarProperty Name="MagazineName" ColumnName="MagazineName" />
-                <ScalarProperty Name="MagazineID" ColumnName="MagazineID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblMenus">
-            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblMenu">
-              <MappingFragment StoreEntitySet="tblMenu">
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="ParrentID" ColumnName="ParrentID" />
-                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
-                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
-                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblNews">
-            <EntityTypeMapping TypeName="greenopt_GONewsModel.tblNew">
-              <MappingFragment StoreEntitySet="tblNews">
-                <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
-                <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
-                <ScalarProperty Name="ViewNumber" ColumnName="ViewNumber" />
-                <ScalarProperty Name="MagazineID" ColumnName="MagazineID" />
-                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
-                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spgo_GetNewsByMgIDOrderByNewsID" FunctionName="greenopt_GONewsModel.Store.spgo_GetNewsByMgIDOrderByNewsID">
             <ResultMapping>
               <ComplexTypeMapping TypeName="greenopt_GONewsModel.spgo_GetNewsByMgIDOrderByNewsID_Result">
@@ -505,7 +555,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_InsertNews" FunctionName="greenopt_GONewsModel.Store.sp_InsertNews" />
+          <FunctionImportMapping FunctionImportName="spgo_GetPageNumbers" FunctionName="greenopt_GONewsModel.Store.spgo_GetPageNumbers" />
           <FunctionImportMapping FunctionImportName="spgo_LatestNewsPublishDate" FunctionName="greenopt_GONewsModel.Store.spgo_LatestNewsPublishDate">
             <ResultMapping>
               <ComplexTypeMapping TypeName="greenopt_GONewsModel.spgo_LatestNewsPublishDate_Result">
