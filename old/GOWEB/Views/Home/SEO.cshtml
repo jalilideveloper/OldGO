@@ -326,7 +326,7 @@
                                 <tbody id="Result">
 
 
-                                    @using (dbGOEntities db = new dbGOEntities())
+                                    @using (greenopt_dbgoEntities db = new greenopt_dbgoEntities())
                                     {
 
                                         foreach (var item in db.tblProducts.Where(i => i.oneWord != null).ToList().OrderBy(c => c.Priority))
