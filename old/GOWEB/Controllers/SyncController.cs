@@ -7,6 +7,10 @@ using System.Web.Mvc;
 using System.Xml.Linq;
 using GOWEB.Models;
 using System.Threading.Tasks;
+using System.IO;
+
+using System.Collections;
+using System.Xml.Serialization;
 
 namespace GOWEB.Controllers
 {
@@ -15,7 +19,7 @@ namespace GOWEB.Controllers
         // GET: Sync
 
 
-        public  void GetData()
+        public void GetData()
         {
             try
             {
@@ -42,7 +46,7 @@ namespace GOWEB.Controllers
                                     n.PubDate = pItem.PublishDate;
                                     n.Descriptions = pItem.Content;
                                     n.MagazineID = item.MagazineID;
-                                    n.ViewNumber =  rnd.Next(500,900);
+                                    n.ViewNumber = rnd.Next(500, 900);
                                     n.DateInserted = DateTime.Now.Date;
                                     n.LinkUrl = pItem.Link;
                                     TempList.Add(n);
@@ -59,19 +63,19 @@ namespace GOWEB.Controllers
                                 using (var ctx = new greenopt_GONewsEntities())
                                 {
                                     //do transaction here
-                                
-                                tblNew n = new tblNew();
-                                n.Title = itemInside.Title;
-                                n.PubDate = itemInside.PubDate;
-                                n.Descriptions = itemInside.Descriptions;
-                                n.MagazineID = item.MagazineID;
-                                n.ViewNumber = rnd.Next(500, 900);
-                                n.DateInserted = DateTime.Now.Date;
-                                n.LinkUrl = itemInside.LinkUrl;
-                                // db.tblNews.Add(n);
-                                //await db.SaveChangesAsync();
-                                ctx.sp_InsertNews(itemInside.Title, itemInside.Descriptions, itemInside.PubDate, itemInside.ImageUrl, itemInside.MagazineID, itemInside.ViewNumber, itemInside.DateInserted, itemInside.LinkUrl);
-                                //db.SaveChanges();
+
+                                    tblNew n = new tblNew();
+                                    n.Title = itemInside.Title;
+                                    n.PubDate = itemInside.PubDate;
+                                    n.Descriptions = itemInside.Descriptions;
+                                    n.MagazineID = item.MagazineID;
+                                    n.ViewNumber = rnd.Next(500, 900);
+                                    n.DateInserted = DateTime.Now.Date;
+                                    n.LinkUrl = itemInside.LinkUrl;
+                                    // db.tblNews.Add(n);
+                                    //await db.SaveChangesAsync();
+                                    ctx.sp_InsertNews(itemInside.Title, itemInside.Descriptions, itemInside.PubDate, itemInside.ImageUrl, itemInside.MagazineID, itemInside.ViewNumber, itemInside.DateInserted, itemInside.LinkUrl);
+                                    //db.SaveChanges();
                                 }
                             }
                             TempList.Clear();
@@ -93,7 +97,7 @@ namespace GOWEB.Controllers
                                     n.LinkUrl = itemInside.Link;
                                     //db.tblNews.Add(n);
                                     //await db.SaveChangesAsync();
-                                    ctx.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900) , DateTime.Now.Date, itemInside.Link);
+                                    ctx.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900), DateTime.Now.Date, itemInside.Link);
                                     //db.SaveChanges();
                                 }
                             }
@@ -105,7 +109,7 @@ namespace GOWEB.Controllers
             catch (Exception e)
             {
                 string q = e.InnerException.ToString();
-                
+
                 //return false;
             }
 
@@ -136,13 +140,52 @@ namespace GOWEB.Controllers
                                   PublishDate = Convert.ToDateTime(item.Elements().First(i => i.Name.LocalName == "pubDate").Value),
                                   Title = item.Elements().First(i => i.Name.LocalName == "title").Value
                               };
-                return entries.ToList();
+
+
+                if (url == "https://barnamenevisan.org/rss\r\n" || url == "https://www.digikala.com/mag/category/%d8%af%db%8c%d8%ac%db%8c%d8%aa%d8%a7%d9%84/%d8%aa%d8%b1%db%8c%d9%86-%d9%87%d8%a7/feed/")
+                {
+                    var entries1 = doc.Root.Descendants().First(i => i.Name.LocalName == "channel").Elements().Where(i => i.Name.LocalName == "item").ToList();
+                    List<Item> lstTemp = new List<Item>();
+                    foreach (var item in entries1)
+                    {
+                        string t = item.Elements().First(i => i.Name.LocalName == "title").Value;
+                        Item objItem = new Item();
+
+                        objItem.FeedType = FeedType.RSS;
+                        objItem.Content = item.Elements().First(i => i.Name.LocalName == "description").Value;
+                        objItem.Link = item.Elements().First(i => i.Name.LocalName == "link").Value;
+                        objItem.PublishDate = DateTime.Now.Date;
+                        objItem.Title = item.Elements().First(i => i.Name.LocalName == "title").Value;
+
+                        lstTemp.Add(objItem);
+                    }
+
+                    return lstTemp;
+                }
+                else
+                {
+                    return entries.ToList();
+                }
+
+           
+             
             }
             catch
             {
                 return new List<Item>();
             }
         }
+
+        public T Deserialize<T>(string input) where T : class
+        {
+            System.Xml.Serialization.XmlSerializer ser = new System.Xml.Serialization.XmlSerializer(typeof(T));
+
+            using (StringReader sr = new StringReader(input))
+            {
+                return (T)ser.Deserialize(sr);
+            }
+        }
+
         public class Item
         {
             public string Link { get; set; }
