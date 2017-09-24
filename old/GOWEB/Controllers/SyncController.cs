@@ -142,7 +142,7 @@ namespace GOWEB.Controllers
                               };
 
 
-                if (url == "https://barnamenevisan.org/rss\r\n" || url == "https://www.digikala.com/mag/category/%d8%af%db%8c%d8%ac%db%8c%d8%aa%d8%a7%d9%84/%d8%aa%d8%b1%db%8c%d9%86-%d9%87%d8%a7/feed/")
+                if ( url.Contains("digikala") == true || url.Contains("barnamenevisan") == true )
                 {
                     var entries1 = doc.Root.Descendants().First(i => i.Name.LocalName == "channel").Elements().Where(i => i.Name.LocalName == "item").ToList();
                     List<Item> lstTemp = new List<Item>();
