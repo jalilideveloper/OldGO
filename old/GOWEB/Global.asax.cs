@@ -24,7 +24,7 @@ namespace GOWEB
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
          
-            aTimer = new System.Timers.Timer(1800000);
+            aTimer = new System.Timers.Timer(900000);
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += ATimer_Elapsed; ;
             aTimer.Enabled = true;
