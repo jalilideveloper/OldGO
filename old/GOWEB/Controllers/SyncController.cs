@@ -142,7 +142,7 @@ namespace GOWEB.Controllers
                               };
 
 
-                if ( url.Contains("digikala") == true || url.Contains("barnamenevisan") == true )
+                if ( url.Contains("digikala") == true || url.Contains("barnamenevisan") == true || url.Contains("mytech") == true)
                 {
                     var entries1 = doc.Root.Descendants().First(i => i.Name.LocalName == "channel").Elements().Where(i => i.Name.LocalName == "item").ToList();
                     List<Item> lstTemp = new List<Item>();
