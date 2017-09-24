@@ -12,16 +12,7 @@ namespace GOWEB.Controllers
             return View();
         }
 
-        private void CheckNewData()
-        {
-            TimeSpan ts = DateTime.Now - (DateTime)HttpContext.Application["Mydate"];
-            if (ts.Minutes >= 2)
-            {
-                Controllers.SyncController s = new Controllers.SyncController();
-                s.GetData();
-                HttpContext.Application["MyDate"] = DateTime.Now;
-            }
-        }
+      
 
         public ActionResult SEO()
         {
