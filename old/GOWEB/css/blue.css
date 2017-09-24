@@ -1211,6 +1211,10 @@ h3.style {
     padding: 10px;
 }
 
+padding-15 {
+    padding: 15px !important;
+}
+
 .padding-20 {
     padding: 20px;
 }
@@ -1285,19 +1289,26 @@ h3.style {
 }
 
 .OneWordBGC {
+    background-color: #4cddd3;
     background-color: #4cddd34d;
+    text-align: center;
 }
 
 .TwoWordBGC {
+    background-color: #ec7e76;
     background-color: #ec7e7680;
+    text-align: center;
 }
 
 .ThreeWordBGC {
+    background-color: #efc122;
     background-color: #efc12280;
+    text-align: center;
 }
 
 .tbl-border-bottom {
     border-bottom: 2px solid #0e86c8;
+    text-align: center;
 }
 
 
@@ -2808,13 +2819,14 @@ a.btn_green {
         display: none;
     }
 }
+
 @media (max-width: 1023px) {
     .mobile-resp {
         display: none;
     }
 }
 
- 
+
 /*MJ*/
 .fontGocolor {
     color: #982987;
@@ -2919,6 +2931,7 @@ a.btn_green {
     text-overflow: ellipsis;
     padding: 5px 0 5px 0;
 }
+
 .ellipsistitlehome ul li {
     white-space: nowrap;
     overflow: hidden;
@@ -2950,25 +2963,30 @@ a.btn_green {
     box-shadow: 1px 1px 1px #ddd;
     background-color: #fff;
 }
-.widget .widget-header {
-    height: 35px;
-    line-height: 35px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #f5b328;
-    border-bottom: 1px solid #ddd;
-}
-.widget .widget-content {
-    background-color: #fff;
-    overflow: hidden;
-}
-.widget .md-padding {
-    padding-top: 5px;
-}
-.line-height-2-5{
+
+    .widget .widget-header {
+        height: 35px;
+        line-height: 35px;
+        width: 100%;
+        margin: 0 auto;
+        background-color: #f5b328;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .widget .widget-content {
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+    .widget .md-padding {
+        padding-top: 5px;
+    }
+
+.line-height-2-5 {
     line-height: 2.5;
 }
-.padding-bottom10{
+
+.padding-bottom10 {
     padding-bottom: 10px;
 }
 

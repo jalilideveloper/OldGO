@@ -56,8 +56,14 @@
                     </div>
 
                     <div class="clearfix"></div>
+                    <div class="col-md-9">
 
-                    <ul class="pagination" id="PageNumber"></ul>
+                        <ul class="pagination" id="PageNumber"></ul>
+                    </div>
+                    <div id="pagenum" class="col-md-3 no-margin ">
+
+                    </div>
+
                 </div>
 
                 <div class="col-md-2 blog_right no-padding divleftarticle">
@@ -263,15 +269,45 @@
                         $("#CenterContent").append(newesItem)
                     });
                 });
-                
+
                 $.getJSON("/DT/GetAllPages/0", function (data) {
 
-                    var PagesItem = "";
-                    for (var i = 0; i < data; i++) {
-                        PagesItem += "<li><a href='/Home/ArticleShow/" + i + "' > " + i + "</a></li>";
+                    var start = 0;
+                    if (narticleshow > 5) {
+                        start = parseInt(narticleshow) - 5;
                     }
+                    var End = data;
+                    if (narticleshow < (parseInt(data)-5)) {
+                        End = parseInt(narticleshow) + 5;
+                    }
+                    var PagesItem = "";
+
+                    for (var i = start; i <= End; i++) {
+                        if (i == start) {
+                            console.log(i);
+                            if (i > 0) {
+                                PagesItem += "<li><a href='/Home/ArticleShow/" + i + "' ><i class='fa fa-chevron-left' aria-hidden='true'></i></a></li>";
+                            }
+                            else {
+                                PagesItem += "<li><a href='/Home/ArticleShow/" + i + "' > " + i + "</a></li>";
+                            }
+                        }
+                        else if (i < End) {
+                            PagesItem += "<li><a href='/Home/ArticleShow/" + i + "' > " + i + "</a></li>";
+                        }
+                        else if (i = End) {
+                            PagesItem += "<li><a href='/Home/ArticleShow/" + i + "' > " + i + "</a></li>";
+                            if (i < (parseInt(data) - 5)) {
+                                PagesItem += "<li><a href='/Home/ArticleShow/" + parseInt(i+1) + "' ><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>";
+                            }
+                        }
+                    }
+
                     $("#PageNumber").append(PagesItem)
 
+
+                    PageNum = "<h5 class='padding-15'>صفحه " + narticleshow + " از " + data + "</h5>";
+                    $("#pagenum").append(PageNum)
                 });
 
 
@@ -294,11 +330,19 @@
                 $.getJSON("/DT/GetAllPages/0", function (data) {
 
                     var PagesItem = "";
-                    for (var i = 0; i < data; i++) {
-                        PagesItem += "<li><a href='/Home/ArticleShow/" + i + "' > " + i + "</a></li>";
+                    var PageNum = "";
+                    for (var i = 0; i < data && i < 11; i++) {
+                        if (i < 10) {
+                            PagesItem += "<li><a href='/Home/ArticleShow/" + i + "' > " + i + "</a></li>";
+                        }
+                        else if (i = 10) {
+                            PagesItem += "<li><a href='/Home/ArticleShow/" + i + "' ><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>";
+                        }
                     }
                     $("#PageNumber").append(PagesItem)
 
+                    PageNum = "<h5 class='padding-15'>صفحه 0 از " + data + "</h5>";
+                    $("#pagenum").append(PageNum)
                 });
 
 
@@ -324,14 +368,46 @@
                         $("#CenterContent").append(newesItem)
                     });
                 });
-                
+
                 $.getJSON("/DT/GetAllPages/" + nMagazineID, function (data) {
-                    console.log(data);
-                    var PagesItem = "";
-                    for (var i = 0; i < data; i++) {
-                        PagesItem += "<li><a href='/Home/MagazineSelected/" + nMagazineID + "-" + i + "' > " + i + "</a></li>";
+
+                    var startcount = 0;
+                    if (start > 5) {
+                        startcount = parseInt(start) - 5;
                     }
+                    var End = data;
+                    if (start < (parseInt(data) - 5)) {
+                        End = parseInt(start) + 5;
+                    }
+                    console.log("startcount" + startcount);
+                    console.log("End" + End);
+                    var PagesItem = "";
+
+                    for (var i = startcount; i <= End; i++) {
+                        if (i == startcount) {
+                            if (i > 0) {
+                                PagesItem += "<li><a href='/Home/MagazineSelected/" + nMagazineID + "-"+ i + "' ><i class='fa fa-chevron-left' aria-hidden='true'></i></a></li>";
+                            }
+                            else {
+                                PagesItem += "<li><a href='/Home/MagazineSelected/" + nMagazineID + "-" + i + "' > " + i + "</a></li>";
+                            }
+                        }
+                        else if (i < End) {
+                            PagesItem += "<li><a href='/Home/MagazineSelected/" + nMagazineID + "-"+ i + "' > " + i + "</a></li>";
+                        }
+                        else if (i = End) {
+                            PagesItem += "<li><a href='/Home/MagazineSelected/" + nMagazineID + "-" + i + "' > " + i + "</a></li>";
+                            if (i < (parseInt(data) - 5)) {
+                                PagesItem += "<li><a href='/Home/MagazineSelected/" + nMagazineID + "-" + parseInt(i + 1) + "' ><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>";
+                            }
+                        }
+                    }
+
                     $("#PageNumber").append(PagesItem)
+
+
+                    PageNum = "<h5 class='padding-15'>صفحه " + start + " از " + data + "</h5>";
+                    $("#pagenum").append(PageNum)
 
                 });
 
@@ -345,8 +421,8 @@
 
                 var n = pathname.lastIndexOf('/');
                 var nMagazineID = pathname.substring(n + 1);
-            
-                $.getJSON("/DT/GetAllNewsMagazine/", { id: nMagazineID , start: 0 }, function (data) {
+
+                $.getJSON("/DT/GetAllNewsMagazine/", { id: nMagazineID, start: 0 }, function (data) {
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
                         var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-");
@@ -355,15 +431,23 @@
                     });
                 });
 
-                
+
                 $.getJSON("/DT/GetAllPages/" + nMagazineID, function (data) {
-                    console.log(data);
+
                     var PagesItem = "";
-                    for (var i = 0; i < data; i++) {
-                        PagesItem += "<li><a href='/Home/MagazineSelected/" + nMagazineID + "-" + i + "' > " + i + "</a></li>";
+                    var PageNum = "";
+                    for (var i = 0; i < data && i < 11; i++) {
+                        if (i < 10) {
+                            PagesItem += "<li><a href='/Home/MagazineSelected/" + nMagazineID + "-" + i + "' > " + i + "</a></li>";
+                        }
+                        else if (i = 10) {
+                            PagesItem += "<li><a href='/Home/MagazineSelected/" + nMagazineID + "-" + i + "' ><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>";
+                        }
                     }
                     $("#PageNumber").append(PagesItem)
 
+                    PageNum = "<h5 class='padding-15'>صفحه 0 از " + data + "</h5>";
+                    $("#pagenum").append(PageNum)
                 });
             }
 
