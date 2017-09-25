@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="greenopt_GONewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="greenopt_GONewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblLanguages">
           <Key>
             <PropertyRef Name="LanguageID" />
@@ -134,8 +134,7 @@
             <End Role="tblNews" EntitySet="tblNews" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="greenopt_GONewsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -256,20 +255,20 @@
           <FunctionImport Name="spgo_GetAllNews" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllNews_Result)" />
           <FunctionImport Name="spgo_GetAllRecentNewsTopView" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllRecentNewsTopView_Result)" />
           <FunctionImport Name="spgo_GetLatestNewsOrderByDate" ReturnType="Collection(greenopt_GONewsModel.spgo_GetLatestNewsOrderByDate_Result)">
-            <Parameter Name="startpageid" Mode="In" Type="Int32" />
+          <Parameter Name="startpageid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetLatestNewsOrderByDateByMGID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetLatestNewsOrderByDateByMGID_Result)">
             <Parameter Name="mgID" Mode="In" Type="Int32" />
             <Parameter Name="startpageid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetNewsByID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetNewsByID_Result)">
-            <Parameter Name="NewsID" Mode="In" Type="Int32" />
+          <Parameter Name="NewsID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetNewsByMgIDOrderByNewsID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetNewsByMgIDOrderByNewsID_Result)">
-            <Parameter Name="mgID" Mode="In" Type="Int32" />
+          <Parameter Name="mgID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetPageNumbers" ReturnType="Collection(Int32)">
-            <Parameter Name="MagazineID" Mode="In" Type="Int32" />
+          <Parameter Name="MagazineID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_LatestNewsPublishDate" ReturnType="Collection(greenopt_GONewsModel.spgo_LatestNewsPublishDate_Result)" />
           <FunctionImport Name="spgo_LatestNewsViewNumber" ReturnType="Collection(greenopt_GONewsModel.spgo_LatestNewsViewNumber_Result)" />
