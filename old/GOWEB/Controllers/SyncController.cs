@@ -84,8 +84,7 @@ namespace GOWEB.Controllers
                                     settings.Encoding = Encoding.UTF8;
                                     settings.Indent = true;
 
-                                    string path = HostingEnvironment.MapPath("/") + "AllNewsSitemap.xml";
-                                    Utility.UpdateAllNewsSitemap(ctx, path, settings, new Utility.XmlSitemaps { loc = itemInside.LinkUrl, lastmod = itemInside.PubDate.ToString() });
+                                    Utility.UpdateAllNewsSitemap(ctx, settings, new Utility.XmlSitemaps { loc = itemInside.LinkUrl, lastmod = itemInside.PubDate.ToString() });
 
 
 
@@ -111,6 +110,10 @@ namespace GOWEB.Controllers
                                     //db.tblNews.Add(n);
                                     //await db.SaveChangesAsync();
                                     ctx.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900), DateTime.Now.Date, itemInside.Link);
+                                    XmlWriterSettings settings = new XmlWriterSettings();
+                                    settings.Encoding = Encoding.UTF8;
+                                    settings.Indent = true;
+                                    Utility.UpdateAllNewsSitemap(ctx, settings, new Utility.XmlSitemaps { loc = itemInside.Link, lastmod = itemInside.PublishDate.ToString() });
                                     //db.SaveChanges();
                                 }
                             }

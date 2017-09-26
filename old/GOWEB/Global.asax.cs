@@ -42,7 +42,7 @@ namespace GOWEB
 
 
 
-            UpdateSitremaps = new System.Timers.Timer(45000);
+            UpdateSitremaps = new System.Timers.Timer(60000);
             // Hook up the Elapsed event for the timer. 
             UpdateSitremaps.Elapsed += u.UpdateXml;
             UpdateSitremaps.Enabled = true;

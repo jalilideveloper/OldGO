@@ -40,7 +40,7 @@ namespace GOWEB.Models
 
 
                     // All News
-                    UpdateAllNewsSitemap(db, virPath, settings);
+                    UpdateAllNewsSitemap(db, settings);
 
                     // All Number Pages
                     UpdateArticleSitemap(virPath, settings);
@@ -218,8 +218,9 @@ namespace GOWEB.Models
             }
         }
 
-        public static void UpdateAllNewsSitemap(greenopt_GONewsEntities db, string virPath, XmlWriterSettings settings, XmlSitemaps newItem = null )
+        public static void UpdateAllNewsSitemap(greenopt_GONewsEntities db, XmlWriterSettings settings, XmlSitemaps newItem = null )
         {
+            var virPath = HostingEnvironment.MapPath("/");
             if (File.Exists(virPath + "AllNewsSitemap.xml") == false)
             {
                 using (XmlWriter writer = XmlWriter.Create(virPath + "AllNewsSitemap.xml", settings))
