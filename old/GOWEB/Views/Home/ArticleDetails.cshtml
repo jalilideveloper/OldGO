@@ -28,7 +28,7 @@
             <title>@q.Title</title>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <meta name="description" content="طراحی سایت, بهینه سازی سایت, طراحی وب سایت, بهینه سازی وب سایت, سئو" />
-            <meta name="keywords" content="@q.Title.Replace(' ',',').ToString(),IGreenNews, International Green News, Seo," />
+            <meta name="keywords" content="@q.Title.Replace(' ', ',').ToString(),IGreenNews, International Green News, Seo," />
             <meta http-equiv="CHARSET" content="utf-8" />
             <meta name="Content-Language" content="@q.tblMagazine.tblMenu.tblLanguage.LanguageName" />
             <meta name="language" content="@q.tblMagazine.tblMenu.tblLanguage.LanguageName" />
@@ -102,8 +102,31 @@
 
             </div>
 
+            @{
 
-            <iframe id="myframe" name="myframe" src="@q.LinkUrl" style="width:100%;overflow:visible;height:100%" frameborder="0"></iframe>
+                var item = q.LinkUrl;
+
+                //string myUrl = item.Substring(7, item.Length - 7);
+                string myUrl;
+                
+
+                if (item.Contains("https"))
+                {
+                    myUrl = item.Split(new string[] { "https://" }, StringSplitOptions.None)[1].ToString();
+
+                }
+                else
+                {
+                    myUrl = item.Split(new string[] { "http://" }, StringSplitOptions.None)[1].ToString();
+                }
+
+
+                 }
+
+
+            }
+
+            <iframe id="myframe" name="myframe" src="//@myUrl" style="width:100%;overflow:visible;height:100%" frameborder="0"></iframe>
 
         </body>
     }
