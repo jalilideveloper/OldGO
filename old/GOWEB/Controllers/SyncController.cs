@@ -11,6 +11,9 @@ using System.IO;
 
 using System.Collections;
 using System.Xml.Serialization;
+using System.Xml;
+using System.Text;
+using System.Web.Hosting;
 
 namespace GOWEB.Controllers
 {
@@ -76,6 +79,16 @@ namespace GOWEB.Controllers
                                     //await db.SaveChangesAsync();
                                     ctx.sp_InsertNews(itemInside.Title, itemInside.Descriptions, itemInside.PubDate, itemInside.ImageUrl, itemInside.MagazineID, itemInside.ViewNumber, itemInside.DateInserted, itemInside.LinkUrl);
                                     //db.SaveChanges();
+
+                                    XmlWriterSettings settings = new XmlWriterSettings();
+                                    settings.Encoding = Encoding.UTF8;
+                                    settings.Indent = true;
+
+                                    string path = HostingEnvironment.MapPath("/") + "AllNewsSitemap.xml";
+                                    Utility.UpdateAllNewsSitemap(ctx, path, settings, new Utility.XmlSitemaps { loc = itemInside.LinkUrl, lastmod = itemInside.PubDate.ToString() });
+
+
+
                                 }
                             }
                             TempList.Clear();
