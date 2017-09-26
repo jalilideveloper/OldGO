@@ -234,7 +234,7 @@
                     $.getJSON("/DT/GetLatestNewsByMagazineID/" + value.MagazineID + "", function (myData) {
                         var $xData = $(myData);
                         $.each($xData, function (key, item) {
-                            var Prehref = "/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-");
+                            var Prehref = "/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-").replace("(", "-").replace(")", "-").replace("{", "-").replace("}", "-").replace("[", "-").replace("]", "-");
                             var $ulItem = "<li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a title='" + item.NTitle + "' href='" + Prehref + "'> " + item.NTitle + "</a></li>";
                             $("#mgz" + value.MagazineID).append($ulItem);
                         });
