@@ -219,7 +219,7 @@
                 var $xml = $(data);
                 var allhtml = "";
                 $.each($xml, function (index, value) {
-                    var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-");
+                    var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-");
                     var $taga = "<li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a title='" + value.NTitle + "' href='" + Prehref + "'> " + value.NTitle + " </a></li>";
                     allhtml += $taga;
                 });
@@ -235,7 +235,7 @@
                     $.getJSON("/DT/GetLatestNewsByMagazineID/" + value.MagazineID + "", function (myData) {
                         var $xData = $(myData);
                         $.each($xData, function (key, item) {
-                            var Prehref = "/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-");
+                            var Prehref = "/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-");
                             var $ulItem = "<li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a title='" + item.NTitle + "' href='" + Prehref + "'> " + item.NTitle + "</a></li>";
                             $("#mgz" + value.MagazineID).append($ulItem);
                         });
@@ -269,7 +269,7 @@
                 $.getJSON("/DT/GetAllNews/" + narticleshow, function (data) {
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
-                        var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-");
+                        var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-");
                         var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
@@ -326,7 +326,7 @@
                 $.getJSON("/DT/GetAllNews/0", function (data) {
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
-                        var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-");
+                        var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-");
                         var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
@@ -368,7 +368,7 @@
                 $.getJSON("/DT/GetAllNewsMagazine/", { id: nMagazineID, start: start }, function (data) {
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
-                        var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-");
+                        var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-");
                         var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
@@ -430,7 +430,7 @@
                 $.getJSON("/DT/GetAllNewsMagazine/", { id: nMagazineID, start: 0 }, function (data) {
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
-                        var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-");
+                        var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-");
                         var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
