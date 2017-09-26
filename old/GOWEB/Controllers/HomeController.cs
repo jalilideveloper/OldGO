@@ -6,7 +6,7 @@ namespace GOWEB.Controllers
     public class HomeController : Controller
     {
 
-        [OutputCache(Duration = 10, VaryByParam = "none" ,Location = System.Web.UI.OutputCacheLocation.Client)]
+        //[OutputCache(Duration = 10, VaryByParam = "none" ,Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Index()
         {
           //  CheckNewData();
