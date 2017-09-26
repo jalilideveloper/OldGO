@@ -16,7 +16,7 @@
             <div class="main_grid1">
                 <h4 class="style pull-left">مقالات</h4>
                 <ol class="breadcrumb pull-right">
-                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="~/Home/Index">خانه</a></li>
                     <li class="active">مقالات</li>
                 </ol>
                 <div class="clearfix"></div>
@@ -30,46 +30,12 @@
         <div class="container">
             <div class="blog">
                 <!-- start blog -->
-                <div class="col-md-2 blog_right no-padding ellipsistitle divrightarticle hidden-sm hidden-xs" id="MagazinesNews">
+             
+
+                <div class="col-md-2  blog_right no-padding ">
 
 
-
-
-                    <div class="widget">
-                        <div class="widget-header text-align-center">
-                            <h6 class="line-height-2-5">پربازدید ترین ها</h6>
-                        </div>
-                        <div class="widget-content md-padding">
-                            <ul class="list-unstyled hidden-sm hidden-xs div-bg-white" id="MostRecentNews">
-                                <div class="clearfix"></div>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-                <div class="blog_main col-md-7 ">
-                    <div id="CenterContent">
-
-                    </div>
-
-                    <div class="clearfix"></div>
-                    <div class="col-md-9">
-
-                        <ul class="pagination" id="PageNumber"></ul>
-                    </div>
-                    <div id="pagenum" class="col-md-3 no-margin ">
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-2 blog_right no-padding divleftarticle">
-
-
-                    <div class="widget hidden-sm hidden-xs">
+                    <div class="widget ">
                         <div class="widget-header text-align-center">
                             <h6 class="line-height-2-5">مقالات</h6>
                         </div>
@@ -79,13 +45,13 @@
                     </div>
 
 
-                    <div class="widget hidden-sm hidden-xs">
+                    <div class="widget ">
                         <div class="widget-header text-align-center">
                             <h6 class="line-height-2-5">تبلیغات</h6>
                         </div>
                         <div class="widget-content md-padding">
 
-                            <ul class="ads_nav list-unstyled  hidden-sm hidden-xs div-bg-white">
+                            <ul class="ads_nav list-unstyled   div-bg-white">
                                 <li><a href="http://www.bamilo.com/"><img src="~/images/ads/bamilo.png" alt=""> </a></li>
                                 <li><a href="https://www.digikala.com/"><img src="~/images/ads/digikala125.gif" alt=""> </a></li>
                                 <li><a href="http://goldiran.ir/"><img src="~/images/ads/goldiran.png" alt=""> </a></li>
@@ -103,7 +69,7 @@
                         </div>
                         <div class="widget-content md-padding">
 
-                            <ul class="tag_nav list-unstyled  hidden-sm hidden-xs div-bg-white">
+                            <ul class="tag_nav list-unstyled  div-bg-white">
                                 <li class="active"><a href="#">قالب</a></li>
                                 <li><a href="#">طراحی سایت</a></li>
                                 <li><a href="#">سئو</a></li>
@@ -126,7 +92,7 @@
                         </div>
                         <div class="widget-content md-padding">
                             <div class="row text-align-center no-padding">
-                                <div class="paddingbottom5 col-lg-12 col-md-12 hidden-sm hidden-xs">
+                                <div class="paddingbottom5 col-lg-12 col-md-12 ">
                                     <div class="paddingbottom5">
                                         <a target="_blank" href="http://www.samsung.com/iran/smartphones/galaxy-s8">
                                             <img src="~/images/ads/samsung.gif" alt="سامسونگ" class="img-responsive">
@@ -196,6 +162,45 @@
                     </div>
 
                 </div>
+
+
+                <div class="col-md-8  blog_main ">
+                    <div id="CenterContent">
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="col-md-9">
+
+                        <ul class="pagination" id="PageNumber"></ul>
+                    </div>
+                    <div id="pagenum" class="col-md-3 no-margin ">
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-2 blog_right no-padding ellipsistitle" id="MagazinesNews">
+
+
+
+
+                    <div class="widget">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">پربازدید ترین ها</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+                            <ul class="list-unstyled div-bg-white" id="MostRecentNews">
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+
                 <div class="clearfix"></div>
             </div><!-- end blog -->
         </div>
@@ -225,7 +230,7 @@
                 var $xml = $(data);
                 var allhtml = "";
                 $.each($xml, function (index, value) {
-                    var $eachMagazine = "<div class='widget'><div class='widget-header text-align-center'><a class='colorblack' href='/Home/Magazine/" + value.MagazineID + "'><h6 class='line-height-2-5'>" + value.SiteName + "</h6></a></div><div class='widget-content md-padding'><ul id='mgz" + value.MagazineID + "' class='list-unstyled hidden-sm hidden-xs div-bg-white'><div class='clearfix'></div></ul></div></div>";
+                    var $eachMagazine = "<div class='widget'><div class='widget-header text-align-center'><a class='colorblack' href='/Home/Magazine/" + value.MagazineID + "'><h6 class='line-height-2-5'>" + value.SiteName + "</h6></a></div><div class='widget-content md-padding'><ul id='mgz" + value.MagazineID + "' class='list-unstyled div-bg-white'><div class='clearfix'></div></ul></div></div>";
                     $('#MagazinesNews').append($eachMagazine);
                     $.getJSON("/DT/GetLatestNewsByMagazineID/" + value.MagazineID + "", function (myData) {
                         var $xData = $(myData);
@@ -265,7 +270,7 @@
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
                         var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-");
-                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
+                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
                 });
@@ -322,7 +327,7 @@
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
                         var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-");
-                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
+                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
                 });
@@ -364,7 +369,7 @@
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
                         var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-");
-                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
+                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
                 });
@@ -426,7 +431,7 @@
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
                         var Prehref = "/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-");
-                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
+                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
                 });
