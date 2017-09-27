@@ -109,7 +109,6 @@
                 //string myUrl = item.Substring(7, item.Length - 7);
                 string myUrl;
                 
-
                 if (item.Contains("https"))
                 {
                     myUrl = item.Split(new string[] { "https://" }, StringSplitOptions.None)[1].ToString();
@@ -119,14 +118,13 @@
                 {
                     myUrl = item.Split(new string[] { "http://" }, StringSplitOptions.None)[1].ToString();
                 }
+            
+             }
 
 
-                 }
+            
 
-
-            }
-
-            <iframe id="myframe" name="myframe" src="//@myUrl" style="width:100%;overflow:visible;height:100%" frameborder="0"></iframe>
+            <iframe id="myframe" name="myframe"  src="//@myUrl" style="width:100%;overflow:visible;height:100%" frameborder="0"></iframe>
 
         </body>
     }
@@ -138,13 +136,17 @@
 
 
 <script type="text/javascript">
-
+   
 
     $(document).ready(function () {
 
         //var src = $('iframe', this).attr('src');
 
+        //myFunction();
 
+        //function myFunction() {
+        //    document.getElementById("myframe").src = document.getElementById("myframe").accessKey;
+        //}
 
         //window.history.pushState("", "", "" + src + "");
 
