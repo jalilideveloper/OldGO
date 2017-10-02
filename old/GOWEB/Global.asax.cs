@@ -33,7 +33,7 @@ namespace GOWEB
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
-            UpdateNewsTimer = new System.Timers.Timer(1000000);
+            UpdateNewsTimer = new System.Timers.Timer(900000);
             // Hook up the Elapsed event for the timer. 
             Utility u = new Utility();
 
