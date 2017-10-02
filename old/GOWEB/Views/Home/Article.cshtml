@@ -52,10 +52,10 @@
                         <div class="widget-content md-padding">
 
                             <ul class="ads_nav list-unstyled   div-bg-white">
-                                <li><a href="http://www.bamilo.com/"><img src="~/images/ads/bamilo.png" alt=""> </a></li>
-                                <li><a href="https://www.digikala.com/"><img src="~/images/ads/digikala125.gif" alt=""> </a></li>
-                                <li><a href="http://goldiran.ir/"><img src="~/images/ads/goldiran.png" alt=""> </a></li>
-                                <li><a href="http://izigzag.com/L/Brand"><img src="~/images/ads/zigzag125.gif" alt=""> </a></li>
+                                <li><a target="_blank" href="http://www.bamilo.com/"><img src="~/images/ads/bamilo.png" alt=""> </a></li>
+                                <li><a target="_blank" href="https://www.digikala.com/"><img src="~/images/ads/digikala125.gif" alt=""> </a></li>
+                                <li><a target="_blank" href="http://goldiran.ir/"><img src="~/images/ads/goldiran.png" alt=""> </a></li>
+                                <li><a target="_blank" href="http://izigzag.com/L/Brand"><img src="~/images/ads/zigzag125.gif" alt=""> </a></li>
                                 <div class="clearfix"></div>
                             </ul>
                         </div>
@@ -220,7 +220,7 @@
                 var allhtml = "";
                 $.each($xml, function (index, value) {
                     var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-").replace("(", "-").replace(")", "-").replace("{", "-").replace("}", "-").replace("[", "-").replace("]", "-");
-                    var $taga = "<li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a title='" + value.NTitle + "' href='" + Prehref + "'> " + value.NTitle + " </a></li>";
+                    var $taga = "<li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a target='_blank' title='" + value.NTitle + "' href='" + Prehref + "'> " + value.NTitle + " </a></li>";
                     allhtml += $taga;
                 });
                 $('#MostRecentNews').append(allhtml);
@@ -235,7 +235,7 @@
                         var $xData = $(myData);
                         $.each($xData, function (key, item) {
                             var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-").replace("(", "-").replace(")", "-").replace("{", "-").replace("}", "-").replace("[", "-").replace("]", "-");
-                            var $ulItem = "<li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a title='" + item.NTitle + "' href='" + Prehref + "'> " + item.NTitle + "</a></li>";
+                            var $ulItem = "<li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a target='_blank' title='" + item.NTitle + "' href='" + Prehref + "'> " + item.NTitle + "</a></li>";
                             $("#mgz" + value.MagazineID).append($ulItem);
                         });
                     });
@@ -269,7 +269,7 @@
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
                         var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-").replace("(", "-").replace(")", "-").replace("{", "-").replace("}", "-").replace("[", "-").replace("]", "-");
-                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
+                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
                 });
@@ -326,7 +326,7 @@
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
                         var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-").replace("(", "-").replace(")", "-").replace("{", "-").replace("}", "-").replace("[", "-").replace("]", "-");
-                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
+                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
                 });
@@ -368,7 +368,7 @@
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
                         var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-").replace("(", "-").replace(")", "-").replace("{", "-").replace("}", "-").replace("[", "-").replace("]", "-");
-                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
+                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
                 });
@@ -430,7 +430,7 @@
                     var $xml = $(data);
                     $.each($xml, function (index, value) {
                         var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + value.NewsID + "|" + value.NTitle.replace(" ", "-").replace("+", "-").replace("?", "-").replace("*", "-").replace(";", "-").replace(",", "-").replace(".", "-").replace(":", "-").replace("؛", "-").replace("؟", "-").replace("»", "-").replace("«", "-").replace("!", "-").replace("(", "-").replace(")", "-").replace("{", "-").replace("}", "-").replace("[", "-").replace("]", "-");
-                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
+                        var newesItem = "<div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='" + Prehref + "'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='" + Prehref + "'>" + value.NTitle + "</a></h4><span>نوشته شده در تاریخ " + value.PubDate + "  در " + value.SiteTitle + " <a><i class='fa fa-eye'></i></a> " + value.ViewNumber + " بازدید</span><p class='para'>" + value.Description + "</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>";
                         $("#CenterContent").append(newesItem)
                     });
                 });

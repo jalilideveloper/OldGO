@@ -37,32 +37,29 @@
             <meta property="og:site_name" content="بهینه ساز سبز, Green Optimizer" />
             <link rel="shortcut icon" href="~/images/GO-green-ico.png" type="image/x-icon" />
             <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <link rel="stylesheet" href="~/fonts/css/font-awesome.min.css">
             <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
             <link href="~/css/blue.css" rel="stylesheet" type="text/css" media="all" />
-
         </head>
         <body class="detailsArticle">
             <div class="container">
-                
-                <div class="row">
-                    <div class="col-lg-5 col-md-5 col-sm-5 news_box ">
-                        <ul>
 
-                            <li>
-                                <a target="_blank" href="http://greenoptimizer.com/">بهینه سازی سایت</a>
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-5  col-xs-5 news_box padding-5">
+                        <ul class="list-unstyled">
+                            <li class="padding-2">
+                                <i class="fa fa-bar-chart font-12" aria-hidden="true"><a class="font-family-IRANSans margin-right-5" target="_blank" href="http://greenoptimizer.com/">بهینه سازی سایت</a></i>
                             </li>
-                            <li>
-                                <a target="_blank" href="http://greenoptimizer.com/">سئو سایت</a>
+                            <li class="padding-2">
+                                <i class="fa fa-line-chart font-12" aria-hidden="true"><a class="font-family-IRANSans margin-right-5" target="_blank" href="http://greenoptimizer.com/">سئو سایت</a></i>
                             </li>
-                            <li>
-                                <a target="_blank" href="http://greenoptimizer.com/">طراحی سایت</a>
+                            <li class="padding-2">
+                                <i class="fa fa-laptop font-12" aria-hidden="true"><a class="font-family-IRANSans margin-right-5" target="_blank" href="http://greenoptimizer.com/">طراحی سایت</a></i>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-8 col-sm-push-2 news_box ">
-                        <h5>عنوان</h5>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 news_box ">
                         <h6>@q.Title</h6>
-
                     </div>
                 </div>
 
@@ -70,10 +67,13 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding5" align="center">
                         <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-5">
-                                <a target="_blank" href="http://www.ikco-peugeot.ir/"><img  src="~/images/ads/peugeot508.gif" alt="پژو508" class="img-responsive" border="0" /></a>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <a target="_blank" href="http://www.ikco-peugeot.ir/"><img src="~/images/ads/peugeot508.gif" alt="پژو508" class="img-responsive" border="0" /></a>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-5 col-sm-push-6">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                                <a target="_blank" href="http://greenoptimizer.com/"><img src="~/images/GO-green.png" class="img-responsive" /></a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
                                 <a target="_blank" href="http://tamasha.com/">  <img src="~/images/ads/tamasha.gif" alt="تماشا" class="img-responsive" /></a>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
 
                 //string myUrl = item.Substring(7, item.Length - 7);
                 string myUrl;
-                
+
                 if (item.Contains("https"))
                 {
                     myUrl = item.Split(new string[] { "https://" }, StringSplitOptions.None)[1].ToString();
@@ -118,16 +118,16 @@
                 {
                     myUrl = item.Split(new string[] { "http://" }, StringSplitOptions.None)[1].ToString();
                 }
-            
-             }
+
+            }
 
 
-            
 
-            <iframe id="myframe" name="myframe"  src="//@myUrl" style="width:100%;overflow:visible;height:100%" frameborder="0"></iframe>
+
+            <iframe id="myframe" name="myframe" src="//@myUrl" style="width:100%;overflow:visible;height:100%" frameborder="0"></iframe>
 
         </body>
-    }
+                }
 }
 
 </html>
@@ -136,7 +136,7 @@
 
 
 <script type="text/javascript">
-   
+
 
     $(document).ready(function () {
 
@@ -151,7 +151,7 @@
         //window.history.pushState("", "", "" + src + "");
 
     })
-    
+
 
 </script>
 
