@@ -515,8 +515,6 @@
     <Content Include="js\modernizr.custom.js" />
     <Content Include="js\owl.carousel.js" />
     <Content Include="js\persianumber.min.js" />
-    <Content Include="MagazineSelectedSitemap.xml" />
-    <Content Include="MagazineSitemap.xml" />
     <Content Include="Models\doGoWeb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>doGoWeb.edmx</DependentUpon>
