@@ -663,6 +663,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Sitemaps\" />
     <Folder Include="Views\Api\" />
     <Folder Include="Views\DT\" />
   </ItemGroup>

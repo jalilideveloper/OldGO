@@ -86,6 +86,7 @@ namespace GOWEB.Controllers
                                     try
                                     {
                                     Utility.UpdateAllNewsSitemap(ctx, settings, new Utility.XmlSitemaps { loc = itemInside.LinkUrl, lastmod = itemInside.PubDate.ToString() });
+                                        Utility.UpdateArticleSitemap(settings, new Utility.XmlSitemaps { loc = itemInside.LinkUrl, lastmod = itemInside.PubDate.ToString() });
                                     }
                                     catch (Exception e)
                                     {
@@ -124,6 +125,8 @@ namespace GOWEB.Controllers
                                     try
                                     {
                                         Utility.UpdateAllNewsSitemap(ctx, settings, new Utility.XmlSitemaps { loc = itemInside.Link, lastmod = itemInside.PublishDate.ToString() });
+
+                                        Utility.UpdateArticleSitemap(settings, new Utility.XmlSitemaps { loc = itemInside.Link, lastmod = itemInside.PublishDate.ToString() });
                                     }
                                     catch (Exception e)
                                     {
