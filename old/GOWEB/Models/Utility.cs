@@ -43,7 +43,7 @@ namespace GOWEB.Models
                     UpdateAllNewsSitemap(db, settings);
 
                     // All Number Pages
-                    UpdateArticleSitemap(virPath, settings);
+                    UpdateArticleSitemap(settings);
 
                     // All Magaznie 
                     UpdateMagazine(db, virPath, settings);
@@ -164,9 +164,9 @@ namespace GOWEB.Models
             }
         }
 
-        private static void UpdateArticleSitemap(string virPath, XmlWriterSettings settings, XmlSitemaps newItem = null)
+        public static void UpdateArticleSitemap(XmlWriterSettings settings, XmlSitemaps newItem = null)
         {
-
+            var virPath = HostingEnvironment.MapPath("/");
             if (File.Exists(virPath + "ArticleSitemap.xml") == false)
             {
 
@@ -201,24 +201,37 @@ namespace GOWEB.Models
             }
             else
             {
+
                 if (newItem != null)
                 {
 
-                
-                XDocument xDocument = XDocument.Load(virPath + "ArticleSitemap.xml");
-                XElement root = xDocument.Element("urlset");
-                IEnumerable<XElement> rows = root.Descendants("url");
-                XElement firstRow = rows.First();
-                firstRow.AddBeforeSelf(
-                   new XElement("url",
-                     new XElement("loc", newItem.loc),
-                   new XElement("lastmod", newItem.lastmod)));
-                xDocument.Save(virPath + "ArticleSitemap.xml");
+                    DTController dt = new DTController();
+                    int countallpages = Convert.ToInt32(dt.GetAllPages(0));
+
+                    XDocument xDocument = XDocument.Load(virPath + "ArticleSitemap.xml");
+                    XElement root = xDocument.Element("urlset");
+                    IEnumerable<XElement> rows = root.Descendants("url");
+
+                    if (rows.ToList().Count != countallpages)
+                    {
+                        for (int i =  rows.ToList().Count + 1; i <= countallpages; i++)
+                        {
+                            XElement firstRow = rows.First();
+                            firstRow.AddBeforeSelf(
+                               new XElement("url",
+                                 new XElement("loc", "https://greenoptimizer.com/Home/ArticleShow/" + i),
+                               new XElement("lastmod", newItem.lastmod)));
+                            xDocument.Save(virPath + "ArticleSitemap.xml");
+                        }
+                    }
                 }
+
+
+
             }
         }
 
-        public static void UpdateAllNewsSitemap(greenopt_GONewsEntities db, XmlWriterSettings settings, XmlSitemaps newItem = null )
+        public static void UpdateAllNewsSitemap(greenopt_GONewsEntities db, XmlWriterSettings settings, XmlSitemaps newItem = null)
         {
             var virPath = HostingEnvironment.MapPath("/");
             if (File.Exists(virPath + "AllNewsSitemap.xml") == false)
@@ -258,15 +271,15 @@ namespace GOWEB.Models
                 if (newItem != null)
                 {
 
-                XDocument xDocument = XDocument.Load(virPath + "AllNewsSitemap.xml");
-                XElement root = xDocument.Element("urlset");
-                IEnumerable<XElement> rows = root.Descendants("url");
-                XElement firstRow = rows.First();
-                firstRow.AddBeforeSelf(
-                   new XElement("url",
-                   new XElement("loc", newItem.loc),
-                   new XElement("lastmod", newItem.lastmod)));
-                xDocument.Save(virPath + "AllNewsSitemap.xml");
+                    XDocument xDocument = XDocument.Load(virPath + "AllNewsSitemap.xml");
+                    XElement root = xDocument.Element("urlset");
+                    IEnumerable<XElement> rows = root.Descendants("url");
+                    XElement firstRow = rows.First();
+                    firstRow.AddBeforeSelf(
+                       new XElement("url",
+                       new XElement("loc", newItem.loc),
+                       new XElement("lastmod", newItem.lastmod)));
+                    xDocument.Save(virPath + "AllNewsSitemap.xml");
                 }
             }
         }
