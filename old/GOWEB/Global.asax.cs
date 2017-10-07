@@ -48,13 +48,29 @@ namespace GOWEB
             UpdateSitremaps.Elapsed += u.UpdateXml;
             UpdateSitremaps.Enabled = true;
 
-
+            //statics
+            Application.Add("Online", 0);
 
         }
 
+    
+     
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            Session.Add("Login", "1");
+            Application.Lock();
+            Application["Online"] = (int)Application["Online"] + 1;
+            Application.UnLock();
+        }
 
- 
-
+        protected void Session_End(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Session.Abandon();
+            Application.Lock();
+            Application["Online"] = (int)Application["Online"] - 1;
+            Application.UnLock();
+        }
 
     }
 }

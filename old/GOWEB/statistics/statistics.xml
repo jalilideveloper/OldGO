@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <Table1>
+    <today>1</today>
+    <yesterday>0</yesterday>
+    <lastmonth>0</lastmonth>
+    <month>1</month>
+    <date>15</date>
+    <dateMonth>07</dateMonth>
+    <total>1</total>
+  </Table1>
+</DocumentElement>
