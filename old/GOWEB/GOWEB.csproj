@@ -194,6 +194,8 @@
     <Compile Include="webStatics.aspx.designer.cs">
       <DependentUpon>webStatics.aspx</DependentUpon>
     </Compile>
+    <Content Include="MagazineSelectedSitemap.xml" />
+    <Content Include="MagazineSitemap.xml" />
     <Content Include="Models\Statistic.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -670,7 +672,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Sitemaps\" />
