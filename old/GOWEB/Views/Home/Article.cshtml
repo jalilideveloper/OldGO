@@ -200,7 +200,7 @@
                     <div id="CenterContent">
                         @{
                             var urlse = Request.Url.Segments[2];
-                         
+
 
                             if (urlse.Contains("ArticleShow"))
                             {
@@ -272,7 +272,7 @@
                                     var urlSeg3 = Request.Url.Segments[3];
                                     int countarticleshow = Convert.ToInt32(urlSeg3);
 
-                                    int data = Convert.ToInt32(DTController.GetAllPages(countarticleshow));
+                                    int data = Convert.ToInt32(DTController.GetAllPages(0));
                                     var start = 0;
                                     if (countarticleshow > 5)
                                     {
@@ -364,20 +364,20 @@
                                         }
                                         else if (i < End)
                                         {
-                                            <li><a href='http://www.greenoptimizer.com/Home/MagazineSelected/@arr[0]-@i'> @i "</a></li>
+                                            <li><a href='http://www.greenoptimizer.com/Home/MagazineSelected/@arr[0]-@i'> @i </a></li>
                                         }
                                         else if (i == End)
                                         {
                                             <li><a href='http://www.greenoptimizer.com/Home/MagazineSelected/@arr[0]-@i'> @i </a></li>
                                             if (i < (data - 5))
                                             {
-                                      int iadd = i + 1;
+                                                int iadd = i + 1;
                                                 <li><a href='http://www.greenoptimizer.com/Home/MagazineSelected/@arr[0]-@iadd'><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>
-            }
-        }
-    }
+                                            }
+                                        }
+                                    }
 
-    <h5 class='padding-15'>صفحه @start از @data </h5>
+                                    <h5 class='padding-15'>صفحه @start از @data </h5>
 
                                 }
                                 else if (urlse.Contains("Magazine"))
@@ -389,17 +389,17 @@
                                     {
                                         if (i < 10)
                                         {
-                <li><a href='http://www.greenoptimizer.com/Home/MagazineSelected/@urlSeg3-@i'> @i</a></li>
-            }
-            else if (i == 10)
-            {
-                <li><a href='http://www.greenoptimizer.com/Home/MagazineSelected/@urlSeg3-@i'><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>
-            }
-        }
-        <h5 class='padding-15'>صفحه 0 از  @data </h5>
+                                            <li><a href='http://www.greenoptimizer.com/Home/MagazineSelected/@urlSeg3-@i'> @i</a></li>
+                                        }
+                                        else if (i == 10)
+                                        {
+                                            <li><a href='http://www.greenoptimizer.com/Home/MagazineSelected/@urlSeg3-@i'><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>
+                                        }
+                                    }
+                                    <h5 class='padding-15'>صفحه 0 از  @data </h5>
 
 
-    }
+                                }
 
 
 
