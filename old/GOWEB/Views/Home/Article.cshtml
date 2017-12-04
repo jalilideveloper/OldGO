@@ -202,27 +202,27 @@
                             var urlse = Request.Url.Segments[2];
                          
 
-                            if (urlse == "ArticleShow")
+                            if (urlse.Contains("ArticleShow"))
                             {
                                 var urlSeg3 = Request.Url.Segments[3];
                                 foreach (var item in DTController.GetAllNews(Convert.ToInt32(urlSeg3)))
                                 {
                                     var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
-                                    <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='" + Prehref + "'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @item.PubDate   در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span><p class='para'>@item.Description</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
+                                    <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='" + Prehref + "'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @item.PubDate   در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span><p class='para'>@Html.Raw(item.Description)</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
 
                                 }
 
                             }
-                            else if (urlse == "article")
+                            else if (urlse.Contains("Article"))
                             {
                                 foreach (var item in DTController.GetAllNews(0))
                                 {
                                     var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
-                                    <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='" + Prehref + "'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @item.PubDate   در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span><p class='para'>@item.Description</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
+                                    <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='" + Prehref + "'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @item.PubDate   در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span><p class='para'>@Html.Raw(item.Description)</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
 
                                 }
                             }
-                            else if (urlse == "magazineselected")
+                            else if (urlse.Contains("MagazineSelected"))
                             {
                                 var urlSeg3 = Request.Url.Segments[3];
                                 string[] arr = urlSeg3.Split('-');
@@ -230,18 +230,18 @@
                                 {
                                     var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
 
-                                    <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle </a></h4><span>نوشته شده در تاریخ @item.PubDate  در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber بازدید</span><p class='para'>@item.Description</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
+                                    <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle </a></h4><span>نوشته شده در تاریخ @item.PubDate  در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber بازدید</span><p class='para'>@Html.Raw(item.Description)</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
 
                                 }
 
                             }
-                            else if (urlse == "magazine")
+                            else if (urlse.Contains("Magazine"))
                             {
                                 var urlSeg3 = Request.Url.Segments[3];
                                 foreach (var item in DTController.GetAllNewsMagazine(Convert.ToInt32(urlSeg3), 0))
                                 {
                                     var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
-                                    <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle </a></h4><span>نوشته شده در تاریخ @item.PubDate  در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber بازدید</span><p class='para'>@item.Description</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
+                                    <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle </a></h4><span>نوشته شده در تاریخ @item.PubDate  در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber بازدید</span><p class='para'>@Html.Raw(item.Description)</p><div class='read_btn padding-bottom10'><a target='_blank' href='" + Prehref + "'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
                                 }
                             }
 
@@ -267,7 +267,7 @@
 
                             @{
 
-                                if (urlse == "ArticleShow")
+                                if (urlse.Contains("ArticleShow"))
                                 {
                                     var urlSeg3 = Request.Url.Segments[3];
                                     int countarticleshow = Convert.ToInt32(urlSeg3);
@@ -315,24 +315,24 @@
 
 
                                 }
-                                else if (urlse == "article")
+                                else if (urlse.Contains("Article"))
                                 {
                                     int data = Convert.ToInt32(DTController.GetAllPages(0));
                                     for (var i = 0; i < data && i < 11; i++)
                                     {
                                         if (i < 10)
                                         {
-                                            <li><a href='http://www.greenoptimizer.com/Home/ArticleShow/" + i + "'> " + i + "</a></li>
+                                            <li><a href='http://www.greenoptimizer.com/Home/ArticleShow/@i'> @i</a></li>
                                         }
                                         else if (i == 10)
                                         {
 
-                                            <li><a href='http://www.greenoptimizer.com/Home/ArticleShow/" + i + "'><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>
+                                            <li><a href='http://www.greenoptimizer.com/Home/ArticleShow/@i'><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>
                                         }
                                     }
                                     <h5 class='padding-15'>صفحه 0 از @data</h5>
                                 }
-                                else if (urlse == "magazineselected")
+                                else if (urlse.Contains("MagazineSelected"))
                                 {
                                     var urlSeg3 = Request.Url.Segments[3];
                                     string[] arr = urlSeg3.Split('-');
@@ -380,7 +380,7 @@
     <h5 class='padding-15'>صفحه @start از @data </h5>
 
                                 }
-                                else if (urlse == "magazine")
+                                else if (urlse.Contains("Magazine"))
                                 {
                                     var urlSeg3 = Request.Url.Segments[3];
                                     int data = Convert.ToInt32(DTController.GetAllPages(Convert.ToInt32(urlSeg3)));
@@ -457,7 +457,7 @@
                         {
 
                             <div class='widget'>
-                                <div class='widget-header text-align-center'><a class='colorblack' href='http://www.greenoptimizer.com/Home/Magazine/@item.MagazineID'><h6 class='line-height-2-5'>@item.MagazineName</h6></a></div><div class='widget-content md-padding'>
+                                <div class='widget-header text-align-center'><a class='colorblack' href='http://www.greenoptimizer.com/Home/Magazine/@item.MagazineID'><h6 class='line-height-2-5'>@item.SiteName</h6></a></div><div class='widget-content md-padding'>
 
                                     <ul id='mgz" + value.MagazineID + "' class='list-unstyled div-bg-white'>
                                         <div class='clearfix'></div>
