@@ -32,6 +32,16 @@ namespace GOWEB
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            Utility.lstMag.Clear();
+            Utility.lstMagUnDisc.Clear();
+            Utility.lstNewsByMagazineID.Clear();
+            Utility.lstTopNews.Clear();
+
+
+            Utility.ServeDataForMagazine();
+            Utility.GetMostNewsTop();
+            Utility.GetAllMagazine();
+            Utility.GetLastNewsByMagazineID();
 
             UpdateNewsTimer = new System.Timers.Timer(500000);
             // Hook up the Elapsed event for the timer. 
@@ -39,6 +49,9 @@ namespace GOWEB
 
             UpdateNewsTimer.Elapsed += u.UpdateNews;
             UpdateNewsTimer.Enabled = true;
+
+
+
 
 
             
@@ -50,10 +63,7 @@ namespace GOWEB
             //statics
             Application.Add("Online", 0);
 
-        }
-
-    
-     
+        }  
         protected void Session_Start(object sender, EventArgs e)
         {
             Session.Add("Login", "1");

@@ -14,7 +14,10 @@ namespace GOWEB.Models
 {
     public class Utility
     {
-
+        public static List<MagazineObj> lstMag = new List<MagazineObj>();
+        public static List<MagazineObj> lstMagUnDisc = new List<MagazineObj>();
+        public static List<listNews> lstTopNews = new List<listNews>();
+        public static List<listNews> lstNewsByMagazineID = new List<listNews>();
         public void UpdateNews(object sender, ElapsedEventArgs e)
         {
             lock (this)
@@ -57,6 +60,63 @@ namespace GOWEB.Models
 
         }
 
+        public static void ServeDataForMagazine()
+        {
+            if (lstMag.Count == 0)
+            {
+                DTController d = new DTController();
+                lstMag = d.GetDistinctMagazines();
+            }
+        }
+        public static void GetMostNewsTop()
+        {
+            if (lstTopNews.Count == 0)
+            {
+                DTController d = new DTController();
+               lstTopNews = d.GetMostRecentNews();
+              
+            }
+          
+
+        }
+        public static void GetAllMagazine()
+        {
+            if (lstMagUnDisc.Count == 0)
+            {
+                DTController d = new DTController();
+                lstMagUnDisc = d.GetMagazines();
+
+            }
+         
+        }
+
+
+        public static void GetLastNewsByMagazineID()
+        {
+            if (lstNewsByMagazineID.Count == 0)
+            {
+                DTController d = new DTController();
+                foreach (var item in lstMagUnDisc)
+                {
+                    foreach (var itemInside in d.GetLatestNewsByMagazineID(item.MagazineID))
+                    {
+                        lstNewsByMagazineID.Add(itemInside);
+                    }    
+                }
+                
+            }
+
+        }
+
+
+        
+
+
+
+
+
+
+
         private static void UpdateMagazineSelected(greenopt_GONewsEntities db, XmlWriterSettings settings, XmlSitemaps newItem = null)
         {
             var virPath = HostingEnvironment.MapPath("/");
@@ -72,8 +132,8 @@ namespace GOWEB.Models
 
                     foreach (var item in magazines)
                     {
-                        DTController dt = new DTController();
-                        int countMagazineSelected = Convert.ToInt32(dt.GetAllPages(item.MagazineID));
+                       
+                        int countMagazineSelected = Convert.ToInt32(DTController.GetAllPages(item.MagazineID));
 
                         for (int i = 0; i < countMagazineSelected; i++)
                         {
@@ -109,8 +169,8 @@ namespace GOWEB.Models
                     var magazines = db.spgo_GetAllMagazine().ToList();
                     foreach (var item in magazines)
                     {
-                        DTController dt = new DTController();
-                        int countMagazineSelected = Convert.ToInt32(dt.GetAllPages(item.MagazineID));
+                       
+                        int countMagazineSelected = Convert.ToInt32(DTController.GetAllPages(item.MagazineID));
 
                         //for (int i = 0; i < countMagazineSelected; i++)
                         //{
@@ -185,8 +245,7 @@ namespace GOWEB.Models
                     writer.WriteStartDocument();
 
 
-                    DTController dt = new DTController();
-                    int countAllNews = Convert.ToInt32(dt.GetAllPages(0));
+                    int countAllNews = Convert.ToInt32(DTController.GetAllPages(0));
 
                     writer.WriteStartElement("urlset");
                     for (int i = 0; i < countAllNews; i++)
@@ -215,8 +274,8 @@ namespace GOWEB.Models
                 if (newItem != null)
                 {
 
-                    DTController dt = new DTController();
-                    int countallpages = Convert.ToInt32(dt.GetAllPages(0));
+                    
+                    int countallpages = Convert.ToInt32(DTController.GetAllPages(0));
 
                     XDocument xDocument = XDocument.Load(virPath + "ArticleSitemap.xml");
                     XElement root = xDocument.Element("urlset");

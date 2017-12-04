@@ -15,15 +15,14 @@ namespace GOWEB.Controllers
     public class DTController : Controller
     {
 
-        public string GetMostRecentNews()
+        public List<listNews> GetMostRecentNews()
         {
             //db.Database.Connection.Open();
             using (greenopt_GONewsEntities dbs = new greenopt_GONewsEntities())
             {
-
-                var GetMostRecent = dbs.spgo_GetAllRecentNewsTopView().Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber });
-                var json = JsonConvert.SerializeObject(GetMostRecent);
-                return json;
+                return dbs.spgo_GetAllRecentNewsTopView().Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber }).ToList();
+                //var json = JsonConvert.SerializeObject(GetMostRecent);
+                //return json;
             }
 
 
@@ -31,20 +30,16 @@ namespace GOWEB.Controllers
 
 
 
-        public string GetAllNews(int id)
+        public static List<listNews> GetAllNews(int id)
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
-                
-               
                     List<listNews> lstNews = new List<listNews>();
 
                     var GetallNews = db.spgo_GetLatestNewsOrderByDate(id)
                         .Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber, Description = p.Descriptions, PubDate = p.PubDate.ToString(), SiteTitle = p.SiteTitle }).ToList();
                     if (GetallNews.Count > 0)
                     {
-
-
                         foreach (var item in GetallNews)
                         {
                             System.Globalization.PersianCalendar persianCalandar =
@@ -61,19 +56,22 @@ namespace GOWEB.Controllers
                                 lstNews.Add(new listNews { SiteTitle = item.SiteTitle, Description = item.Description, MagazineName = item.MagazineName, NewsID = item.NewsID, NTitle = item.NTitle, PubDate = "", ViewNumber = item.ViewNumber });
                             }
                         }
-                        var json = JsonConvert.SerializeObject(lstNews);
-                        return json;
+                    return lstNews;
+                        //var json = JsonConvert.SerializeObject(lstNews);
+                        //return json;
 
                     }
                     else
                     {
-                        return "";
+                    return lstNews;
                     }
               
                 
             }
         }
-        public string GetAllPages(int id)
+
+
+        public static string GetAllPages(int id)
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
@@ -91,7 +89,7 @@ namespace GOWEB.Controllers
             }
         }
 
-        public string GetAllNewsMagazine(int id, int start)
+        public static List<listNews> GetAllNewsMagazine(int id, int start)
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
@@ -121,51 +119,53 @@ namespace GOWEB.Controllers
                             lstNews.Add(new listNews { SiteTitle = item.SiteTitle, Description = item.Description, MagazineName = item.MagazineName, NewsID = item.NewsID, NTitle = item.NTitle, PubDate = "", ViewNumber = item.ViewNumber });
                         }
                     }
-                    var json = JsonConvert.SerializeObject(lstNews);
-                    return json;
+                    return lstNews;
+                    //var json = JsonConvert.SerializeObject(lstNews);
+                    //return json;
 
                 }
                 else
                 {
-                    return "";
+
+                    return lstNews;
                 }
 
 
             }
         }
-        public string GetMagazines()
+        public List<MagazineObj> GetMagazines()
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
-                var getMagazine = db.spgo_GetAllMagazine().Select(p => new MagazineObj { MagazineID = p.MagazineID, SiteName = p.SiteTitle, MagazineName = p.MagazineName });
-                var json = JsonConvert.SerializeObject(getMagazine);
-                return json;
+                return db.spgo_GetAllMagazine().Select(p => new MagazineObj { MagazineID = p.MagazineID, SiteName = p.SiteTitle, MagazineName = p.MagazineName }).ToList();
+                //var json = JsonConvert.SerializeObject(getMagazine);
+                //return json;
             }
         }
 
 
 
-        public string GetDistinctMagazines()
+        public List<MagazineObj> GetDistinctMagazines()
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
-                var getMagazine = db.spgo_GetAllMagazine().Select(p => new MagazineObj { MagazineID = p.MagazineID, SiteName = p.SiteTitle, MagazineName = p.MagazineName }).Distinct().ToList();
-                var json = JsonConvert.SerializeObject(getMagazine);
-                return json;
+                List<MagazineObj> getMagazine = db.spgo_GetAllMagazine().Select(p => new MagazineObj { MagazineID = p.MagazineID, SiteName = p.SiteTitle, MagazineName = p.MagazineName }).Distinct().ToList();
+                return getMagazine;
+                //var json = JsonConvert.SerializeObject(getMagazine);
+                //return json;
             }
 
         }
 
 
-        public string GetLatestNewsByMagazineID(int id)
+        public List<listNews> GetLatestNewsByMagazineID(int id)
 
         {
             using (greenopt_GONewsEntities dbs = new greenopt_GONewsEntities())
             {
-
-                var qGetNewOFMAgazine = dbs.spgo_GetLatestNewsOrderByDateByMGID(id,0).Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber });
-                var json = JsonConvert.SerializeObject(qGetNewOFMAgazine);
-                return json;
+                return dbs.spgo_GetLatestNewsOrderByDateByMGID(id,0).Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber }).ToList();
+                //var json = JsonConvert.SerializeObject(qGetNewOFMAgazine);
+                //return json;
             }
         }
 

@@ -177,7 +177,7 @@ namespace GOWEB.Controllers
                               };
 
 
-                if ( url.Contains("digikala") == true || url.Contains("barnamenevisan") == true || url.Contains("mytech") == true)
+                if ( url.Contains("digikala") == true || url.Contains("barnamenevisan") == true || url.Contains("mytech") == true )
                 {
                     var entries1 = doc.Root.Descendants().First(i => i.Name.LocalName == "channel").Elements().Where(i => i.Name.LocalName == "item").ToList();
                     List<Item> lstTemp = new List<Item>();
@@ -185,7 +185,6 @@ namespace GOWEB.Controllers
                     {
                         string t = item.Elements().First(i => i.Name.LocalName == "title").Value;
                         Item objItem = new Item();
-
                         objItem.FeedType = FeedType.RSS;
                         objItem.Content = item.Elements().First(i => i.Name.LocalName == "description").Value;
                         objItem.Link = item.Elements().First(i => i.Name.LocalName == "link").Value;
