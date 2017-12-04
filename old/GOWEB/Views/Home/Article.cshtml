@@ -35,7 +35,6 @@
     {
 
     <div class="main_bg">
-        <!-- start main -->
         <div class="container">
             <div class="main_grid1">
                 <h4 class="style pull-left">مقالات</h4>
@@ -50,10 +49,10 @@
 
 
     <div class="main_btm1">
-        <!-- start main_btm -->
+       
         <div class="container">
             <div class="blog">
-                <!-- start blog -->
+             
 
 
                 <div class="col-md-2  blog_right no-padding ">
@@ -307,12 +306,13 @@
                                             <li><a href='http://www.greenoptimizer.com/Home/ArticleShow/@i'> @i </a></li>
                                             if (i < (data - 5))
                                             {
-                                                <li><a href='http://www.greenoptimizer.com/Home/ArticleShow/@i'><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>
+                                                int iadd = i + 1;
+                                                <li><a href='http://www.greenoptimizer.com/Home/ArticleShow/@iadd'><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>
                                             }
                                         }
                                     }
 
-
+                                    <h5 class='padding-15 paginationbtm'>صفحه @countarticleshow از @data</h5>
 
                                 }
                                 else if (urlse.Contains("Article"))
@@ -330,7 +330,7 @@
                                             <li><a href='http://www.greenoptimizer.com/Home/ArticleShow/@i'><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>
                                         }
                                     }
-                                    <h5 class='padding-15'>صفحه 0 از @data</h5>
+                                    <h5 class='padding-15 paginationbtm'>صفحه 0 از @data</h5>
                                 }
                                 else if (urlse.Contains("MagazineSelected"))
                                 {
@@ -377,7 +377,7 @@
                                         }
                                     }
 
-                                    <h5 class='padding-15'>صفحه @start از @data </h5>
+                                    <h5 class='padding-15 paginationbtm'>صفحه @start از @data </h5>
 
                                 }
                                 else if (urlse.Contains("Magazine"))
@@ -396,7 +396,7 @@
                                             <li><a href='http://www.greenoptimizer.com/Home/MagazineSelected/@urlSeg3-@i'><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>
                                         }
                                     }
-                                    <h5 class='padding-15'>صفحه 0 از  @data </h5>
+                                    <h5 class='padding-15 paginationbtm'>صفحه 0 از  @data </h5>
 
 
                                 }
@@ -482,7 +482,7 @@
                 </div>
 
                 <div class="clearfix"></div>
-            </div><!-- end blog -->
+            </div>
         </div>
     </div>
 
