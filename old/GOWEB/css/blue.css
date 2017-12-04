@@ -204,6 +204,7 @@ h3.style{text-transform:uppercase;color:#62A09D;font-size:24px;margin:5px 0 0;}
 .wrapper{position:relative;overflow:hidden;}
 #slide{position:absolute;left:80px;width:45px;height:100%;transition:1s;border-radius:0px 2px 2px 0px;text-transform:capitalize;font-family:Comic Sans MS;opacity:0;}
 .wrapper:hover #slide{transition:1s;left:128px;opacity:1;}
+.borderbtm-detail{border-bottom:1px solid #2a9a92;}
 .color-green{color:#13810d;}
 .color-red{color:#d22020;}
 .colorblack{color:black !important;}
@@ -221,6 +222,8 @@ h3.style{text-transform:uppercase;color:#62A09D;font-size:24px;margin:5px 0 0;}
 .width-60per{width:60%;}
 .width-15per{width:15%;}
 .width-10per{width:10%;}
+.padding-logo{padding:2px 20px 2px 0;}
+.width-auto{width:auto !important;}
 .tblcarttd{background-color:#f7f9fa;font-size:13px;height:48px;color:#666;}
 .tblcart{border-spacing:2px;border-color:grey;}
 .tdborder{border:1px solid #eeeff1 !important;}
