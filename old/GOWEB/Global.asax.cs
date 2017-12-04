@@ -46,8 +46,7 @@ namespace GOWEB
             Utility.GetAllMagazine();
             Utility.GetLastNewsByMagazineID();
 
-
-            
+          
 
 
             UpdateNewsTimer = new System.Timers.Timer(500000);
