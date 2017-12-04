@@ -237,7 +237,7 @@
                             }
                             else if (urlse == "magazine")
                             {
-
+                                var urlSeg3 = Request.Url.Segments[3];
                                 foreach (var item in DTController.GetAllNewsMagazine(Convert.ToInt32(urlSeg3), 0))
                                 {
                                     var Prehref = "http://www.greenoptimizer.com/Home/ArticleDetails/" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
