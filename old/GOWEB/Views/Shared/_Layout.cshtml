@@ -199,32 +199,37 @@
 
 
 <script>
-        var element_pos = 0;    // POSITION OF THE NEWLY CREATED ELEMENTS.
-        var iCnt = 0;
-        $(document).ready(function () {
+    var element_pos = 0;    // POSITION OF THE NEWLY CREATED ELEMENTS.
+    var iCnt = 0;
+    $(document).ready(function () {
 
-            $(function () { $('#divContainer').draggable(); });
-            $(function () { $("#divResize").draggable().resizable(); });
+        $(function () { $('#divContainer').draggable(); });
+        $(function () { $("#divResize").draggable().resizable(); });
 
-            // CREATE MORE DIV, WITH 'ABSOLUTE' POSITIONING.
-            $('#btClickMe').click(function () {
+        // CREATE MORE DIV, WITH 'ABSOLUTE' POSITIONING.
+        $('#btClickMe').click(function () {
 
-                var dynamic_div = $(document.createElement('div')).css({
-                    position: 'absolute', left: element_pos,
-                    top: $('#divContainer').height() + 20,
-                    width: '120', height: '60', padding: '3', margin: '0'
-                });
-
-                element_pos = element_pos + $('#divContainer').width() + 20;
-
-                $(dynamic_div).append('You can drag me too');
-
-                // APPEND THE NEWLY CREATED DIV TO "divContainer".
-                $(dynamic_div).appendTo('#divContainer').draggable();
-
-                iCnt = iCnt + 1;
+            var dynamic_div = $(document.createElement('div')).css({
+                position: 'absolute', left: element_pos,
+                top: $('#divContainer').height() + 20,
+                width: '120', height: '60', padding: '3', margin: '0'
             });
+
+            element_pos = element_pos + $('#divContainer').width() + 20;
+
+            $(dynamic_div).append('You can drag me too');
+
+            // APPEND THE NEWLY CREATED DIV TO "divContainer".
+            $(dynamic_div).appendTo('#divContainer').draggable();
+
+            iCnt = iCnt + 1;
         });
+
+
+
+
+
+    });
 </script>
 
 <script>
@@ -243,85 +248,11 @@
         closeButton: ".modal_close"
     });
 
-    $(function () {
-        // Calling Login Form
-        $("#login_form").click(function () {
-            $(".social_login").hide();
-            $(".user_login").show();
-            return false;
-        });
+ 
 
-        // Calling Register Form
-        $("#register_form").click(function () {
-            $(".social_login").hide();
-            $(".user_register").show();
-            $(".header_title").text('ثبت نام');
-            return false;
-        });
-
-        // Going back to Social Forms
-        $(".back_btn").click(function () {
-            $(".user_login").hide();
-            $(".user_register").hide();
-            $(".social_login").show();
-            $(".header_title").text('ورود');
-            return false;
-        });
-    });
+    
 
 
-
-
-    //$.getJSON(allphotos, function (data) { });
-
-    //$(document).ready(function () {
-    $("#Login").click(function () {
-        var UserName = $("#userName").val();
-        var Pass = $("#password").val();
-        var myObj = { "UserName": UserName, "Pass": Pass };
-        var myJSON = JSON.stringify(myObj);
-
-        $.ajax({
-            url: "../UserAuthen/UserAuthen",
-            type: "Post",
-            data: JSON.stringify([UserName, Pass]), //{ Name: name,
-            // Address: address, DOB: dob },
-            traditional: true,
-            contentType: 'application/json; charset=utf-8',
-            success: function (data) {
-                console.log(data);
-                if (data != null) {
-
-                    //$('#Loginli').removeClass("onShow");
-                    //$('#Loginli').addClass("offShow");
-
-                    //$('#ControlPanel').removeClass("offShow");
-                    //$('#ControlPanel').addClass("onShow");
-                    if (data == "User") {
-
-
-                        console.log("User");
-                        window.location.href = "../User/Index";
-
-
-                    } else if (data == "Admin") {
-                        window.location.href = "../Admin/Index";
-                    }
-                    else {
-                        window.location.href = "";
-                    }
-                }
-
-            },
-            error: function () {
-
-                alert('error');
-                console.log("i am eroee")
-            }
-        });
-
-
-    });
 
     $(".menu li").click(function () {
 
@@ -334,34 +265,29 @@
 
 </script>
 <script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-102207473-1', 'auto');
     ga('send', 'pageview');
 
 </script>
+<script>
 
-@*<script>
-    $(document).ready(function () {
 
-        $.get("/Sync/GetData", function (data) {
-          
-        });
+    //counter
+    var sc_project = 11467650;
+    var sc_invisible = 1;
+    var sc_security = "2f7d91ee";
+    var scJsHost = (("https:" == document.location.protocol) ?
+        "https://secure." : "http://www.");
+    document.write("<sc" + "ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></" + "script> ");
+</script>
 
-        //var interval = setInterval(function () {
-
-        //    $.get("/Sync/GetData", function (data) {
-            
-
-        //    });
-        //}, 6000);
-    });
-</script>*@
 
 
 
