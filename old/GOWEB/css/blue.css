@@ -499,6 +499,7 @@ a.btn_green{color:#FFF;}
 .img-resp{width:80%;}
 .resp-padding-5{padding:5px;}
 .padding-socialitems{padding:0px;}
+.text-align-center-mob{text-align:center;text-align:-moz-center;text-align:-webkit-center;}
 }
 @media (max-width:400px){.tdborder{font-size:5px;}
 .resph6{font-size:7px;}
