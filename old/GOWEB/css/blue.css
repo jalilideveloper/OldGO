@@ -197,6 +197,10 @@ h3.style{text-transform:uppercase;color:#62A09D;font-size:24px;margin:5px 0 0;}
 .txtbox{opacity:1;border-radius:4px;height:28px;}
 .font-10{font-size:10px;}
 .font-12{font-size:12px !important;}
+.iframeclass{width:100%;overflow:visible;height:100%}
+.divsharedetail{position:fixed;overflow:hidden;height:25px;padding:5px;background-color:#ffffff;bottom:0px;overflow:hidden}
+.divsharedetailin{float:left;padding-left:10px;}
+.mapgoogle{font-family:'Open Sans',sans-serif;color:#555555;text-shadow: 0 1px 0 #ffffff;text-align:left;font-size:12px;padding: 5px;}
 .wrapper{position:relative;overflow:hidden;}
 #slide{position:absolute;left:80px;width:45px;height:100%;transition:1s;border-radius:0px 2px 2px 0px;text-transform:capitalize;font-family:Comic Sans MS;opacity:0;}
 .wrapper:hover #slide{transition:1s;left:128px;opacity:1;}
