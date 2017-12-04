@@ -22,7 +22,10 @@ namespace GOWEB
     {
         private static Timer UpdateNewsTimer;
         private static Timer UpdateSitremaps;
+        private static Timer UpdateAllList;
         private const String SiteMapNodeName = "url";
+  
+
 
         protected void Application_Start()
         {
@@ -43,6 +46,10 @@ namespace GOWEB
             Utility.GetAllMagazine();
             Utility.GetLastNewsByMagazineID();
 
+
+            
+
+
             UpdateNewsTimer = new System.Timers.Timer(500000);
             // Hook up the Elapsed event for the timer. 
             Utility u = new Utility();
@@ -52,9 +59,15 @@ namespace GOWEB
 
 
 
+            UpdateAllList = new System.Timers.Timer(700000);
+            // Hook up the Elapsed event for the timer. 
+            UpdateAllList.Elapsed += Utility.UpdateAllList;
+            UpdateAllList.Enabled = true;
 
 
-            
+
+
+
             UpdateSitremaps = new System.Timers.Timer(800000);
             // Hook up the Elapsed event for the timer. 
             UpdateSitremaps.Elapsed += u.UpdateXml;

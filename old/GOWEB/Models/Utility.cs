@@ -26,6 +26,27 @@ namespace GOWEB.Models
                 s.GetData();
             }
         }
+        
+
+        public static void DeleteFile(string filePath)
+        {
+            File.Delete(filePath);
+        }
+
+        public static void UpdateAllList(object sender, ElapsedEventArgs e)
+        {
+
+            lstMag.Clear();
+            lstMagUnDisc.Clear();
+            lstNewsByMagazineID.Clear();
+            lstTopNews.Clear();
+
+            ServeDataForMagazine();
+            GetMostNewsTop();
+            GetAllMagazine();
+            GetLastNewsByMagazineID();
+        }
+
 
         public void UpdateXml(object sender, ElapsedEventArgs e)
         {
@@ -161,37 +182,42 @@ namespace GOWEB.Models
             }
             else
             {
-                if (newItem != null)
+
+                DeleteFile(virPath + "MagazineSelectedSitemap.xml");
+                using (XmlWriter writer = XmlWriter.Create(virPath + "MagazineSelectedSitemap.xml", settings))
                 {
-                    XDocument xDocument = XDocument.Load(virPath + "MagazineSelectedSitemap.xml");
-                    XElement root = xDocument.Element("urlset");
-                    IEnumerable<XElement> rows = root.Descendants("url");
                     var magazines = db.spgo_GetAllMagazine().ToList();
+                    writer.WriteStartDocument();
+
+                    writer.WriteStartElement("urlset");
+
                     foreach (var item in magazines)
                     {
-                       
+
                         int countMagazineSelected = Convert.ToInt32(DTController.GetAllPages(item.MagazineID));
 
-                        //for (int i = 0; i < countMagazineSelected; i++)
-                        //{
-                        //    writer.WriteStartElement("url");
-                        //    //--------------------------------------
-                        //    writer.WriteStartElement("loc");
-                        //    writer.WriteString("https://greenoptimizer.com/Home/MagazineSelected/" + item.MagazineID);
-                        //    writer.WriteEndElement();
-                        //    //--------------------------------------
-                        //    writer.WriteEndElement();
-                        //}
+                        for (int i = 0; i < countMagazineSelected; i++)
+                        {
+                            writer.WriteStartElement("url");
+                            //--------------------------------------
+                            writer.WriteStartElement("loc");
+                            writer.WriteString("https://greenoptimizer.com/Home/MagazineSelected/" + item.MagazineID + "-" + i);
+                            writer.WriteEndElement();
+                            //--------------------------------------
+                            writer.WriteEndElement();
+                        }
 
 
                     }
-                    XElement firstRow = rows.First();
-                    firstRow.AddBeforeSelf(
-                       new XElement("url",
-                      new XElement("loc", newItem.loc),
-                       new XElement("lastmod", newItem.lastmod)));
-                    xDocument.Save(virPath + "MagazineSelectedSitemap.xml");
+
+                    writer.WriteEndElement();
+                    writer.WriteEndDocument();
+
+                    writer.Flush();
+                    writer.Close();
+
                 }
+
             }
         }
 
@@ -271,30 +297,35 @@ namespace GOWEB.Models
             else
             {
 
-                if (newItem != null)
+                DeleteFile(virPath + "ArticleSitemap.xml");
+
+                using (XmlWriter writer = XmlWriter.Create(virPath + "ArticleSitemap.xml", settings))
                 {
+                    writer.WriteStartDocument();
 
-                    
-                    int countallpages = Convert.ToInt32(DTController.GetAllPages(0));
 
-                    XDocument xDocument = XDocument.Load(virPath + "ArticleSitemap.xml");
-                    XElement root = xDocument.Element("urlset");
-                    IEnumerable<XElement> rows = root.Descendants("url");
+                    int countAllNews = Convert.ToInt32(DTController.GetAllPages(0));
 
-                    if (rows.ToList().Count != countallpages)
+                    writer.WriteStartElement("urlset");
+                    for (int i = 0; i < countAllNews; i++)
                     {
-                        for (int i =  rows.ToList().Count; i <= countallpages; i++)
-                        {
-                            XElement firstRow = rows.Last();
-                            firstRow.AddAfterSelf(
-                               new XElement("url",
-                                 new XElement("loc", "https://greenoptimizer.com/Home/ArticleShow/" + i)
-                                 ));
-                            xDocument.Save(virPath + "ArticleSitemap.xml");
-                        }
-                    }
-                }
 
+                        writer.WriteStartElement("url");
+                        //--------------------------------------
+                        writer.WriteStartElement("loc");
+                        writer.WriteString("https://greenoptimizer.com/Home/ArticleShow/" + i);
+                        writer.WriteEndElement();
+                        //--------------------------------------
+                        writer.WriteEndElement();
+                    }
+
+                    writer.WriteEndElement();
+                    writer.WriteEndDocument();
+
+                    writer.Flush();
+                    writer.Close();
+
+                }
 
 
             }
@@ -337,18 +368,37 @@ namespace GOWEB.Models
             }
             else
             {
-                if (newItem != null)
-                {
 
-                    XDocument xDocument = XDocument.Load(virPath + "AllNewsSitemap.xml");
-                    XElement root = xDocument.Element("urlset");
-                    IEnumerable<XElement> rows = root.Descendants("url");
-                    XElement firstRow = rows.Last();
-                    firstRow.AddAfterSelf(
-                       new XElement("url",
-                       new XElement("loc", newItem.loc),
-                       new XElement("lastmod", newItem.lastmod)));
-                    xDocument.Save(virPath + "AllNewsSitemap.xml");
+
+                DeleteFile(virPath + "AllNewsSitemap.xml");
+                using (XmlWriter writer = XmlWriter.Create(virPath + "AllNewsSitemap.xml", settings))
+                {
+                    var q = db.spgo_GetAllNews();
+                    writer.WriteStartDocument();
+
+
+                    writer.WriteStartElement("urlset");
+                    foreach (var item in q.ToList())
+                    {
+                        writer.WriteStartElement("url");
+                        //--------------------------------------
+                        writer.WriteStartElement("loc");
+                        writer.WriteString("https://greenoptimizer.com/Home/ArticleDetails/" + item.NewsID + "|" + item.Title.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").ToString());
+                        writer.WriteEndElement();
+                        //--------------------------------------
+                        writer.WriteStartElement("lastmod");
+                        writer.WriteString(item.PubDate.ToString());
+                        writer.WriteEndElement();
+                        //--------------------------------------
+                        writer.WriteEndElement();
+                    }
+
+                    writer.WriteEndElement();
+                    writer.WriteEndDocument();
+
+                    writer.Flush();
+                    writer.Close();
+
                 }
             }
         }
