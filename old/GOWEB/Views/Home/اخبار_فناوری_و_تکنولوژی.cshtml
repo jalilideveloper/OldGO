@@ -206,7 +206,7 @@
                                 var urlSeg3 = Request.Url.Segments[3].Substring(4, Request.Url.Segments[3].Length - 4);
                                 foreach (var item in DTController.GetAllNews(Convert.ToInt32(ViewBag.NumberTake)))
                                 {
-                                    var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
+                                    var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
                                     <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @item.PubDate   در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span><p class='para'>@Html.Raw(item.Description)</p><div class='read_btn padding-bottom10'><a target='_blank' href='@Prehref'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
 
                                 }
@@ -217,7 +217,7 @@
                             {
                                 foreach (var item in DTController.GetAllNews(0))
                                 {
-                                    var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
+                                    var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
                                     <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @item.PubDate   در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span><p class='para'>@Html.Raw(item.Description)</p><div class='read_btn padding-bottom10'><a target='_blank' href='@Prehref'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
 
                                 }
@@ -229,7 +229,7 @@
                                 string[] arr = urlSeg3.Split('-');
                                 foreach (var item in DTController.GetAllNewsMagazine(Convert.ToInt32(ViewBag.MGID), Convert.ToInt32(ViewBag.NumberLoadMagazine)))
                                 {
-                                    var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
+                                    var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
 
                                     <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle </a></h4><span>نوشته شده در تاریخ @item.PubDate  در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber بازدید</span><p class='para'>@Html.Raw(item.Description)</p><div class='read_btn padding-bottom10'><a target='_blank' href='@Prehref'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
 
@@ -242,7 +242,7 @@
                                 var urlSeg3 = Request.Url.Segments[3].Substring(4, Request.Url.Segments[3].Length - 4);
                                 foreach (var item in DTController.GetAllNewsMagazine(Convert.ToInt32(ViewBag.MGID), 0))
                                 {
-                                    var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
+                                    var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
                                     <div class='blog_list bg-white'><div class='col-md-12 blog_left'><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle </a></h4><span>نوشته شده در تاریخ @item.PubDate  در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber بازدید</span><p class='para'>@Html.Raw(item.Description)</p><div class='read_btn padding-bottom10'><a target='_blank' href='@Prehref'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
                                 }
                             }
@@ -442,7 +442,7 @@
                                 @{
                                     foreach (var item in Utility.lstTopNews)
                                     {
-                                        var Cleanlink = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
+                                        var Cleanlink = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
                                         <li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a target='_blank' title='@item.NTitle' href='@Cleanlink'>  @item.NTitle </a></li>
                                     }
                                 }
@@ -469,7 +469,7 @@
                                         @{foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName == item.MagazineName))
                                             {
 
-                                                var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
+                                                var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
                                                 <li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a target='_blank' title='@itemInside.NTitle' href='@Prehref'> @itemInside.NTitle</a></li>
 
                                             }
