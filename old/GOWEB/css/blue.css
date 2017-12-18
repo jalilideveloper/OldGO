@@ -79,7 +79,7 @@ nav{margin:0;background:none;}
 .span4_of_list span i{font-size:5em;color:#76C7C0;background:none;box-shadow:none;margin-top:15px;}
 .span4_of_list h3{text-transform:uppercase;font-size:18px;color:#000000;margin:10px 0 10px;}
 .span4_of_list p{font-size:14px;color:#000000;line-height:1.5em;}
-.read_more{position:absolute;left:33%;bottom:-16px;}
+.read_more{}
 .main1_bg{background:#ececec;}
 .slider_text{padding:20px 0 0;text-align:center;}
 .slider_text h4{text-transform:uppercase;font-size:34px;color:#E8645A;}
