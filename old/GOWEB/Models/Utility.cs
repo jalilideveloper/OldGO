@@ -18,6 +18,9 @@ namespace GOWEB.Models
         public static List<MagazineObj> lstMagUnDisc = new List<MagazineObj>();
         public static List<listNews> lstTopNews = new List<listNews>();
         public static List<listNews> lstNewsByMagazineID = new List<listNews>();
+       
+
+
         public void UpdateNews(object sender, ElapsedEventArgs e)
         {
             lock (this)
@@ -161,7 +164,7 @@ namespace GOWEB.Models
                             writer.WriteStartElement("url");
                             //--------------------------------------
                             writer.WriteStartElement("loc");
-                            writer.WriteString("https://greenoptimizer.com/Home/MagazineSelected/" + item.MagazineID+"-"+ i);
+                            writer.WriteString("https://greenoptimizer.com/Home/صفحه_مجله_اینترنتی/" + item.MagazineID+"-"+ i);
                             writer.WriteEndElement();
                             //--------------------------------------
                             writer.WriteEndElement();
@@ -201,7 +204,7 @@ namespace GOWEB.Models
                             writer.WriteStartElement("url");
                             //--------------------------------------
                             writer.WriteStartElement("loc");
-                            writer.WriteString("https://greenoptimizer.com/Home/MagazineSelected/" + item.MagazineID + "-" + i);
+                            writer.WriteString("https://greenoptimizer.com/Home/صفحه_مجله_اینترنتی/" + item.MagazineID + "-" + i);
                             writer.WriteEndElement();
                             //--------------------------------------
                             writer.WriteEndElement();
@@ -243,7 +246,7 @@ namespace GOWEB.Models
                         writer.WriteStartElement("url");
                         //--------------------------------------
                         writer.WriteStartElement("loc");
-                        writer.WriteString("https://greenoptimizer.com/Home/Magazine/" + item.MagazineID);
+                        writer.WriteString("https://greenoptimizer.com/Home/مجله_اینترنتی/" + item.MagazineID);
                         writer.WriteEndElement();
                         //--------------------------------------
                         writer.WriteEndElement();
