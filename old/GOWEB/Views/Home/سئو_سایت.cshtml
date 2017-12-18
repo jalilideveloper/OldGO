@@ -395,61 +395,7 @@
             return retStr;
         };
 
-
-        var prOne = $("#txt25").val().allReplace({ ',': '' });
-        var prTwo = $("#txt26").val().allReplace({ ',': '' });
-        var prThree = $("#txt27").val().allReplace({ ',': '' });
-        var prFour = $("#txt28").val().allReplace({ ',': '' });
-
-        $('#btncalculate').click(function () {
-            var q = $("#days").val();
-
-            if (q <= 80) {
-                var qPackOne = $("#txt25").val(numberWithCommas(prOne));
-                var qPackTwo = $("#txt26").val(numberWithCommas(prTwo));
-                var qPackThree = $("#txt27").val(numberWithCommas(prThree));
-                var qPackFour = $("#txt28").val(numberWithCommas(prFour));
-
-            } else if (q > 80) {
-                var qPackOne = $("#txt25").val(numberWithCommas(prOne - 1100000));
-                var qPackTwo = $("#txt26").val(numberWithCommas(prTwo - 900000));
-                var qPackThree = $("#txt27").val(numberWithCommas(prThree - 700000));
-                var qPackFour = $("#txt28").val(numberWithCommas(prFour - 450000));
-            }
-        });
-
-
-        $('.shopico').click(function () {
-
-            //alert($('.shopping :input').val());
-            //alert($('.shopping :input').attr('id'));
-
-            var Count = $('#days').val();
-            var Price = $(this).parent().parent().find('.news_letter input').val();
-            var ProductID = $(this).parent().parent().find('.news_letter input').attr('id').allReplace({ 'txt': '' });
-
-
-            $.ajax({
-                url: "../AddToCart/AddToCart",
-                type: "Post",
-                data: JSON.stringify([Count, Price, ProductID]),
-                traditional: true,
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    console.log(data);
-                    if (data != false) {
-                        window.location.href = "/Home/Cart";
-                    }
-                },
-                error: function () {
-
-                    alert('error');
-                    console.log("i am erorr")
-                }
-            });
-        });
-
-
+        
 
         $(".detailSeo").click(function () {
             $('html, body').animate({

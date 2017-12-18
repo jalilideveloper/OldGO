@@ -195,6 +195,7 @@
       <DependentUpon>webStatics.aspx</DependentUpon>
     </Compile>
     <Content Include="css\SlideShow.css" />
+    <Content Include="js\CustomJavaScripts.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\modernizr-2.6.2.js" />
     <Content Include="js\respond.min.js" />
