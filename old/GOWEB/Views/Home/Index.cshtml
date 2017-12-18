@@ -164,7 +164,7 @@
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ">
                                     <span class="active"><i class="fa fa-windows"></i></span>
-                                    <h3>طراحی سایت</h3>
+                                    <h3><a href="/Home/طراحی_سایت"><b>طراحی سایت</b></a></h3>
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
                                         <li class="">
                                             <div class="shopping wrapper">
@@ -248,7 +248,7 @@
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ">
                                     <span class="active"><i class="fa fa-line-chart"></i></span>
-                                    <h3>سئو حرفه ای</h3>
+                                    <h3><a href="/Home/سئو_سایت"><b>سئو حرفه ای</b></a></h3>
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
                                         <li class="">
                                             <div class="shopping wrapper">
@@ -332,7 +332,7 @@
                             <div class="col-md-4 ">
                                 <div class="span4_of_list ">
                                     <span class="active"><i class="fa fa-mobile"></i></span>
-                                    <h3>طراحی نرم افزار تحت موبایل</h3>
+                                    <h3><b><a href="/Home/طراحی_سایت">طراحی نرم افزار تحت موبایل</a></b></h3>
                                     <ul class="list-unstyled Allfeatures nav_list text-align-right">
                                         <li class="">
                                             <div class="shopping wrapper">
@@ -472,7 +472,7 @@
 
                                     </ul>
                                     <div class="read_more">
-                                        <a class="btn btn-2 active" target='_blank'  href="/Home/مجله_اینترنتی/a%7Cبرنامه%20نویسان">سایت برنامه نویسان</a>
+                                        <b> <a class="btn btn-2 active" target='_blank' href="/Home/مجله_اینترنتی/a%7Cبرنامه%20نویسان">سایت برنامه نویسان</a></b>
                                     </div>
                                 </div>
                             </div>
@@ -481,7 +481,7 @@
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ellipsistitlehome">
                                     <span class="active"><i class="fa fa-newspaper-o"></i></span>
-                                    <h3><b><a target='_blank' ></a></b>@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("زوم تک")).FirstOrDefault().SiteName</h3>
+                                    <h3><b><a target='_blank' href="/Home/مجله_اینترنتی/a|زوم%20تک">@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("زوم تک")).FirstOrDefault().SiteName</a></b></h3>
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
 
                                         @{
@@ -509,7 +509,7 @@
                                     </ul>
 
                                     <div class="read_more">
-                                        <a class="btn btn-2 active" target='_blank'  href="~/Home/اخبار_فناوری_و_تکنولوژی">ادامه مطلب</a>
+                                        <b><a class="btn btn-2 active" target='_blank' href="/Home/مجله_اینترنتی/a|زوم%20تک">سایت زوم تک</a></b>
                                     </div>
                                 </div>
                             </div>
@@ -518,15 +518,14 @@
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ellipsistitlehome">
                                     <span class="active"><i class="fa fa-arrow-circle-o-down"></i></span>
-                                    <h3><b><a target='_blank'>@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("اینتن")).FirstOrDefault().SiteName</a></b></h3>
+                                    <h3><b><a target='_blank' href="/Home/مجله_اینترنتی/a|زومیت">@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("زومیت")).FirstOrDefault().SiteName</a></b></h3>
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
 
                                         @{
                                             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                                             {
 
-
-                                                foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName.Contains("inten.asia")).Take(10))
+                                                foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName.Contains("zoomit.ir")).Take(10))
                                                 {
                                                     var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
 
@@ -545,7 +544,7 @@
 
                                     </ul>
                                     <div class="read_more">
-                                        <a class="btn btn-2 active" target='_blank'  href="~/Home/اخبار_فناوری_و_تکنولوژی">ادامه مطلب</a>
+                                        <b> <a class="btn btn-2 active" target='_blank' href="/Home/مجله_اینترنتی/a|زومیت">سایت زومیت</a></b> 
                                     </div>
                                 </div>
                             </div>
@@ -567,7 +566,7 @@
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ellipsistitlehome">
                                     <span class="active"><i class="fa fa-random"></i></span>
-                                    <h3><b><a target='_blank'>@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("کلیک")).FirstOrDefault().SiteName</a></b></h3>
+                                    <h3><b><a target='_blank' href="Home/مجله_اینترنتی/a|کلیک">@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("کلیک")).FirstOrDefault().SiteName</a></b></h3>
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
 
                                         @{
@@ -593,7 +592,7 @@
 
                                     </ul>
                                     <div class="read_more">
-                                        <a class="btn btn-2 active" target='_blank' href="~/Home/اخبار_فناوری_و_تکنولوژی">ادامه مطلب</a>
+                                        <a class="btn btn-2 active" target='_blank' href="Home/مجله_اینترنتی/a|کلیک">سایت کلیک</a>
                                     </div>
                                 </div>
                             </div>
@@ -602,7 +601,7 @@
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ellipsistitlehome">
                                     <span class="active"><i class="fa fa-newspaper-o"></i></span>
-                                    <h3><b><a target='_blank'>@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("گجت نیوز")).FirstOrDefault().SiteName</a></b></h3>
+                                    <h3><b><a target='_blank' href="Home/مجله_اینترنتی/a|گجت%20نیوز">@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("گجت نیوز")).FirstOrDefault().SiteName</a></b></h3>
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
 
                                         @{
@@ -628,7 +627,7 @@
 
                                     </ul>
                                     <div class="read_more">
-                                        <a class="btn btn-2 active" target='_blank'  href="~/Home/اخبار_فناوری_و_تکنولوژی">ادامه مطلب</a>
+                                        <b><a class="btn btn-2 active" target='_blank' href="Home/مجله_اینترنتی/a|گجت%20نیوز">سایت گجت نیوز</a></b>
                                     </div>
                                 </div>
                             </div>
@@ -637,7 +636,7 @@
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ellipsistitlehome">
                                     <span class="active"><i class="fa fa-arrow-circle-o-down"></i></span>
-                                    <h3><b><a target='_blank'>@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("آی تی رسان")).FirstOrDefault().SiteName</a></b></h3>
+                                    <h3><b><a target='_blank' href="Home/مجله_اینترنتی/a|آی%20تی%20رسان">@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("آی تی رسان")).FirstOrDefault().SiteName</a></b></h3>
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
 
                                         @{
@@ -663,7 +662,7 @@
 
                                     </ul>
                                     <div class="read_more">
-                                        <a class="btn btn-2 active" target='_blank'  href="~/Home/اخبار_فناوری_و_تکنولوژی">ادامه مطلب</a>
+                                        <b><a class="btn btn-2 active" target='_blank' href="Home/مجله_اینترنتی/a|آی%20تی%20رسان">سایت آی تی رسان</a></b>
                                     </div>
                                 </div>
                             </div>
@@ -688,7 +687,7 @@
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ellipsistitlehome">
                                     <span class="active"><i class="fa fa-random"></i></span>
-                                    <h3><b><a target='_blank'>@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("نت نوشت")).FirstOrDefault().SiteName</a></b></h3>
+                                    <h3><b><a target='_blank' href="Home/مجله_اینترنتی/a|نت%20نوشت">@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("نت نوشت")).FirstOrDefault().SiteName</a></b></h3>
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
 
                                         @{
@@ -714,7 +713,7 @@
 
                                     </ul>
                                     <div class="read_more">
-                                        <a class="btn btn-2 active" target='_blank' href="~/Home/اخبار_فناوری_و_تکنولوژی">ادامه مطلب</a>
+                                        <b><a class="btn btn-2 active" target='_blank' href="Home/مجله_اینترنتی/a|نت%20نوشت">سایت نت نوشت</a></b>
                                     </div>
                                 </div>
                             </div>
@@ -723,7 +722,7 @@
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ellipsistitlehome">
                                     <span class="active"><i class="fa fa-newspaper-o"></i></span>
-                                    <h3><b><a target='_blank'>@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("اتاق خبر 24")).FirstOrDefault().SiteName</a></b></h3>
+                                    <h3><b><a target='_blank' href="Home/مجله_اینترنتی/a|اتاق%20خبر%2024">@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("اتاق خبر 24")).FirstOrDefault().SiteName</a></b></h3>
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
 
                                         @{
@@ -749,7 +748,7 @@
 
                                     </ul>
                                     <div class="read_more">
-                                        <a class="btn btn-2 active" target='_blank'  href="~/Home/اخبار_فناوری_و_تکنولوژی">ادامه مطلب</a>
+                                        <b><a class="btn btn-2 active" target='_blank' href="Home/مجله_اینترنتی/a|اتاق%20خبر%2024">سایت اتاق خبر 24</a></b>
                                     </div>
                                 </div>
                             </div>
@@ -758,14 +757,15 @@
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ellipsistitlehome">
                                     <span class="active"><i class="fa fa-arrow-circle-o-down"></i></span>
-                                    <h3><b><a target='_blank'>@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("زومیت")).FirstOrDefault().SiteName</a></b></h3>
+                                    <h3><b><a target='_blank' href="Home/مجله_اینترنتی/a|جام%20جم%20آنلاین">@Utility.lstMagUnDisc.Where(p => p.SiteName.Contains("جام جم آنلاین")).FirstOrDefault().SiteName</a></b></h3>
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
 
                                         @{
                                             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                                             {
 
-                                                foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName.Contains("zoomit.ir")).Take(10))
+
+                                                foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName.Contains("jamejamonline.ir")).Take(10))
                                                 {
                                                     var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
 
@@ -773,7 +773,7 @@
                                                         <div class="shopping wrapper">
                                                             <div class="col-md-12 no-padding">
                                                                 <span class="fa fa-caret-left HomeBoxes"></span>
-                                                                <a class="HomeSpanTextBoxes" target='_blank'  title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
+                                                                <a class="HomeSpanTextBoxes" target='_blank' title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -784,8 +784,9 @@
 
                                     </ul>
                                     <div class="read_more">
-                                        <a class="btn btn-2 active" target='_blank'  href="~/Home/اخبار_فناوری_و_تکنولوژی">ادامه مطلب</a>
+                                        <b><a class="btn btn-2 active" target='_blank' href="Home/مجله_اینترنتی/a|جام%20جم%20آنلاین">سایت جام جم آنلاین</a></b>
                                     </div>
+
                                 </div>
                             </div>
 
