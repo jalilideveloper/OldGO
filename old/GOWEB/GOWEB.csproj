@@ -198,7 +198,6 @@
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\modernizr-2.6.2.js" />
     <Content Include="js\respond.min.js" />
-    <Content Include="MagazineSelectedSitemap.xml" />
     <Content Include="MagazineSitemap.xml" />
     <Content Include="Models\Statistic.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -340,8 +339,6 @@
     <Content Include="webStatics.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AllNewsSitemap.xml" />
-    <Content Include="ArticleSitemap.xml" />
     <Content Include="BingSiteAuth.xml" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
