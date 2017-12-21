@@ -1,0 +1,334 @@
+﻿@using GOWEB.Models;
+@using System.Xml;
+@using GOWEB.Controllers;
+
+
+
+@section Head
+{
+
+    <title> طراحی وب سایت با استفاده از Asp.net </title>
+
+    <meta name="description" content="  طراحی سایت، طراحی سایت حرفه ای ، طراحی سایت داینامیک  ، طراحی سایت با سئو خیلی قوی ، سئو حرفه ای, طراحی پرتال ، طراحی سایت با وردپرس، طراحی سایت با جوملا، طراحی سایت با دات نت ،طراحی فروشگاه اینترنتی ، تبلیغات گوگل و بهینه سازی سایت است" />
+
+
+    <meta name="keywords" content="طراحی وب سایت با استفاده از Asp.net | طراحی سایت | طراحی سایت ارزان | طراحی سایت حرفه ای " />
+    <meta name="DC.keywords" content="طراحی وب سایت با استفاده از Asp.net | طراحی سایت | طراحی سایت ارزان | طراحی سایت حرفه ای " />
+
+
+    <meta name="DC.description" content="  طراحی سایت، طراحی سایت حرفه ای ، طراحی سایت داینامیک  ، طراحی سایت با سئو خیلی قوی ، سئو حرفه ای, طراحی پرتال ، طراحی سایت با وردپرس، طراحی سایت با جوملا، طراحی سایت با دات نت ،طراحی فروشگاه اینترنتی ، تبلیغات گوگل و بهینه سازی سایت است" />
+    <meta name="DC.Title" content="طراحی سایت با asp.net | طراحی سایت حرفه ای" />
+    <meta name="DC.Subject" content="مقالات تکنولوژی | تکنولوژی | بهینه ساز سبز" />
+
+    <meta property="og:title" content="طراحی سایت با asp.net | طراحی سایت حرفه ای" />
+    <meta property="og:description" content="  طراحی سایت، طراحی سایت حرفه ای ، طراحی سایت داینامیک  ، طراحی سایت با سئو خیلی قوی ، سئو حرفه ای, طراحی پرتال ، طراحی سایت با وردپرس، طراحی سایت با جوملا، طراحی سایت با دات نت ،طراحی فروشگاه اینترنتی ، تبلیغات گوگل و بهینه سازی سایت است" />
+
+    <meta name="twitter:title" content="طراحی سایت با asp.net | طراحی سایت حرفه ای" />
+    <meta name="twitter:description" content="  طراحی سایت، طراحی سایت حرفه ای ، طراحی سایت داینامیک  ، طراحی سایت با سئو خیلی قوی ، سئو حرفه ای, طراحی پرتال ، طراحی سایت با وردپرس، طراحی سایت با جوملا، طراحی سایت با دات نت ،طراحی فروشگاه اینترنتی ، تبلیغات گوگل و بهینه سازی سایت است" />
+
+}
+@section StyleScript
+    {
+    <link rel="stylesheet" href="~/fonts/css/font-awesome.min.css">
+
+}
+
+@section MainContent
+    {
+
+    <div class="main_bg">
+        <div class="container">
+            <div class="main_grid1">
+                <h4 class="style pull-left">مقالات</h4>
+                <ol class="breadcrumb pull-right">
+                    <li><a href="~/Home/Index">خانه</a></li>
+                    <li class="active">مقالات آموزشی طراحی سایت با asp.net</li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main_btm1">
+
+        <div class="container">
+            <div class="blog">
+
+
+
+                <div class="col-md-2  blog_right no-padding ">
+
+
+                    <div class="widget ">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">مقالات</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+                            <ul class="tag_nav list-unstyled div-bg-white" id="MyMagazinesG">
+                                @{foreach (var item in Utility.lstMag)
+                                    {
+                                        <li><a href='http://www.greenoptimizer.com/Home/مجله_اینترنتی/a|@item.SiteName'>@item.SiteName</a></li>
+                                    }
+
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="widget ">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">تبلیغات</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+
+                            <ul class="ads_nav list-unstyled   div-bg-white">
+                                <li><a target="_blank" href="http://www.bamilo.com/"><img src="~/images/ads/bamilo.png" alt=""> </a></li>
+                                <li><a target="_blank" href="https://www.digikala.com/"><img src="~/images/ads/digikala125.gif" alt=""> </a></li>
+                                <li><a target="_blank" href="http://goldiran.ir/"><img src="~/images/ads/goldiran.png" alt=""> </a></li>
+                                <li><a target="_blank" href="http://izigzag.com/L/Brand"><img src="~/images/ads/zigzag125.gif" alt=""> </a></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <div class="widget hidden-sm hidden-xs">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">تگ ها</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+
+                            <ul class="tag_nav list-unstyled  div-bg-white">
+                                <li class="active"><a href="#">قالب</a></li>
+                                <li><a href="#">طراحی سایت</a></li>
+                                <li><a href="#">سئو</a></li>
+                                <li><a href="#">بهینه سازی سایت</a></li>
+                                <li><a href="#">موبایل</a></li>
+                                <li><a href="#">بازی</a></li>
+                                <li><a href="#">اخبار</a></li>
+                                <li><a href="#">تکنولوژی</a></li>
+                                <li><a href="#">طراحی قالب</a></li>
+                                <li><a href="#">وردپرس</a></li>
+                                <li><a href="#">جوملا</a></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="widget hidden-sm hidden-xs">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">تبلیغات</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+                            <div class="row text-align-center no-padding">
+                                <div class="paddingbottom5 col-lg-12 col-md-12 ">
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.samsung.com/iran/smartphones/galaxy-s8">
+                                            <img src="~/images/ads/samsung.gif" alt="سامسونگ" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="https://www.digikala.com">
+                                            <img src="~/images/ads/digikala.gif" alt="دیجی کالا" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://goldiran.ir/">
+                                            <img src="~/images/ads/goldiran.gif" alt="گلدیران" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.bamilo.com/">
+                                            <img src="~/images/ads/bamilo.gif" alt="بامیلو" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="https://www.alibaba.ir/">
+                                            <img src="~/images/ads/alibaba.gif" alt="علی بابا" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.lotuscarsiran.ir/">
+                                            <img src="~/images/ads/lotus.gif" alt="lotus" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.golfamsafar.com/">
+                                            <img src="~/images/ads/golfamsafar.gif" alt="گلفام سفر" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.irannovinclinic.com/">
+                                            <img src="~/images/ads/irannovinclinic.gif" alt="کلینیک ایران نوین" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://irtoya.com/">
+                                            <img src="~/images/ads/irtoya.gif" alt="ایرتویا" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="https://jabama.ir/">
+                                            <img src="~/images/ads/jabama.gif" alt="جاباما" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="https://www.nomatec.net/Products/SCM">
+                                            <img src="~/images/ads/nomatec.gif" alt="نوماتک" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://www.parsonline.com/">
+                                            <img src="~/images/ads/parsonline.gif" alt="پارس آنلاین" class="img-responsive">
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-8  blog_main ">
+                    <div id="CenterContent">
+
+                        <div class='blog_list bg-white'>
+                            <div class='col-md-12 blog_left'>
+                                <a target='_blank' href='#'>
+                                    <img src='' alt='' class='img-responsive' />
+                                </a>
+                                <h1 class='resp-padding-5'>
+                                    <a target='_blank' href='http://localhost:28585/Learning/_%d8%b7%d8%b1%d8%a7%d8%ad%db%8c_%d8%b3%d8%a7%db%8c%d8%aa_%d8%a8%d8%a7_ASP'>
+                                        طراحی سایت با asp.net
+
+                                    </a>
+                                </h1>
+                                <b>
+                                طراحی سایت و بهینه سازی سایت / <a href="http://localhost:28585/Home/%d8%b3%d8%a6%d9%88_%d8%b3%d8%a7%db%8c%d8%aa">سئو سایت </a> : بهینه ساز سبز</b>
+                                <p class='para'>
+                                     <a href="/Home/%d8%b7%d8%b1%d8%a7%d8%ad%db%8c_%d8%b3%d8%a7%db%8c%d8%aa" target="_blank"> طراحی سایت </a>، طراحی سایت حرفه ای ، طراحی سایت داینامیک  ،  <a href="/Home/%d8%b3%d8%a6%d9%88_%d8%b3%d8%a7%db%8c%d8%aa" target="_blank"> طراحی سایت با سئو خیلی قوی </a>، سئو حرفه ای, طراحی پرتال ، طراحی سایت با وردپرس، طراحی سایت با جوملا، طراحی سایت با دات نت ،طراحی فروشگاه اینترنتی ، تبلیغات گوگل و بهینه سازی سایت است.
+                                </p>
+
+                                <p class='para'>
+
+                                    ASP.NET یکی از تکنولوژی های تولید صفحات داینامیک وب سمت سرویس دهنده است . ASP.NET ترکیبی از ASP ( زبان برنامه نویسی کلاسیک تحت وب مایکروسافت ) با تکنولوژی NET. (چارچوب جدید معرفی شده توسط مایکروسافت برای تولید نسل جدیدی از نرم افزارها ) می باشد 
+                                
+                                </p>
+
+                                <p class="para">
+                                    برنامه نویسی در  <a href="/Learning/_%d8%b7%d8%b1%d8%a7%d8%ad%db%8c_%d8%b3%d8%a7%db%8c%d8%aa_%d8%a8%d8%a7_ASP" target="_blank">ASP.NET</a> بسیار ساده تر، امن تر، سریع تر و پرقدرت تر از ASP کلاسیک است. کدهای ASP به صورت مختلط با کدهای HTML نوشته می شد و همین موضوع کار را برای برنامه نویسان مشکل می کرد. در ASP.NET این مشکل برطرف شده و کدهای نوشته شده از HTML می تواند جدا باشد ( استفاده از متد Behind Code ) این ویژگی این امکان را می دهد که در پروژه های تیمی که کار برنامه نویسی و گرافیک تقسیم شده است راحتر باشد و هر شخص با تمرکر بر روی کار خود کار خود را به بهترین شکل انجام دهد بدون اینکه در کار دیگری تداخلی ایجاد کند.
+
+
+                                </p>
+                                <p  class="para">در صورتی که قصد طراحي سايت داشته باشید ممکن است این سوال براس شما به وجود آید که بین زبان های برنامه نویسی تحت وب <a href="http://php.net/" target="_blank">PHP</a> و <a href="http://www.asp.net/" target="_blank">ASP.NET</a> کدام یک را می بایست انتخاب نمایید. در این مقاله سعی خواهم نمود تا این مسئله را برای شما روشن نمایم. PHP و ASP.NET هر دو جزو رایج ترین زبان های برنامه نویسی تحت وب در ایران هستند که هر یک طرفداران و توسعه دهندگان مربوط به خود را دارد. با توجه از جنبه های مختلف مقایسه هر یک از جنبه ها را در یک بخش توضیح خواهم داد.</p>
+
+
+                                <img src="~/images/images/طراحی_سایت_با_asp-net.png"  alt="  طراحی سایت با asp.net"/>
+                            </div><div class='clearfix'></div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+                    <div class="clearfix"></div>
+
+
+                </div>
+
+
+
+                <div class="col-md-2 blog_right no-padding ellipsistitle" id="MagazinesNews">
+
+
+
+
+                    <div class="widget">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">پربازدید ترین ها</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+                            <ul class="list-unstyled div-bg-white" id="MostRecentNews">
+                                <div class="clearfix"></div>
+
+                                @{
+                                    foreach (var item in Utility.lstTopNews)
+                                    {
+                                        var Cleanlink = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
+                                        <li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a target='_blank' title='@item.NTitle' href='@Cleanlink'>  @item.NTitle </a></li>
+                                    }
+                                }
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+
+
+                    @{
+
+                        foreach (var item in Utility.lstMagUnDisc)
+                        {
+
+                            <div class='widget'>
+                                <div class='widget-header text-align-center'><a class='colorblack' href='http://www.greenoptimizer.com/Home/مجله_اینترنتی/a|@item.SiteName'><h6 class='line-height-2-5'>@item.SiteName</h6></a></div><div class='widget-content md-padding'>
+
+                                    <ul class='list-unstyled div-bg-white'>
+                                        <div class='clearfix'></div>
+                                        @{foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName == item.MagazineName))
+                                            {
+
+                                                var Prehref = "http://www.greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
+                                                <li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a target='_blank' title='@itemInside.NTitle' href='@Prehref'> @itemInside.NTitle</a></li>
+
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                                            }
+
+
+                    }
+
+
+
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+}
+
+@section ScriptJs{
+
+
+
+
+}

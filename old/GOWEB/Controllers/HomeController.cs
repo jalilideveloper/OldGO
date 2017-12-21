@@ -30,14 +30,12 @@ namespace GOWEB.Controllers
 
         }
 
-
         //public ActionResult WebDesign()
         //{
         //    return View();
 
         //}
-
-
+      
 
         public ActionResult نمونه_طراحی_سایت_و_سئو()
         {
