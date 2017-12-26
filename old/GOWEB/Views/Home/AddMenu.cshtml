@@ -35,21 +35,21 @@
                         Menu:
                     </div>
                     <div class="col-md-3 no-padding">
-                       <input type="text"/>
+                       <input type="text" id="MenuNameAdd"/>
                     </div>
                     <div class="col-md-2 nopadding">
 
                         Has A Child:
                     </div>
                     <div class="col-md-1 nopadding">
-                        <input id="isChild" type="checkbox" title="Has A Child" />
+                        <input id="isChildAdd" type="checkbox" title="Has A Child" />
                     </div>
                     <div class="col-md-2 nopadding">
 
                         Parent Menu Name:
                     </div>
                     <div class="col-md-3 nopadding">
-                        <select class="MenuID"></select>
+                        <select class="MenuIDAdd"></select>
                     </div>
 
                 </div>
@@ -76,7 +76,7 @@
                         Menu Name:
                     </div>
                     <div class="col-md-3 no-padding">
-                        <select class="MenuID"></select>
+                        <select class="MenuIDEdit"></select>
                     </div>
                     <div class="col-md-2 nopadding">
 
@@ -107,30 +107,79 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        var MenuIDs = 0;
+        var MenuIDAdd = 0;
+        var MenuIDEdit = 0;
+        var isChildAdd = 0;
 
         $.getJSON("/Learning/LoadMenu", function (data) {
             console.log(data.Data)
 
             $.each(data.Data, function (index, value) {
                 // APPEND OR INSERT DATA TO SELECT ELEMENT.
-
-
-                $('.MenuID').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
+                $('.MenuIDEdit').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
+                $('.MenuIDAdd').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
             });
         });
 
-        $(".MenuID").change(function () {
-            MenuIDs = $(this).val();
+        $(".MenuIDEdit").change(function () {
+            MenuIDAdd = $(this).val();
         })
+        $(".MenuIDAdd").change(function () {
+            MenuIDEdit = $(this).val();
+        })
+
+
+          $("#isChild").change(function () {
+
+              isChildAdd = $(this).is(":checked");
+        })
+
 
 
         $("#btnAdd").click(function () {
 
+
+            if (isChildAdd) {
+                var dataObject = JSON.stringify({
+                    'MenuID': 0,
+                    'MenuName': $('#MenuNameAdd').val(),
+                    'ParrentID': MenuIDAdd,
+                    'MenuUrl': MenuIDs,
+                    'HasChild': isChildAdd
+                });
+            } else {
+                var dataObject = JSON.stringify({
+                    'MenuID': 0,
+                    'MenuName': $('#MenuNameAdd').val(),
+                    'ParrentID': MenuIDAdd,
+                    'MenuUrl': MenuIDs,
+                    'HasChild': isChildAdd
+                });
+            }
             
+
+        
+
+            $.ajax({
+                url: '/Learning/AddPage',
+                type: 'POST',
+                contentType: 'application/json',
+                done: submissionSucceeded,
+                fail: submissionFailed,
+                data: dataObject
+            });
 
 
         });
+
+        $("#btnEdit").click(function () {
+
+
+
+
+        });
+
+
         function submissionSucceeded() {
             console.log("Ok")
         }

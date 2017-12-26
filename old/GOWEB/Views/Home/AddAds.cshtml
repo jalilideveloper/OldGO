@@ -148,8 +148,7 @@
 
         $("#btnAdd").click(function () {
 
-
-            console.log($('#Description').attr('Source'))
+            
 
             var dataObject = JSON.stringify({
                 'MetaTitle': $('#MetaTitle').val(),
@@ -165,8 +164,7 @@
                
 
             });
-
-            console.log($('.Editor-editor').html())
+            
 
             $.ajax({
                 url: '/Learning/AddPage',

@@ -70,7 +70,55 @@ namespace GOWEB.Controllers
 
 
         }
+        public string AddMenu(MenuItem p)
+        {
+            try
+            {
+                using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                {
+                    if (p.PassCode == "123a@a.com")
+                    {
+                        if (p.HasChild)
+                        {
+                            db.tblMenus.Add(new tblMenu
+                            {
+                                MenuName = p.MenuName,
+                                ParrentID = p.MenuID,
+                                MenuUrl = p.MenuUrl,
+                                Priority = 0,
+                                LanguageID = 1
+                            });
+                            db.SaveChanges();
+                        }
+                    }
+                    else
+                    {
+                        if (p.HasChild)
+                        {
+                            db.tblMenus.Add(new tblMenu
+                            {
+                                MenuName = p.MenuName,
+                                ParrentID = null,
+                                MenuUrl = p.MenuUrl,
+                                Priority = 0,
+                                LanguageID = 1
+                            });
+                            db.SaveChanges();
+                        }
+                    }
+                    return "True";
+                }
+            }
+            catch (Exception ex)
+            {
 
+                var q = ex.Message;
+
+                return "false";
+            }
+
+
+        }
 
         public string LoadMenu()
         {
@@ -88,6 +136,18 @@ namespace GOWEB.Controllers
     {
         public int MenuID { get; set; }
         public string MenuName { get; set; }
+
+        public string ParrentID { get; set; }
+        public string PassCode { get; set; }
+
+        public bool HasChild { get; set; }
+
+        public string MenuUrl { get; set; }
+
+
+
+
+
     }
 
 }
