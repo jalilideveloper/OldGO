@@ -47,7 +47,7 @@
                         Menu url:
                     </div>
                     <div class="col-md-3 ">
-                        <input type="text" />
+                        <input type="text" id="MenuUrlAdd"/>
                     </div>
                     <div class="col-md-1 ">
 
@@ -69,7 +69,7 @@
                         Code:
                     </div>
                     <div class="col-md-3">
-                        <input type="text" />
+                        <input type="text" id="PassCode" />
                     </div>
                     <div class="col-md-1 ">
 
@@ -111,13 +111,13 @@
                         Edit Menu URL:
                     </div>
                     <div class="col-md-3 ">
-                        <input type="text" />
+                        <input type="text" id="MenuUrlEdit" />
                     </div>
                     <div class="col-md-2">
                         Code:
                     </div>
                     <div class="col-md-3">
-                        <input type="text" />
+                        <input type="text"  id="PassCodeEdit"/>
                     </div>
                     <div class="col-md-1 ">
 
@@ -139,29 +139,37 @@
     $(document).ready(function () {
         var MenuIDAdd = 0;
         var MenuIDEdit = 0;
-        var isChildAdd = 0;
+        var isChildAdd = false;
 
         $.getJSON("/Learning/LoadMenu", function (data) {
-            console.log(data.Data)
-
+            
             $.each(data.Data, function (index, value) {
                 // APPEND OR INSERT DATA TO SELECT ELEMENT.
                 $('.MenuIDEdit').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
-                $('.MenuIDAdd').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
+
+             
+                    $('.MenuIDAdd').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
+            
+               
+
+
+
+
             });
         });
 
         $(".MenuIDEdit").change(function () {
-            MenuIDAdd = $(this).val();
-        })
-        $(".MenuIDAdd").change(function () {
             MenuIDEdit = $(this).val();
         })
+        $(".MenuIDAdd").change(function () {
+            MenuIDAdd = $(this).val();
+        })
 
 
-          $("#isChild").change(function () {
+        $("#isChildAdd").change(function () {
 
               isChildAdd = $(this).is(":checked");
+
         })
 
 
@@ -174,24 +182,24 @@
                     'MenuID': 0,
                     'MenuName': $('#MenuNameAdd').val(),
                     'ParrentID': MenuIDAdd,
-                    'MenuUrl': MenuIDs,
-                    'HasChild': isChildAdd
+                    'MenuUrl': $('#MenuUrlAdd').val(),
+                    'HasChild': isChildAdd,
+                    'PassCode': $('#PassCode').val()
+
                 });
             } else {
                 var dataObject = JSON.stringify({
                     'MenuID': 0,
                     'MenuName': $('#MenuNameAdd').val(),
-                    'ParrentID': MenuIDAdd,
-                    'MenuUrl': MenuIDs,
-                    'HasChild': isChildAdd
+                    'ParrentID': null,
+                    'MenuUrl': $('#MenuUrlAdd').val(),
+                    'HasChild': isChildAdd,
+                    'PassCode': $('#PassCode').val(),
                 });
             }
-            
-
-        
-
+          
             $.ajax({
-                url: '/Learning/AddPage',
+                url: '/Learning/AddMenu',
                 type: 'POST',
                 contentType: 'application/json',
                 done: submissionSucceeded,
@@ -204,9 +212,24 @@
 
         $("#btnEdit").click(function () {
 
+            
+                var dataObject = JSON.stringify({
+                    'MenuID': MenuIDEdit,
+                    'MenuName': $('#MenuNameEdit').val(),
+                    'ParrentID': MenuIDEdit,
+                    'MenuUrl': $('#MenuUrlEdit').val(),
+                    'PassCode': $('#PassCodeEdit').val()
+                });
+           
 
-
-
+            $.ajax({
+                url: '/Learning/EditMenu',
+                type: 'POST',
+                contentType: 'application/json',
+                done: submissionSucceeded,
+                fail: submissionFailed,
+                data: dataObject
+            });
         });
 
 

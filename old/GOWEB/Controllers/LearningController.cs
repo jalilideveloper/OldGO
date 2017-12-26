@@ -70,6 +70,38 @@ namespace GOWEB.Controllers
 
 
         }
+        
+         public string EditMenu(MenuItem p)
+        {
+            try
+            {
+                using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                {
+                    if (p.PassCode == "123a@a.com")
+                    {
+
+                       var q =  db.tblMenus.Where(x => x.MenuID == p.MenuID).FirstOrDefault();
+                        q.MenuName = p.MenuName;
+                        q.MenuUrl = p.MenuUrl;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        return "false";
+                    }
+                    return "True";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                var q = ex.Message;
+
+                return "false";
+            }
+
+
+        }
         public string AddMenu(MenuItem p)
         {
             try
@@ -83,17 +115,14 @@ namespace GOWEB.Controllers
                             db.tblMenus.Add(new tblMenu
                             {
                                 MenuName = p.MenuName,
-                                ParrentID = p.MenuID,
+                                ParrentID = Convert.ToInt32(p.ParrentID),
                                 MenuUrl = p.MenuUrl,
                                 Priority = 0,
-                                LanguageID = 1
+                                LanguageID = 4
                             });
                             db.SaveChanges();
                         }
-                    }
-                    else
-                    {
-                        if (p.HasChild)
+                        else
                         {
                             db.tblMenus.Add(new tblMenu
                             {
@@ -101,10 +130,16 @@ namespace GOWEB.Controllers
                                 ParrentID = null,
                                 MenuUrl = p.MenuUrl,
                                 Priority = 0,
-                                LanguageID = 1
+                                LanguageID = 4
                             });
                             db.SaveChanges();
                         }
+                    }
+                    else
+                    {
+
+                        return "false";
+                        
                     }
                     return "True";
                 }
@@ -124,7 +159,7 @@ namespace GOWEB.Controllers
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
-                List<MenuItem> x = db.tblMenus.ToList().Select(p => new MenuItem { MenuID = p.MenuID, MenuName = p.MenuName }).ToList();
+                List<MenuItem> x = db.tblMenus.ToList().Select(p => new MenuItem { MenuID = p.MenuID, MenuName = p.MenuName ,ParrentID = p.ParrentID.ToString() }).ToList();
                 var q = new JavaScriptSerializer().Serialize(Json(x));
                 return q;
             }

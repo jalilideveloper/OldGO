@@ -27,7 +27,8 @@ namespace GOWEB.Models
     
         public virtual tblMenu tblMenu { get; set; }
 
+        public string PassCode{ get; set; }
 
-        public string PassCode { get; set; }
+
     }
 }

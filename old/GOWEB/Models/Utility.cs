@@ -49,12 +49,14 @@ namespace GOWEB.Models
             lstMagUnDisc.Clear();
             lstNewsByMagazineID.Clear();
             lstTopNews.Clear();
-
             ServeDataForMagazine();
             GetMostNewsTop();
             GetAllMagazine();
             GetLastNewsByMagazineID();
-          
+            lstMenu.Clear();
+            FillMenuList();
+
+
         }
 
 
