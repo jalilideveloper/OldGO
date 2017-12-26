@@ -75,22 +75,37 @@
 
                                         using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                                         {
-                                            
-                                            foreach (var item in Utility.lstMenu.Where(p=> p.ParrentID == null))
+
+                                            foreach (var item in Utility.lstMenu.Where(p => p.ParrentID == null && p.MenuID != 46))
                                             {
                                                 if (item.ParrentID == null)
                                                 {
+                                                    var d = db.tblPages.Where(o => o.MenuID == item.MenuID).FirstOrDefault();
                                                     <li>
-                                                        <a href="/Learning/طراحی_سایت_سئو_سایت_بهینه_سازی_سایت/@item.MenuUrl">@item.MenuName</a>
+
+                                                        @if (d != null)
+                                                        {
+                                                            <a href="/Learning/طراحی_سایت_سئو_سایت_بهینه_سازی_سایت/@item.MenuUrl">@item.MenuName</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="#">@item.MenuName</a>
+                                                        }
+
+
                                                         <ul>
-                                                                  @foreach (var itemInside in Utility.lstMenu.Where(p => p.ParrentID == item.MenuID))
-                                                                  {
-                                                                    <li>
-                                                                        <a href="/Learning/طراحی_سایت_سئو_سایت_بهینه_سازی_سایت/@itemInside.MenuUrl">@itemInside.MenuName</a>
-                                                                    </li>                                                               
-                                                                  }      
+                                                            @foreach (var itemInside in Utility.lstMenu.Where(p => p.ParrentID == item.MenuID && p.MenuID != 46))
+                                                            {
+
+
+                                                                <li>
+                                                                    <a href="/Learning/طراحی_سایت_سئو_سایت_بهینه_سازی_سایت/@itemInside.MenuUrl">@itemInside.MenuName</a>
+                                                                </li>
+
+                                                            }
                                                         </ul>
                                                     </li>
+
                                                 }
                                             }
                                         }
