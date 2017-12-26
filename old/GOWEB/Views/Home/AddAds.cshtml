@@ -99,7 +99,7 @@
                 <hr />
                 <div class="row">
                     <div class="col-lg-6 nopadding">
-                      Password Code  : <input type="text" />
+                      Password Code  : <input type="text" id="PassCode"/>
                     </div>
 
                     <div class="col-lg-6 nopadding">
@@ -124,7 +124,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var MenuIDs = 0;
-      
+        var passCode = $('#PassCode').val();
         $.getJSON("/Learning/LoadMenu", function (data) {
             console.log(data.Data)
 
@@ -161,7 +161,8 @@
                 'Author': $('#Author').val(),
                 'Title': $('#Title').val(),
                 'Description': $('.Editor-editor').html(),
-                'MenuID': MenuIDs
+                'MenuID': MenuIDs,
+                'PassCode': passCode
                
 
             });

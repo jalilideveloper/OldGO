@@ -64,13 +64,13 @@
           <Key>
             <PropertyRef Name="PageID" />
           </Key>
-          <Property Name="PageID" Type="int" Nullable="false" />
-          <Property Name="MetaTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="PageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MetaTitle" Type="nvarchar" MaxLength="500" />
           <Property Name="MetaKeyword" Type="nvarchar" MaxLength="500" />
           <Property Name="MetaDescription" Type="nvarchar" MaxLength="500" />
-          <Property Name="MetaSubject" Type="nvarchar" MaxLength="50" />
-          <Property Name="Author" Type="nvarchar" MaxLength="50" />
-          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="MetaSubject" Type="nvarchar" MaxLength="500" />
+          <Property Name="Author" Type="nvarchar" MaxLength="500" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Date" Type="datetime" />
           <Property Name="MenuID" Type="int" />
@@ -452,12 +452,12 @@
             <PropertyRef Name="PageID" />
           </Key>
           <Property Name="PageID" Type="Int32" Nullable="false" />
-          <Property Name="MetaTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MetaTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="MetaKeyword" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="MetaDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="MetaSubject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MetaSubject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Author" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="MenuID" Type="Int32" />

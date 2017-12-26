@@ -26,7 +26,7 @@ namespace GOWEB.Controllers
             {
                 using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                 {
-                    ViewBag.Data  = db.tblPages.Where(p => p.tblMenu.MenuUrl == id).FirstOrDefault();
+                    ViewBag.Data = db.tblPages.Where(p => p.tblMenu.MenuUrl == id).FirstOrDefault();
                 }
             }
 
@@ -41,24 +41,29 @@ namespace GOWEB.Controllers
             {
                 using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                 {
-                    db.tblPages.Add(new tblPage
+                    if (p.PassCode == "123a@a.com")
                     {
-                        Author = p.Author,
-                        Date = DateTime.Now.Date,
-                        Description = p.Description,
-                        MenuID = p.MenuID,
-                        MetaDescription = p.MetaDescription,
-                        MetaKeyword = p.MetaKeyword,
-                        MetaSubject = p.MetaSubject,
-                        MetaTitle = p.MetaTitle,
-                        Title = p.Title
-                    });
-                    db.SaveChanges();
+                        db.tblPages.Add(new tblPage
+                        {
+                            Author = p.Author,
+                            Date = DateTime.Now.Date,
+                            Description = p.Description,
+                            MenuID = p.MenuID,
+                            MetaDescription = p.MetaDescription,
+                            MetaKeyword = p.MetaKeyword,
+                            MetaSubject = p.MetaSubject,
+                            MetaTitle = p.MetaTitle,
+                            Title = p.Title
+                        });
+                        db.SaveChanges();
+                    }
                     return "True";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+
+                var q = ex.Message;
 
                 return "false";
             }
