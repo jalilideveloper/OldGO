@@ -1,5 +1,5 @@
 User-Agent: *
-Disallow: 
+Disallow: /home/addads
 Allow: /
 
 User-Agent: Googlebot
@@ -29,6 +29,6 @@ Allow: /
 User-Agent: Teoma
 Allow: /
 
-Crawl-delay: 4
+Crawl-delay: 3
 
 Sitemap: http://greenoptimizer.com/sitemap.xml
