@@ -9,9 +9,121 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>AddMenu</title>
+
+
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/fonts/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div> 
+
+    <div class="container-fluid">
+        <div class="row">
+            <h2 class="demo-text">Add Menu</h2>
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-1 nopadding">
+
+                        Menu:
+                    </div>
+                    <div class="col-md-3 no-padding">
+                       <input type="text"/>
+                    </div>
+                    <div class="col-md-2 nopadding">
+
+                        Has A Child:
+                    </div>
+                    <div class="col-md-1 nopadding">
+                        <input id="isChild" type="checkbox" title="Has A Child" />
+                    </div>
+                    <div class="col-md-2 nopadding">
+
+                        Parent Menu Name:
+                    </div>
+                    <div class="col-md-3 nopadding">
+                        <select class="MenuID"></select>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-12">
+                    <input type="button" value="ADD" id="btnAdd" />
+
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-2 nopadding">
+
+                        Menu Name:
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <select class="MenuID"></select>
+                    </div>
+                    <div class="col-md-2 nopadding">
+
+                        Edit Menu Name:
+                    </div>
+                    <div class="col-md-3 nopadding">
+                        <input type="text" />
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <input type="button" value="Edit" id="btnEdit" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var MenuIDs = 0;
+
+        $.getJSON("/Learning/LoadMenu", function (data) {
+            console.log(data.Data)
+
+            $.each(data.Data, function (index, value) {
+                // APPEND OR INSERT DATA TO SELECT ELEMENT.
+
+
+                $('.MenuID').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
+            });
+        });
+
+        $(".MenuID").change(function () {
+            MenuIDs = $(this).val();
+        })
+
+
+        $("#btnAdd").click(function () {
+
+            
+
+
+        });
+        function submissionSucceeded() {
+            console.log("Ok")
+        }
+        function submissionFailed() {
+            console.log("Failed")
+        }
+
+    });
+
+
+
+
+
+</script>
