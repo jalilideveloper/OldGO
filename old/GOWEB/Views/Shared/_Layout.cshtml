@@ -81,12 +81,12 @@
                                                 if (item.ParrentID == null)
                                                 {
                                                     <li>
-                                                        <a href="~@item.MenuUrl">@item.MenuName</a>
+                                                        <a href="@item.MenuUrl">@item.MenuName</a>
                                                         <ul>
                                                                   @foreach (var itemInside in Utility.lstMenu.Where(p => p.ParrentID == item.MenuID))
                                                                   {
                                                                     <li>
-                                                                        <a href="~@itemInside.MenuUrl">@itemInside.MenuName</a>
+                                                                        <a href="@itemInside.MenuUrl">@itemInside.MenuName</a>
                                                                     </li>                                                               
                                                                   }      
                                                         </ul>
