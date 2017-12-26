@@ -29,7 +29,7 @@ nav{display:block;}
 .menu li{display:inline-block;position:relative;z-index:100;}
 .menu li:first-child{margin-left:0;}
 .menu li.activate a, .menu li a:hover{background:#10726E;box-shadow:inset 0px -4px 0px #0f6c75;-webkit-box-shadow:inset 0px -4px 0px #0f6c75;-moz-box-shadow:inset 0px -4px 0px #0f6c75;-o-box-shadow:inset 0px -4px 0px #0f6c75;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;}
-.menu li a{text-transform:uppercase;text-decoration:none;font-size:13px;padding:13px 16px;display:block;color:#ffffff;-webkit-transition:all 0.2s ease-in-out 0s;-moz-transition:all 0.2s ease-in-out 0s;-o-transition:all 0.2s ease-in-out 0s;-ms-transition:all 0.2s ease-in-out 0s;transition:all 0.2s ease-in-out 0s;}
+.menu li a{text-transform:uppercase;text-decoration:none;font-size:13px;padding:13px 11px;display:block;color:#ffffff;-webkit-transition:all 0.2s ease-in-out 0s;-moz-transition:all 0.2s ease-in-out 0s;-o-transition:all 0.2s ease-in-out 0s;-ms-transition:all 0.2s ease-in-out 0s;transition:all 0.2s ease-in-out 0s;}
 .menu li a:hover, .menu li:hover > a{color:#ffffff;background:rgba(0, 95, 91, 0.22);}
 .menu ul{display:none;margin:0;padding:0;width:200px;position:absolute;top:38px;background:#ffffff;}
 .menu ul li{display:block;float:none;background:none;margin:0;padding:0;}
