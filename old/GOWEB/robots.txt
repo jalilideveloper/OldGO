@@ -1,6 +1,8 @@
 User-Agent: *
 Disallow: /home/addads
+Disallow: /Home/addmenu
 Allow: /
+
 
 User-Agent: Googlebot
 Allow: /
