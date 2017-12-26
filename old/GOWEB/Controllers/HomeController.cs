@@ -13,8 +13,13 @@ namespace GOWEB.Controllers
           //  CheckNewData();
             return View();
         }
+        public ActionResult AddAds()
+        {
+            //  CheckNewData();
+            return View();
+        }
 
-
+        
         public ActionResult سئو_سایت()
         {
             return View();

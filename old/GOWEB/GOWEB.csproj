@@ -187,6 +187,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LearningController.cs" />
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblPage.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Statistic.cs" />
     <Compile Include="webStatics.aspx.cs">
       <DependentUpon>webStatics.aspx</DependentUpon>
@@ -198,7 +204,14 @@
     <Content Include="css\SlideShow.css" />
     <Content Include="images\images\آموزش_سئو_سایت.png" />
     <Content Include="images\images\طراحی_سایت_با_asp-net.png" />
+    <Content Include="images\آموزش_سئو_سایت.png" />
+    <Content Include="images\افزایش_رتبه_الکسا.jpg" />
+    <Content Include="images\افزایش_رتبه_سایت_در_گوگل.jpg" />
+    <Content Include="images\سئو_چیست.jpg" />
+    <Content Include="images\طراحی_سایت_با_asp-net.png" />
     <Content Include="js\CustomJavaScripts.js" />
+    <Content Include="css\editor.css" />
+    <Content Include="js\editor.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\modernizr-2.6.2.js" />
     <Content Include="js\respond.min.js" />
@@ -662,6 +675,8 @@
     <Content Include="Views\Learning\طراحی_سایت_با_وردپرس.cshtml" />
     <Content Include="Views\Learning\طراحی_سایت_با_جوملا.cshtml" />
     <Content Include="Views\Learning\تبلیغ_در_گوگل.cshtml" />
+    <Content Include="Views\Learning\طراحی_سایت_سئو_سایت_بهینه_سازی_سایت.cshtml" />
+    <Content Include="Views\Home\AddAds.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

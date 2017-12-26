@@ -12,6 +12,9 @@
         <AssociationConnector Association="greenopt_GONewsModel.FK_tblMenu_tblLanguages" ManuallyRouted="false" />
         <AssociationConnector Association="greenopt_GONewsModel.FK_tblMagazines_tblMenu" ManuallyRouted="false" />
         <AssociationConnector Association="greenopt_GONewsModel.FK_tblNews_tblMagazines" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.tblPage" Width="1.5" PointX="5.625" PointY="5" />
+        <AssociationConnector Association="greenopt_GONewsModel.FK_tblPages_tblMenu" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

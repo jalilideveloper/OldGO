@@ -31,6 +31,8 @@ namespace GOWEB.Models
         public virtual DbSet<tblMagazine> tblMagazines { get; set; }
         public virtual DbSet<tblMenu> tblMenus { get; set; }
         public virtual DbSet<tblNew> tblNews { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<tblPage> tblPages { get; set; }
     
         public virtual int sp_InsertNews(string title, string descriptions, Nullable<System.DateTime> pubDate, string imageUrl, Nullable<int> magazineID, Nullable<long> viewNumber, Nullable<System.DateTime> dateInserted, string linkUrl)
         {

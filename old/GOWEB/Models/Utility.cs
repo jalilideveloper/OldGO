@@ -18,7 +18,7 @@ namespace GOWEB.Models
         public static List<MagazineObj> lstMagUnDisc = new List<MagazineObj>();
         public static List<listNews> lstTopNews = new List<listNews>();
         public static List<listNews> lstNewsByMagazineID = new List<listNews>();
-       
+        public static List<tblMenu> lstMenu = new List<tblMenu>();
 
 
         public void UpdateNews(object sender, ElapsedEventArgs e)
@@ -29,8 +29,14 @@ namespace GOWEB.Models
                 s.GetData();
             }
         }
-        
 
+        public static void FillMenuList(string filePath)
+        {
+            using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+            {
+            lstMenu = db.tblMenus.ToList();
+            }
+        }
         public static void DeleteFile(string filePath)
         {
             File.Delete(filePath);

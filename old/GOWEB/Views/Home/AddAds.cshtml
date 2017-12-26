@@ -1,0 +1,203 @@
+﻿@model GOWEB.Models.tblPage
+@using GOWEB.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddAds</title>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="~/js/editor.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "/Learning/LoadMenu",
+                data: "{}",
+                dataType: "json",
+                success: function (Result) {
+                    Result = Result.d;
+
+                    $.each(Result, function (key, value) {
+
+
+                        $("#MenuID").append($("<option></option>").val(value.MenuID).html(value.MenuName));
+
+
+
+                    });
+
+                    // Another way of writing
+                    //  for (var i = 0; i < Result.length; i++) {
+                    // $("#ddlcountry").append("<option value=" + Result[i].ID + ">" + 
+                    //     Result[i].Name + "</option>");
+                    //  }
+
+                    // One more way of writing
+                    // for (var i in Result) {
+                    //  $("#ddlcountry").append($("<option></option>").val(Result[i].ID).
+                    //   text(Result[i].Name));
+                    //  }
+
+                },
+                error: function (Result) {
+                    console.log(Result)
+                    //alert("Error");
+                }
+            });
+
+
+            $("#Description").Editor();
+
+
+
+
+        });
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+ 
+    <link href="~/css/editor.css" rel="stylesheet" />
+   
+</head>
+<body>
+  
+    <div class="container-fluid">
+        <div class="row">
+            <h2 class="demo-text">ثبت صفحه جدید</h2>
+            <div class="container ">
+                <span>Menu : :</span>
+                <div class="row ">
+
+                    <div class="col-lg-12 nopadding">
+                        Menu Name :
+
+                        <select id="MenuID">
+                        </select>
+                    </div>
+                    
+                </div>
+
+
+
+                <hr />
+                <span>Meta :</span>
+                <div class="row " >
+                 
+                    <div class="col-lg-3 nopadding">
+                        meta title <input type="text" id="MetaTitle" />
+                    </div>
+                    <div class="col-lg-3 nopadding">
+                       meta keyword  <input type="text" id="MetaKeyword"/>
+                    </div>
+                    <div class="col-lg-3 nopadding">
+                        meta subject  <input type="text" id="MetaSubject"/>
+                    </div>
+                    <div class="col-lg-3 nopadding">
+                        meta Author  <input type="text" id="Author"/>
+                    </div>
+                </div>
+                
+                <div class="row">
+                 
+                    <div class="col-lg-12 nopadding">
+                        meta description <input type="text" class="width-Full" id="MetaDescription"/>
+                    </div>
+                </div>
+
+                <hr />
+                <span>Page Information :</span>
+                <div class="row">
+
+                    <div class="col-lg-12 nopadding">
+                        Page Title <input type="text" id="Title"/>
+                    </div>
+                   
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 nopadding">
+                    Page Description    <textarea id="Description"></textarea>
+                    </div>
+                </div>
+
+
+                <hr />
+                <div class="row">
+                    <div class="col-lg-6 nopadding">
+                      Password Code  : <input type="text" />
+                    </div>
+
+                    <div class="col-lg-6 nopadding">
+                        <input type="button" value="ADD" id="btnAdd" />
+                    </div>
+                </div>
+
+
+
+                <hr />
+
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+
+    $("#btnAdd").click(function () {
+
+
+        console.log($('#Description').attr('Source'))
+
+        var dataObject = JSON.stringify({
+            'MetaTitle': $('#MetaTitle').val(),
+            'MetaKeyword': $('#MetaKeyword').val(),
+            'MetaDescription': $('#MetaDescription').val(),
+
+            'MetaSubject': $('#MetaSubject').val(),
+            'Author': $('#Author').val(),
+            'Title': $('#Title').val(),
+            'Description': $('#Description').attr('Source'),
+            'MenuID': $('#MenuID').val()
+
+        });
+
+        $.ajax({
+            url: '/Learning/AddPage',
+            type: 'POST',
+            contentType: 'application/json',
+            done: submissionSucceeded,
+            fail: submissionFailed,
+            data: dataObject
+        });
+
+
+
+    });
+    function submissionSucceeded() {
+
+    }
+    function submissionFailed() {
+
+    }
+
+  
+
+</script>

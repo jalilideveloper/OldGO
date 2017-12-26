@@ -66,77 +66,37 @@
                             <li class=" activate"><a href="~/Home/Index">صفحه اصلی</a></li>
                             <li><a href="~/Home/سئو_سایت">سئو سایت| قیمت</a></li>
                             <li><a href="~/Home/طراحی_سایت">طراحی سایت</a></li>
-                            <li><a href="#">مقالات کاربردی</a>
+                            <li>
+                                <a href="#">مقالات کاربردی</a>
                                 <ul>
-                                    <li>
-                                        <a href="~/Learning/آموزش_سئو_سایت">آموزش سئو سایت </a>
-                                        <ul>
-                                            <li>
-                                                <a href="~/Learning/سئو_چیست">سئو چیست؟</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/افزایش_رتبه_سئو_سایت">افزایش رتبه سئو سایت</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/افزایش_رتبه_سایت_در_الکسا">افزایش رتبه سایت در الکسا</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/افزایش_رتبه_سایت_در_گوگل">افزایش رتبه سایت در گوگل</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/وبمستر_گوگل">وبمستر گوگل</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/وبمستر_گوگل">وبمستر بینگ</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/بک_لینک"> اهمیت بک لینک</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/تبلیغات_بنری">تبلیغات بنری</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/مهمترین_نکته_سئو_سایت">مهمترین نکته سئو سایت</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                  
 
-                                    <li>
-                                        <a href="~/Learning/طراحی_سایت_چیست">؟ طراحی سایت چیست</a>
-                                        <ul>
+                                    @{
 
-                                            <li>
-                                                <a href="~/Learning/آموزش_طراحی_سایت">آموزش طراحی سایت</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/طراحی_سایت_حرفه_ای">طراحی سایت حرفه ای </a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/طراحی_سایت_فروشگاهی">طراحی سایت فروشگاهی</a>
-                                            </li>
 
-                                            <li>
-                                                <a href="~/Learning/_طراحی_سایت_با_ASP">طراحی سایت با ASP.NET</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/طراحی_سایت_با_Node_js_و_آنگولار">طراحی سایت با Node.js و آنگولار</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/طراحی_سایت_با_وردپرس">طراحی سایت با وردپرس</a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Learning/طراحی_سایت_با_جوملا">طراحی سایت با جوملا</a>
-                                            </li>
-                                          
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="~/Learning/تبلیغ_در_گوگل">تبلیغ در گوگل</a>
-                                    </li>
-                                  
+                                        using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                                        {
+                                            
+                                            foreach (var item in Utility.lstMenu.Where(p=> p.ParrentID == null))
+                                            {
+                                                if (item.ParrentID == null)
+                                                {
+                                                    <li>
+                                                        <a href="~@item.MenuUrl">@item.MenuName</a>
+                                                        <ul>
+                                                                  @foreach (var itemInside in Utility.lstMenu.Where(p => p.ParrentID == item.MenuID))
+                                                                  {
+                                                                    <li>
+                                                                        <a href="@itemInside.MenuUrl">@itemInside.MenuName</a>
+                                                                    </li>                                                               
+                                                                  }      
+                                                        </ul>
+                                                    </li>
+                                                }
 
-                                    
+                                            }
+                                        }
+                                    }
+
                                 </ul>
                             </li>
                             <li><a href="~/Home/نمونه_طراحی_سایت_و_سئو">نمونه کار طراحی سایت | سئو</a></li>
@@ -236,7 +196,7 @@
         $('.persiannumber').persiaNumber();
 
     });
-    
+
 
 
     $(".menu li").click(function () {

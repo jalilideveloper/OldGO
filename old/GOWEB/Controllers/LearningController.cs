@@ -1,109 +1,49 @@
-﻿using System;
+﻿using GOWEB.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
+
+
 
 namespace GOWEB.Controllers
 {
     public class LearningController : Controller
     {
         // GET: Learning
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             return View();
         }
 
 
-        public ActionResult آموزش_سئو_سایت()
-        {
-            return View();
-
-        }
-        public ActionResult سئو_چیست()
-        {
-            return View();
-
-        }
-        public ActionResult افزایش_رتبه_سئو_سایت()
+        public ActionResult طراحی_سایت_سئو_سایت_بهینه_سازی_سایت(string id)
         {
             return View();
         }
 
 
-        public ActionResult افزایش_رتبه_سایت_در_گوگل()
+        public string AddPage(tblPage p)
         {
-            return View();
-        }
 
-        
-        public ActionResult افزایش_رتبه_سایت_در_الکسا()
-        {
-            return View();
-        }
 
-        public ActionResult وبمستر_گوگل()
-        {
-            return View();
-        }
+            return "";
 
-        public ActionResult وبمستر_بینگ()
-        {
-            return View();
-        }
-        public ActionResult بک_لینک()
-        {
-            return View();
-        }
-        public ActionResult تبلیغات_بنری()
-        {
-            return View();
-        }
-        public ActionResult مهمترین_نکته_سئو_سایت()
-        {
-            return View();
-        }
-        public ActionResult طراحی_سایت_چیست()
-        {
-            return View();
-        }
-        public ActionResult آموزش_طراحی_سایت()
-        {
-            return View();
-        }
-        public ActionResult طراحی_سایت_حرفه_ای()
-        {
-            return View();
-        }
-        public ActionResult طراحی_سایت_فروشگاهی()
-        {
-            return View();
-        }
-        public ActionResult _طراحی_سایت_با_ASP()
-        {
-            return View();
-        }
-        public ActionResult طراحی_سایت_با_Node_js_و_آنگولار()
-        {
-            return View();
-        }
-        public ActionResult طراحی_سایت_با_وردپرس()
-        {
-            return View();
-        }
-        public ActionResult طراحی_سایت_با_جوملا()
-        {
-            return View();
         }
 
 
-        public ActionResult تبلیغ_در_گوگل()
+        public List<tblMenu> LoadMenu()
         {
-            return View();
+            using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+            {
+                return db.tblMenus.ToList();
+            }
+
         }
 
-
-     
 
 
 
