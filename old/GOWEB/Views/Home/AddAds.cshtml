@@ -113,7 +113,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-
+        var MenuIDs = 0;
 
         $.getJSON("/Learning/LoadMenu", function (data) {
             console.log(data.Data)
@@ -127,9 +127,7 @@
         });
 
         $("#MenuID").change(function () {
-
-            console.log($(this).val());
-
+            MenuIDs = $(this).val();
         })
 
 
@@ -150,7 +148,7 @@
                 'Author': $('#Author').val(),
                 'Title': $('#Title').val(),
                 'Description': $('#Description').attr('Source'),
-                'MenuID': $('#MenuID').val()
+                'MenuID': MenuIDs
 
             });
 
