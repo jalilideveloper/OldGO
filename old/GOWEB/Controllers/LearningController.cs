@@ -25,7 +25,7 @@ namespace GOWEB.Controllers
         }
 
 
-        public string AddPage(tblPage p)
+        public string AddPage(tblPage p,bool IsChild)
         {
 
 

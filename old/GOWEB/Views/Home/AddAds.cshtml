@@ -17,31 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="~/js/editor.js"></script>
-    <script>
-        $(document).ready(function () {
-
-
-            $.getJSON("/Learning/LoadMenu", function (data) {
-                console.log(data.Data)
-
-                $.each(data.Data, function (index, value) {
-                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
-
-
-                    $('#MenuID').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
-                });
-            });
-
-            
-
-
-            $("#Description").Editor();
-
-
-
-
-        });
-    </script>
+  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
  
@@ -146,44 +122,70 @@
 
 
 <script type="text/javascript">
+    $(document).ready(function () {
 
 
-    $("#btnAdd").click(function () {
+        $.getJSON("/Learning/LoadMenu", function (data) {
+            console.log(data.Data)
+
+            $.each(data.Data, function (index, value) {
+                // APPEND OR INSERT DATA TO SELECT ELEMENT.
 
 
-        console.log($('#Description').attr('Source'))
-
-        var dataObject = JSON.stringify({
-            'MetaTitle': $('#MetaTitle').val(),
-            'MetaKeyword': $('#MetaKeyword').val(),
-            'MetaDescription': $('#MetaDescription').val(),
-
-            'MetaSubject': $('#MetaSubject').val(),
-            'Author': $('#Author').val(),
-            'Title': $('#Title').val(),
-            'Description': $('#Description').attr('Source'),
-            'MenuID': $('#MenuID').val()
-
+                $('#MenuID').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
+            });
         });
 
-        $.ajax({
-            url: '/Learning/AddPage',
-            type: 'POST',
-            contentType: 'application/json',
-            done: submissionSucceeded,
-            fail: submissionFailed,
-            data: dataObject
+        $("#MenuID").change(function () {
+
+            console.log($(this).val());
+
+        })
+
+
+        $("#Description").Editor();
+
+
+        $("#btnAdd").click(function () {
+
+
+            console.log($('#Description').attr('Source'))
+
+            var dataObject = JSON.stringify({
+                'MetaTitle': $('#MetaTitle').val(),
+                'MetaKeyword': $('#MetaKeyword').val(),
+                'MetaDescription': $('#MetaDescription').val(),
+
+                'MetaSubject': $('#MetaSubject').val(),
+                'Author': $('#Author').val(),
+                'Title': $('#Title').val(),
+                'Description': $('#Description').attr('Source'),
+                'MenuID': $('#MenuID').val()
+
+            });
+
+            $.ajax({
+                url: '/Learning/AddPage',
+                type: 'POST',
+                contentType: 'application/json',
+                done: submissionSucceeded,
+                fail: submissionFailed,
+                data: (dataObject,0)
+            });
+
+
+
         });
-
-
+        function submissionSucceeded() {
+            console.log("Ok")
+        }
+        function submissionFailed() {
+            console.log("Failed")
+        }
 
     });
-    function submissionSucceeded() {
 
-    }
-    function submissionFailed() {
-
-    }
+   
 
   
 
