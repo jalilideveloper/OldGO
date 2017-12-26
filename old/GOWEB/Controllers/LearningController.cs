@@ -35,11 +35,13 @@ namespace GOWEB.Controllers
         }
 
 
-        public List<tblMenu> LoadMenu()
+        public string LoadMenu()
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
-                return db.tblMenus.ToList();
+
+
+                 db.tblMenus.ToList();
             }
 
         }
