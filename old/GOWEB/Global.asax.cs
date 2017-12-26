@@ -45,7 +45,7 @@ namespace GOWEB
             Utility.GetMostNewsTop();
             Utility.GetAllMagazine();
             Utility.GetLastNewsByMagazineID();
-
+            Utility.FillMenuList();
           
 
 

@@ -30,7 +30,7 @@ namespace GOWEB.Models
             }
         }
 
-        public static void FillMenuList(string filePath)
+        public static void FillMenuList()
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
@@ -54,6 +54,7 @@ namespace GOWEB.Models
             GetMostNewsTop();
             GetAllMagazine();
             GetLastNewsByMagazineID();
+          
         }
 
 
