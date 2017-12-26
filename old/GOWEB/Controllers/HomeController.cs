@@ -18,8 +18,12 @@ namespace GOWEB.Controllers
             //  CheckNewData();
             return View();
         }
+        public ActionResult AddMenu()
+        {
+            //  CheckNewData();
+            return View();
+        }
 
-        
         public ActionResult سئو_سایت()
         {
             return View();

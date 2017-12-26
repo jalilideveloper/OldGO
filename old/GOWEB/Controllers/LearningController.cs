@@ -21,15 +21,48 @@ namespace GOWEB.Controllers
 
         public ActionResult طراحی_سایت_سئو_سایت_بهینه_سازی_سایت(string id)
         {
+
+            if (id != null && id != "")
+            {
+                using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                {
+                    ViewBag.Data  = db.tblPages.Where(p => p.tblMenu.MenuUrl == id).FirstOrDefault();
+                }
+            }
+
+
             return View();
         }
 
 
-        public string AddPage(tblPage p,bool IsChild)
+        public string AddPage(tblPage p)
         {
+            try
+            {
+                using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                {
+                    db.tblPages.Add(new tblPage
+                    {
+                        Author = p.Author,
+                        Date = DateTime.Now.Date,
+                        Description = p.Description,
+                        MenuID = p.MenuID,
+                        MetaDescription = p.MetaDescription,
+                        MetaKeyword = p.MetaKeyword,
+                        MetaSubject = p.MetaSubject,
+                        MetaTitle = p.MetaTitle,
+                        Title = p.Title
+                    });
+                    db.SaveChanges();
+                    return "True";
+                }
+            }
+            catch (Exception)
+            {
 
+                return "false";
+            }
 
-            return "";
 
         }
 
@@ -38,7 +71,7 @@ namespace GOWEB.Controllers
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
-                List<MenuItem> x = db.tblMenus.ToList().Select(p => new MenuItem {MenuID = p.MenuID ,MenuName = p.MenuName }).ToList();
+                List<MenuItem> x = db.tblMenus.ToList().Select(p => new MenuItem { MenuID = p.MenuID, MenuName = p.MenuName }).ToList();
                 var q = new JavaScriptSerializer().Serialize(Json(x));
                 return q;
             }
@@ -51,5 +84,5 @@ namespace GOWEB.Controllers
         public int MenuID { get; set; }
         public string MenuName { get; set; }
     }
-    
+
 }

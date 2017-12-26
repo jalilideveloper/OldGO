@@ -26,5 +26,9 @@ namespace GOWEB.Models
         public Nullable<int> MenuID { get; set; }
     
         public virtual tblMenu tblMenu { get; set; }
+
+        public bool isChild { get; set; }
+
+
     }
 }

@@ -656,27 +656,9 @@
     <Content Include="Views\Home\ارتباط_با_ما_سئو_سایت.cshtml" />
     <Content Include="Views\Home\جزئیات_خبر_فناوری.cshtml" />
     <Content Include="Views\Home\نمونه_طراحی_سایت_و_سئو.cshtml" />
-    <Content Include="Views\Learning\آموزش_سئو_سایت.cshtml" />
-    <Content Include="Views\Learning\سئو_چیست.cshtml" />
-    <Content Include="Views\Learning\افزایش_رتبه_سئو_سایت.cshtml" />
-    <Content Include="Views\Learning\افزایش_رتبه_سایت_در_گوگل.cshtml" />
-    <Content Include="Views\Learning\افزایش_رتبه_سایت_در_الکسا.cshtml" />
-    <Content Include="Views\Learning\وبمستر_گوگل.cshtml" />
-    <Content Include="Views\Learning\وبمستر_بینگ.cshtml" />
-    <Content Include="Views\Learning\بک_لینک.cshtml" />
-    <Content Include="Views\Learning\تبلیغات_بنری.cshtml" />
-    <Content Include="Views\Learning\مهمترین_نکته_سئو_سایت.cshtml" />
-    <Content Include="Views\Learning\طراحی_سایت_چیست.cshtml" />
-    <Content Include="Views\Learning\آموزش_طراحی_سایت.cshtml" />
-    <Content Include="Views\Learning\طراحی_سایت_حرفه_ای.cshtml" />
-    <Content Include="Views\Learning\طراحی_سایت_فروشگاهی.cshtml" />
-    <Content Include="Views\Learning\_طراحی_سایت_با_ASP.cshtml" />
-    <Content Include="Views\Learning\طراحی_سایت_با_Node_js_و_آنگولار.cshtml" />
-    <Content Include="Views\Learning\طراحی_سایت_با_وردپرس.cshtml" />
-    <Content Include="Views\Learning\طراحی_سایت_با_جوملا.cshtml" />
-    <Content Include="Views\Learning\تبلیغ_در_گوگل.cshtml" />
     <Content Include="Views\Learning\طراحی_سایت_سئو_سایت_بهینه_سازی_سایت.cshtml" />
     <Content Include="Views\Home\AddAds.cshtml" />
+    <Content Include="Views\Home\AddMenu.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

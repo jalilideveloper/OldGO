@@ -32,13 +32,13 @@
             <div class="container ">
                 <span>Menu : :</span>
                 <div class="row">
-                    <div class="col-md-2 nopadding">
+                    @*<div class="col-md-2 nopadding">
 
                         Has A Child:
                     </div>
                     <div class="col-md-4 no-padding">
-                        <input type="checkbox" title="Has A Child" />
-                    </div>
+                        <input id="isChild" type="checkbox" title="Has A Child" />
+                    </div>*@
                     <div class="col-md-2 nopadding">
 
                         Menu Name:
@@ -124,7 +124,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var MenuIDs = 0;
-
+      
         $.getJSON("/Learning/LoadMenu", function (data) {
             console.log(data.Data)
 
@@ -139,8 +139,11 @@
         $("#MenuID").change(function () {
             MenuIDs = $(this).val();
         })
-
-
+        //$("#isChild").change(function () {
+            
+        //    isChild = $(this).is(":checked");
+        //})
+        
         $("#Description").Editor();
 
 
@@ -157,10 +160,13 @@
                 'MetaSubject': $('#MetaSubject').val(),
                 'Author': $('#Author').val(),
                 'Title': $('#Title').val(),
-                'Description': $('#Description').attr('Source'),
+                'Description': $('.Editor-editor').html(),
                 'MenuID': MenuIDs
+               
 
             });
+
+            console.log($('.Editor-editor').html())
 
             $.ajax({
                 url: '/Learning/AddPage',
@@ -168,7 +174,7 @@
                 contentType: 'application/json',
                 done: submissionSucceeded,
                 fail: submissionFailed,
-                data: (dataObject,0)
+                data: dataObject
             });
 
 
