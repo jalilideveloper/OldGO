@@ -6,8 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
-
-
+using System.Web.Script.Serialization;
 
 namespace GOWEB.Controllers
 {
@@ -39,15 +38,18 @@ namespace GOWEB.Controllers
         {
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
-
-
-                 db.tblMenus.ToList();
+                List<MenuItem> x = db.tblMenus.ToList().Select(p => new MenuItem {MenuID = p.MenuID ,MenuName = p.MenuName }).ToList();
+                var q = new JavaScriptSerializer().Serialize(Json(x));
+                return q;
             }
 
         }
-
-
-
-
     }
+
+    public class MenuItem
+    {
+        public int MenuID { get; set; }
+        public string MenuName { get; set; }
+    }
+    
 }
