@@ -20,42 +20,19 @@
     <script>
         $(document).ready(function () {
 
-            $.ajax({
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                url: "/Learning/LoadMenu",
-                data: "{}",
-                dataType: "json",
-                success: function (Result) {
-                    Result = Result.d;
 
-                    $.each(Result, function (key, value) {
+            $.getJSON("/Learning/LoadMenu", function (data) {
+                console.log(data.Data)
+
+                $.each(data.Data, function (index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
 
 
-                        $("#MenuID").append($("<option></option>").val(value.MenuID).html(value.MenuName));
-
-
-
-                    });
-
-                    // Another way of writing
-                    //  for (var i = 0; i < Result.length; i++) {
-                    // $("#ddlcountry").append("<option value=" + Result[i].ID + ">" + 
-                    //     Result[i].Name + "</option>");
-                    //  }
-
-                    // One more way of writing
-                    // for (var i in Result) {
-                    //  $("#ddlcountry").append($("<option></option>").val(Result[i].ID).
-                    //   text(Result[i].Name));
-                    //  }
-
-                },
-                error: function (Result) {
-                    console.log(Result)
-                    //alert("Error");
-                }
+                    $('#MenuID').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
+                });
             });
+
+            
 
 
             $("#Description").Editor();
