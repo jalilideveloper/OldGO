@@ -101,14 +101,14 @@
                         Edit Menu Name:
                     </div>
                     <div class="col-md-3 ">
-                        <input type="text" />
+                        <input type="text" id="MenuNameEdit"/>
                     </div>
                     <div class="col-md-1 ">
 
-                        Has Child:
+                       Change Parrent:
                     </div>
                     <div class="col-md-1 ">
-                        <input id="isChildAdd" type="checkbox" title="Has A Child" />
+                        <input id="isChildEdit" type="checkbox" title="Has A Child" />
                     </div>
 
                 </div>
@@ -125,7 +125,7 @@
                         Parent Menu Name:
                     </div>
                     <div class="col-md-3 ">
-                        <select class="MenuIDEdit"></select>
+                        <select class="MenuIDEditChange"></select>
                     </div>
                   
                 </div>
@@ -157,6 +157,8 @@
         var MenuIDAdd = 0;
         var MenuIDEdit = 0;
         var isChildAdd = false;
+        var isChildEdit = false;
+        var MenuIDEditChange = 0;
 
         $.getJSON("/Learning/LoadMenu", function (data) {
             
@@ -166,7 +168,10 @@
 
              
                     $('.MenuIDAdd').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
-            
+                    $('.MenuIDEditChange').append('<option value="' + value.MenuID + '">' + value.MenuName + '</option>');
+
+
+                    
                
 
 
@@ -174,6 +179,11 @@
 
             });
         });
+
+
+        $(".MenuIDEditChange").change(function () {
+            MenuIDEditChange = $(this).val();
+        })
 
         $(".MenuIDEdit").change(function () {
             MenuIDEdit = $(this).val();
@@ -188,6 +198,13 @@
               isChildAdd = $(this).is(":checked");
 
         })
+        $("#isChildEdit").change(function () {
+
+            isChildEdit = $(this).is(":checked");
+
+        })
+
+        
 
 
 
@@ -229,15 +246,25 @@
 
         $("#btnEdit").click(function () {
 
-            
+            if (isChildEdit) {
                 var dataObject = JSON.stringify({
                     'MenuID': MenuIDEdit,
                     'MenuName': $('#MenuNameEdit').val(),
-                    'ParrentID': MenuIDEdit,
+                    'ParrentID': MenuIDEditChange,
                     'MenuUrl': $('#MenuUrlEdit').val(),
-                    'PassCode': $('#PassCodeEdit').val()
+                    'PassCode': $('#PassCodeEdit').val(),
+                    'HasChild' : isChildEdit
                 });
-           
+            } else {
+                var dataObject = JSON.stringify({
+                    'MenuID': MenuIDEdit,
+                    'MenuName': $('#MenuNameEdit').val(),
+                    'ParrentID': 0,
+                    'MenuUrl': $('#MenuUrlEdit').val(),
+                    'PassCode': $('#PassCodeEdit').val(),
+                    'HasChild': isChildEdit
+                });
+            }
 
             $.ajax({
                 url: '/Learning/EditMenu',

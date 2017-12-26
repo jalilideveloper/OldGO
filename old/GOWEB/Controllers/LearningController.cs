@@ -79,11 +79,23 @@ namespace GOWEB.Controllers
                 {
                     if (p.PassCode == "123a@a.com")
                     {
+                        if (p.ParrentID == "0")
+                        {
 
-                       var q =  db.tblMenus.Where(x => x.MenuID == p.MenuID).FirstOrDefault();
-                        q.MenuName = p.MenuName;
-                        q.MenuUrl = p.MenuUrl;
-                        db.SaveChanges();
+                            var q = db.tblMenus.Where(x => x.MenuID == p.MenuID).FirstOrDefault();
+                            q.MenuName = p.MenuName;
+                            q.MenuUrl = p.MenuUrl;
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            var q = db.tblMenus.Where(x => x.MenuID == p.MenuID).FirstOrDefault();
+                            q.MenuName = p.MenuName;
+                            q.MenuUrl = p.MenuUrl;
+                            q.ParrentID =Convert.ToInt32( p.ParrentID);
+                            db.SaveChanges();
+
+                        }
                     }
                     else
                     {
