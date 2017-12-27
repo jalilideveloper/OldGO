@@ -187,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LearningController.cs" />
+    <Compile Include="Models\ComparePageWithMenu_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>

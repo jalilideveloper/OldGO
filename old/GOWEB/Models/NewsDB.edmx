@@ -123,6 +123,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ComparePageWithMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MenuID" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_InsertNews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Title" Type="nvarchar" Mode="In" />
           <Parameter Name="Descriptions" Type="nvarchar" Mode="In" />
@@ -324,6 +327,9 @@
             <End Role="tblMenu" EntitySet="tblMenus" />
             <End Role="tblPage" EntitySet="tblPages" />
           </AssociationSet>
+          <FunctionImport Name="ComparePageWithMenu" ReturnType="Collection(greenopt_GONewsModel.ComparePageWithMenu_Result)">
+            <Parameter Name="MenuID" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spgo_GetAllMagazine_Result">
           <Property Type="Int32" Name="MagazineID" Nullable="false" />
@@ -475,6 +481,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="ComparePageWithMenu_Result">
+          <Property Type="Int32" Name="PageID" Nullable="false" />
+          <Property Type="String" Name="MetaTitle" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="MetaKeyword" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="MetaDescription" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="MetaSubject" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Author" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="Date" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="MenuID" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -707,6 +725,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ComparePageWithMenu" FunctionName="greenopt_GONewsModel.Store.ComparePageWithMenu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="greenopt_GONewsModel.ComparePageWithMenu_Result">
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="MetaSubject" ColumnName="MetaSubject" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

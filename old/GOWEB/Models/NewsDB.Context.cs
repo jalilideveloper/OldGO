@@ -144,5 +144,14 @@ namespace GOWEB.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spgo_LatestNewsViewNumber_Result>("spgo_LatestNewsViewNumber");
         }
+    
+        public virtual ObjectResult<ComparePageWithMenu_Result> ComparePageWithMenu(Nullable<int> menuID)
+        {
+            var menuIDParameter = menuID.HasValue ?
+                new ObjectParameter("MenuID", menuID) :
+                new ObjectParameter("MenuID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ComparePageWithMenu_Result>("ComparePageWithMenu", menuIDParameter);
+        }
     }
 }

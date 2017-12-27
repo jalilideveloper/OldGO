@@ -10,9 +10,8 @@
 namespace GOWEB.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class tblPage
+    public partial class ComparePageWithMenu_Result
     {
         public int PageID { get; set; }
         public string MetaTitle { get; set; }
@@ -24,9 +23,5 @@ namespace GOWEB.Models
         public string Description { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> MenuID { get; set; }
-    
-        public virtual tblMenu tblMenu { get; set; }
-
-        public string PassCode { get; set; }
     }
 }

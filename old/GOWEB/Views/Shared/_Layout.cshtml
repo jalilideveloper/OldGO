@@ -80,10 +80,9 @@
                                             {
                                                 if (item.ParrentID == null)
                                                 {
-                                                    var d = db.tblPages.Where(o => o.MenuID == item.MenuID).FirstOrDefault();
+                                                    var d = db.ComparePageWithMenu(item.MenuID);
                                                     <li>
-
-                                                        @if (d != null)
+                                                        @if (d.Count() > 0)
                                                         {
                                                             <a href="/Learning/طراحی_سایت_سئو_سایت_بهینه_سازی_سایت/@item.MenuUrl">@item.MenuName</a>
                                                         }
@@ -97,10 +96,19 @@
                                                             @foreach (var itemInside in Utility.lstMenu.Where(p => p.ParrentID == item.MenuID && p.MenuID != 46))
                                                             {
 
-
-                                                                <li>
-                                                                    <a href="/Learning/طراحی_سایت_سئو_سایت_بهینه_سازی_سایت/@itemInside.MenuUrl">@itemInside.MenuName</a>
-                                                                </li>
+                                                                var ddd = db.ComparePageWithMenu(itemInside.MenuID);
+                                                                if (ddd.Count() > 0)
+                                                                {
+                                                                    <li>
+                                                                        <a href="/Learning/طراحی_سایت_سئو_سایت_بهینه_سازی_سایت/@itemInside.MenuUrl">@itemInside.MenuName</a>
+                                                                    </li>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <li>
+                                                                        <a href="#">@itemInside.MenuName</a>
+                                                                    </li>
+                                                                }
 
                                                             }
                                                         </ul>
