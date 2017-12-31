@@ -7,7 +7,43 @@
 @section Head
 {
 
-    <title>مقالات تکنولوژی |  | سئو سبز</title>
+@{
+    var urlse = Request.Url.Segments[2];
+
+    //articleshow
+    if (urlse.Contains("%D8%B5%D9%81%D8%AD%D9%87_%D8%A8%D9%87%DB%8C%D9%86%D9%87_%D8%B3%D8%A7%D8%B2%DB%8C_%D8%B3%D8%A7%DB%8C%D8%AA/"))
+    {
+        <title>صفحات مقالات تکنولوژی | سئو سبز</title>
+
+    }
+    //article
+    else if (urlse.Contains("%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1_%D9%81%D9%86%D8%A7%D9%88%D8%B1%DB%8C_%D9%88_%D8%AA%DA%A9%D9%86%D9%88%D9%84%D9%88%DA%98%DB%8C"))
+    {
+
+        <title>مقالات تکنولوژی | سئو سبز</title>
+    }
+    //magazineselected
+    else if (urlse.Contains("%D8%B5%D9%81%D8%AD%D9%87_%D9%85%D8%AC%D9%84%D9%87_%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C/"))
+    {
+
+        var item = DTController.GetAllNewsMagazine(Convert.ToInt32(ViewBag.MGID), 0);
+
+        <title>صفحات @item.SiteTitle  | سئو سبز</title>
+
+    }
+    //magazine
+    else if (urlse.Contains("%D9%85%D8%AC%D9%84%D9%87_%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C/"))
+    {
+
+        var item = DTController.GetAllNewsMagazine(Convert.ToInt32(ViewBag.MGID), 0)
+            <title>@item.SiteTitle  | سئو سبز</title>
+    }
+
+
+}
+
+
+
 
     <meta name="description" content="سئو سبز | مقالات تکنولوژی | موبایل | ماشین | اینترنت | برنامه نویسی | آموزش | قیمت | اپلیکیشن | آیفون | اندروید | رونمایی | زمان عرضه | نسخه جدید | مرورگر | ویندوز | پلاگین | بهینه سازی | سئو وب سایت | گوگل | الکسا |  ال جی | نوکیا | سامسونگ | هواوی | گوشی هوشمند | کتاب | ایکس باکس | بازی | پلی استیشن | ایکس باکس | سرعت | دوربین | سرفیس | اسمارت فون | اچ تی سی" />
     <meta name="keywords" content="سئو سبز | مقالات تکنولوژی | موبایل | ماشین | اینترنت | برنامه نویسی | آموزش | قیمت | اپلیکیشن | آیفون | اندروید | رونمایی | زمان عرضه | نسخه جدید | مرورگر | ویندوز | پلاگین | بهینه سازی | سئو وب سایت | گوگل | الکسا |  ال جی | نوکیا | سامسونگ | هواوی | گوشی هوشمند | کتاب | ایکس باکس | بازی | پلی استیشن | ایکس باکس | سرعت | دوربین | سرفیس | اسمارت فون | اچ تی سی" />
