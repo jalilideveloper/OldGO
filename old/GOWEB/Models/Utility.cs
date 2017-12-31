@@ -161,7 +161,7 @@ namespace GOWEB.Models
                     var magazines = db.spgo_GetAllMagazine().ToList();
                     writer.WriteStartDocument();
 
-                    writer.WriteStartElement("urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
+                    writer.WriteStartElement("urlset", "http://www.google.com/schemas/sitemap/0.9");
 
                     foreach (var item in magazines)
                     {
@@ -201,7 +201,7 @@ namespace GOWEB.Models
                     var magazines = db.spgo_GetAllMagazine().ToList();
                     writer.WriteStartDocument();
 
-                    writer.WriteStartElement("urlset" , "http://www.sitemaps.org/schemas/sitemap/0.9");
+                    writer.WriteStartElement("urlset" , "http://www.google.com/schemas/sitemap/0.9");
 
                     foreach (var item in magazines)
                     {
@@ -248,7 +248,7 @@ namespace GOWEB.Models
                     var magazines = db.spgo_GetAllMagazine().ToList();
                     writer.WriteStartDocument();
 
-                    writer.WriteStartElement("urlset" , "http://www.sitemaps.org/schemas/sitemap/0.9");
+                    writer.WriteStartElement("urlset" , "http://www.google.com/schemas/sitemap/0.9");
 
                     foreach (var item in magazines)
                     {
@@ -285,7 +285,7 @@ namespace GOWEB.Models
 
                     int countAllNews = Convert.ToInt32(DTController.GetAllPages(0));
 
-                    writer.WriteStartElement("urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
+                    writer.WriteStartElement("urlset", "http://www.google.com/schemas/sitemap/0.9");
                     for (int i = 0; i < countAllNews; i++)
                     {
 
@@ -318,7 +318,7 @@ namespace GOWEB.Models
 
                     int countAllNews = Convert.ToInt32(DTController.GetAllPages(0));
 
-                    writer.WriteStartElement("urlset", "http://www.sitemaps.org/schemas/sitemap/0.9" );
+                    writer.WriteStartElement("urlset", "http://www.google.com/schemas/sitemap/0.9");
                     for (int i = 0; i < countAllNews; i++)
                     {
 
@@ -354,7 +354,7 @@ namespace GOWEB.Models
                     writer.WriteStartDocument();
 
 
-                    writer.WriteStartElement("urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
+                    writer.WriteStartElement("urlset", "http://www.google.com/schemas/sitemap/0.9");
                     foreach (var item in q.ToList())
                     {
                         writer.WriteStartElement("url");
@@ -401,7 +401,7 @@ namespace GOWEB.Models
                     writer.WriteStartDocument();
 
 
-                    writer.WriteStartElement("urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
+                    writer.WriteStartElement("urlset", "http://www.google.com/schemas/sitemap/0.9");
                     foreach (var item in q.ToList())
                     {
                         writer.WriteStartElement("url");
