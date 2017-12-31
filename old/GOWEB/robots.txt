@@ -1,36 +1,13 @@
 User-Agent: *
 Disallow: /home/addads
 Disallow: /Home/addmenu
+Allow: /home/*
+Allow: /Learning/*
 Allow: /
 
-
-User-Agent: Googlebot
-Allow: /
-
-User-Agent: Googlebot-Mobile
-Allow: /
-
-User-Agent: Googlebot-Image
-Allow: /
-
-User-Agent: Mediapartners-Google
-Allow: /
-
-User-Agent: Adsbot-Google
-Allow: /
-
-User-Agent: Slurp
-Allow: /
-
-User-Agent: msnbot
-Allow: /
-
-User-Agent: msnbot-media
-Allow: /
-
-User-Agent: Teoma
-Allow: /
-
-Crawl-delay: 3
 
 Sitemap: http://greenoptimizer.com/sitemap.xml
+Sitemap: http://greenoptimizer.com/MagazineSelectedSitemap.xml
+Sitemap: http://greenoptimizer.com/MagazineSitemap.xml
+Sitemap: http://greenoptimizer.com/ArticleSitemap.xml
+Sitemap: http://greenoptimizer.com/AllNewsSitemap.xml
