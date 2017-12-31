@@ -372,6 +372,13 @@ namespace GOWEB.Models
                         writer.WriteEndElement();
                         //--------------------------------------
 
+                        writer.WriteStartElement("priority");
+                        writer.WriteString("0.8");
+                        writer.WriteEndElement();
+                        //--------------------------------------
+
+
+
                         writer.WriteEndElement();
                     }
 
@@ -412,6 +419,11 @@ namespace GOWEB.Models
                         writer.WriteString("monthly");
                         writer.WriteEndElement();
                         //----------------------------------
+
+                        writer.WriteStartElement("priority");
+                        writer.WriteString("0.8");
+                        writer.WriteEndElement();
+                        //--------------------------------------
                         writer.WriteEndElement();
                     }
 
