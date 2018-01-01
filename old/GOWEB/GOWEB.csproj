@@ -265,6 +265,7 @@
       <DependentUpon>webStatics.aspx</DependentUpon>
     </Compile>
     <Content Include="AllNewsSitemap.xml" />
+    <Content Include="ArticleSitemap.xml" />
     <Content Include="css\SlideShow.css" />
     <Content Include="images\images\آموزش_سئو_سایت.png" />
     <Content Include="images\images\طراحی_سایت_با_asp-net.png" />
@@ -279,6 +280,7 @@
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\modernizr-2.6.2.js" />
     <Content Include="js\respond.min.js" />
+    <Content Include="MagazineSelectedSitemap.xml" />
     <Content Include="MagazineSitemap.xml" />
     <Content Include="Models\NewsDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
