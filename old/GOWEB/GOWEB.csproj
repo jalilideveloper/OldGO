@@ -190,7 +190,67 @@
     <Compile Include="Models\ComparePageWithMenu_Result.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NewsDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewsDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NewsDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NewsDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewsDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetAllMagazine_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetAllNews_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetAllRecentNewsTopView_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetLatestNewsOrderByDateByMGID_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetLatestNewsOrderByDate_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetNewsByID_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_GetNewsByMgIDOrderByNewsID_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_LatestNewsPublishDate_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spgo_LatestNewsViewNumber_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblLanguage.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblMagazine.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblMenu.cs">
+      <DependentUpon>NewsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblNew.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblPage.cs">
@@ -204,6 +264,7 @@
     <Compile Include="webStatics.aspx.designer.cs">
       <DependentUpon>webStatics.aspx</DependentUpon>
     </Compile>
+    <Content Include="AllNewsSitemap.xml" />
     <Content Include="css\SlideShow.css" />
     <Content Include="images\images\آموزش_سئو_سایت.png" />
     <Content Include="images\images\طراحی_سایت_با_asp-net.png" />
@@ -219,6 +280,16 @@
     <Content Include="js\modernizr-2.6.2.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="MagazineSitemap.xml" />
+    <Content Include="Models\NewsDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NewsDB.edmx</DependentUpon>
+      <LastGenOutput>NewsDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\NewsDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NewsDB.edmx</DependentUpon>
+      <LastGenOutput>NewsDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\Statistic.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -248,65 +319,11 @@
     <Compile Include="Models\Login.cs">
       <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NewsDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewsDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NewsDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NewsDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewsDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Payment.cs">
       <DependentUpon>doGoWeb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\spgo_GetAllMagazine_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spgo_GetAllNews_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spgo_GetAllRecentNewsTopView_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spgo_GetLatestNewsOrderByDateByMGID_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spgo_GetLatestNewsOrderByDate_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spgo_GetNewsByID_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spgo_GetNewsByMgIDOrderByNewsID_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spgo_LatestNewsPublishDate_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spgo_LatestNewsViewNumber_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\tblCategory.cs">
       <DependentUpon>doGoWeb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblLanguage.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblMagazine.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblMenu.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblNew.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblOrder.cs">
       <DependentUpon>doGoWeb.tt</DependentUpon>
@@ -546,16 +563,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>doGoWeb.edmx</DependentUpon>
       <LastGenOutput>doGoWeb.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NewsDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NewsDB.edmx</DependentUpon>
-      <LastGenOutput>NewsDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NewsDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NewsDB.edmx</DependentUpon>
-      <LastGenOutput>NewsDB.cs</LastGenOutput>
     </Content>
     <Content Include="obj\Debug\GOWEB.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\GOWEB.dll" />

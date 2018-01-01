@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="07a02eab33c148208d26dd76dc6a8a10" Name="Diagram1">
-        <EntityTypeShape EntityType="greenopt_GONewsModel.tblLanguage" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="greenopt_GONewsModel.tblMagazine" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="greenopt_GONewsModel.tblMenu" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="greenopt_GONewsModel.tblNew" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="399a64dd51924315aa7975d2adf67d2c" Name="Diagram1">
+        <EntityTypeShape EntityType="greenopt_GONewsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.tblLanguage" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.tblMagazine" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.tblMenu" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.tblNew" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenopt_GONewsModel.tblPage" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
         <AssociationConnector Association="greenopt_GONewsModel.FK_tblMenu_tblLanguages" ManuallyRouted="false" />
         <AssociationConnector Association="greenopt_GONewsModel.FK_tblMagazines_tblMenu" ManuallyRouted="false" />
         <AssociationConnector Association="greenopt_GONewsModel.FK_tblNews_tblMagazines" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="greenopt_GONewsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="greenopt_GONewsModel.tblPage" Width="1.5" PointX="5.625" PointY="5" />
-        <AssociationConnector Association="greenopt_GONewsModel.FK_tblPages_tblMenu" />
+        <AssociationConnector Association="greenopt_GONewsModel.FK_tblPages_tblMenu" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

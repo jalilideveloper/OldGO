@@ -79,14 +79,16 @@ namespace GOWEB.Controllers
                                     //await db.SaveChangesAsync();
                                     ctx.sp_InsertNews(itemInside.Title, itemInside.Descriptions, itemInside.PubDate, itemInside.ImageUrl, itemInside.MagazineID, itemInside.ViewNumber, itemInside.DateInserted, itemInside.LinkUrl);
                                     //db.SaveChanges();
+                                    var qs = db.tblNews.Where(p => p.Title.Contains(n.Title)).FirstOrDefault();
 
+                                    
                                     XmlWriterSettings settings = new XmlWriterSettings();
                                     settings.Encoding = Encoding.UTF8;
                                     settings.Indent = true;
                                     try
                                     {
-                                    Utility.UpdateAllNewsSitemap(ctx, settings, new Utility.XmlSitemaps { loc = itemInside.LinkUrl, lastmod = itemInside.PubDate.ToString() });
-                                        Utility.UpdateArticleSitemap(settings, new Utility.XmlSitemaps { loc = itemInside.LinkUrl, lastmod = itemInside.PubDate.ToString() });
+                                    Utility.UpdateAllNewsSitemap(ctx, settings, new Utility.XmlSitemaps { loc = itemInside.LinkUrl, lastmod = (DateTime)itemInside.PubDate,Title = n.Title, NewsID = q.NewsID});
+                                    Utility.UpdateArticleSitemap(settings, new Utility.XmlSitemaps { loc = itemInside.LinkUrl, lastmod = (DateTime)itemInside.PubDate,Title = n.Title, NewsID = q.NewsID });
                                     }
                                     catch (Exception e)
                                     {
@@ -117,16 +119,19 @@ namespace GOWEB.Controllers
                                     n.LinkUrl = itemInside.Link;
                                     //db.tblNews.Add(n);
                                     //await db.SaveChangesAsync();
-                                    ctx.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900), DateTime.Now.Date, itemInside.Link);
+                                   ctx.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900), DateTime.Now.Date, itemInside.Link);
+                                    var qs = db.tblNews.Where(p => p.Title.Contains(n.Title)).FirstOrDefault();
+
+
                                     XmlWriterSettings settings = new XmlWriterSettings();
                                     settings.Encoding = Encoding.UTF8;
                                     settings.Indent = true;
 
                                     try
                                     {
-                                        Utility.UpdateAllNewsSitemap(ctx, settings, new Utility.XmlSitemaps { loc = itemInside.Link, lastmod = itemInside.PublishDate.ToString() });
+                                        Utility.UpdateAllNewsSitemap(ctx, settings, new Utility.XmlSitemaps { loc = itemInside.Link, lastmod = (DateTime)itemInside.PublishDate, Title = n.Title, NewsID =qs.NewsID });
 
-                                        Utility.UpdateArticleSitemap(settings, new Utility.XmlSitemaps { loc = itemInside.Link, lastmod = itemInside.PublishDate.ToString() });
+                                        Utility.UpdateArticleSitemap(settings, new Utility.XmlSitemaps { loc = itemInside.Link, lastmod = (DateTime)itemInside.PublishDate,Title = n.Title, NewsID = qs.NewsID });
                                     }
                                     catch (Exception e)
                                     {
