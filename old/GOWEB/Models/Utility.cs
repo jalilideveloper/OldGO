@@ -404,71 +404,6 @@ namespace GOWEB.Models
 
                 }
             }
-            //else
-            //{
-
-
-            //    //DeleteFile(virPath + "AllNewsSitemap.xml");
-
-            //    using (XmlWriter writer = XmlWriter.Create(virPath + "AllNewsSitemap.xml", settings))
-            //    {
-            //        var q = db.spgo_GetAllNews();
-            //        writer.WriteStartDocument();
-
-            //        writer.WriteStartElement("urlset", "http://www.google.com/schemas/sitemap/0.9");
-            //        foreach (var item in q.ToList())
-            //        {
-            //            writer.WriteStartElement("url");
-            //            //--------------------------------------
-            //            writer.WriteStartElement("loc");
-            //            writer.WriteString("https://greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + item.NewsID + "|" + item.Title.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").ToString());
-            //            writer.WriteEndElement();
-            //            //--------------------------------------
-
-            //            DateTime localTime = (DateTime)item.PubDate;
-            //            DateTime utcTime = DateTime.UtcNow;
-            //            DateTimeOffset localTimeAndOffset = new DateTimeOffset(localTime, TimeZoneInfo.Local.GetUtcOffset(localTime));
-
-            //            //UTC
-            //            //string strUtcTime_o = utcTime.ToString("o");
-            //            string strUtcTime_s = utcTime.ToString("s") + "+03:30";
-            //            //string strUtcTime_custom = utcTime.ToString("yyyy-MM-ddTHH:mm:ssK");
-
-            //            //Local
-            //            //string strLocalTimeAndOffset_o = localTimeAndOffset.ToString("o");
-            //            //string strLocalTimeAndOffset_s = localTimeAndOffset.ToString("s");
-            //            //string strLocalTimeAndOffset_custom = utcTime.ToString("yyyy-MM-ddTHH:mm:ssK");
-
-
-
-
-            //            writer.WriteStartElement("lastmod");
-            //            writer.WriteString(strUtcTime_s);
-            //            writer.WriteEndElement();
-            //            //--------------------------------------
-            //            //--------------------------------------
-            //            writer.WriteStartElement("changefreq");
-            //            writer.WriteString("monthly");
-            //            writer.WriteEndElement();
-            //            //----------------------------------
-
-            //            writer.WriteStartElement("priority");
-            //            writer.WriteString("0.8");
-            //            writer.WriteEndElement();
-            //            //--------------------------------------
-            //            writer.WriteEndElement();
-            //        }
-
-            //        writer.WriteEndElement();
-            //        writer.WriteEndDocument();
-
-            //        writer.Flush();
-            //        writer.Close();
-
-
-            //    }       
-            //}
-
             else
 	            {
                 if (newItem != null)
@@ -481,16 +416,29 @@ namespace GOWEB.Models
                  
                     string strUtcTime_s = utcTime.ToString("s") + "+03:30";
 
+
                     XDocument xDocument = XDocument.Load(virPath + "AllNewsSitemap.xml");
-                    XElement root = xDocument.Element("urlset");
-                    IEnumerable<XElement> rows = root.Descendants("url").Take(1) ;
-                    XElement firstRow = rows.First();
-                    firstRow.AddBeforeSelf(
-                       new XElement("url",
-                       new XElement("loc", "https://greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + newItem.NewsID + "|" + newItem.Title.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").ToString()),
-                       new XElement("lastmod", strUtcTime_s),
-                       new XElement ("changefreq", "monthly"),
-                       new XElement ("priority","0.8")));
+
+                    XmlDocument xml = new XmlDocument();
+                    xml.Load(virPath + "AllNewsSitemap.xml");
+
+                    IEnumerable<XElement> root1 = xDocument.Descendants().Take(2);
+
+  
+
+                    XNamespace xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9";
+
+                    XElement firstRow = root1.Last();
+
+                    XElement urlElement = new XElement(
+                    xmlns + "url",
+                    new XElement(xmlns + "loc", Uri.EscapeUriString("https://greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a" + newItem.NewsID + "|" + newItem.Title.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").ToString())),
+                    new XElement("lastmod", strUtcTime_s),
+                    new XElement("changefreq", "monthly"),
+                    new XElement("priority", "0.8"));
+          
+                    firstRow.AddBeforeSelf(urlElement);
+                   
                     xDocument.Save(virPath + "AllNewsSitemap.xml");
                 }
             }
@@ -509,5 +457,6 @@ namespace GOWEB.Models
 
             public string Title { get; set; }
         }
+    
     }
 }

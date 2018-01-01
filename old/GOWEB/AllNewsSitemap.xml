@@ -1,5 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<urlset>
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.9">
+  
+  <url xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>https://greenoptimizer.com/Home/%D8%AC%D8%B2%D8%A6%DB%8C%D8%A7%D8%AA_%D8%AE%D8%A8%D8%B1_%D9%81%D9%86%D8%A7%D9%88%D8%B1%DB%8C/%20a8383%7C%D8%A7%D9%88%D9%84%DB%8C%D9%86-%D8%A7%D8%A8%D8%B1-%D9%85%D8%A7%D9%87-%D8%B3%D8%A7%D9%84-2018-%D9%81%D8%B1%D8%AF%D8%A7-%D8%AF%D8%B1-%D8%A2%D8%B3%D9%85%D8%A7%D9%86-%D8%B4%D8%A8---%D8%B3%D9%88%D9%BE%D8%B1%D9%85%D9%88%D9%86-%D9%81%D8%B1%D8%AF%D8%A7%D8%B4%D8%A8-%D9%85%D8%AA%D9%81%D8%A7%D9%88%D8%AA-%D8%A7%D8%B3%D8%AA</loc>
+    <lastmod xmlns="">2018-01-01T22:18:10+03:30</lastmod>
+    <changefreq xmlns="">monthly</changefreq>
+    <priority xmlns="">0.8</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://greenoptimizer.com/Home/%D8%AC%D8%B2%D8%A6%DB%8C%D8%A7%D8%AA_%D8%AE%D8%A8%D8%B1_%D9%81%D9%86%D8%A7%D9%88%D8%B1%DB%8C/%20a8121%7C%D8%A8%D9%87%D8%AA%D8%B1%DB%8C%D9%86-%DA%AF%D8%AC%D8%AA%E2%80%8C%D9%87%D8%A7%DB%8C-%D8%B3%D8%A7%D9%84-%DB%B2%DB%B0%DB%B1%DB%B7</loc>
+    <lastmod>2018-01-01T22:17:10+03:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc xmlns="">https://greenoptimizer.com/Home/%D8%AC%D8%B2%D8%A6%DB%8C%D8%A7%D8%AA_%D8%AE%D8%A8%D8%B1_%D9%81%D9%86%D8%A7%D9%88%D8%B1%DB%8C/%20a8428%7C%D8%A8%D9%87%D8%AA%D8%B1%DB%8C%D9%86-%D9%84%D9%BE-%D8%AA%D8%A7%D9%BE-%D9%87%D8%A7%DB%8C-%D8%B3%D8%A7%D9%84-2017-%D8%A8%D9%87-%D8%A7%D9%86%D8%AA%D8%AE%D8%A7%D8%A8-%D8%AF%DB%8C%D8%AC%DB%8C%D8%A7%D8%AA%D9%88</loc>
+    <lastmod xmlns="">2018-01-01T22:16:20+03:30</lastmod>
+    <changefreq xmlns="">monthly</changefreq>
+    <priority xmlns="">0.8</priority>
+  </url>
+  <url xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>https://greenoptimizer.com/Home/%D8%AC%D8%B2%D8%A6%DB%8C%D8%A7%D8%AA_%D8%AE%D8%A8%D8%B1_%D9%81%D9%86%D8%A7%D9%88%D8%B1%DB%8C/%20a8417%7C%D8%B4%DA%A9%D9%84%D8%A7%D8%AA-%D8%AA%D8%A7-30-%D8%B3%D8%A7%D9%84-%D8%AF%DB%8C%DA%AF%D8%B1-%D9%85%D9%86%D9%82%D8%B1%D8%B6-%D8%AE%D9%88%D8%A7%D9%87%D8%AF-%D8%B4%D8%AF</loc>
+    <lastmod xmlns="">2018-01-01T22:11:30+03:30</lastmod>
+    <changefreq xmlns="">monthly</changefreq>
+    <priority xmlns="">0.8</priority>
+  </url>
+  <url>
+    <loc>https://greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a8415|تخفیفات-فروشگاه-پلی-استیشن-استور-تا-13-دی-تمدید-شد</loc>
+    <lastmod>2018-01-01T20:45:41+03:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a8407|چگونه-نینتندو-وارد-آمریکا-شد-و-صنعت-بازی-را-تغییر-داد-[قسمت-دوم]</loc>
+    <lastmod>2018-01-01T19:09:27+03:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a8407|بهترین-موبایل-های-اقتصادی-سال-2017-به-انتخاب-دیجیاتو</loc>
+    <lastmod>2018-01-01T19:07:54+03:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://greenoptimizer.com/Home/جزئیات_خبر_فناوری/ a8382|پنج-روش-برای-اجرای-نرم-افزارهای-ویندوز-روی-مک</loc>
     <lastmod>2018-01-01T17:17:33+03:30</lastmod>
