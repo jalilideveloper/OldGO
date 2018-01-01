@@ -429,7 +429,7 @@ namespace GOWEB.Models
 
                         //UTC
                         //string strUtcTime_o = utcTime.ToString("o");
-                        string strUtcTime_s = utcTime.ToString("s") + "+3:30";
+                        string strUtcTime_s = utcTime.ToString("s") + "+03:30";
                         //string strUtcTime_custom = utcTime.ToString("yyyy-MM-ddTHH:mm:ssK");
 
                         //Local
