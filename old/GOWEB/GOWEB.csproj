@@ -186,6 +186,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Error404Controller.cs" />
     <Compile Include="Controllers\LearningController.cs" />
     <Compile Include="Models\ComparePageWithMenu_Result.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
@@ -673,6 +674,10 @@
     <Content Include="Views\Learning\طراحی-سایت-سئو-سایت-بهینه-سازی-سایت.cshtml" />
     <Content Include="Views\Home\AddAds.cshtml" />
     <Content Include="Views\Home\AddMenu.cshtml" />
+    <Content Include="Views\Error404\Index.cshtml" />
+    <Content Include="Views\Error404\NotFound.cshtml" />
+    <Content Include="Views\Error404\BadRequest.cshtml" />
+    <Content Include="Views\Error404\ConstructoringInServer.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -687,6 +692,7 @@
     <Folder Include="Views\Api\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\DT\" />
+    <Folder Include="Views\Erorr\" />
     <Folder Include="Views\Portfolio\" />
     <Folder Include="Views\WebDesign\" />
   </ItemGroup>
@@ -695,7 +701,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Erorr.html" />
+    <Content Include="404.html" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
