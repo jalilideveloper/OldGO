@@ -49,28 +49,28 @@ namespace GOWEB
 
 
 
-            UpdateNewsTimer = new System.Timers.Timer(70000);
-            // Hook up the Elapsed event for the timer. 
-            Utility u = new Utility();
+            //UpdateNewsTimer = new System.Timers.Timer(70000);
+            //// Hook up the Elapsed event for the timer. 
+            //Utility u = new Utility();
 
-            UpdateNewsTimer.Elapsed += u.UpdateNews;
-            UpdateNewsTimer.Enabled = true;
-
-
-
-            UpdateAllList = new System.Timers.Timer(700000);
-            // Hook up the Elapsed event for the timer. 
-            UpdateAllList.Elapsed += Utility.UpdateAllList;
-            UpdateAllList.Enabled = true;
+            //UpdateNewsTimer.Elapsed += u.UpdateNews;
+            //UpdateNewsTimer.Enabled = true;
 
 
 
+            //UpdateAllList = new System.Timers.Timer(700000);
+            //// Hook up the Elapsed event for the timer. 
+            //UpdateAllList.Elapsed += Utility.UpdateAllList;
+            //UpdateAllList.Enabled = true;
 
 
-            UpdateSitremaps = new System.Timers.Timer(20000);
-            // Hook up the Elapsed event for the timer. 
-            UpdateSitremaps.Elapsed += u.UpdateXml;
-            UpdateSitremaps.Enabled = true;
+
+
+
+            //UpdateSitremaps = new System.Timers.Timer(20000);
+            //// Hook up the Elapsed event for the timer. 
+            //UpdateSitremaps.Elapsed += u.UpdateXml;
+            //UpdateSitremaps.Enabled = true;
 
             //statics
             Application.Add("Online", 0);
