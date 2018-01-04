@@ -24,6 +24,7 @@ namespace GOWEB.Controllers
             return View();
         }
 
+        [ActionName("سئو-سایت")]
         public ActionResult سئو_سایت()
         {
             return View();
@@ -32,6 +33,7 @@ namespace GOWEB.Controllers
         //{
         //    return View();
         //}
+        [ActionName("طراحی-سایت")]
         public ActionResult طراحی_سایت()
         {
 
@@ -44,8 +46,8 @@ namespace GOWEB.Controllers
         //    return View();
 
         //}
-      
 
+        [ActionName("نمونه-طراحی-سایت-و-سئو")]
         public ActionResult نمونه_طراحی_سایت_و_سئو()
         {
             return View();
@@ -59,6 +61,7 @@ namespace GOWEB.Controllers
         //}
 
 
+        [ActionName("اخبار-فناوری-و-تکنولوژی")]
         public ActionResult اخبار_فناوری_و_تکنولوژی()
         {
             return View();
@@ -74,13 +77,14 @@ namespace GOWEB.Controllers
 
 
 
+        [ActionName("صفحه-بهینه-سازی-سایت")]
         public ActionResult صفحه_بهینه_سازی_سایت(string  id)
         {
             string ids = id.Split('|')[1]; 
             ViewData["NumberTake"] = int.Parse(ids) * 15;
             ViewBag.NumberTake = int.Parse(ids);
 
-            return View("اخبار_فناوری_و_تکنولوژی");
+            return View("اخبار-فناوری-و-تکنولوژی");
         }
         //public ActionResult ArticleShow(int id)
         //{
@@ -99,6 +103,7 @@ namespace GOWEB.Controllers
         //    return View();
         //}
 
+        [ActionName("جزئیات-خبر-فناوری")]
         public ActionResult جزئیات_خبر_فناوری(string id)
         {
             string ids = id.Substring(2, id.Length - 2);
@@ -111,13 +116,14 @@ namespace GOWEB.Controllers
 
 
 
+        [ActionName("مجله-اینترنتی")]
         public ActionResult مجله_اینترنتی(string id)
         {
             
             int mgID  = Utility.lstMag.Find(p => p.SiteName.Contains(id.Split('|')[1])).MagazineID;           
             ViewData["MagazineName"] = id;
             ViewBag.MGID = mgID;
-            return View("اخبار_فناوری_و_تکنولوژی");
+            return View("اخبار-فناوری-و-تکنولوژی");
         }
         //public ActionResult Magazine(string id)
         //{
@@ -128,6 +134,7 @@ namespace GOWEB.Controllers
 
 
 
+        [ActionName("صفحه-مجله-اینترنتی")]
         public ActionResult صفحه_مجله_اینترنتی(string id)
         {
             id = id.Substring(2, id.Length - 2);
@@ -138,7 +145,7 @@ namespace GOWEB.Controllers
             ViewData["SelectedMagazineID"] = mgID;
             ViewBag.MGID = mgID;
             ViewBag.NumMagazine = num;
-            return View("اخبار_فناوری_و_تکنولوژی");
+            return View("اخبار-فناوری-و-تکنولوژی");
         }
 
 
@@ -150,12 +157,12 @@ namespace GOWEB.Controllers
 
         //    ViewData["NumberLoadMagazine"] = num * 15;
         //    ViewData["SelectedMagazineID"] = mgID;
-            
+
         //   return View("Article");
         //}
 
 
-
+        [ActionName("درباره-ما-سئو-سایت")]
         public ActionResult درباره_ما_سئو_سایت()
         {
 
@@ -174,6 +181,7 @@ namespace GOWEB.Controllers
 
 
 
+        [ActionName("ارتباط-با-ما-سئو-سایت")]
         public ActionResult ارتباط_با_ما_سئو_سایت()
         {
             return View();
