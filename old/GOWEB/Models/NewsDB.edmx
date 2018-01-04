@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="greenopt_GONewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="greenopt_GONewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="principal_id" Nullable="false" Type="int" />
+          <Property Name="diagram_id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
@@ -19,19 +19,19 @@
           <Key>
             <PropertyRef Name="LanguageID" />
           </Key>
-          <Property Name="LanguageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LanguageName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LangType" Type="nvarchar" MaxLength="50" />
-          <Property Name="LangCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="LanguageID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="LanguageName" MaxLength="50" Type="nvarchar" />
+          <Property Name="LangType" MaxLength="50" Type="nvarchar" />
+          <Property Name="LangCode" MaxLength="50" Type="nvarchar" />
         </EntityType>
         <EntityType Name="tblMagazines">
           <Key>
             <PropertyRef Name="MagazineID" />
           </Key>
-          <Property Name="MagazineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MagazineName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RssUrl" Type="nvarchar" MaxLength="2000" />
-          <Property Name="SiteTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="MagazineID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="MagazineName" MaxLength="50" Type="nvarchar" />
+          <Property Name="RssUrl" MaxLength="2000" Type="nvarchar" />
+          <Property Name="SiteTitle" MaxLength="50" Type="nvarchar" />
           <Property Name="MenuID" Type="int" />
           <Property Name="ContentText" Type="nvarchar(max)" />
         </EntityType>
@@ -39,45 +39,45 @@
           <Key>
             <PropertyRef Name="MenuID" />
           </Key>
-          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MenuName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MenuID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="MenuName" MaxLength="50" Type="nvarchar" />
           <Property Name="LanguageID" Type="int" />
           <Property Name="ParrentID" Type="int" />
           <Property Name="Priority" Type="int" />
-          <Property Name="MenuUrl" Type="nvarchar" MaxLength="50" />
+          <Property Name="MenuUrl" MaxLength="50" Type="nvarchar" />
         </EntityType>
         <EntityType Name="tblNews">
           <Key>
             <PropertyRef Name="NewsID" />
           </Key>
-          <Property Name="NewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="2000" />
-          <Property Name="Descriptions" Type="nvarchar" MaxLength="2000" />
+          <Property Name="NewsID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Title" MaxLength="2000" Type="nvarchar" />
+          <Property Name="Descriptions" MaxLength="2000" Type="nvarchar" />
           <Property Name="PubDate" Type="datetime" />
-          <Property Name="ImageUrl" Type="nvarchar" MaxLength="500" />
+          <Property Name="ImageUrl" MaxLength="500" Type="nvarchar" />
           <Property Name="MagazineID" Type="int" />
           <Property Name="ViewNumber" Type="bigint" />
           <Property Name="DateInserted" Type="datetime" />
-          <Property Name="LinkUrl" Type="nvarchar" MaxLength="500" />
+          <Property Name="LinkUrl" MaxLength="500" Type="nvarchar" />
         </EntityType>
         <EntityType Name="tblPages">
           <Key>
             <PropertyRef Name="PageID" />
           </Key>
-          <Property Name="PageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MetaTitle" Type="nvarchar" MaxLength="500" />
-          <Property Name="MetaKeyword" Type="nvarchar" MaxLength="500" />
-          <Property Name="MetaDescription" Type="nvarchar" MaxLength="500" />
-          <Property Name="MetaSubject" Type="nvarchar" MaxLength="500" />
-          <Property Name="Author" Type="nvarchar" MaxLength="500" />
-          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="PageID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="MetaTitle" MaxLength="500" Type="nvarchar" />
+          <Property Name="MetaKeyword" MaxLength="500" Type="nvarchar" />
+          <Property Name="MetaDescription" MaxLength="500" Type="nvarchar" />
+          <Property Name="MetaSubject" MaxLength="500" Type="nvarchar" />
+          <Property Name="Author" MaxLength="500" Type="nvarchar" />
+          <Property Name="Title" MaxLength="200" Type="nvarchar" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Date" Type="datetime" />
           <Property Name="MenuID" Type="int" />
         </EntityType>
         <Association Name="FK_tblMagazines_tblMenu">
-          <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="0..1" />
-          <End Role="tblMagazines" Type="Self.tblMagazines" Multiplicity="*" />
+          <End Type="Self.tblMenu" Multiplicity="0..1" Role="tblMenu" />
+          <End Type="Self.tblMagazines" Multiplicity="*" Role="tblMagazines" />
           <ReferentialConstraint>
             <Principal Role="tblMenu">
               <PropertyRef Name="MenuID" />
@@ -88,8 +88,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblMenu_tblLanguages">
-          <End Role="tblLanguages" Type="Self.tblLanguages" Multiplicity="0..1" />
-          <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="*" />
+          <End Type="Self.tblLanguages" Multiplicity="0..1" Role="tblLanguages" />
+          <End Type="Self.tblMenu" Multiplicity="*" Role="tblMenu" />
           <ReferentialConstraint>
             <Principal Role="tblLanguages">
               <PropertyRef Name="LanguageID" />
@@ -100,8 +100,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblNews_tblMagazines">
-          <End Role="tblMagazines" Type="Self.tblMagazines" Multiplicity="0..1" />
-          <End Role="tblNews" Type="Self.tblNews" Multiplicity="*" />
+          <End Type="Self.tblMagazines" Multiplicity="0..1" Role="tblMagazines" />
+          <End Type="Self.tblNews" Multiplicity="*" Role="tblNews" />
           <ReferentialConstraint>
             <Principal Role="tblMagazines">
               <PropertyRef Name="MagazineID" />
@@ -112,8 +112,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblPages_tblMenu">
-          <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="0..1" />
-          <End Role="tblPages" Type="Self.tblPages" Multiplicity="*" />
+          <End Type="Self.tblMenu" Multiplicity="0..1" Role="tblMenu" />
+          <End Type="Self.tblPages" Multiplicity="*" Role="tblPages" />
           <ReferentialConstraint>
             <Principal Role="tblMenu">
               <PropertyRef Name="MenuID" />
@@ -126,7 +126,7 @@
         <Function Name="ComparePageWithMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MenuID" Type="int" Mode="In" />
         </Function>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -196,20 +196,20 @@
           <EntitySet Name="tblNews" EntityType="Self.tblNews" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPages" EntityType="Self.tblPages" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblMagazines_tblMenu" Association="Self.FK_tblMagazines_tblMenu">
-            <End Role="tblMenu" EntitySet="tblMenu" />
-            <End Role="tblMagazines" EntitySet="tblMagazines" />
+            <End EntitySet="tblMenu" Role="tblMenu" />
+            <End EntitySet="tblMagazines" Role="tblMagazines" />
           </AssociationSet>
           <AssociationSet Name="FK_tblMenu_tblLanguages" Association="Self.FK_tblMenu_tblLanguages">
-            <End Role="tblLanguages" EntitySet="tblLanguages" />
-            <End Role="tblMenu" EntitySet="tblMenu" />
+            <End EntitySet="tblLanguages" Role="tblLanguages" />
+            <End EntitySet="tblMenu" Role="tblMenu" />
           </AssociationSet>
           <AssociationSet Name="FK_tblNews_tblMagazines" Association="Self.FK_tblNews_tblMagazines">
-            <End Role="tblMagazines" EntitySet="tblMagazines" />
-            <End Role="tblNews" EntitySet="tblNews" />
+            <End EntitySet="tblMagazines" Role="tblMagazines" />
+            <End EntitySet="tblNews" Role="tblNews" />
           </AssociationSet>
           <AssociationSet Name="FK_tblPages_tblMenu" Association="Self.FK_tblPages_tblMenu">
-            <End Role="tblMenu" EntitySet="tblMenu" />
-            <End Role="tblPages" EntitySet="tblPages" />
+            <End EntitySet="tblMenu" Role="tblMenu" />
+            <End EntitySet="tblPages" Role="tblPages" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -221,11 +221,11 @@
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="principal_id" Nullable="false" Type="Int32" />
+          <Property Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="definition" MaxLength="Max" FixedLength="false" Type="Binary" />
         </EntityType>
         <EntityType Name="tblLanguage">
           <Key>
@@ -367,7 +367,7 @@
             <End Role="tblPages" EntitySet="tblPages" />
           </AssociationSet>
           <FunctionImport Name="ComparePageWithMenu" ReturnType="Collection(greenopt_GONewsModel.ComparePageWithMenu_Result)">
-            <Parameter Name="MenuID" Mode="In" Type="Int32" />
+            <Parameter Name="MenuID" Type="Int32" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -394,14 +394,14 @@
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_InsertNews" ReturnType="Collection(Int32)">
-            <Parameter Name="Title" Mode="In" Type="String" />
-            <Parameter Name="Descriptions" Mode="In" Type="String" />
-            <Parameter Name="PubDate" Mode="In" Type="DateTime" />
-            <Parameter Name="ImageUrl" Mode="In" Type="String" />
-            <Parameter Name="MagazineID" Mode="In" Type="Int32" />
-            <Parameter Name="ViewNumber" Mode="In" Type="Int64" />
-            <Parameter Name="DateInserted" Mode="In" Type="DateTime" />
-            <Parameter Name="LinkUrl" Mode="In" Type="String" />
+            <Parameter Name="Title" Type="String" Mode="In" />
+            <Parameter Name="Descriptions" Type="String" Mode="In" />
+            <Parameter Name="PubDate" Type="DateTime" Mode="In" />
+            <Parameter Name="ImageUrl" Type="String" Mode="In" />
+            <Parameter Name="MagazineID" Type="Int32" Mode="In" />
+            <Parameter Name="ViewNumber" Type="Int64" Mode="In" />
+            <Parameter Name="DateInserted" Type="DateTime" Mode="In" />
+            <Parameter Name="LinkUrl" Type="String" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="sp_renamediagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -413,20 +413,20 @@
           <FunctionImport Name="spgo_GetAllNews" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllNews_Result)" />
           <FunctionImport Name="spgo_GetAllRecentNewsTopView" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllRecentNewsTopView_Result)" />
           <FunctionImport Name="spgo_GetLatestNewsOrderByDate" ReturnType="Collection(greenopt_GONewsModel.spgo_GetLatestNewsOrderByDate_Result)">
-            <Parameter Name="startpageid" Mode="In" Type="Int32" />
+            <Parameter Name="startpageid" Type="Int32" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetLatestNewsOrderByDateByMGID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetLatestNewsOrderByDateByMGID_Result)">
-            <Parameter Name="mgID" Mode="In" Type="Int32" />
-            <Parameter Name="startpageid" Mode="In" Type="Int32" />
+            <Parameter Name="mgID" Type="Int32" Mode="In" />
+            <Parameter Name="startpageid" Type="Int32" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetNewsByID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetNewsByID_Result)">
-            <Parameter Name="NewsID" Mode="In" Type="Int32" />
+            <Parameter Name="NewsID" Type="Int32" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetNewsByMgIDOrderByNewsID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetNewsByMgIDOrderByNewsID_Result)">
-            <Parameter Name="mgID" Mode="In" Type="Int32" />
+            <Parameter Name="mgID" Type="Int32" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetPageNumbers" ReturnType="Collection(Int32)">
-            <Parameter Name="MagazineID" Mode="In" Type="Int32" />
+            <Parameter Name="MagazineID" Type="Int32" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="spgo_LatestNewsPublishDate" ReturnType="Collection(greenopt_GONewsModel.spgo_LatestNewsPublishDate_Result)" />
           <FunctionImport Name="spgo_LatestNewsViewNumber" ReturnType="Collection(greenopt_GONewsModel.spgo_LatestNewsViewNumber_Result)" />

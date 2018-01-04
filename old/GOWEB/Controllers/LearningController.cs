@@ -18,7 +18,7 @@ namespace GOWEB.Controllers
             return View();
         }
 
-
+        [ActionName("طراحی-سایت-سئو-سایت-بهینه-سازی-سایت")]
         public ActionResult طراحی_سایت_سئو_سایت_بهینه_سازی_سایت(string id)
         {
 

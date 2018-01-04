@@ -186,6 +186,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Error404Controller.cs" />
     <Compile Include="Controllers\LearningController.cs" />
     <Compile Include="Models\ComparePageWithMenu_Result.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
@@ -264,7 +265,6 @@
     <Compile Include="webStatics.aspx.designer.cs">
       <DependentUpon>webStatics.aspx</DependentUpon>
     </Compile>
-    <Content Include="AllNewsSitemap.xml" />
     <Content Include="ArticleSitemap.xml" />
     <Content Include="css\SlideShow.css" />
     <Content Include="images\images\آموزش_سئو_سایت.png" />
@@ -281,7 +281,9 @@
     <Content Include="js\modernizr-2.6.2.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="MagazineSelectedSitemap.xml" />
-    <Content Include="MagazineSitemap.xml" />
+    <Content Include="MagazineSitemap.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Models\NewsDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>NewsDB.edmx</DependentUpon>
@@ -661,16 +663,20 @@
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\Home\طراحی_سایت.cshtml" />
-    <Content Include="Views\Home\اخبار_فناوری_و_تکنولوژی.cshtml" />
-    <Content Include="Views\Home\سئو_سایت.cshtml" />
-    <Content Include="Views\Home\درباره_ما_سئو_سایت.cshtml" />
-    <Content Include="Views\Home\ارتباط_با_ما_سئو_سایت.cshtml" />
-    <Content Include="Views\Home\جزئیات_خبر_فناوری.cshtml" />
-    <Content Include="Views\Home\نمونه_طراحی_سایت_و_سئو.cshtml" />
-    <Content Include="Views\Learning\طراحی_سایت_سئو_سایت_بهینه_سازی_سایت.cshtml" />
+    <Content Include="Views\Home\طراحی-سایت.cshtml" />
+    <Content Include="Views\Home\اخبار-فناوری-و-تکنولوژی.cshtml" />
+    <Content Include="Views\Home\سئو-سایت.cshtml" />
+    <Content Include="Views\Home\درباره-ما-سئو-سایت.cshtml" />
+    <Content Include="Views\Home\ارتباط-با-ما-سئو-سایت.cshtml" />
+    <Content Include="Views\Home\جزئیات-خبر-فناوری.cshtml" />
+    <Content Include="Views\Home\نمونه-طراحی-سایت-و-سئو.cshtml" />
+    <Content Include="Views\Learning\طراحی-سایت-سئو-سایت-بهینه-سازی-سایت.cshtml" />
     <Content Include="Views\Home\AddAds.cshtml" />
     <Content Include="Views\Home\AddMenu.cshtml" />
+    <Content Include="Views\Error404\Index.cshtml" />
+    <Content Include="Views\Error404\NotFound.cshtml" />
+    <Content Include="Views\Error404\BadRequest.cshtml" />
+    <Content Include="Views\Error404\ConstructoringInServer.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -685,6 +691,7 @@
     <Folder Include="Views\Api\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\DT\" />
+    <Folder Include="Views\Erorr\" />
     <Folder Include="Views\Portfolio\" />
     <Folder Include="Views\WebDesign\" />
   </ItemGroup>
@@ -693,7 +700,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Erorr.html" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
