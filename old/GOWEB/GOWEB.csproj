@@ -265,6 +265,7 @@
     <Compile Include="webStatics.aspx.designer.cs">
       <DependentUpon>webStatics.aspx</DependentUpon>
     </Compile>
+    <Content Include="AllNewsSitemap.xml" />
     <Content Include="ArticleSitemap.xml" />
     <Content Include="css\SlideShow.css" />
     <Content Include="images\images\آموزش_سئو_سایت.png" />
