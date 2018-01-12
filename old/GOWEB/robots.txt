@@ -10,4 +10,6 @@ Sitemap: http://greenoptimizer.com/sitemap.xml
 Sitemap: http://greenoptimizer.com/MagazineSelectedSitemap.xml
 Sitemap: http://greenoptimizer.com/MagazineSitemap.xml
 Sitemap: http://greenoptimizer.com/ArticleSitemap.xml
+Sitemap: http://greenoptimizer.com/sitemapWebDesign.xml
 Sitemap: http://greenoptimizer.com/AllNewsSitemap.xml
+Sitemap: http://greenoptimizer.com/AllNews.xml
