@@ -699,13 +699,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Sitemaps\" />
-    <Folder Include="Views\Api\" />
-    <Folder Include="Views\Article\" />
-    <Folder Include="Views\DT\" />
-    <Folder Include="Views\Erorr\" />
-    <Folder Include="Views\Portfolio\" />
-    <Folder Include="Views\WebDesign\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
