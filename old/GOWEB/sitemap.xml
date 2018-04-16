@@ -1,97 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ <urlset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>http://greenoptimizer.com/</loc>
+    <url>
+    <loc>http://iwebdesignseo.com/</loc>
  <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>http://greenoptimizer.com/Home/Index</loc>
+    <loc>http://iwebdesignseo.com/Home/Index</loc>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>
-      http://greenoptimizer.com/Home/اخبار-فناوری-و-تکنولوژی
+      http://iwebdesignseo.com/Home/اخبار-فناوری-و-تکنولوژی
     </loc>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>
-      http://greenoptimizer.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/آموزش-سئو-سایت
+      http://iwebdesignseo.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/آموزش-سئو-سایت
     </loc>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>
-      http://greenoptimizer.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/افزایش-رتبه-سایت-در-الکسا
+      http://iwebdesignseo.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/افزایش-رتبه-سایت-در-الکسا
     </loc>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>
-      http://greenoptimizer.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/افزایش-رتبه-سایت-در-گوگل
+      http://iwebdesignseo.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/افزایش-رتبه-سایت-در-گوگل
     </loc>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>
-      http://greenoptimizer.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/-طراحی-سایت-با-ASP
+      http://iwebdesignseo.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/-طراحی-سایت-با-ASP
     </loc>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>
-      http://greenoptimizer.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-چیست
+      http://iwebdesignseo.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-چیست
     </loc>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://greenoptimizer.com/Home/سئو-سایت</loc>
+    <loc>http://iwebdesignseo.com/Home/سئو-سایت</loc>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://greenoptimizer.com/Home/طراحی-سایت</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>
-      http://greenoptimizer.com/Home/نمونه-طراحی-سایت-و-سئو
-    </loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>http://greenoptimizer.com/Home/درباره-ما-سئو-سایت</loc>
+    <loc>http://iwebdesignseo.com/Home/طراحی-سایت</loc>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>
-      http://greenoptimizer.com/Home/ارتباط-با-ما-سئو-سایت
+      http://iwebdesignseo.com/Home/نمونه-طراحی-سایت-و-سئو
     </loc>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>http://iwebdesignseo.com/Home/درباره-ما-سئو-سایت</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>
-      http://greenoptimizer.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/ایده-های-درآمد-زا
+      http://iwebdesignseo.com/Home/ارتباط-با-ما-سئو-سایت
     </loc>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>
-      http://greenoptimizer.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/راه-اندازی-فروشگاه-اینترنتی
+      http://iwebdesignseo.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/ایده-های-درآمد-زا
+    </loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>
+      http://iwebdesignseo.com/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/راه-اندازی-فروشگاه-اینترنتی
     </loc>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
