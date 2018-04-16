@@ -49,7 +49,7 @@ namespace GOWEB
 
 
 
-            UpdateNewsTimer = new System.Timers.Timer(70000);
+            UpdateNewsTimer = new System.Timers.Timer(20000);
             // Hook up the Elapsed event for the timer. 
             Utility u = new Utility();
 

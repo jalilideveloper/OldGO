@@ -173,7 +173,7 @@ namespace GOWEB.Models
                             writer.WriteStartElement("url");
                             //--------------------------------------
                             writer.WriteStartElement("loc");
-                            writer.WriteString("https://greenoptimizer.com/Home/صفحه-مجله-اینترنتی/a|" + item.MagazineID+"-"+ i);
+                            writer.WriteString("https://iwebdesignseo.com/Home/صفحه-مجله-اینترنتی/a|" + item.MagazineID+"-"+ i);
                             writer.WriteEndElement();
                             //--------------------------------------
                             writer.WriteEndElement();
@@ -213,7 +213,7 @@ namespace GOWEB.Models
                             writer.WriteStartElement("url");
                             //--------------------------------------
                             writer.WriteStartElement("loc");
-                            writer.WriteString("https://greenoptimizer.com/Home/صفحه-مجله-اینترنتی/a|" + item.MagazineID + "-" + i);
+                            writer.WriteString("https://iwebdesignseo.com/Home/صفحه-مجله-اینترنتی/a|" + item.MagazineID + "-" + i);
                             writer.WriteEndElement();
                             //--------------------------------------
                             writer.WriteEndElement();
@@ -255,7 +255,7 @@ namespace GOWEB.Models
                         writer.WriteStartElement("url");
                         //--------------------------------------
                         writer.WriteStartElement("loc");
-                        writer.WriteString("https://greenoptimizer.com/Home/مجله-اینترنتی/a|" + item.SiteTitle);
+                        writer.WriteString("https://iwebdesignseo.com/Home/مجله-اینترنتی/a|" + item.SiteTitle);
                         writer.WriteEndElement();
                         //--------------------------------------
                         writer.WriteEndElement();
@@ -290,7 +290,7 @@ namespace GOWEB.Models
                         writer.WriteStartElement("url");
                         //--------------------------------------
                         writer.WriteStartElement("loc");
-                        writer.WriteString("https://greenoptimizer.com/Home/صفحه-بهینه-سازی-سایت/p|" + i);
+                        writer.WriteString("https://iwebdesignseo.com/Home/صفحه-بهینه-سازی-سایت/p|" + i);
                         writer.WriteEndElement();
                         //--------------------------------------
                         writer.WriteEndElement();
@@ -323,7 +323,7 @@ namespace GOWEB.Models
                         writer.WriteStartElement("url");
                         //--------------------------------------
                         writer.WriteStartElement("loc");
-                        writer.WriteString("https://greenoptimizer.com/Home/صفحه-بهینه-سازی-سایت/p|" + i);
+                        writer.WriteString("https://iwebdesignseo.com/Home/صفحه-بهینه-سازی-سایت/p|" + i);
                         writer.WriteEndElement();
                         //--------------------------------------
                         writer.WriteEndElement();
@@ -357,7 +357,7 @@ namespace GOWEB.Models
                         writer.WriteStartElement("url");
                         //--------------------------------------
                         writer.WriteStartElement("loc");
-                        writer.WriteString("https://greenoptimizer.com/Home/جزئیات-خبر-فناوری/ a" + item.NewsID + "|" + item.Title.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").ToString());
+                        writer.WriteString("https://iwebdesignseo.com/Home/جزئیات-خبر-فناوری/ a" + item.NewsID + "|" + item.Title.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").ToString());
                         writer.WriteEndElement();
                         //--------------------------------------
 
@@ -426,16 +426,14 @@ namespace GOWEB.Models
 
   
 
-                    XNamespace xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9";
+                    //XNamespace xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9";
 
                     XElement firstRow = root1.Last();
 
                     XElement urlElement = new XElement(
                     "" + "url",
-                    new XElement("loc" , "https://greenoptimizer.com/Home/جزئیات-خبر-فناوری/ a" + newItem.NewsID + "|" + newItem.Title.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").ToString()),
-                    new XElement("lastmod", strUtcTime_s),
-                    new XElement("changefreq", "monthly"),
-                    new XElement("priority", "0.8"));
+                    new XElement("loc" , "https://iwebdesignseo.com/Home/جزئیات-خبر-فناوری/ a" + newItem.NewsID + "|" + newItem.Title.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").ToString()),
+                    new XElement("lastmod", strUtcTime_s));
           
                     firstRow.AddBeforeSelf(urlElement);
                    
