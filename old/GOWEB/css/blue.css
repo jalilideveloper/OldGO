@@ -560,4 +560,27 @@ a.btn_green{color:#FFF;}
 .normal-color {
     background-color: #F9F3F3 !important;
 }
+.col-calc-7 {
+    width: calc(100% / 7.3);
+    display: inline-block;
+}
+.col-calc-article {
+    width: calc(100% / 5.3);
+    display: inline-block;
+} 
+.tagstyle {
+    margin: 10px 0;
+}
+.SearchChk {
+    padding-left: 0px;
+    padding-right: 30px;
+    margin-top: 0px;
+}
+.para + p img {
+    width: 200px !important;
+    height: 200px !important;
+}
+.para img {
+    width: 200px !important;
+    height: 200px !important;
 }
