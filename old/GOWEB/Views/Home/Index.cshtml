@@ -1041,28 +1041,6 @@
 
 
 
-
-                <div class="top_grid col-xs-12 margin-top10">
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <h2 class="col-xs-center font-size-18"><a href="/Home/سئو-سایت"><b>بهینه سازی وب سایت (SEO)</b></a></h2>
-                                <p class="line-height-1-7">برای به دست آوردن جایگاهی مناسب در صفحه اول گوگل باید وب سایتی بهینه از نظر اصول کدنویسی و محتوای آن داشت. در همین راستا شرکت شتاب تک در مرحله اول با رعایت اصول کد نویسی در وب سایت های طراحی شده خود این مهم را فراهم می سازد تا موتور های جستجو به شناسایی وب سایت بپردازند و در مرحله بعد با رعایت نکاتی خاص اعم از سرعت بارگذاری صفحات، ساختار صفحات، محتوای وب سایت و ... به بهینه سازی وب سایت مورد نظر می پردازد که نتیجه ی رعایت این نکات بهبود رتبه وب سایت در نتایج جستجو می باشد.</p>
-                            </div>
-                            <div class=" hidden-xs col-sm-2 center"><i class="fa fa-line-chart red text-icon-block" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-10 ">
-                                <h2 class="col-xs-center font-size-18"><a href="/Home/طراحی-سایت"><b>افزایش فالوور و لایک اینستاگرام</b></a></h2>
-                                <p class="line-height-1-7">بدون شک در حال حاضر بالا بودن فالوور و لایک پست ها در صفحات اینستاگرام تاثیر بسیار زیادی در جذب مخاطبین و بالا رفتن اعتبار پیج دارد فالوورهای جذب شده توسط سایت اینستالایکر کاملا وجود دارند و تمام آنها عکس پروفایل و پست دارند . و حتی در رابطه با فالوور های ایرانی، این فالوورها کاملا فعال هستند</p>
-                            </div>
-                            <div class="hidden-xs col-sm-2 center"><i class="fa fa-bar-chart red text-icon-block" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="col-xs-12 text-align-center ">
                     <div class="col-sm-6 ">
                         <img alt="طراحی سایت" class="seoOptimizerwidth100per" src="~/images/GOfirst.png" />
@@ -1073,27 +1051,6 @@
                 </div>
 
 
-                <div class="top_grid col-xs-12 margin-bottom20">
-
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <h4 class="col-xs-center"><a href="/Home/طراحی-سایت"><b>استفاده از آخرین روش های استاندارد کد نویسی</b></a></h4>
-                                <p class="line-height-1-7">پشتیبانی از تمامی مرورگرها و سرعت بالای بارگزاری صفحات وب سایت از ویژگی های مهم در طراحی سایت می باشند، شرکت شتاب تک با استفاده از متدهای نوین کد نویسی این مهم را برای سفارش دهندگان سایت فراهم می سازد تا با افزایش سهولت استفاده از وب سایت، رضایت کاربران را به دنبال داشته باشد.</p>
-                            </div>
-                            <div class=" hidden-xs col-sm-2 center"><i class="fa fa-file-code-o red text-icon-block" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-10 ">
-                                <h4 class="col-xs-center"><a href="/Home/طراحی-سایت"><b>طراحی وب سایت مدرن با رعایت استانداردهای روز</b></a></h4>
-                                <p class="line-height-1-7">طراحی وب سایت به همراه زیبایی قالب گرافیکی و سهولت استفاده، نقش به سزایی در جذب کاربران و مخاطبان وب سایت دارد. در همین راستا شرکت شتاب تک با نوآوری و به کارگیری استانداردهای روز، وب سایتی مدرن، زیبا و کارآمد پیاده سازی نموده تا کاربران، تجربه ای مطلوب در استفاده از وب سایت طراحی شده داشته باشند.</p>
-                            </div>
-                            <div class="hidden-xs col-sm-2 center"><i class="fa fa-desktop red text-icon-block" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
-                </div>
 
 
 
@@ -1113,29 +1070,15 @@
                                 {
                                     if (item.Description.Contains("a"))
                                     {
-                                        string[] parts = item.Description.Split(new string[] { "<p>" }, StringSplitOptions.None);
-
-
-
-
-                                        //اگه یدونه موند برو بعدی
-
-
-                                    }
-                                    else
-                                    {
-
+                                        string a = item.Description.Replace("href", "class='RemoveA' href='#' key");
+                                        item.Description = a;
+                                                                                
                                     }
                                     
-
-
-                                    //if (item.Description.Contains("a"))
-
                                     var Prehref = "/Home/جزئیات-خبر-فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
                                         <div class='blog_list bg-white'>
                                             <div class='col-md-12 blog_left'>
-                                                <a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @item.PubDate   در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span>
-
+                                                <a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @item.PubDate <a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span>
 
 
                                                 <p class='para'>@Html.Raw(item.Description)</p>

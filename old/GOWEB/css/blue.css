@@ -576,11 +576,12 @@ a.btn_green{color:#FFF;}
     padding-right: 30px;
     margin-top: 0px;
 }
-.para + p img {
-    width: 200px !important;
-    height: 200px !important;
+
+.RemoveA {
+    color: #333333;
+    text-decoration: none;
 }
-.para img {
-    width: 200px !important;
-    height: 200px !important;
+.RemoveA :hover {
+    color: #333333 !important;
+    text-decoration: none !important;
 }
