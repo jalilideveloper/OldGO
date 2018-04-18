@@ -1,5 +1,7 @@
 ﻿@using GOWEB.Models;
 @using System.Xml;
+@using GOWEB.Controllers;
+
 
 
 
@@ -8,11 +10,11 @@
 
     <title>سئو سبز | بهینه سازی سایت | طراحی سایت | سئو سایت</title>
 
-   <meta name="title" content="سئو سبز | بهینه سازی سایت | سئو سایت | طراحی سایت ارزان | افزایش رنک الکسا " />
+    <meta name="title" content="سئو سبز | بهینه سازی سایت | سئو سایت | طراحی سایت ارزان | افزایش رنک الکسا " />
     <meta name="keywords" content=" سئو سبز | بهینه سازی سایت | سئو | قیمت  بهینه سازی سایت | آموزش سئو | ارتقاء سایت در گوگل | بالا بردن رتبه سایت در گوگل | طراحی سایت | طراحی وبسایت | سئو | طراحی سایت فروشگاهی |طراحی سایت ارزان| طراحی سایت شخصی | طراحی سایت شرکتی | افزایش رتبه در گوگل | SEO | Search Engine Optimization" />
-    <meta name="description" content="تیم سئو سبز فعال در بخش طراحی سایت و سئو سایت، در تلاش است تا با تمام توان نیاز امروزه کاربران و دارندگان مشاغل که میخواهند در زمینه اینترنت دارای کسب و کار شوند رو به گونه ای برطرف سازد که این نوع از کاربران تغییرات چشمگیری در فروش کالا و عرضه کالا از طریق اینترنت را به صورت کاملا واضح لمس نمایند، شرکت طراحی سایت و بهینه سازی سایت سبز به صورت رایگان آماده مشاوره به شما عزیزان میباشد"/>
+    <meta name="description" content="تیم سئو سبز فعال در بخش طراحی سایت و سئو سایت، در تلاش است تا با تمام توان نیاز امروزه کاربران و دارندگان مشاغل که میخواهند در زمینه اینترنت دارای کسب و کار شوند رو به گونه ای برطرف سازد که این نوع از کاربران تغییرات چشمگیری در فروش کالا و عرضه کالا از طریق اینترنت را به صورت کاملا واضح لمس نمایند، شرکت طراحی سایت و بهینه سازی سایت سبز به صورت رایگان آماده مشاوره به شما عزیزان میباشد" />
     <meta name="url" content="http://www.iwebdesignseo.com" />
-    
+
     <meta name="DC.keywords" content="سئو سبز | بهینه سازی سایت | سئو | قیمت  بهینه سازی سایت | آموزش سئو | ارتقاء سایت در گوگل | بالا بردن رتبه سایت در گوگل | طراحی سایت | طراحی وبسایت | سئو | طراحی سایت فروشگاهی | طراحی سایت شخصی | طراحی سایت شرکتی | افزایش رتبه در گوگل | SEO | Search Engine Optimization" />
     <meta name="DC.description" content="تیم سئو سبز فعال در بخش طراحی سایت و سئو سایت، در تلاش است تا با تمام توان نیاز امروزه کاربران و دارندگان مشاغل که میخواهند در زمینه اینترنت دارای کسب و کار شوند رو به گونه ای برطرف سازد که این نوع از کاربران تغییرات چشمگیری در فروش کالا و عرضه کالا از طریق اینترنت را به صورت کاملا واضح لمس نمایند، شرکت طراحی سایت و بهینه سازی سایت سبز به صورت رایگان آماده مشاوره به شما عزیزان میباشد" />
     <meta name="DC.Title" content=" سئو سبز | بهینه سازی وب سایت |  طراحی سایت | سئو سایت" />
@@ -26,7 +28,7 @@
     <meta name="twitter:title" content="سئو سبز | بهینه سازی سایت | سئو سایت | طراحی سایت ارزان | افزایش رنک الکسا" />
     <meta name="twitter:description" content="تیم سئو سبز فعال در بخش طراحی سایت و سئو سایت، در تلاش است تا با تمام توان نیاز امروزه کاربران و دارندگان مشاغل که میخواهند در زمینه اینترنت دارای کسب و کار شوند رو به گونه ای برطرف سازد که این نوع از کاربران تغییرات چشمگیری در فروش کالا و عرضه کالا از طریق اینترنت را به صورت کاملا واضح لمس نمایند، شرکت طراحی سایت و بهینه سازی سایت سبز به صورت رایگان آماده مشاوره به شما عزیزان میباشد" />
     <meta name="twitter:creator" content="www.iwebdesignseo.com" />
-    <meta name="twitter:keywords" content="سئو سبز | بهینه سازی سایت  | سئو | قیمت  بهینه سازی سایت | آموزش سئو | ارتقاء سایت در گوگل | بالا بردن رتبه سایت در گوگل | طراحی سایت |  تعریف بهینه سازی سایت | سئو  | سئو و بهینه سازی سایت | طراحی سایت فروشگاهی | طراحی سایت ارزان | طراحی سایت شرکتی | افزایش رتبه در گوگل | SEO | Search Engine Optimization"  />
+    <meta name="twitter:keywords" content="سئو سبز | بهینه سازی سایت  | سئو | قیمت  بهینه سازی سایت | آموزش سئو | ارتقاء سایت در گوگل | بالا بردن رتبه سایت در گوگل | طراحی سایت |  تعریف بهینه سازی سایت | سئو  | سئو و بهینه سازی سایت | طراحی سایت فروشگاهی | طراحی سایت ارزان | طراحی سایت شرکتی | افزایش رتبه در گوگل | SEO | Search Engine Optimization" />
 
 }
 
@@ -35,7 +37,7 @@
 @section StyleScript
     {
     <link rel="stylesheet" href="~/fonts/css/font-awesome.min.css">
-    }
+}
 @section MainContent
     {
 
@@ -593,7 +595,7 @@
                                         <li class="">
                                             <div class="shopping wrapper">
                                                 <div class="col-md-12 no-padding">
-                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"  onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/بهترین-سایت-چک-سئو';"></span>
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/بهترین-سایت-چک-سئو';"></span>
                                                     <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/بهترین-سایت-چک-سئو"><h1 class="h1ToA">بهترین سایت چک سئو</h1></a>
                                                 </div>
                                             </div>
@@ -601,7 +603,7 @@
                                         <li class="">
                                             <div class="shopping wrapper">
                                                 <div class="col-md-12 no-padding">
-                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"  onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-حرفه-ای-وبسایت';"></span>
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-حرفه-ای-وبسایت';"></span>
                                                     <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-حرفه-ای-وبسایت"><h1 class="h1ToA">سئو حرفه ای وبسایت</h1></a>
                                                 </div>
                                             </div>
@@ -609,7 +611,7 @@
                                         <li class="">
                                             <div class="shopping wrapper">
                                                 <div class="col-md-12 no-padding">
-                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"  onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-در-طراحی-وبسایت';"></span>
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-در-طراحی-وبسایت';"></span>
                                                     <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-در-طراحی-وبسایت"><h1 class="h1ToA">سئو در طراحی وبسایت </h1></a>
                                                 </div>
                                             </div>
@@ -617,7 +619,7 @@
                                         <li class="">
                                             <div class="shopping wrapper">
                                                 <div class="col-md-12 no-padding">
-                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"  onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-سایت-فروشگاهی';"></span>
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-سایت-فروشگاهی';"></span>
                                                     <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-سایت-فروشگاهی"><h1 class="h1ToA">سئو سایت فروشگاهی</h1></a>
                                                 </div>
                                             </div>
@@ -625,7 +627,7 @@
                                         <li class="">
                                             <div class="shopping wrapper">
                                                 <div class="col-md-12 no-padding">
-                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"  onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-وردپرس-yoast';"></span>
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-وردپرس-yoast';"></span>
                                                     <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/سئو-وردپرس-yoast"><h1 class="h1ToA">سئو وردپرس</h1></a>
                                                 </div>
                                             </div>
@@ -633,7 +635,7 @@
                                         <li class="">
                                             <div class="shopping wrapper">
                                                 <div class="col-md-12 no-padding">
-                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"  onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/هزینه-سئو';"></span>
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/هزینه-سئو';"></span>
                                                     <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/هزینه-سئو"><h1 class="h1ToA">هزینه سئو</h1></a>
                                                 </div>
                                             </div>
@@ -641,7 +643,7 @@
                                         <li class="">
                                             <div class="shopping wrapper">
                                                 <div class="col-md-12 no-padding">
-                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome"  onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/فاکتورهای-سئو';"></span>
+                                                    <span class="fa fa-arrow-circle-left font-23 float-left shopicoHome" onclick="window.location = '/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/فاکتورهای-سئو';"></span>
                                                     <span class="fa fa-caret-left HomeBoxes"></span><a class="HomeSpanTextBoxes" href="/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/فاکتورهای-سئو"><h1 class="h1ToA">فاکتورهای سئو</h1></a>
                                                 </div>
                                             </div>
@@ -689,24 +691,24 @@
                                     <ul class="list-unstyled nav_list Allfeatures text-align-right">
 
                                         @{
-                                                    using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
-                                                    {
-                                                
-                                                        foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName.Contains("barnamenevisan.org")).Take(10))
-                                                        {
-                                                            var Prehref = "/Home/جزئیات-خبر-فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
+                                            using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+                                            {
 
-                                                        <li class="">
-                                                            <div class="shopping wrapper">
-                                                                <div class="col-md-12 no-padding">
-                                                                    <span class="fa fa-caret-left HomeBoxes"></span>
-                                                                    <a class="HomeSpanTextBoxes" target='_blank'  title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
-                                                                </div>
+                                                foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName.Contains("barnamenevisan.org")).Take(10))
+                                                {
+                                                    var Prehref = "/Home/جزئیات-خبر-فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-");
+
+                                                    <li class="">
+                                                        <div class="shopping wrapper">
+                                                            <div class="col-md-12 no-padding">
+                                                                <span class="fa fa-caret-left HomeBoxes"></span>
+                                                                <a class="HomeSpanTextBoxes" target='_blank' title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
                                                             </div>
-                                                        </li>
-                                                    }
+                                                        </div>
+                                                    </li>
+                                                }
+                                            }
                                         }
-                                          }
 
 
                                     </ul>
@@ -715,7 +717,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
 
                             <div class="col-md-4 mediamargin-b30">
                                 <div class="span4_of_list ellipsistitlehome">
@@ -783,7 +785,7 @@
 
                                     </ul>
                                     <div class="read_more">
-                                        <b> <a class="btn btn-2 active" target='_blank' href="/Home/مجله-اینترنتی/a|زومیت">سایت زومیت</a></b> 
+                                        <b> <a class="btn btn-2 active" target='_blank' href="/Home/مجله-اینترنتی/a|زومیت">سایت زومیت</a></b>
                                     </div>
                                 </div>
                             </div>
@@ -820,7 +822,7 @@
                                                         <div class="shopping wrapper">
                                                             <div class="col-md-12 no-padding">
                                                                 <span class="fa fa-caret-left HomeBoxes"></span>
-                                                                <a class="HomeSpanTextBoxes" target='_blank'  title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
+                                                                <a class="HomeSpanTextBoxes" target='_blank' title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -855,7 +857,7 @@
                                                         <div class="shopping wrapper">
                                                             <div class="col-md-12 no-padding">
                                                                 <span class="fa fa-caret-left HomeBoxes"></span>
-                                                                <a class="HomeSpanTextBoxes" target='_blank'  title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
+                                                                <a class="HomeSpanTextBoxes" target='_blank' title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -890,7 +892,7 @@
                                                         <div class="shopping wrapper">
                                                             <div class="col-md-12 no-padding">
                                                                 <span class="fa fa-caret-left HomeBoxes"></span>
-                                                                <a class="HomeSpanTextBoxes" target='_blank'  title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
+                                                                <a class="HomeSpanTextBoxes" target='_blank' title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -941,7 +943,7 @@
                                                         <div class="shopping wrapper">
                                                             <div class="col-md-12 no-padding">
                                                                 <span class="fa fa-caret-left HomeBoxes"></span>
-                                                                <a class="HomeSpanTextBoxes" target='_blank'  title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
+                                                                <a class="HomeSpanTextBoxes" target='_blank' title="@itemInside.NTitle" href="@Prehref"><h1 class="h1ToA">@itemInside.NTitle</h1></a>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -1044,7 +1046,7 @@
                     <div class="col-sm-6">
                         <div class="row">
                             <div class="col-sm-10">
-                                <h2 class="col-xs-center font-size-18"><a  href="/Home/سئو-سایت"><b>بهینه سازی وب سایت (SEO)</b></a></h2>
+                                <h2 class="col-xs-center font-size-18"><a href="/Home/سئو-سایت"><b>بهینه سازی وب سایت (SEO)</b></a></h2>
                                 <p class="line-height-1-7">برای به دست آوردن جایگاهی مناسب در صفحه اول گوگل باید وب سایتی بهینه از نظر اصول کدنویسی و محتوای آن داشت. در همین راستا شرکت شتاب تک در مرحله اول با رعایت اصول کد نویسی در وب سایت های طراحی شده خود این مهم را فراهم می سازد تا موتور های جستجو به شناسایی وب سایت بپردازند و در مرحله بعد با رعایت نکاتی خاص اعم از سرعت بارگذاری صفحات، ساختار صفحات، محتوای وب سایت و ... به بهینه سازی وب سایت مورد نظر می پردازد که نتیجه ی رعایت این نکات بهبود رتبه وب سایت در نتایج جستجو می باشد.</p>
                             </div>
                             <div class=" hidden-xs col-sm-2 center"><i class="fa fa-line-chart red text-icon-block" aria-hidden="true"></i></div>
@@ -1095,15 +1097,268 @@
 
 
 
-          
+
+
+                <div class="row">
+
+                    <div class="col-md-4"></div>
+
+                    <div class="col-md-8  blog_main ">
+                        <div id="CenterContent">
+                            @{
+                                var urlse = Request.Url.Segments[2];
+
+
+                                foreach (var item in DTController.GetAllNews(0))
+                                {
+                                    if (item.Description.Contains("a"))
+                                    {
+                                        string[] parts = item.Description.Split(new string[] { "<p>" }, StringSplitOptions.None);
 
 
 
-                <div class="clearfix"></div>
 
+                                        //اگه یدونه موند برو بعدی
+
+
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                    
+
+
+                                    //if (item.Description.Contains("a"))
+
+                                    var Prehref = "/Home/جزئیات-خبر-فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
+                                        <div class='blog_list bg-white'>
+                                            <div class='col-md-12 blog_left'>
+                                                <a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @item.PubDate   در @item.SiteTitle<a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span>
+
+
+
+                                                <p class='para'>@Html.Raw(item.Description)</p>
+                                                <div class='read_btn padding-bottom10'><a target='_blank' href='@Prehref'><button class='btnArticle'>ادامه مطلب</button></a></div>
+                                            </div><div class='clearfix'></div>
+                                        </div>
+
+                                   
+
+
+                                }
+
+                            }
+
+
+
+
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="row  margin-top10">
+                        <div class="col-md-12">
+                            <div class="dk-box ">
+
+                                <div class="row">
+                                    <h5 class="col-md-12 ">جدیدترین مطالب</h5>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 SearchChk">
+                                        <div class="tagstyle col-calc-article">
+                                            <b>طراحی سایت فروشگاهی با وردپرس</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>طراحی سایت چند زبانه</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>سئو حرفه ای وبسایت</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>آموزش سئو حرفه ای وردپرس</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>طراحی سایت فروشگاهی با وردپرس</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>طراحی سایت چند زبانه</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>سئو حرفه ای وبسایت</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>آموزش سئو حرفه ای وردپرس</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>طراحی سایت فروشگاهی با وردپرس</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>طراحی سایت چند زبانه</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>سئو حرفه ای وبسایت</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>آموزش سئو حرفه ای وردپرس</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>طراحی سایت فروشگاهی با وردپرس</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>طراحی سایت چند زبانه</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>سئو حرفه ای وبسایت</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>آموزش سئو حرفه ای وردپرس</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>طراحی سایت فروشگاهی با وردپرس</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>طراحی سایت چند زبانه</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>سئو حرفه ای وبسایت</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-article">
+                                            <b>آموزش سئو حرفه ای وردپرس</b>
+                                        </div>
+
+
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row margin-top10">
+                        <div class="col-md-12">
+                            <div class="dk-box ">
+
+                                <div class="row">
+                                    <h5 class="col-md-12 ">ابر برچسب ها (کلیک کنید)</h5>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 SearchChk">
+                                        <div class="tagstyle col-calc-7">
+                                            <b>پارکینگ</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>آسانسور</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>سرویس ایرانی</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>پارکینگ</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>آسانسور</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>سرویس ایرانی</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>پارکینگ</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>آسانسور</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>سرویس ایرانی</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>پارکینگ</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>آسانسور</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>سرویس ایرانی</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>پارکینگ</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>آسانسور</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>سرویس ایرانی</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>پارکینگ</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>آسانسور</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>سرویس ایرانی</b>
+                                        </div>
+
+                                        <div class="tagstyle col-calc-7">
+                                            <b>پارکینگ</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>آسانسور</b>
+                                        </div>
+                                        <div class="tagstyle col-calc-7">
+                                            <b>سرویس ایرانی</b>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <div class="clearfix"></div>
+
+                </div>
             </div>
         </div>
-    </div>
 
 
 }
