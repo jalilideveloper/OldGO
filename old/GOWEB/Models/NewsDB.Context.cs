@@ -161,5 +161,10 @@ namespace GOWEB.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spgo_Search_Result>("spgo_Search", searchItemParameter);
         }
+    
+        public virtual ObjectResult<GetMenuTitle_Result> GetMenuTitle()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetMenuTitle_Result>("GetMenuTitle");
+        }
     }
 }

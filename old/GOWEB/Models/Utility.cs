@@ -20,6 +20,7 @@ namespace GOWEB.Models
         public static List<listNews> lstNewsByMagazineID = new List<listNews>();
         public static List<tblMenu> lstMenu = new List<tblMenu>();
         public static tblNew newsItem = new tblNew();
+        public static List<tblMenu> menuTag = new List<tblMenu>();
 
         public void UpdateNews(object sender, ElapsedEventArgs e)
         {
@@ -29,6 +30,17 @@ namespace GOWEB.Models
                 s.GetData();
             }
         }
+
+        public static void FillMenuTag()
+        {
+            using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+            {
+                menuTag = db.tblMenus.Where(p => p.ParrentID != null).OrderByDescending(p => p.MenuID).ToList(); 
+
+            }
+        }
+
+
 
         public static void FillMenuList()
         {

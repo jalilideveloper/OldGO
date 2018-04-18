@@ -24,8 +24,7 @@ namespace GOWEB
         private static Timer UpdateSitremaps;
         private static Timer UpdateAllList;
         private const String SiteMapNodeName = "url";
-  
-
+        
 
         protected void Application_Start()
         {
@@ -40,7 +39,7 @@ namespace GOWEB
             Utility.lstNewsByMagazineID.Clear();
             Utility.lstTopNews.Clear();
 
-
+            Utility.FillMenuTag();
             Utility.ServeDataForMagazine();
             Utility.GetMostNewsTop();
             Utility.GetAllMagazine();
