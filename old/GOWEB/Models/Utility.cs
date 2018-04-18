@@ -19,7 +19,7 @@ namespace GOWEB.Models
         public static List<listNews> lstTopNews = new List<listNews>();
         public static List<listNews> lstNewsByMagazineID = new List<listNews>();
         public static List<tblMenu> lstMenu = new List<tblMenu>();
-
+        public static tblNew newsItem = new tblNew();
 
         public void UpdateNews(object sender, ElapsedEventArgs e)
         {
