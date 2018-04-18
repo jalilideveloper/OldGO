@@ -110,73 +110,6 @@
 
 
 
-                    <div class="widget hidden-sm hidden-xs">
-                        <div class="widget-header text-align-center">
-                            <h6 class="line-height-2-5">تگ ها</h6>
-                        </div>
-                        <div class="widget-content md-padding">
-
-                            <ul class="tag_nav list-unstyled  div-bg-white">
-                                <li class="active"><a href="#">قالب</a></li>
-                                <li><a href="#">طراحی سایت</a></li>
-                                <li><a href="#">سئو</a></li>
-                                <li><a href="#">بهینه سازی سایت</a></li>
-                                <li><a href="#">موبایل</a></li>
-                                <li><a href="#">بازی</a></li>
-                                <li><a href="#">اخبار</a></li>
-                                <li><a href="#">تکنولوژی</a></li>
-                                <li><a href="#">طراحی قالب</a></li>
-                                <li><a href="#">وردپرس</a></li>
-                                <li><a href="#">جوملا</a></li>
-                                <div class="clearfix"></div>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="widget hidden-sm hidden-xs">
-                        <div class="widget-header text-align-center">
-                            <h6 class="line-height-2-5">تبلیغات</h6>
-                        </div>
-                        <div class="widget-content md-padding">
-                            <div class="row text-align-center no-padding">
-                                <div class="paddingbottom5 col-lg-12 col-md-12 ">
-                                    <div class="paddingbottom5">
-                                        <a target="_blank" href="http://mhzdecor.com/">
-                                            <img src="~/images/divarpoosh/divarpoosh.jpg" alt="دیوارپوش" class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="paddingbottom5">
-                                        <a target="_blank" href="http://mhzdecor.com/">
-                                            <img src="~/images/divarpoosh/divarpooshazaran.jpg" alt="دیوارپوش آذران" class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="paddingbottom5">
-                                        <a target="_blank" href="http://mhzdecor.com/">
-                                            <img src="~/images/divarpoosh/divarpooshazaranmhz.jpg" alt="دیوارپوش" class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="paddingbottom5">
-                                        <a target="_blank" href="http://mhzdecor.com/">
-                                            <img src="~/images/divarpoosh/divarpooshmhz.jpg" alt="دیوارپوش آذران" class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="paddingbottom5">
-                                        <a target="_blank" href="http://mhzdecor.com/">
-                                            <img src="~/images/divarpoosh/divarpooshmhzdecor.jpg" alt="دیوارپوش" class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="paddingbottom5">
-                                        <a target="_blank" href="http://mhzdecor.com/">
-                                            <img src="~/images/divarpoosh/thedivarpoosh.jpg" alt="دیوارپوش آذران" class="img-responsive">
-                                        </a>
-                                    </div>
-
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
 
                 </div>
 
@@ -245,33 +178,26 @@
 
 
 
+                    <div class="widget hidden-sm hidden-xs">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">تبلیغات</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+                            <div class="row text-align-center no-padding">
+                                <div class="paddingbottom5 col-lg-12 col-md-12 ">
+
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://mhzdecor.com/">
+                                            <img src="~/images/divarpoosh/divarpooshmhzdecor.jpg" alt="دیوارپوش" class="img-responsive">
+                                        </a>
+                                    </div>
 
 
-                    @{
-
-                        foreach (var item in Utility.lstMagUnDisc)
-                        {
-
-                            <div class='widget'>
-                                <div class='widget-header text-align-center'><a class='colorblack' href='/Home/مجله-اینترنتی/a|@item.SiteName'><h6 class='line-height-2-5'>@item.SiteName</h6></a></div><div class='widget-content md-padding'>
-
-                                    <ul class='list-unstyled div-bg-white'>
-                                        <div class='clearfix'></div>
-                                        @{foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName == item.MagazineName))
-                                            {
-
-                                                var PrehrefA = "/Home/جزئیات-خبر-فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
-                                                <li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a target='_blank' title='@itemInside.NTitle' href='@PrehrefA'> @itemInside.NTitle</a></li>
-
-                                            }
-                                        }
-                                    </ul>
                                 </div>
                             </div>
-                                            }
 
-
-                    }
+                        </div>
+                    </div>
 
 
 
