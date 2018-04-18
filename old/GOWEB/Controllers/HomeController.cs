@@ -186,7 +186,7 @@ namespace GOWEB.Controllers
             ViewBag.TagSearched = id;
             using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
             {
-                var q = db.spgo_Search(id).Take(100).Where(p => p.Title.Contains(id)).Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber, Description = p.Descriptions, PubDate = p.PubDate.ToString(), SiteTitle = p.MagazineID.ToString() }).ToList();;
+                var q = db.spgo_Search(id).Take(30).Where(p => p.Title.Contains(id)).Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber, Description = p.Descriptions, PubDate = p.PubDate.ToString(), SiteTitle = p.MagazineID.ToString() }).ToList();;
                 tagList = q;
             }
             return View();
