@@ -26,7 +26,12 @@ namespace GOWEB.Controllers
             {
                 using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
                 {
-                    ViewBag.Data = db.tblPages.Where(p => p.tblMenu.MenuUrl == id).FirstOrDefault();
+                    //ViewBag.Data = db.tblPages.Where(p => p.tblMenu.MenuUrl == id).FirstOcdrDefault();
+                    ViewBag.Data = (from i in db.tblPages
+                                    join p in db.tblMenus on i.MenuID equals p.MenuID
+                                    where p.MenuUrl == id
+                                    select i).FirstOrDefault();
+                                   
                 }
             }
 

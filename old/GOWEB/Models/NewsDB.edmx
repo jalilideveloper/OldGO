@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="greenopt_GONewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="greenopt_GONewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblLanguages">
           <Key>
             <PropertyRef Name="LanguageID" />
@@ -157,7 +157,8 @@
             <End Role="tblNews" EntitySet="tblNews" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="greenopt_GONewsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -196,7 +197,6 @@
           <Property Name="MenuUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblLanguage" Relationship="Self.FK_tblMenu_tblLanguages" FromRole="tblMenu" ToRole="tblLanguages" />
           <NavigationProperty Name="tblMagazines" Relationship="Self.FK_tblMagazines_tblMenu" FromRole="tblMenu" ToRole="tblMagazines" />
-          <NavigationProperty Name="tblPages" Relationship="Self.FK_tblPages_tblMenu" FromRole="tblMenu" ToRole="tblPages" />
         </EntityType>
         <EntityType Name="tblNew">
           <Key>
@@ -227,7 +227,6 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="MenuID" Type="Int32" />
-          <NavigationProperty Name="tblMenu" Relationship="Self.FK_tblPages_tblMenu" FromRole="tblPages" ToRole="tblMenu" />
         </EntityType>
         <Association Name="FK_tblMenu_tblLanguages">
           <End Role="tblLanguages" Type="Self.tblLanguage" Multiplicity="0..1" />
@@ -265,18 +264,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tblPages_tblMenu">
-          <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="0..1" />
-          <End Role="tblPages" Type="Self.tblPage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblMenu">
-              <PropertyRef Name="MenuID" />
-            </Principal>
-            <Dependent Role="tblPages">
-              <PropertyRef Name="MenuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="greenopt_GONewsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblLanguages" EntityType="Self.tblLanguage" />
           <EntitySet Name="tblMagazines" EntityType="Self.tblMagazine" />
@@ -295,38 +282,10 @@
             <End Role="tblMagazines" EntitySet="tblMagazines" />
             <End Role="tblNews" EntitySet="tblNews" />
           </AssociationSet>
-          <AssociationSet Name="FK_tblPages_tblMenu" Association="Self.FK_tblPages_tblMenu">
-            <End Role="tblMenu" EntitySet="tblMenus" />
-            <End Role="tblPages" EntitySet="tblPages" />
-          </AssociationSet>
           <FunctionImport Name="ComparePageWithMenu" ReturnType="Collection(greenopt_GONewsModel.ComparePageWithMenu_Result)">
-          <Parameter Name="MenuID" Mode="In" Type="Int32" />
+            <Parameter Name="MenuID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(greenopt_GONewsModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(greenopt_GONewsModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_InsertNews" ReturnType="Collection(Int32)">
+          <FunctionImport Name="sp_InsertNews">
             <Parameter Name="Title" Mode="In" Type="String" />
             <Parameter Name="Descriptions" Mode="In" Type="String" />
             <Parameter Name="PubDate" Mode="In" Type="DateTime" />
@@ -336,35 +295,29 @@
             <Parameter Name="DateInserted" Mode="In" Type="DateTime" />
             <Parameter Name="LinkUrl" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="spgo_GetAllMagazine" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllMagazine_Result)" />
           <FunctionImport Name="spgo_GetAllNews" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllNews_Result)" />
           <FunctionImport Name="spgo_GetAllRecentNewsTopView" ReturnType="Collection(greenopt_GONewsModel.spgo_GetAllRecentNewsTopView_Result)" />
           <FunctionImport Name="spgo_GetLatestNewsOrderByDate" ReturnType="Collection(greenopt_GONewsModel.spgo_GetLatestNewsOrderByDate_Result)">
-          <Parameter Name="startpageid" Mode="In" Type="Int32" />
+            <Parameter Name="startpageid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetLatestNewsOrderByDateByMGID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetLatestNewsOrderByDateByMGID_Result)">
             <Parameter Name="mgID" Mode="In" Type="Int32" />
             <Parameter Name="startpageid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetNewsByID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetNewsByID_Result)">
-          <Parameter Name="NewsID" Mode="In" Type="Int32" />
+            <Parameter Name="NewsID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetNewsByMgIDOrderByNewsID" ReturnType="Collection(greenopt_GONewsModel.spgo_GetNewsByMgIDOrderByNewsID_Result)">
-          <Parameter Name="mgID" Mode="In" Type="Int32" />
+            <Parameter Name="mgID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_GetPageNumbers" ReturnType="Collection(Int32)">
-          <Parameter Name="MagazineID" Mode="In" Type="Int32" />
+            <Parameter Name="MagazineID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spgo_LatestNewsPublishDate" ReturnType="Collection(greenopt_GONewsModel.spgo_LatestNewsPublishDate_Result)" />
           <FunctionImport Name="spgo_LatestNewsViewNumber" ReturnType="Collection(greenopt_GONewsModel.spgo_LatestNewsViewNumber_Result)" />
           <FunctionImport Name="spgo_Search" ReturnType="Collection(greenopt_GONewsModel.spgo_Search_Result)">
-          <Parameter Name="SearchItem" Mode="In" Type="String" />
+            <Parameter Name="SearchItem" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="ComparePageWithMenu_Result">
@@ -378,17 +331,6 @@
           <Property Type="String" Name="Description" Nullable="true" />
           <Property Type="DateTime" Name="Date" Nullable="true" Precision="23" />
           <Property Type="Int32" Name="MenuID" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
         <ComplexType Name="spgo_GetAllMagazine_Result">
           <Property Type="Int32" Name="MagazineID" Nullable="false" />

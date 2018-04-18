@@ -18,7 +18,6 @@ namespace GOWEB.Models
         public tblMenu()
         {
             this.tblMagazines = new HashSet<tblMagazine>();
-            this.tblPages = new HashSet<tblPage>();
         }
     
         public int MenuID { get; set; }
@@ -31,7 +30,5 @@ namespace GOWEB.Models
         public virtual tblLanguage tblLanguage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblMagazine> tblMagazines { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblPage> tblPages { get; set; }
     }
 }

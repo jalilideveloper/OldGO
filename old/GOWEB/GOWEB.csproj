@@ -236,12 +236,6 @@
     <Compile Include="Models\spgo_Search_Result.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>NewsDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\tblLanguage.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>
