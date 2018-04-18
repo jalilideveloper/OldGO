@@ -1,8 +1,17 @@
-﻿
+﻿@using GOWEB.Controllers;
 @{
     ViewBag.Title = "tag";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>tag</h2>
+
+
+@{
+
+    // records of search result. 100 row
+    var q = HomeController.tagList;
+
+
+}
 
