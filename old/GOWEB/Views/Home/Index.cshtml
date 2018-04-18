@@ -823,81 +823,22 @@
 
                                 <div class="row">
                                     <h5 class="col-md-12 ">جدیدترین مطالب</h5>
-
+                                        
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 SearchChk">
-                                        <div class="tagstyle col-calc-article">
-                                            <b>طراحی سایت فروشگاهی با وردپرس</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>طراحی سایت چند زبانه</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>سئو حرفه ای وبسایت</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>آموزش سئو حرفه ای وردپرس</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>طراحی سایت فروشگاهی با وردپرس</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>طراحی سایت چند زبانه</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>سئو حرفه ای وبسایت</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>آموزش سئو حرفه ای وردپرس</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>طراحی سایت فروشگاهی با وردپرس</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>طراحی سایت چند زبانه</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>سئو حرفه ای وبسایت</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>آموزش سئو حرفه ای وردپرس</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>طراحی سایت فروشگاهی با وردپرس</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>طراحی سایت چند زبانه</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>سئو حرفه ای وبسایت</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>آموزش سئو حرفه ای وردپرس</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>طراحی سایت فروشگاهی با وردپرس</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>طراحی سایت چند زبانه</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>سئو حرفه ای وبسایت</b>
-                                        </div>
-                                        <div class="tagstyle col-calc-article">
-                                            <b>آموزش سئو حرفه ای وردپرس</b>
-                                        </div>
 
+                                        @foreach (var item in Utility.menuTag)
+                                        {
+                                            <div class="tagstyle col-calc-article">
+                                                <a href="/Learning/طراحی-سایت-سئو-سایت-بهینه-سازی-سایت/@item.MenuUrl"><b>@item.MenuName</b></a>
+                                            </div>
 
-
+                                        }
 
 
                                     </div>
-
-
-
                                 </div>
-
 
 
                             </div>
