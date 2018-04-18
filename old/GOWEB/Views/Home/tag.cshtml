@@ -55,7 +55,7 @@
     <div class="main_bg">
         <div class="container">
             <div class="main_grid1">
-                <h4 class="style pull-left">اخبار فناوری و تکنولوژی</h4>
+                <h4 class="style pull-left">تگ</h4>
                 <ol class="breadcrumb pull-right">
                     <li><a href="~/Home/Index">خانه</a></li>
                     <li class="active"></li>
@@ -201,11 +201,11 @@
 
                                 }
                                 System.Globalization.PersianCalendar persianCalandar = new System.Globalization.PersianCalendar();
-                                if (Utility.newsItem.PubDate != null)
+                                if (item.PubDate != null)
                                 {
-                                    int year = persianCalandar.GetYear(Convert.ToDateTime(Utility.newsItem.PubDate));
-                                    int month = persianCalandar.GetMonth(Convert.ToDateTime(Utility.newsItem.PubDate));
-                                    int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(Utility.newsItem.PubDate));
+                                    int year = persianCalandar.GetYear(Convert.ToDateTime(item.PubDate));
+                                    int month = persianCalandar.GetMonth(Convert.ToDateTime(item.PubDate));
+                                    int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(item.PubDate));
                                     ShamsiDate = year.ToString() + "/" + month.ToString() + "/" + day.ToString();
                                 }
 

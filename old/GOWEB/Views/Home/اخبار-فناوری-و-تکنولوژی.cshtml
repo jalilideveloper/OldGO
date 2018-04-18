@@ -299,7 +299,7 @@
                         <ul class="pagination" id="PageNumber">
 
                             @{
-
+                                //articleshow
                                 if (urlse.Contains("%D8%B5%D9%81%D8%AD%D9%87-%D8%A8%D9%87%DB%8C%D9%86%D9%87-%D8%B3%D8%A7%D8%B2%DB%8C-%D8%B3%D8%A7%DB%8C%D8%AA/"))
                                 {
                                     var urlSeg3 = Request.Url.Segments[3].Substring(4, Request.Url.Segments[3].Length - 4);
@@ -349,6 +349,7 @@
                                     <h5 class='padding-15 paginationbtm'>صفحه @countarticleshow از @data</h5>
 
                                 }
+                                //article
                                 else if (urlse.Contains("%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-%D9%81%D9%86%D8%A7%D9%88%D8%B1%DB%8C-%D9%88-%D8%AA%DA%A9%D9%86%D9%88%D9%84%D9%88%DA%98%DB%8C"))
                                 {
                                     int data = Convert.ToInt32(DTController.GetAllPages(0));
@@ -366,6 +367,7 @@
                                     }
                                     <h5 class='padding-15 paginationbtm'>صفحه 0 از @data</h5>
                                 }
+                                //magazineselected
                                 else if (urlse.Contains("%D8%B5%D9%81%D8%AD%D9%87-%D9%85%D8%AC%D9%84%D9%87-%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C/"))
                                 {
 
@@ -416,6 +418,7 @@
                                     <h5 class='padding-15 paginationbtm'>صفحه @start از @data </h5>
 
                                 }
+                                //magazine
                                 else if (urlse.Contains("%D9%85%D8%AC%D9%84%D9%87-%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C/"))
                                 {
                                     var urlSeg3 = Request.Url.Segments[3];
