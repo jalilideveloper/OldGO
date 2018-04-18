@@ -26,6 +26,5 @@ namespace GOWEB.Models
         public Nullable<int> MenuID { get; set; }
     
         public virtual tblMenu tblMenu { get; set; }
-        public string PassCode { get; set; }
     }
 }

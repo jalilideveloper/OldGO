@@ -27,7 +27,6 @@ namespace GOWEB.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tblLanguage> tblLanguages { get; set; }
         public virtual DbSet<tblMagazine> tblMagazines { get; set; }
         public virtual DbSet<tblMenu> tblMenus { get; set; }
@@ -255,6 +254,15 @@ namespace GOWEB.Models
         public virtual ObjectResult<spgo_LatestNewsViewNumber_Result> spgo_LatestNewsViewNumber()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spgo_LatestNewsViewNumber_Result>("spgo_LatestNewsViewNumber");
+        }
+    
+        public virtual ObjectResult<spgo_Search_Result> spgo_Search(string searchItem)
+        {
+            var searchItemParameter = searchItem != null ?
+                new ObjectParameter("SearchItem", searchItem) :
+                new ObjectParameter("SearchItem", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spgo_Search_Result>("spgo_Search", searchItemParameter);
         }
     }
 }

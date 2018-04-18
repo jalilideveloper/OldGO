@@ -178,7 +178,16 @@ namespace GOWEB.Controllers
         //}
 
 
+        public ActionResult tag(string id)
+        {
+            using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+            {
+                var q = db.spgo_Search(id).Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber, Description = p.Descriptions, PubDate = p.PubDate.ToString(), SiteTitle = p.SiteTitle }).ToList();;
 
+
+            }
+            return View();
+        }
 
 
         [ActionName("ارتباط-با-ما-سئو-سایت")]
