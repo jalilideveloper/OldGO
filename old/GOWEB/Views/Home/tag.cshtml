@@ -1,17 +1,301 @@
-﻿@using GOWEB.Controllers;
-@{
-    ViewBag.Title = "tag";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<h2>tag</h2>
+﻿@using GOWEB.Models;
+@using System.Xml;
+@using GOWEB.Controllers;
 
 
 @{
 
     // records of search result. 100 row
     var q = HomeController.tagList;
+    var searched = ViewBag.TagSearched;
+
+}
+
+
+@section Head
+{
+    @{
+        
+        <title>تگ | سئو سبز</title>
+
+
+        <meta name="description" content="سئو سبز | مقالات تکنولوژی | موبایل | ماشین | اینترنت | برنامه نویسی | آموزش | قیمت | اپلیکیشن | آیفون | اندروید | رونمایی | زمان عرضه | نسخه جدید | مرورگر | ویندوز | پلاگین | بهینه سازی | سئو وب سایت | گوگل | الکسا |  ال جی | نوکیا | سامسونگ | هواوی | گوشی هوشمند | کتاب | ایکس باکس | بازی | پلی استیشن | ایکس باکس | سرعت | دوربین | سرفیس | اسمارت فون | اچ تی سی" />
+        <meta name="keywords" content="سئو سبز | مقالات تکنولوژی | موبایل | ماشین | اینترنت | برنامه نویسی | آموزش | قیمت | اپلیکیشن | آیفون | اندروید | رونمایی | زمان عرضه | نسخه جدید | مرورگر | ویندوز | پلاگین | بهینه سازی | سئو وب سایت | گوگل | الکسا |  ال جی | نوکیا | سامسونگ | هواوی | گوشی هوشمند | کتاب | ایکس باکس | بازی | پلی استیشن | ایکس باکس | سرعت | دوربین | سرفیس | اسمارت فون | اچ تی سی" />
+        <meta name="DC.keywords" content="سئو سبز | مقالات تکنولوژی | موبایل | ماشین | اینترنت | برنامه نویسی | آموزش | قیمت | اپلیکیشن | آیفون | اندروید | رونمایی | زمان عرضه | نسخه جدید | مرورگر | ویندوز | پلاگین | بهینه سازی | سئو وب سایت | گوگل | الکسا |  ال جی | نوکیا | سامسونگ | هواوی | گوشی هوشمند | کتاب | ایکس باکس | بازی | پلی استیشن | ایکس باکس | سرعت | دوربین | سرفیس | اسمارت فون | اچ تی سی" />
+        <meta name="DC.description" content="سئو سبز | مقالات تکنولوژی | موبایل | ماشین | اینترنت | برنامه نویسی | آموزش | قیمت | اپلیکیشن | آیفون | اندروید | رونمایی | زمان عرضه | نسخه جدید | مرورگر | ویندوز | پلاگین | بهینه سازی | سئو وب سایت | گوگل | الکسا |  ال جی | نوکیا | سامسونگ | هواوی | گوشی هوشمند | کتاب | ایکس باکس | بازی | پلی استیشن | ایکس باکس | سرعت | دوربین | سرفیس | اسمارت فون | اچ تی سی" />
+        <meta name="DC.Title" content="سئو سبز | مقالات تکنولوژی | تکنولوژی | بهینه ساز سبز" />
+        <meta name="DC.Subject" content="سئو سبز | مقالات تکنولوژی | تکنولوژی | بهینه ساز سبز" />
+
+        <meta property="og:title" content="سئو سبز | مقالات تکنولوژی | تکنولوژی | بهینه ساز سبز" />
+        <meta property="og:url" content="http://iwebdesignseo.com/Home/Article" />
+        <meta property="og:description" content="سئو سبز | مقالات تکنولوژی | موبایل | ماشین | اینترنت | برنامه نویسی | آموزش | قیمت | اپلیکیشن | آیفون | اندروید | رونمایی | زمان عرضه | نسخه جدید | مرورگر | ویندوز | پلاگین | بهینه سازی | سئو وب سایت | گوگل | الکسا |  ال جی | نوکیا | سامسونگ | هواوی | گوشی هوشمند | کتاب | ایکس باکس | بازی | پلی استیشن | ایکس باکس | سرعت | دوربین | سرفیس | اسمارت فون | اچ تی سی" />
+
+        <meta name="twitter:title" content="سئو سبز | مقالات تکنولوژی | تکنولوژی | بهینه ساز سبز" />
+        <meta name="twitter:description" content="سئو سبز | مقالات تکنولوژی | موبایل | ماشین | اینترنت | برنامه نویسی | آموزش | قیمت | اپلیکیشن | آیفون | اندروید | رونمایی | زمان عرضه | نسخه جدید | مرورگر | ویندوز | پلاگین | بهینه سازی | سئو وب سایت | گوگل | الکسا |  ال جی | نوکیا | سامسونگ | هواوی | گوشی هوشمند | کتاب | ایکس باکس | بازی | پلی استیشن | ایکس باکس | سرعت | دوربین | سرفیس | اسمارت فون | اچ تی سی" />
+        <meta name="twitter:creator" content="http://iwebdesignseo.com/Home/Article" />
+
+
+    }
+}
+@section StyleScript
+    {
+
+    <link rel="stylesheet" href="~/fonts/css/font-awesome.min.css">
+
+}
+
+@section MainContent
+    {
+
+
+
+
+
+
+    <div class="main_bg">
+        <div class="container">
+            <div class="main_grid1">
+                <h4 class="style pull-left">اخبار فناوری و تکنولوژی</h4>
+                <ol class="breadcrumb pull-right">
+                    <li><a href="~/Home/Index">خانه</a></li>
+                    <li class="active"></li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main_btm1">
+
+        <div class="container">
+            <div class="blog">
+                <div class="col-md-2  blog_right no-padding">
+
+                    <div class="widget ">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">مقالات</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+                            <ul class="tag_nav list-unstyled div-bg-white" id="MyMagazinesG">
+                                @{foreach (var items in Utility.lstMag)
+                                    {
+                                        <li><a href='/Home/مجله-اینترنتی/a|@items.SiteName'>@items.SiteName</a></li>
+                                    }
+
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="widget ">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">تبلیغات</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+
+                            <ul class="ads_nav list-unstyled   div-bg-white">
+                                <li><a target="_blank" href="http://mhzdecor.com/"><img src="~/images/divarpoosh/divarpoosh81.jpg" alt="دیوارپوش"> </a></li>
+                                <li><a target="_blank" href="http://mhzdecor.com/"><img src="~/images/divarpoosh/wall81.jpg" alt="دیوارپوش آذران"> </a></li>
+                                <li><a target="_blank" href="http://mhzdecor.com/"><img src="~/images/divarpoosh/divarpooshmhz81.jpg" alt="دیوارپوش"> </a></li>
+                                <li><a target="_blank" href="http://mhzdecor.com/"><img src="~/images/divarpoosh/kaghazdivarimhz81.jpg" alt="دیوارپوش آذران"> </a></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <div class="widget hidden-sm hidden-xs">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">تگ ها</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+
+                            <ul class="tag_nav list-unstyled  div-bg-white">
+                                <li class="active"><a href="#">قالب</a></li>
+                                <li><a href="#">طراحی سایت</a></li>
+                                <li><a href="#">سئو</a></li>
+                                <li><a href="#">بهینه سازی سایت</a></li>
+                                <li><a href="#">موبایل</a></li>
+                                <li><a href="#">بازی</a></li>
+                                <li><a href="#">اخبار</a></li>
+                                <li><a href="#">تکنولوژی</a></li>
+                                <li><a href="#">طراحی قالب</a></li>
+                                <li><a href="#">وردپرس</a></li>
+                                <li><a href="#">جوملا</a></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="widget hidden-sm hidden-xs">
+                        <div class="widget-header text-align-center">
+                            <h6 class="line-height-2-5">تبلیغات</h6>
+                        </div>
+                        <div class="widget-content md-padding">
+                            <div class="row text-align-center no-padding">
+                                <div class="paddingbottom5 col-lg-12 col-md-12 ">
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://mhzdecor.com/">
+                                            <img src="~/images/divarpoosh/divarpoosh.jpg" alt="دیوارپوش" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://mhzdecor.com/">
+                                            <img src="~/images/divarpoosh/divarpooshazaran.jpg" alt="دیوارپوش آذران" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://mhzdecor.com/">
+                                            <img src="~/images/divarpoosh/divarpooshazaranmhz.jpg" alt="دیوارپوش" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://mhzdecor.com/">
+                                            <img src="~/images/divarpoosh/divarpooshmhz.jpg" alt="دیوارپوش آذران" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://mhzdecor.com/">
+                                            <img src="~/images/divarpoosh/divarpooshmhzdecor.jpg" alt="دیوارپوش" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="paddingbottom5">
+                                        <a target="_blank" href="http://mhzdecor.com/">
+                                            <img src="~/images/divarpoosh/thedivarpoosh.jpg" alt="دیوارپوش آذران" class="img-responsive">
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-8  blog_main ">
+
+
+
+
+
+                    <div id="CenterContent">
+                        @{
+
+
+                            foreach (var item in q)
+                            {
+                                var ShamsiDate = "";
+
+                                if (item.Description.Contains("a"))
+                                {
+                                    string a = item.Description.Replace("href", "class='RemoveA' href='#' key");
+                                    item.Description = a;
+
+                                }
+                                System.Globalization.PersianCalendar persianCalandar = new System.Globalization.PersianCalendar();
+                                if (Utility.newsItem.PubDate != null)
+                                {
+                                    int year = persianCalandar.GetYear(Convert.ToDateTime(Utility.newsItem.PubDate));
+                                    int month = persianCalandar.GetMonth(Convert.ToDateTime(Utility.newsItem.PubDate));
+                                    int day = persianCalandar.GetDayOfMonth(Convert.ToDateTime(Utility.newsItem.PubDate));
+                                    ShamsiDate = year.ToString() + "/" + month.ToString() + "/" + day.ToString();
+                                }
+
+
+                                var Prehref = "/Home/جزئیات-خبر-فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
+                                    <div class='blog_list bg-white'><div class='col-md-12 blog_left dk-box '><a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @ShamsiDate   <a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span><p class='para'>@Html.Raw(item.Description)</p><div class='read_btn padding-bottom10'><a target='_blank' href='@Prehref'><button class='btnArticle'>ادامه مطلب</button></a></div></div><div class='clearfix'></div></div>
+
+                                }
+
+
+                          
+
+                        }
+
+
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+                <div class="col-md-2 blog_right no-padding ellipsistitle" id="MagazinesNews">
+
+
+
+
+
+
+                    @{
+
+                        foreach (var item in Utility.lstMagUnDisc)
+                        {
+
+                            <div class='widget'>
+                                <div class='widget-header text-align-center'><a class='colorblack' href='/Home/مجله-اینترنتی/a|@item.SiteName'><h6 class='line-height-2-5'>@item.SiteName</h6></a></div><div class='widget-content md-padding'>
+
+                                    <ul class='list-unstyled div-bg-white'>
+                                        <div class='clearfix'></div>
+                                        @{foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName == item.MagazineName))
+                                            {
+
+                                                var PrehrefA = "/Home/جزئیات-خبر-فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
+                                                <li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a target='_blank' title='@itemInside.NTitle' href='@PrehrefA'> @itemInside.NTitle</a></li>
+
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                                            }
+
+
+                    }
+
+
+
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+}
+
+@section ScriptJs{
+
+
+    <script>
+
+
+        //counter
+        var sc_project = 11467650;
+        var sc_invisible = 1;
+        var sc_security = "2f7d91ee";
+        var scJsHost = (("https:" == document.location.protocol) ?
+            "https://secure." : "http://www.");
+        document.write("<sc" + "ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></" + "script> ");
+    </script>
 
 
 }
+
+
+
 
