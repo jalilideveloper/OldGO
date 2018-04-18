@@ -20,8 +20,6 @@ namespace GOWEB.Controllers
     public class SyncController : Controller
     {
         // GET: Sync
-
-
         public void GetData()
         {
             try
@@ -95,9 +93,6 @@ namespace GOWEB.Controllers
                                         continue;
                                         
                                     }
-
-
-
                                 }
                             }
                             TempList.Clear();
@@ -121,7 +116,6 @@ namespace GOWEB.Controllers
                                     //await db.SaveChangesAsync();
                                     ctx.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900), DateTime.Now.Date, itemInside.Link);
                                     var qs = db.tblNews.Where(p => p.Title.Contains(n.Title)).FirstOrDefault();
-
 
                                     XmlWriterSettings settings = new XmlWriterSettings();
                                     settings.Encoding = Encoding.UTF8;
