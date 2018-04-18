@@ -1,5 +1,7 @@
 ﻿using GOWEB.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace GOWEB.Controllers
@@ -177,8 +179,16 @@ namespace GOWEB.Controllers
         //    return View();
         //}
 
-
-
+        public static List<listNews> tagList = new List<listNews>();
+        public ActionResult tag(string id)
+        {
+            using (greenopt_GONewsEntities db = new greenopt_GONewsEntities())
+            {
+                var q = db.spgo_Search(id).Where(p => p.Title.Contains(id)).Select(p => new listNews { NewsID = p.NewsID, NTitle = p.Title, MagazineName = p.MagazineName, ViewNumber = p.ViewNumber, Description = p.Descriptions, PubDate = p.PubDate.ToString(), SiteTitle = p.MagazineID.ToString() }).ToList();;
+                tagList = q;
+            }
+            return View();
+        }
 
 
         [ActionName("ارتباط-با-ما-سئو-سایت")]

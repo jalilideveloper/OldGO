@@ -119,7 +119,7 @@ namespace GOWEB.Controllers
                                     n.LinkUrl = itemInside.Link;
                                     //db.tblNews.Add(n);
                                     //await db.SaveChangesAsync();
-                                   ctx.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900), DateTime.Now.Date, itemInside.Link);
+                                    ctx.sp_InsertNews(itemInside.Title, itemInside.Content, itemInside.PublishDate, "", item.MagazineID, rnd.Next(500, 900), DateTime.Now.Date, itemInside.Link);
                                     var qs = db.tblNews.Where(p => p.Title.Contains(n.Title)).FirstOrDefault();
 
 
@@ -149,7 +149,7 @@ namespace GOWEB.Controllers
             catch (Exception e)
             {
                 //string q = e.InnerException.ToString();
-
+              
                 //return false;
             }
 
@@ -205,9 +205,7 @@ namespace GOWEB.Controllers
                 {
                     return entries.ToList();
                 }
-
-           
-             
+                
             }
             catch
             {

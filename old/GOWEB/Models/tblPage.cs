@@ -24,8 +24,7 @@ namespace GOWEB.Models
         public string Description { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> MenuID { get; set; }
-    
-        public virtual tblMenu tblMenu { get; set; }
         public string PassCode { get; set; }
+
     }
 }

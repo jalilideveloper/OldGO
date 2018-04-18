@@ -10,18 +10,18 @@
 namespace GOWEB.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class tblOrderDetailSeo
+    public partial class spgo_Search_Result
     {
-        public int OrderDetailSEOID { get; set; }
-        public Nullable<int> OrderID { get; set; }
-        public Nullable<int> ProductID { get; set; }
-        public Nullable<decimal> RequestAmount { get; set; }
+        public int NewsID { get; set; }
+        public string Title { get; set; }
+        public string MagazineName { get; set; }
+        public Nullable<long> ViewNumber { get; set; }
+        public Nullable<System.DateTime> PubDate { get; set; }
+        public string Descriptions { get; set; }
+        public Nullable<int> MagazineID { get; set; }
+        public string ImageUrl { get; set; }
         public string LinkUrl { get; set; }
-        public Nullable<int> DeadLineDay { get; set; }
-    
-        public virtual tblOrder tblOrder { get; set; }
-        public virtual tblProduct tblProduct { get; set; }
+        public Nullable<System.DateTime> DateInserted { get; set; }
     }
 }
