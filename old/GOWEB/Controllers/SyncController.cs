@@ -90,6 +90,7 @@ namespace GOWEB.Controllers
                                     }
                                     catch (Exception e)
                                     {
+                                        string s = e.InnerException.ToString();
                                         continue;
                                         
                                     }
