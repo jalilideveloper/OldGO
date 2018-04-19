@@ -15,6 +15,7 @@ namespace GOWEB.Controllers
           //  CheckNewData();
             return View();
         }
+    
         public ActionResult AddAds()
         {
             //  CheckNewData();

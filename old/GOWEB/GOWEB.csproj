@@ -188,6 +188,7 @@
   <ItemGroup>
     <Compile Include="Controllers\Error404Controller.cs" />
     <Compile Include="Controllers\LearningController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Models\ComparePageWithMenu_Result.cs">
       <DependentUpon>NewsDB.tt</DependentUpon>
     </Compile>
@@ -285,6 +286,7 @@
     <Content Include="images\home\img8.png" />
     <Content Include="images\images\آموزش_سئو_سایت.png" />
     <Content Include="images\images\طراحی_سایت_با_asp-net.png" />
+    <Content Include="images\tic1.png" />
     <Content Include="images\آموزش_سئو_سایت.png" />
     <Content Include="images\افزایش_رتبه_الکسا.jpg" />
     <Content Include="images\افزایش_رتبه_سایت_در_گوگل.jpg" />
@@ -612,6 +614,8 @@
     <Content Include="Views\Error404\BadRequest.cshtml" />
     <Content Include="Views\Error404\ConstructoringInServer.cshtml" />
     <Content Include="Views\Home\tag.cshtml" />
+    <Content Include="Views\Page\طراحی-سایت-پلان-یک.cshtml" />
+    <Content Include="Views\Page\چاپ-طراحی-سایت-پلان-یک.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
