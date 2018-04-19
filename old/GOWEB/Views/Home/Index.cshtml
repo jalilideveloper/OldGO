@@ -1,7 +1,7 @@
 ﻿@using GOWEB.Models;
 @using System.Xml;
 @using GOWEB.Controllers;
-
+@using System.Text.RegularExpressions;
 
 
 
@@ -50,274 +50,462 @@
             <div class="main_grid">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="col-md-8 mobile-resp">
+                        <div class="col-md-12 mobile-resp">
+
 
                             <div id="example1" class="slider-pro">
                                 <div class="sp-slides">
                                     <div class="sp-slide">
-                                        <img alt="طراحی سایت کاملا واکنشگرا و رسپانسیو" class="sp-image width-100per" src="../images/Responsive-Design-GO.jpg"
+                                        <img class="sp-image sp-image width-100per" alt="طراحی سایت کاملا واکنشگرا و رسپانسیو" src="../images/Responsive-Design-GO.jpg"
                                              data-src="../images/Responsive-Design-GO.jpg"
                                              data-retina="../images/Responsive-Design-GO.jpg" />
+
+                                        <p class="sp-layer sp-white sp-padding"
+                                           data-horizontal="50" data-vertical="50"
+                                           data-show-transition="left" data-hide-transition="up" data-show-delay="400" data-hide-delay="200">
+                                            Lorem ipsum
+                                        </p>
+
+                                        <p class="sp-layer sp-black sp-padding hide-small-screen"
+                                           data-horizontal="180" data-vertical="50"
+                                           data-show-transition="left" data-hide-transition="up" data-show-delay="600" data-hide-delay="100">
+                                            dolor sit amet
+                                        </p>
+
+                                        <p class="sp-layer sp-white sp-padding hide-medium-screen"
+                                           data-horizontal="315" data-vertical="50"
+                                           data-show-transition="left" data-hide-transition="up" data-show-delay="800">
+                                            consectetur adipisicing elit.
+                                        </p>
                                     </div>
+
                                     <div class="sp-slide">
-                                        <img alt="بهینه سازی سایت" class="sp-image width-100per" src="../images/SEO-GO.jpg"
-                                             data-src="../images/SEO-GO.jpg"
-                                             data-retina="../images/SEO-GO.jpg" />
+                                        <img class="sp-image" src="~/images/blank.gif"
+                                             data-src="http://bqworks.com/slider-pro/images/image2_medium.jpg"
+                                             data-retina="http://bqworks.com/slider-pro/images/image2_large.jpg" />
+
+                                        <h3 class="sp-layer sp-black sp-padding"
+                                            data-horizontal="40" data-vertical="10%"
+                                            data-show-transition="left" data-hide-transition="left">
+                                            Lorem ipsum dolor sit amet
+                                        </h3>
+
+                                        <p class="sp-layer sp-white sp-padding hide-medium-screen"
+                                           data-horizontal="40" data-vertical="22%"
+                                           data-show-transition="left" data-show-delay="200" data-hide-transition="left" data-hide-delay="200">
+                                            consectetur adipisicing elit
+                                        </p>
+
+                                        <p class="sp-layer sp-black sp-padding hide-small-screen"
+                                           data-horizontal="40" data-vertical="34%" data-width="350"
+                                           data-show-transition="left" data-show-delay="400" data-hide-transition="left" data-hide-delay="500">
+                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </p>
                                     </div>
+
                                     <div class="sp-slide">
-                                        <img alt="طراحی نرم افزار موبایل" class="sp-image width-100per" src="../images/Goptimizer.png"
-                                             data-src="../images/Goptimizer.png"
-                                             data-retina="../images/Goptimizer.png" />
+                                        <img class="sp-image" src="~/images/blank.gif"
+                                             data-src="http://bqworks.com/slider-pro/images/image3_medium.jpg"
+                                             data-retina="http://bqworks.com/slider-pro/images/image3_large.jpg" />
+
+                                        <p class="sp-layer sp-white sp-padding"
+                                           data-position="centerCenter" data-vertical="-50"
+                                           data-show-transition="right" data-hide-transition="left" data-show-delay="500">
+                                            Lorem ipsum dolor sit amet
+                                        </p>
+
+                                        <p class="sp-layer sp-black sp-padding hide-small-screen"
+                                           data-position="centerCenter" data-vertical="50"
+                                           data-show-transition="left" data-show-delay="700" data-hide-transition="right" data-hide-delay="200">
+                                            consectetur adipisicing elit
+                                        </p>
                                     </div>
-                                </div>
 
-                                <div class="sp-thumbnails dir-rtl font-family-bhoma">
-                                    <div class="sp-thumbnail">
-                                        <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/طراحی-سایت">طراحی سایت</a>
-                                        <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/طراحی-سایت">کاملا واکنش گرا و رسپانسیو</a>
+                                    <div class="sp-slide">
+                                        <img class="sp-image" src="~/images/blank.gif"
+                                             data-src="http://bqworks.com/slider-pro/images/image4_medium.jpg"
+                                             data-retina="http://bqworks.com/slider-pro/images/image4_large.jpg" />
+
+                                        <p class="sp-layer sp-black sp-padding"
+                                           data-position="bottomLeft"
+                                           data-show-transition="up" data-hide-transition="down">
+                                            Lorem ipsum dolor sit amet <span class="hide-small-screen">, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span> <span class="hide-medium-screen">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                                        </p>
                                     </div>
 
-                                    <div class="sp-thumbnail">
-                                        <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/سئو-سایت">بهینه سازی سایت</a>
-                                        <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/سئو-سایت">بهینه سازی سئو و تبلیغات در گوگل</a>
+                                    <div class="sp-slide">
+                                        <img class="sp-image" src="~/images/blank.gif"
+                                             data-src="http://bqworks.com/slider-pro/images/image5_medium.jpg"
+                                             data-retina="http://bqworks.com/slider-pro/images/image5_large.jpg" />
+
+                                        <p class="sp-layer sp-white sp-padding"
+                                           data-vertical="10" data-horizontal="2%" data-width="96%"
+                                           data-show-transition="down" data-show-delay="400" data-hide-transition="up">
+                                            Lorem ipsum dolor sit amet <span class="hide-small-screen">, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span> <span class="hide-medium-screen">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                                        </p>
                                     </div>
-                                    <div class="sp-thumbnail">
-                                        <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/طراحی-سایت">طراحی نرم افزار تحت موبایل</a>
-                                        <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/طراحی-سایت">اندروید، iOS، ویندوزفون</a>
+
+                                    <div class="sp-slide">
+                                        <img class="sp-image" src="~/images/blank.gif"
+                                             data-src="http://bqworks.com/slider-pro/images/image6_medium.jpg"
+                                             data-retina="http://bqworks.com/slider-pro/images/image6_large.jpg" />
+
+                                        <p class="sp-layer sp-white sp-padding"
+                                           data-horizontal="10" data-vertical="10" data-width="35%">
+                                            Lorem ipsum dolor sit amet <span class="hide-small-screen">, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span> <span class="hide-medium-screen">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                                        </p>
                                     </div>
-                                </div>
-                            </div>
 
 
-                        </div>
-
-                        <div class="col-md-4">
-                            <section class="mrg-bottom center dk-box dk-tr-banner teamdisplaynone">
-                                <a href="https://www.telegram.me/iwebdesignseo" target="_blank">
-                                    <img class="mediawidth100per" src="~/images/teamworkGo.jpg" alt="پشتیبانی سئو سبز" title="پشتیبانی سئو سبز">
-                                </a>
-                            </section>
-                            <section class="mrg-bottom center dk-box dk-tr-banner margin-top10 padding-20 text-align-center">
-
-                                <div class="row no-padding no-margin">
-                                    <div class="col-xs-2 col-sm-2 col-md-2 no-padding text-align-right"><i class="fa fa-mobile index-ico" aria-hidden="true"></i></div>
-                                    <div class="col-xs-4 col-sm-4 col-md-4 no-padding text-align-left"><h5>09128238263</h5></div>
-                                    <div class="col-xs-2 col-sm-2 col-md-2 no-padding text-align-right"><i class="fa fa-phone index-ico" aria-hidden="true"></i></div>
-                                    <div class="col-xs-4 col-sm-4 col-md-4 no-padding text-align-left"><h5>02177166964</h5></div>
-                                </div>
-
-
-                            </section>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-12 margin-bottom20">
-                        <div class="col-md-8">
-                            <div id="dk-services-feature" class="dk-box text-align-center teamdisplaynone">
-                                <ul class="list-style-none">
-                                    <li class="padding-9">
-                                        <a href="/Home/طراحی-سایت" target="_blank" title="تحویل با سرعت بالای سفارشات در وبسایت بهینه ساز سبز">
-
-                                            <i class="icon icon-delivery"></i>
-                                            <span class="padding-9">تحویل با سرعت</span>
-                                        </a>
-                                    </li>
-                                    <li class="padding-9">
-                                        <a href="/Home/طراحی-سایت" target="_blank" title="هفت روز ضمانت در وبسایت بهینه ساز سبز">
-
-                                            <i class="icon icon-return-policy"></i>
-                                            <span class="padding-9">٧ روز ضمانت </span>
-                                        </a>
-                                    </li>
-                                    <li class="padding-9">
-                                        <a href="/Home/طراحی-سایت" target="_blank" title="پرداخت اینترنتی هزینه سفارشات در وبسایت بهینه ساز سبز">
-
-                                            <i class="icon icon-payment-terms"></i>
-                                            <span class="padding-9">پرداخت آنلاین</span>
-                                        </a>
-                                    </li>
-                                    <li class="padding-9">
-                                        <a href="/Home/طراحی-سایت" target="_blank" title="تضمین بهترین قیمت در وبسایت بهینه ساز سبز">
-
-                                            <i class="icon icon-price-guarantee"></i>
-                                            <span class="padding-9">تضمین بهترین قیمت</span>
-                                        </a>
-                                    </li>
-                                    <li class="padding-9">
-                                        <a href="/Home/طراحی-سایت" target="_blank" title="خدمات ما شامل ضمانت می باشند">
-
-                                            <i class="icon icon-origin-guarantee"></i>
-                                            <span class="padding-9">ضمانت کالا</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 text-align-center">
-                            <section class="mrg-bottom center dk-box dk-tr-banner mediatgbox">
-                                <a href="https://www.telegram.me/iwebdesignseo" target="_blank">
-                                    <img class="mediawidth100per" src="~/images/iwebdesignseoTelegram.png" alt="پشتیبانی سئو سبز" title="پشتیبانی سئو سبز">
-                                </a>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-                <div class="main_grid col-xs-12">
-                    <div class="col-md-8">
-                        <img alt="بهینه سازی سایت" class="width-100per" src="~/images/advanced-seo.png" />
-                    </div>
-                    <div class="col-md-4 text-align-center">
-                        <img alt="بهینه سازی سئو" class="minddisplaynone" src="~/images/social-media-featured.jpg" />
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-                <div class="col-xs-12 text-align-center ">
-                    <div class="col-sm-6 ">
-                        <img alt="طراحی سایت" class="seoOptimizerwidth100per" src="~/images/GOfirst.png" />
-                    </div>
-                    <div class="col-sm-6">
-                        <img alt="بهینه سازی سایت" class="seoOptimizerwidth100per" src="~/images/GOsecond.png" />
-                    </div>
-                </div>
-
-
-
-
-
-
-
-                <div class="row">
-
-
-                    <div class="col-md-4 blog_right no-padding ellipsistitle" id="MagazinesNews">
-
-
-                        @{
-
-                            foreach (var item in Utility.lstMagUnDisc)
-                            {
-
-                                <div class='widget'>
-                                    <div class='widget-header text-align-center'><a class='colorblack' href='/Home/مجله-اینترنتی/a|@item.SiteName'><h6 class='line-height-2-5'>@item.SiteName</h6></a></div><div class='widget-content md-padding'>
-
-                                        <ul class='list-unstyled div-bg-white'>
-                                            <div class='clearfix'></div>
-                                            @{foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName == item.MagazineName))
-                                                {
-
-                                                    var Prehref = "/Home/جزئیات-خبر-فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
-                                                    <li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a target='_blank' title='@itemInside.NTitle' href='@Prehref'> @itemInside.NTitle</a></li>
-
-                                                }
-                                            }
-                                        </ul>
-                                    </div>
-                                </div>
-                                                }
-
-
-                        }
-
-
-
-                    </div>
-
-                    <div class="col-md-8  blog_main ">
-                        <div id="CenterContent">
-                            @{
-                                var urlse = Request.Url.Segments[2];
-
-
-                                foreach (var item in DTController.GetAllNews(0))
-                                {
-                                    if (item.Description.Contains("a"))
-                                    {
-                                        string a = item.Description.Replace("href", "class='RemoveA' href='#' key");
-                                        item.Description = a;
-                                                                                
-                                    }
-                                    
-                                    var Prehref = "/Home/جزئیات-خبر-فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
-                                        <div class='blog_list bg-white'>
-                                            <div class='col-md-12 blog_left dk-box '>
-                                                <a target='_blank' href='@Prehref'><img src='' alt='' class='img-responsive' /></a><h4 class='resp-padding-5'><a target='_blank' href='@Prehref'>@item.NTitle</a></h4><span>نوشته شده در تاریخ  @item.PubDate <a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span>
-
-
-                                                <p class='para'>@Html.Raw(item.Description)</p>
-                                                <div class='read_btn padding-bottom10'><a target='_blank' href='@Prehref'><button class='btnArticle'>ادامه مطلب</button></a></div>
-                                            </div><div class='clearfix'></div>
+                                    <div class="sp-thumbnails">
+                                        <div class="sp-thumbnail">
+                                            <h1 class="sp-thumbnail-title">طراحی سایت</h1>
+                                            <h2 class="sp-thumbnail-description">Dolor sit amet, consectetur adipiscing elit sed</h2>
                                         </div>
 
-                                   
+                                        <div class="sp-thumbnail">
+                                            <h1 class="sp-thumbnail-title">سئو ، بهینه سازی سایت</h1>
+                                            <h2 class="sp-thumbnail-description">Tempor incididunt ut labore et dolore magna aliqua</h2>
+                                        </div>
+
+                                        <div class="sp-thumbnail">
+                                            <h1 class="sp-thumbnail-title">تبلیغ در گوگل</h1>
+                                            <h2 class="sp-thumbnail-description">Ad minim veniam, quis nostrud exercitation</h2>
+                                        </div>
+
+                                        <div class="sp-thumbnail">
+                                            <h1 class="sp-thumbnail-title">اندروید ، iOS</h1>
+                                            <h2 class="sp-thumbnail-description">Nisi ut aliquip ex ea commodo consequat</h2>
+                                        </div>
+
+                                        <div class="sp-thumbnail">
+                                            <h1 class="sp-thumbnail-title">تبلیغ در شبکه های اجتماعی</h1>
+                                            <h2 class="sp-thumbnail-description">Irure dolor in reprehenderit in voluptate velit</h2>
+                                        </div>
+
+                                        <div class="sp-thumbnail">
+                                            <h1 class="sp-thumbnail-title">کسب درآمد با سایت شما</h1>
+                                            <h2 class="sp-thumbnail-description">Dolore eu fugiat nulla pariatur excepteur</h2>
+                                        </div>
 
 
-                                }
-
-                            }
-
+                                    </div>
+                                </div>
 
 
 
+
+
+
+
+
+
+                                @*<div id="example1" class="slider-pro">
+                                        <div class="sp-slides">
+                                            <div class="sp-slide">
+                                                <img alt="طراحی سایت کاملا واکنشگرا و رسپانسیو" class="sp-image width-100per" src="../images/Responsive-Design-GO.jpg"
+                                                     data-src="../images/Responsive-Design-GO.jpg"
+                                                     data-retina="../images/Responsive-Design-GO.jpg" />
+                                            </div>
+                                            <div class="sp-slide">
+                                                <img alt="بهینه سازی سایت" class="sp-image width-100per" src="../images/SEO-GO.jpg"
+                                                     data-src="../images/SEO-GO.jpg"
+                                                     data-retina="../images/SEO-GO.jpg" />
+                                            </div>
+                                            <div class="sp-slide">
+                                                <img alt="طراحی نرم افزار موبایل" class="sp-image width-100per" src="../images/Goptimizer.png"
+                                                     data-src="../images/Goptimizer.png"
+                                                     data-retina="../images/Goptimizer.png" />
+                                            </div>
+                                            <div class="sp-slide">
+                                                <img alt="بهینه سازی سایت" class="sp-image width-100per" src="../images/SEO-GO.jpg"
+                                                     data-src="../images/SEO-GO.jpg"
+                                                     data-retina="../images/SEO-GO.jpg" />
+                                            </div>
+                                            <div class="sp-slide">
+                                                <img alt="طراحی نرم افزار موبایل" class="sp-image width-100per" src="../images/Goptimizer.png"
+                                                     data-src="../images/Goptimizer.png"
+                                                     data-retina="../images/Goptimizer.png" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sp-thumbnails dir-rtl font-family-bhoma">
+                                            <div class="sp-thumbnail">
+                                                <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/طراحی-سایت">طراحی سایت</a>
+                                                <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/طراحی-سایت">کاملا واکنش گرا و رسپانسیو</a>
+                                            </div>
+
+                                            <div class="sp-thumbnail">
+                                                <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/سئو-سایت">بهینه سازی سایت</a>
+                                                <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/سئو-سایت">بهینه سازی سئو و تبلیغات در گوگل</a>
+                                            </div>
+                                            <div class="sp-thumbnail">
+                                                <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/طراحی-سایت">طراحی نرم افزار تحت موبایل</a>
+                                                <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/طراحی-سایت">اندروید، iOS، ویندوزفون</a>
+                                            </div>
+                                            <div class="sp-thumbnail">
+                                                <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/سئو-سایت">بهینه سازی سایت</a>
+                                                <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/سئو-سایت">بهینه سازی سئو و تبلیغات در گوگل</a>
+                                            </div>
+                                            <div class="sp-thumbnail">
+                                                <a class="sp-thumbnail-description HomeSlidertxb fontmedia10" href="/Home/طراحی-سایت">طراحی نرم افزار تحت موبایل</a>
+                                                <a class="sp-thumbnail-title HomeSlidertxb slidertxtdisplaynone " href="/Home/طراحی-سایت">اندروید، iOS، ویندوزفون</a>
+                                            </div>
+                                        </div>
+                                    </div>*@
+
+
+                            </div>
 
                         </div>
-
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                    @*<div class="main_grid col-xs-12">
+                            <div class="col-md-8">
+                                <img alt="بهینه سازی سایت" class="width-100per" src="~/images/advanced-seo.png" />
+                            </div>
+                            <div class="col-md-4 text-align-center">
+                                <img alt="بهینه سازی سئو" class="minddisplaynone" src="~/images/social-media-featured.jpg" />
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                        <div class="col-xs-12 text-align-center ">
+                            <div class="col-sm-6 ">
+                                <img alt="طراحی سایت" class="seoOptimizerwidth100per" src="~/images/GOfirst.png" />
+                            </div>
+                            <div class="col-sm-6">
+                                <img alt="بهینه سازی سایت" class="seoOptimizerwidth100per" src="~/images/GOsecond.png" />
+                            </div>
+                        </div>*@
+
+
+
+                    <div class="row ">
+                        <div class="col-xs-12 col-sm-3 wow bounceInUp animated " data-wow-iteration="1" data-wow-delay="0s" data-wow-duration="3s">
+                            <div id="pos">
+                                <img src="~/images/home/demo.png" alt="demo">
+                                <a class="moreitem1" href="http://www.npco.net/portfolio.htm"> نمونه کارها </a>
+                                <a class="moreitem2" href="http://www.npco.net/portfolio.htm"> ادامه </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 wow bounceInUp animated " data-wow-iteration="1" data-wow-delay="0s" data-wow-duration="3s">
+                            <div id="pos1">
+                                <img src="~/images/home/icon5.png" alt="demo">
+                                <a class="moreitem1" href="http://www.npco.net/dynamicdesignprice.htm"> تعرفه های طراحی سایت</a>
+                                <a class="moreitem2" href="http://www.npco.net/dynamicdesignprice.htm"> ادامه </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 wow bounceInUp animated " data-wow-iteration="1" data-wow-delay="0s" data-wow-duration="3s">
+                            <div id="pos2">
+                                <img src="~/images/home/icon6.png" alt="demo">
+                                <a class="moreitem1" href="http://www.npco.net/behineh.htm">تعرفه سئو  </a>
+                                <a class="moreitem2" href="http://www.npco.net/behineh.htm"> ادامه </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 wow bounceInUp animated " data-wow-iteration="1" data-wow-delay="0s" data-wow-duration="3s">
+                            <div id="pos3">
+                                <img src="~/images/home/icon7.png" alt="demo">
+                                <a class="moreitem1" href="http://www.npco.net/nonegar.html">چرا آی وب </a>
+                                <a class="moreitem2" href="http://www.npco.net/nonegar.html"> ادامه </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-xs-12 margin-bottom20">
+                            <div class="col-md-8">
+
+
+
+
+                                <section class="mrg-bottom center dk-box dk-tr-banner margin-top10 padding-20 text-align-center">
+
+                                    <div class="row no-padding no-margin">
+                                        <div class="col-xs-2 col-sm-2 col-md-2 no-padding text-align-right"><i class="fa fa-mobile index-ico" aria-hidden="true"></i></div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 no-padding text-align-left"><h5>09128238263</h5></div>
+                                        <div class="col-xs-2 col-sm-2 col-md-2 no-padding text-align-right"><i class="fa fa-phone index-ico" aria-hidden="true"></i></div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 no-padding text-align-left"><h5>02177166964</h5></div>
+                                    </div>
+
+
+                                </section>
+
+
+
+
+                            </div>
+
+                            <div class="col-md-4 text-align-center">
+                                <section class="mrg-bottom center dk-box dk-tr-banner mediatgbox">
+                                    <a href="https://www.telegram.me/iwebdesignseo" target="_blank">
+                                        <img class="mediawidth100per" src="~/images/GreenOptimizerTelegram.png" alt="پشتیبانی سئو سبز" title="پشتیبانی سئو سبز">
+                                    </a>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
 
 
 
                     <div class="row">
 
-                        <div class="col-md-8">
 
-                            <ul class="pagination" id="PageNumber">
+                        <div class="col-md-2 blog_right no-padding ellipsistitle" id="MagazinesNews">
 
+
+                            @{
+
+                                foreach (var item in Utility.lstMagUnDisc)
+                                {
+
+                                    <div class='widget'>
+                                        <div class='widget-header text-align-center'><a class='colorblack' href='/Home/مجله-اینترنتی/a|@item.SiteName'><h6 class='line-height-2-5'>@item.SiteName</h6></a></div><div class='widget-content md-padding'>
+
+                                            <ul class='list-unstyled div-bg-white'>
+                                                <div class='clearfix'></div>
+                                                @{foreach (var itemInside in Utility.lstNewsByMagazineID.Where(o => o.MagazineName == item.MagazineName))
+                                                    {
+
+                                                        var Prehref = "/Home/جزئیات-خبر-فناوری/ a" + itemInside.NewsID + "|" + itemInside.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
+                                                        <li class=''><i class='fa fa-angle-double-left paddingLeft5' aria-hidden='true'></i><a target='_blank' title='@itemInside.NTitle' href='@Prehref'> @itemInside.NTitle</a></li>
+
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                                    }
+
+
+                            }
+
+
+
+                        </div>
+
+
+
+                        <div class="col-md-8  blog_main ">
+                            <div id="CenterContent">
+
+
+                                <div class="blog_list bg-white">
+                                    <div class="col-md-12 blog_left dk-box ">
+                                        <a target="_blank" href="/Home/جزئیات-خبر-فناوری/ a59874|کانال-تلگرامی-شورای-نگهبان-غیر-فعال-شد بهینه سازی سایت - طراحی سایت "><img src="" alt="" class="img-responsive"></a><h4 class="resp-padding-5"><a target="_blank" href="/Home/جزئیات-خبر-فناوری/ a59874|کانال-تلگرامی-شورای-نگهبان-غیر-فعال-شد بهینه سازی سایت - طراحی سایت ">کانال تلگرامی شورای نگهبان غیر فعال شد</a></h4><span>نوشته شده در تاریخ  1397/1/30 <a><i class="fa fa-eye"></i></a> 836  بازدید</span>
+
+
+                                        <p class="para"></p><p>رسانه کلیک – فعالیت کانال تلگرامی روابط عمومی شورای نگهبان از امروز متوقف شد. به گزارش&nbsp;کلیک به نقل از مهر؛ روابط عمومی شورای نگهبان اعلام کرد: در راستای پاسداشت منافع ملی و حمایت از تولید داخلی، شورای نگهبان فعالیت خود را در «تلگرام» متوقف کرد. از این پس اخبار شورای نگهبان را در&nbsp; پیام رسان […]</p>
+                                        <p>نوشته <a rel="nofollow" class="RemoveA" href="#" key="https://click.ir/1397/01/30/guardian-council-telegram-channel-closed/">کانال تلگرامی شورای نگهبان غیر فعال شد</a> اولین بار در <a rel="nofollow" class="RemoveA" href="#" key="https://click.ir">رسانه کلیک</a> پدیدار شد.</p>
+                                        <p></p>
+                                        <div class="read_btn padding-bottom10"><a target="_blank" href="/Home/جزئیات-خبر-فناوری/ a59874|کانال-تلگرامی-شورای-نگهبان-غیر-فعال-شد بهینه سازی سایت - طراحی سایت "><button class="btnArticle">ادامه مطلب</button></a></div>
+                                    </div><div class="clearfix"></div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+                        <div class="col-md-2  blog_main no-padding ">
+                            <div id="CenterContent">
                                 @{
-                                    
-                                    //article
-                                   
-                                        int data = Convert.ToInt32(DTController.GetAllPages(0));
-                                        for (var i = 0; i < data && i < 11; i++)
-                                        {
-                                            if (i < 10)
-                                            {
-                                                <li><a href='/Home/صفحه-بهینه-سازی-سایت/p|@i'> @i</a></li>
-                                            }
-                                            else if (i == 10)
-                                            {
+                                    var urlse = Request.Url.Segments[2];
+                                    int count = 0;
 
-                                                <li><a href='/Home/صفحه-بهینه-سازی-سایت/p|@i'><i class='fa fa-chevron-right' aria-hidden='true'></i></a></li>
-                                            }
+                                    foreach (var item in DTController.GetAllNews(0))
+                                    {
+                                        count++;
+                                        if (count == 13)
+                                        {
+                                            break;
                                         }
-                                        <h5 class='padding-15 paginationbtm'>صفحه 0 از @data</h5>
-                                   
+                                        if (item.Description.Contains("a"))
+                                        {
+                                            string a = item.Description.Replace("href", "class='RemoveA' href='#' key");
+                                            item.Description = a;
+
+                                        }
+                                        if (item.Description.Contains("img"))
+                                        {
+
+                                            string ProcessedText = Regex.Replace(item.Description, "</?(img).*?>", "");
+                                            item.Description = ProcessedText;
+
+                                        }
+
+                                        var Prehref = "/Home/جزئیات-خبر-فناوری/ a" + item.NewsID + "|" + item.NTitle.Replace(" ", "-").Replace("+", "-").Replace("?", "-").Replace("*", "-").Replace(";", "-").Replace(",", "-").Replace(".", "-").Replace(":", "-").Replace("؛", "-").Replace("؟", "-").Replace("»", "-").Replace("«", "-").Replace("!", "-").Replace("(", "-").Replace(")", "-").Replace("{", "-").Replace("}", "-").Replace("[", "-").Replace("]", "-") + " بهینه سازی سایت - طراحی سایت ";
+
+
+                                        <div class='blog_list bg-white'>
+                                            <div class='col-md-12 no-padding widget '>
+                                                <div class='widget-header text-align-center TitleArticle'>
+                                                    <h2 class="TitleArticleH"><a class='colorblack TitleArticleHa' target='_blank' href='@Prehref'>@item.NTitle</a></h2>
+                                                </div>
+                                                <div class='widget-content md-padding DescArticle'>
+
+
+                                                    <span>نوشته شده در @item.PubDate <a><i class='fa fa-eye'></i></a> @item.ViewNumber  بازدید</span>
+
+
+                                                    <p class='para'>@Html.Raw(item.Description)</p>
+
+                                                    <div class='float-left'>
+                                                        <a target='_blank' href='@Prehref'>
+                                                            <span class=''>ادامه مطلب</span>
+                                                        </a>
+                                                    </div>
+                                                </div><div class='clearfix'></div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+                                    }
+
                                 }
 
-                            </ul>
-                        </div>
-                        <div id="pagenum" class="col-md-4 no-margin ">
+
+
+
+
+                            </div>
+
 
                         </div>
+
 
                     </div>
 
@@ -341,8 +529,8 @@
     <script type="text/javascript">
         $(document).ready(function ($) {
             $('#example1').sliderPro({
-                width: 710,
-                height: 370,
+                width: 1140,
+                height: 500,
                 arrows: true,
                 buttons: false,
                 waitForLayers: true,
@@ -350,10 +538,9 @@
                 thumbnailHeight: 100,
                 thumbnailPointer: true,
                 autoplay: true,
-                autoplayDelay: 2500,
                 autoScaleLayers: false,
                 breakpoints: {
-                    50: {
+                    70: {
                         thumbnailWidth: 120,
                         thumbnailHeight: 50
                     }
