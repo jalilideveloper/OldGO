@@ -616,6 +616,16 @@
     <Content Include="Views\Home\tag.cshtml" />
     <Content Include="Views\Page\طراحی-سایت-پلان-یک.cshtml" />
     <Content Include="Views\Page\چاپ-طراحی-سایت-پلان-یک.cshtml" />
+    <Content Include="Views\Page\طراحی-سایت-پلان-دو.cshtml" />
+    <Content Include="Views\Page\چاپ-طراحی-سایت-پلان-دو.cshtml" />
+    <Content Include="Views\Page\طراحی-سایت-پلان-سه.cshtml" />
+    <Content Include="Views\Page\چاپ-طراحی-سایت-پلان-سه.cshtml" />
+    <Content Include="Views\Page\طراحی-سایت-پلان-چهار.cshtml" />
+    <Content Include="Views\Page\چاپ-طراحی-سایت-پلان-چهار.cshtml" />
+    <Content Include="Views\Page\طراحی-سایت-پلان-پنج.cshtml" />
+    <Content Include="Views\Page\چاپ-طراحی-سایت-پلان-پنج.cshtml" />
+    <Content Include="Views\Page\طراحی-سایت-پلان-شش.cshtml" />
+    <Content Include="Views\Page\چاپ-طراحی-سایت-پلان-شش.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
